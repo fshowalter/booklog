@@ -310,6 +310,14 @@ a.sidebar-nav-item:focus {
   text-align: center;
 }
 
+.post-title-slug {
+  display: block;
+  font-size: .8rem;
+  color: rgba(0, 0, 0, .5);
+  letter-spacing: normal;
+  font-weight: 300;
+}
+
 @media (min-width: 46.5625em) {
   .post-title {
     font-size: 2.25rem;

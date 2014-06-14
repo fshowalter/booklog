@@ -4,7 +4,7 @@ pagination:
   per_page: 10
   path: page/:num/index
 ---
-- posts = Movielog::App.posts
+- posts = Booklog::App.posts
 - if pagination.page_num == 1
   - content_for(:title, 'Latest Updates')
 - else
@@ -14,19 +14,18 @@ pagination:
   %ul.plain-list.column-list
     - pagination.each do |key|
       - post = posts[key]
-      - if post.kind_of?(Movielog::Review)
+      - if post.kind_of?(Booklog::Review)
         - review = post
-        - directors = Movielog::App.directors_for_title(review.title).map{ |d| "#{d.first_name} #{d.last_name}" }.to_sentence
         %li.list-item.list-item-with-counter
           .list-item-title
             %a{ href: "/reviews/#{review.slug}" }
-              <span class='list-item-counter'>#{review.sequence}<span class='list-item-counter-dot'>.</span></span> #{review.display_title}
+              <span class='list-item-counter'>#{review.sequence}<span class='list-item-counter-dot'>.</span></span> #{review.title}
             %span.list-item-rating><
               = grade_to_stars(review.grade)
           %span.list-item-rating-placeholder><
           %span.list-item-description><
-            <span class="abbreviation">D</span><span class="full">irected by</span> #{directors}. <span class="full">Starring </span> #{headline_cast(review.title)}.
-      - elsif post.kind_of?(Movielog::Feature)
+            By #{review.authors.to_sentence} (#{review.year_published}, pp. #{review.page_count})
+      - elsif post.kind_of?(Booklog::Feature)
         - feature = post
         %li.list-item.list-item-with-counter
           .list-item-title

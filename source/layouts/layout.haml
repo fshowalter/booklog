@@ -61,7 +61,10 @@
       .masthead
         .container
           %h1.masthead-title
-            %a{ href: '/', title: 'Home' } #{site.title}
+            %a{ href: '/', title: 'Home' } 
+              #{site.title}
+              %small.post-title-slug
+                #{site.tagline}
       .container.content
         = yield
       %footer.site-footer

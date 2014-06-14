@@ -1,4 +1,4 @@
-require 'movielog'
+require 'booklog'
 require 'active_support/core_ext/array/conversions'
 require 'time'
 
@@ -55,39 +55,6 @@ helpers do
     return "#{description}." unless aka_titles.any?
 
     "#{description}, also known as #{aka_titles.map(&:aka_title).to_sentence}."
-  end
-
-  ###
-  # Movielog
-  ###
-
-  def headline_cast(title)
-    Movielog::App.headline_cast_for_title(title).map do |person|
-      "#{person.first_name} #{person.last_name}"
-    end.to_sentence
-  end
-
-  def viewings
-    @viewings ||= begin
-      viewings = Movielog::App.viewings
-      viewings.each do |_sequence, viewing|
-        info = Movielog::App.info_for_title(viewing.title)
-        viewing.sortable_title = info.sortable_title
-        viewing.release_date = info.release_date
-      end
-      viewings
-    end
-  end
-
-  def data_for_viewing(viewing)
-    {
-      data: {
-        title: viewing.sortable_title,
-        release_date: viewing.release_date.iso8601,
-        release_date_year: viewing.release_date.year,
-        viewing_date: viewing.date
-      }
-    }
   end
 
   ###
@@ -328,11 +295,11 @@ activate :autoprefixer
 
 activate :pagination do
   pageable_set :reviews do
-    Movielog::App.reviews.keys.sort.reverse
+    Booklog::App.reviews.keys.sort.reverse
   end
 
   pageable_set :posts do
-    Movielog::App.posts.keys.sort.reverse
+    Booklog::App.posts.keys.sort.reverse
   end
 end
 
@@ -341,7 +308,7 @@ activate :deploy do |deploy|
   deploy.build_before = true
 end
 
-activate :sitemap, hostname: 'http://movielog.frankshowalter.com'
+activate :sitemap, hostname: 'http://booklog.frankshowalter.com'
 
 # Build-specific configuration
 configure :build do
@@ -362,12 +329,12 @@ configure :build do
 end
 
 ready do
-  Movielog::App.reviews.each do |_id, review|
+  Booklog::App.reviews.each do |_id, review|
     proxy("reviews/#{review.slug}.html", 'review.html',
-          locals: { review: review, title: "#{review.display_title} Movie Review" }, ignore: true)
+          locals: { review: review, title: "#{review.display_title} Book Review" }, ignore: true)
   end
 
-  Movielog::App.features.each do |_id, feature|
+  Booklog::App.features.each do |_id, feature|
     proxy("features/#{feature.slug}.html", 'feature.html',
           locals: { feature: feature, title: "#{feature.title}" }, ignore: true)
   end

@@ -22,7 +22,6 @@ gem 'execjs'
 
 gem 'inquirer'
 gem 'activesupport'
-gem 'movie_db', path: '../movie_db'
 
 gem 'rubocop', '0.22.0'
 gem 'scss-lint'
