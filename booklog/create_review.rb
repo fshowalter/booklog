@@ -7,16 +7,16 @@ module Booklog
   class CreateReview
     class << self
       def call(reviews_path, review)
-        file_name = new_review_file_name(reviews_path, review[:slug])
+        file_name = new_review_file_name(reviews_path, review)
 
         data = review.slice(
-          :sequence, 
-          :title, 
-          :slug, 
-          :authors, 
-          :page_count, 
-          :year_published, 
-          :date_started, 
+          :sequence,
+          :title,
+          :slug,
+          :authors,
+          :page_count,
+          :year_published,
+          :date_started,
           :date_finished)
 
         content = "#{data.to_yaml}---\n"
@@ -27,8 +27,10 @@ module Booklog
 
       private
 
-      def new_review_file_name(reviews_path, slug)
-        File.join(reviews_path, slug + '.md')
+      def new_review_file_name(reviews_path, review)
+        number = review[:sequence]
+        slug = review[:slug]
+        File.join(reviews_path, format('%04d', number) + '-' + slug + '.md')
       end
     end
   end

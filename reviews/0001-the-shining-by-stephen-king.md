@@ -1,5 +1,5 @@
 ---
-:sequence: 2
+:sequence: 1
 :title: The Shining
 :slug: the-shining-by-stephen-king
 :authors:

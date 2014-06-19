@@ -57,6 +57,13 @@ helpers do
     "#{description}, also known as #{aka_titles.map(&:aka_title).to_sentence}."
   end
 
+  def authors_to_links(authors)
+    authors.reduce([]) do |memo, author_name|
+      author = Booklog::App.authors[author_name]
+      memo << link_to(author_name, "/authors/#{author.slug}/")
+    end.to_sentence
+  end
+
   ###
   # Ratings
   ###
@@ -65,30 +72,14 @@ helpers do
     return if grade.blank?
 
     case grade
-    when 'A+'
-      15
     when 'A'
-      14
-    when 'A-'
-      13
-    when 'B+'
-      12
-    when 'B'
-      11
-    when 'B-'
-      10
-    when 'C+'
-      9
-    when 'C'
-      8
-    when 'C-'
-      7
-    when 'D+'
-      6
-    when 'D'
       5
-    when 'D-'
+    when 'B'
       4
+    when 'C'
+      3
+    when 'D'
+      2
     when 'F'
       1
     end
@@ -98,30 +89,14 @@ helpers do
     return if grade.blank?
 
     case grade
-    when 'A+'
-      '★★★★★'
     when 'A'
-      '★★★★½'
-    when 'A-'
-      '★★★★☆'
-    when 'B+'
-      '★★★½☆'
+      '★★★★★'
     when 'B'
-      '★★★☆☆'
-    when 'B-'
-      '★★★☆☆'
-    when 'C+'
-      '★★½☆☆'
+      '★★★★☆'
     when 'C'
-      '★★½☆☆'
-    when 'C-'
-      '★★½☆☆'
+      '★★★☆☆'
     when 'D+'
       '★★☆☆☆'
-    when 'D'
-      '★½☆☆☆'
-    when 'D-'
-      '★½☆☆☆'
     when 'F'
       '★☆☆☆☆'
     end
@@ -133,30 +108,14 @@ helpers do
 
     stars =
       case grade
-      when 'A+'
-        [star, star(1), star(2), star(3), star(4)].join
       when 'A'
-        [star, star(1), star(2), star(3), half_star(4)].join
-      when 'A-'
-        [star, star(1), star(2), star(3), half_star(4)].join
-      when 'B+'
-        [star, star(1), star(2), star(3), empty_star(4)].join
+        [star, star(1), star(2), star(3), star(4)].join
       when 'B'
-        [star, star(1), star(2), half_star(3), empty_star(4)].join
-      when 'B-'
-        [star, star(1), star(2), half_star(3), empty_star(4)].join
-      when 'C+'
-        [star, star(1), star(2), empty_star(3), empty_star(4)].join
+        [star, star(1), star(2), star(3), empty_star(4)].join
       when 'C'
-        [star, star(1), half_star(2), empty_star(3), empty_star(4)].join
-      when 'C-'
-        [star, star(1), half_star(2), empty_star(3), empty_star(4)].join
-      when 'D+'
-        [star, star(1), empty_star(2), empty_star(3), empty_star(4)].join
+        [star, star(1), star(2), empty_star(3), empty_star(4)].join
       when 'D'
-        [star, half_star(1), empty_star(2), empty_star(3), empty_star(4)].join
-      when 'D-'
-        [star, half_star(1), empty_star(2), empty_star(3), empty_star(4)].join
+        [star, star(1), empty_star(2), empty_star(3), empty_star(4)].join
       when 'F'
         [star, empty_star(1), empty_star(2), empty_star(3), empty_star(4)].join
       end
@@ -171,13 +130,6 @@ helpers do
   def star(index = 0)
     <<-SVG
       <polygon transform="translate(#{512 * index})" class="star" points="256,389.375 97.781,499.477 153.601,314.977 0,198.523 192.71,194.59 256,12.523 319.297,194.59 512,198.523 358.399,314.977 414.226,499.477 "/>
-    SVG
-  end
-
-  def half_star(index = 0)
-    <<-SVG
-      <path transform="translate(#{512 * index})" class="empty-star" d="M 512,198.523 319.289,194.594 256,12.525 192.707,194.594 0,198.526 153.599,314.975 97.784,499.475 255.996,389.381 414.225,499.475 358.394,314.975 512,198.526 z M 359.201,423.656 256,351.744 V 106.115 l 41.284,118.766 125.701,2.559 -100.199,75.969 36.415,120.247 z" />
-      <path transform="translate(#{512 * index})" class="star" d="M 256,16.638245 193.39062,194.82574 0.67187503,198.76324 154.26562,315.20075 l -55.812495,184.5 156.874995,-109.15625 0,-373.906255 z" />
     SVG
   end
 
@@ -301,6 +253,10 @@ activate :pagination do
   pageable_set :posts do
     Booklog::App.posts.keys.sort.reverse
   end
+
+  pageable_set :authors do
+    Booklog::App.authors.keys.sort
+  end
 end
 
 activate :deploy do |deploy|
@@ -337,5 +293,10 @@ ready do
   Booklog::App.features.each do |_id, feature|
     proxy("features/#{feature.slug}.html", 'feature.html',
           locals: { feature: feature, title: "#{feature.title}" }, ignore: true)
+  end
+
+  Booklog::App.authors.each do |id, author|
+    proxy("authors/#{author.slug}.html", 'author.html',
+          locals: { author: author, title: "#{author.name}" }, ignore: true)
   end
 end

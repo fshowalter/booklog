@@ -19,12 +19,12 @@ pagination:
         %li.list-item.list-item-with-counter
           .list-item-title
             %a{ href: "/reviews/#{review.slug}" }
-              <span class='list-item-counter'>#{review.sequence}<span class='list-item-counter-dot'>.</span></span> #{review.title}
-            %span.list-item-rating><
-              = grade_to_stars(review.grade)
+              <span class='list-item-counter'>#{review.sequence}<span class='list-item-counter-dot'>.</span></span> <span class='list-item-book-title'>#{review.title}</span> <span class='list-item-rating'>#{grade_to_stars(review.grade)}</span>
+              .list-item-author
+                by #{review.authors.to_sentence}
           %span.list-item-rating-placeholder><
           %span.list-item-description><
-            By #{review.authors.to_sentence} (#{review.year_published}, pp. #{review.page_count})
+            #{review.year_published}, pp. #{review.page_count}
       - elsif post.kind_of?(Booklog::Feature)
         - feature = post
         %li.list-item.list-item-with-counter

@@ -18,6 +18,18 @@ module Booklog
         features.merge(reviews)
       end
 
+      def authors
+        reviews.reduce({}) do |memo, (_sequence, review)|
+          review.authors.each do |author|
+            memo[author] ||= Author.new(name: author)
+            memo[author].slug ||= slugize(author)
+            memo[author].titles ||= {}
+            memo[author].titles[review.title] = review
+          end
+          memo
+        end
+      end
+
       def create_review(review_hash)
         review_hash[:date] = Date.today
         review_hash[:sequence] = posts.length + 1

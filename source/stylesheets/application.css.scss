@@ -1,8 +1,8 @@
 $sans: "Segoe UI", "jaf-bernino-sans", "Helvetica Neue", "Arial", sans-serif;
 $serif: "freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
 
-$sidebar-background: #191918;
-$highlight: #579;
+$sidebar-background: #4C473D;
+$highlight: #a98;
 
 * {
   box-sizing: border-box;
@@ -47,7 +47,7 @@ a {
 // `:focus` is linked to `:hover` for basic accessibility
 a:hover,
 a:focus {
-  color: #579 !important;
+  color: $highlight !important;
 }
 
 h1,
@@ -249,7 +249,7 @@ a.sidebar-nav-item:focus {
   transition: all .3s ease-in-out;
 
   &:hover {
-    fill: #579;
+    fill: $highlight;
   }
 }
 
@@ -313,7 +313,7 @@ a.sidebar-nav-item:focus {
 .post-title-slug {
   display: block;
   font-size: .8rem;
-  color: rgba(0, 0, 0, .5);
+  color: $highlight;
   letter-spacing: normal;
   font-weight: 300;
 }
@@ -576,6 +576,17 @@ dd {
   top: 50%;
 }
 
+.list-item-author {
+  font-size: .8rem;
+  font-weight: 200;
+}
+
+@media (min-width: 46.5625em) {
+  .list-item-book-title {
+    display: inline-block;
+    margin-right: .1rem;
+  }
+}
 
 @media (min-width: 46.5625em) {
   .list-item-with-counter {
@@ -601,8 +612,8 @@ dd {
     transition: all .3s ease-in-out;
 
     &:hover {
-      border-color: #579;
-      color: #579;
+      border-color: $highlight;
+      color: $highlight;
     }
   }
 
@@ -641,8 +652,8 @@ dd {
       margin-right: .3rem;
 
       &:hover > .list-item-counter {
-        border-color: #579;
-        color: #579;
+        border-color: $highlight;
+        color: $highlight;
       }
     }
   }

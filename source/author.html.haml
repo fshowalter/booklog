@@ -1,0 +1,9 @@
+---
+---
+- content_for(:title, "#{feature.title}")
+- content_for(:description, feature.description)
+%article.post
+  %h1.post-title.feature-title= feature.title
+
+  .post-content
+    = markdown(feature.content)
