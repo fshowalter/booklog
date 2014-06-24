@@ -42,19 +42,11 @@ helpers do
   end
 
   def markdown(source)
-    Tilt['markdown'].new { source }.render
+    Tilt['markdown'].new(smartypants: true) { source }.render
   end
 
-  def published_date(review)
-    review.date.iso8601
-  end
-
-  def description_for_review(review, aka_titles)
-    description = "A review of #{review.display_title}"
-
-    return "#{description}." unless aka_titles.any?
-
-    "#{description}, also known as #{aka_titles.map(&:aka_title).to_sentence}."
+  def published_date(date)
+    date.iso8601
   end
 
   def authors_to_links(authors)
@@ -287,7 +279,7 @@ end
 ready do
   Booklog::App.reviews.each do |_id, review|
     proxy("reviews/#{review.slug}.html", 'review.html',
-          locals: { review: review, title: "#{review.display_title} Book Review" }, ignore: true)
+          locals: { review: review }, ignore: true)
   end
 
   Booklog::App.features.each do |_id, feature|

@@ -1,69 +1,27 @@
 ---
 ---
-- content_for(:title, "#{review.display_title} Movie Review")
-- aka_titles = Movielog::App.aka_titles_for_title(review.title, review.display_title)
-- content_for(:description, description_for_review(review, aka_titles))
-- viewings = Movielog::App.viewings_for_title(review.title)
-- headline_cast = Movielog::App.headline_cast_for_title(review.title)
-- directors = Movielog::App.directors_for_title(review.title)
-- director_slug = Movielog::App.directors_for_title(review.title).map { |d| "#{d.first_name} #{d.last_name}" }.to_sentence
-- writers = Movielog::App.writers_for_title(review.title)
+- content_for(:title, "#{review.title} by #{review.authors.to_sentence} Book Review")
+- content_for(:description, "A review of #{review.title} by #{review.authors.to_sentence}")
 %article.post{ itemscope: true, itemtype: 'http://schema.org/Review' }
-  %h1.post-title{ itemprop: 'name' }= review.display_title
-
-  - if aka_titles.any?
-    %dl.aka
-      %dt.aka-heading aka
-      - aka_titles.each do |aka_title|
-        %dd.aka-title= aka_title.aka_title
-
-  %span.post-slug Directed by #{director_slug}.
+  %h1.post-title{ itemprop: 'name' }= review.title
+  %span.post-slug By #{review.authors.to_sentence}
 
   .rating-wrap{ itemprop: 'reviewRating', itemscope: true, itemtype: 'http://schema.org/Rating' }
-    %meta{ content: (grade_to_number(review.grade) / 3.0) * 2.0, itemprop: 'ratingValue' }
-    %meta{ content: '1', itemprop: 'worstRating' }
-    %meta{ content: '10', itemprop: 'bestRating' }
+    %meta{ content: grade_to_number(review.grade), itemprop: 'ratingValue' }
     = grade_to_stars(review.grade)
 
   .post-content{ itemprop: 'reviewBody'}
     = markdown(review.content)
-  %meta{ content: published_date(review), itemprop: 'datepublished'}
+
+  .post-meta{ itemprop: 'itemReviewed', itemscope: true, itemtype: 'http://schema.org/Book' }
+    %span{ itemprop: 'name' }
+      #{review.title}
+    by
+    %span{ itemprop: 'author' }
+      #{review.authors.to_sentence}
+    (#{review.year_published}, pp. #{review.page_count}), read from #{review.date_started} to #{review.date_finished}.
+
+  %meta{ content: published_date(review.date_finished), itemprop: 'datepublished'}
   %span{ itemprop: 'author', itemscope: true, itemtype: 'http://schema.org/Person' }
     %meta{ content: 'Frank Showalter', itemprop: 'name' }
-  .column-half
-    %h3.card-header Viewings
-    %ol.plain-list
-      - viewings.each_with_index do |viewing, index|
-        %li.list-item-with-number
-          %span.list-item-number
-            = "#{index + 1}."
-          .card-description
-            via #{viewing.venue} on #{viewing.date.strftime("%A the #{viewing.date.day.ordinalize} of %B %Y")}
-  .column-half
-    %div{ itemprop: 'itemReviewed', itemscope: true, itemtype: 'http://schema.org/Movie' }
-      %meta{ content: review.display_title, itemprop: 'name' }
-      %h3.card-header Directed by
-      %ul.plain-list
-        - directors.each do |director|
-          %li.card-description
-            #{director.first_name} #{director.last_name}
-            - if director.notes
-              %span.role
-                (#{director.notes})
-      %h3.card-header Starring
-      %ul.plain-list
-        - headline_cast.each do |performer|
-          %li.card-description{ itemprop: 'actor', itemscope: true, itemtype: 'http://schema.org/Person' }
-            %span{ itemprop: 'name' }
-              #{performer.first_name} #{performer.last_name}
-              %span.role
-                as #{performer.role}
-      %h3.card-header Written by
-      %ul.plain-list
-        - writers.each do |writer|
-          %li.card-description
-            #{writer.first_name} #{writer.last_name}
-            %span.role
-              #{writer.notes}
 
-    %p.card-description More at <a href="http://www.imdb.com/title/#{review.imdb_id}">the IMDb</a>.

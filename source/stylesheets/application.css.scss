@@ -318,6 +318,17 @@ a.sidebar-nav-item:focus {
   font-weight: 300;
 }
 
+.post-meta {
+  font-family: $sans;
+  font-weight: normal;
+  font-size: .8rem;
+  letter-spacing: normal;
+  font-weight: 200;
+  color: rgba(0, 0, 0, .4);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: .2rem;
+}
+
 @media (min-width: 46.5625em) {
   .post-title {
     font-size: 2.25rem;
@@ -352,7 +363,7 @@ a.sidebar-nav-item:focus {
     letter-spacing: .00723rem;
     line-height: 1.5;
     margin-bottom: 1.3636363rem;
-    text-indent: 2.5rem;
+    // text-indent: 2.5rem;
   }
 }
 
@@ -561,6 +572,35 @@ dd {
   margin-bottom: 0;
 }
 
+.list-item-link {
+  background-image: none;
+}
+
+@media (min-width: 46.5625em) {
+  .list-item-link {
+    display: block;
+
+    &:hover {
+      .list-item-counter {
+        border-color: $highlight;
+        color: $highlight;
+      }
+      .list-item-title {
+        color: $highlight;
+      }
+      .list-item-author {
+        color: $highlight;
+      }
+      .list-item-description {
+        color: $highlight;
+      }
+      .star, .empty-star {
+        fill: $highlight;
+      }
+    }
+  }
+}
+
 .list-item-with-number {
   padding-left: 2rem;
   position: relative;
@@ -582,9 +622,13 @@ dd {
 }
 
 @media (min-width: 46.5625em) {
-  .list-item-book-title {
+  .list-item-title {
     display: inline-block;
     margin-right: .1rem;
+    transition: all .3s ease-in-out;
+  }
+  .list-item-author {
+    transition: all .3s ease-in-out;
   }
 }
 
@@ -622,7 +666,7 @@ dd {
   }
 }
 
-.list-item-title {
+.list-item-header {
   display: block;
   font-family: $sans;
   font-size: .9rem;
@@ -630,32 +674,18 @@ dd {
   line-height: 1.2;
   padding-bottom: .4rem;
   position: relative;
-
-  a {
-    background-image: none;
-    color: rgba(0, 0, 0, .8);
-    font-weight: 700;
-  }
+  color: rgba(0, 0, 0, .8);
+  font-weight: 700;
 }
 
 @media (min-width: 46.5625em) {
-  .list-item-title {
+  .list-item-header {
     position: static;
     display: inline-block;
     font-size: 1rem;
     line-height: 1.1;
     padding-bottom: 0;
     margin-bottom: .5rem;
-
-    a {
-      display: inline-block;
-      margin-right: .3rem;
-
-      &:hover > .list-item-counter {
-        border-color: $highlight;
-        color: $highlight;
-      }
-    }
   }
 }
 
@@ -739,6 +769,7 @@ dd {
   .star {
     height: 1.5rem;
     width: 1.5rem;
+    transition: all .3s ease-in-out;
   }
 }
 
