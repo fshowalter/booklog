@@ -11,7 +11,7 @@
 :grade: B
 ---
 
-_Cujo_ follows the Trenton family recent transplants from New York City to the small town of Castle Rock, Maine. Father Vic is an ad-man who’s forced to travel to New York for a couple of weeks leaving mother Donna and son Tad at home. Donna’s been having car trouble and Vic urges her to take her car to Joe Camber, a mechanic who lives on the outskirts of town. Donna and Tad make the journey not knowing the Camber family have all departed. Donna and Tad arrive only to have the car die, stranding them on the Camber’s driveway where they're terrorized by the Camber’s 200lb St. Bernard, Cujo, who’s gone rabid.
+_Cujo_ follows the Trenton family. They're recent transplants from New York City to the small town of Castle Rock, Maine. Father Vic is an ad-man who’s forced to travel to New York for a couple of weeks leaving mother Donna and son Tad at home. Donna’s been having car trouble and Vic urges her to take her car to Joe Camber, a mechanic who lives on the outskirts of town. Donna and Tad make the journey not knowing the Camber family have all departed. Donna and Tad arrive only to have the car die, stranding them on the Camber’s driveway where they're terrorized by the Camber’s 200lb St. Bernard, Cujo, who’s gone rabid.
 
 I first read _Cujo_ when I was thirteen or fourteen. I went in expecting some kind of possessed demon-dog and when Cujo turned out to just be rabid, I felt let down. Reading it now, I can see that in keeping it grounded with a real monster King could delivery a real ending, his best one so far.
 
