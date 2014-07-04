@@ -11,7 +11,7 @@
 :grade: B
 ---
 
-The Overlook Hotel is a large, isolated resort high in the Colorado Rockies. In the winter, the heavy snow cuts if off from the outside world for weeks or even months at a time.
+The Overlook Hotel is a large, isolated resort high in the Colorado Rockies. In the winter, heavy snow cuts it off from the outside world for weeks or even months at a time.
 
 Jack Torrence has agreed to move in with his wife and five-year-old son and serve as winter caretaker. He thinks the isolation will give him time to work on his play. Never mind that the previous caretaker went mad and killed his family before killing himself.
 
