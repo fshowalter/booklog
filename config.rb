@@ -261,19 +261,18 @@ activate :sitemap, hostname: 'http://booklog.frankshowalter.com'
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 
   # Enable cache buster
-  # activate :asset_hash
+  activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
-  # Or use a different image path
-  # set :http_prefix, "/Content/images/"
+  activate :gzip
 end
 
 ready do
@@ -282,13 +281,14 @@ ready do
           locals: { review: review }, ignore: true)
   end
 
-  Booklog::App.features.each do |_id, feature|
-    proxy("features/#{feature.slug}.html", 'feature.html',
-          locals: { feature: feature, title: "#{feature.title}" }, ignore: true)
-  end
+  # Booklog::App.features.each do |_id, feature|
+  #   raise feature.inspect
+  #   proxy("features/#{feature.slug}.html", 'feature.html',
+  #         locals: { feature: feature, title: "#{feature.title}" }, ignore: true)
+  # end
 
-  Booklog::App.authors.each do |id, author|
-    proxy("authors/#{author.slug}.html", 'author.html',
-          locals: { author: author, title: "#{author.name}" }, ignore: true)
-  end
+  # Booklog::App.authors.each do |id, author|
+  #   proxy("authors/#{author.slug}.html", 'author.html',
+  #         locals: { author: author, title: "#{author.name}" }, ignore: true)
+  # end
 end

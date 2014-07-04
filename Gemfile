@@ -19,6 +19,8 @@ gem 'coffee-script'
 gem 'redcarpet'
 gem 'uglifier'
 gem 'execjs'
+gem 'therubyracer'
+gem 'oj'
 
 gem 'inquirer'
 gem 'activesupport'

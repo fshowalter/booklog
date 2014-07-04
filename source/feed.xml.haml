@@ -3,8 +3,8 @@ layout: false
 ---
 !!! XML
 %feed{ xmlns: 'http://www.w3.org/2005/Atom' }
-  - posts = Movielog::App.posts
-  - sorted_keys = Movielog::App.posts.keys.sort.reverse
+  - posts = Booklog::App.posts
+  - sorted_keys = posts.keys.sort.reverse
   %title= site.title
   %link{ href: "#{site.url}feed.xml", rel: 'self' }/
   %link{ href: "#{site.url}" }/
@@ -17,10 +17,10 @@ layout: false
     - break if index > 9
     - post = posts[key]
     %entry
-      - if post.kind_of?(Movielog::Review)
+      - if post.kind_of?(Booklog::Review)
         - review = post
         %title
-          #{review.sequence}. #{review.display_title} #{grade_to_text(review.grade)}
+          #{review.sequence}. #{review.title} by #{review.authors.to_sentence} #{grade_to_text(review.grade)}
         %link{ href: "#{site.url}reviews/#{review.slug}" }
         %id= "#{site.url}reviews/#{review.slug}"
       - else
@@ -28,6 +28,6 @@ layout: false
           #{post.sequence}. #{post.title}
         %link{ href: "#{site.url}features/#{post.slug}" }
         %id= "#{site.url}features/#{post.slug}"
-      %updated= post.date.xmlschema
+      %updated= post.date_finished.xmlschema
       %content{ type: 'html' }
         = CGI.escapeHTML(markdown(post.content))

@@ -11,14 +11,18 @@
 :grade: B
 ---
 
-The Overlook Hotel is a large, isolated resort in the Colorado Rockies. Once a premier destination, it has a storied and scandalous past. As the season winds down,  Jack Torrence moves in with his wife and five-year-old son. Jack has agreed to serve as winter caretaker, figuring that the effective isolation will give him time to work on his play. Never mind that the previous caretaker, Delbert Grady, went mad and killed his wife and family.
+The Overlook Hotel is a large, isolated resort high in the Colorado Rockies. In the winter, the heavy snow cuts if off from the outside world for weeks or even months at a time.
 
-Jack and his wife don't know it, but their son Danny is a burgeoning telepath. Danny senses something wrong with the hotel, but doesn't want to spoil things for his father. As winter unfolds, Danny begins having visions of the more gruesome events in the hotel's past. The hotel wants Danny for his psychic abililties, but Danny proves to be resistant to the hotel's influence. So the hotel goes to work on Jack. Bit by bit, the hotel breaks him down, until the Overlook possesses him completely, turning him against his family.
+Jack Torrence has agreed to move in with his wife and five-year-old son and serve as winter caretaker. He thinks the isolation will give him time to work on his play. Never mind that the previous caretaker went mad and killed his family before killing himself.
 
-King struggled with alcoholism while writing _The Shining_.  He also had two young children at the time. Knowing that, is it a stretch to read this as an honest confession of an alcoholic parent?
+Jack and his wife don't know it, but their son Danny is a burgeoning telepath. When they arrive, Danny senses something evil in the hotel. He wants to tell his parents but he also senses that his father needs this job and doesn't want to spoil things. As winter unfolds and the snow moves in, Danny begins having visions of the more gruesome events in the hotel's past. 
 
-Perhaps. 
+The hotel wants Danny for his psychic abilities, but Danny proves to be resistant to the hotel's influence. So the hotel goes to work on Jack. Bit by bit, the hotel breaks him down, until the Overlook possesses him completely, turning him against his family.
 
-But aside from being a well done haunted house story, _The Shining_ does work as a meditation on addiction. In Jack, King gives voice to the addicted. Jack's not a bad man, just a flawed one, made so by his abusive father. Jack sees this abusive nature in himself and struggles to contain it. The Overlook, like alcohol, lets it out. In Danny, King gives voice to the afflicted. Through Danny, we watch Jack succumb to his inner demons. We feel Danny's confusion and sorrow, his powerlessness and fear at watching his daddy become a monster. For a young child, or the child in each of us, could anything be more terrifying?
+King writes Jack, not as a bad man, but a flawed one. Jack is a recovering alcoholic. He's also the victim of an abusive father. Jack sees the same abusive nature in himself and struggles to contain it. The Overlook, like alcohol, seeks to release it. 
+
+Through Danny, we watch Jack succumb to his inner demons. We feel Danny's confusion and sorrow, his powerlessness and fear at watching his daddy become a monster. For a young child, or the child in each of us, could anything be more terrifying?
+
+King struggled with alcoholism while writing _The Shining_.  He also had two young children at the time. Knowing that, is it a stretch to read this as a confession of an alcoholic parent? Perhaps. But it's no less effective.
 
 
