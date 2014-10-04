@@ -25,7 +25,7 @@ module Booklog
               date_started: get_date_started,
               date_finished: get_date_finished }
 
-            file = Booklog::App.create_review(review_hash)
+            file = Booklog.create_review(review_hash)
 
             puts "\n Created Review ##{bold(review_hash[:sequence].to_s)}!\n" \
             " #{bold('         Title:')} #{review_hash[:title]}\n" \
@@ -116,7 +116,7 @@ module Booklog
         #
         # @return [String] The entered date.
         def get_date_started(date = nil)
-          last_date = Booklog::App.reviews[Booklog::App.reviews.length]
+          last_date = Booklog.reviews[Booklog.reviews.length]
           default = last_date.try(:[], :date_finished).to_s
 
           while date.nil?

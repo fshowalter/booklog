@@ -25,6 +25,6 @@ gem 'oj'
 gem 'inquirer'
 gem 'activesupport'
 
-gem 'rubocop', '0.22.0'
+gem 'rubocop'
 gem 'scss-lint'
 gem 'haml-lint'
