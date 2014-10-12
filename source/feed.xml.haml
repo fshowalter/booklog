@@ -3,15 +3,15 @@ layout: false
 ---
 !!! XML
 %feed{ xmlns: 'http://www.w3.org/2005/Atom' }
-  - posts = Booklog::App.posts
+  - posts = Booklog.posts
   - sorted_keys = posts.keys.sort.reverse
-  %title= site.title
-  %link{ href: "#{site.url}feed.xml", rel: 'self' }/
-  %link{ href: "#{site.url}" }/
+  %title= Booklog.site_title
+  %link{ href: "#{Booklog.site_url}/feed.xml", rel: 'self' }/
+  %link{ href: "#{Booklog.site_url}" }/
   %updated= Time.now.xmlschema
-  %id= site.url
+  %id= Booklog.site_url
   %author
-    %name= site.author
+    %name Frank Showalter
 
   - sorted_keys.each_with_index do |key, index|
     - break if index > 9
@@ -20,14 +20,14 @@ layout: false
       - if post.kind_of?(Booklog::Review)
         - review = post
         %title
-          #{review.sequence}. #{review.title} by #{review.authors.to_sentence} #{grade_to_text(review.grade)}
-        %link{ href: "#{site.url}reviews/#{review.slug}" }
-        %id= "#{site.url}reviews/#{review.slug}"
+          #{review.sequence}. #{review.title} by #{review.authors.to_sentence} #{grade_to_unicode_stars(grade: review.grade)}
+        %link{ href: "#{Booklog.site_url}/reviews/#{review.slug}" }
+        %id= "#{Booklog.site_url}/reviews/#{review.slug}"
       - else
         %title
           #{post.sequence}. #{post.title}
-        %link{ href: "#{site.url}features/#{post.slug}" }
-        %id= "#{site.url}features/#{post.slug}"
+        %link{ href: "#{Booklog.site_url}features/#{post.slug}" }
+        %id= "#{Booklog.site_url}features/#{post.slug}"
       %updated= post.date_finished.xmlschema
       %content{ type: 'html' }
         = CGI.escapeHTML(markdown(post.content))

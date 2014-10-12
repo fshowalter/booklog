@@ -14,5 +14,4 @@ The sound of breaking glass wakes Goldie. It's dark. She hears footsteps in the 
 
 _The Intruder_ is another of Laymon's entries in the FastBack series of books.  The books were small--about the size of a passport--and just under 30 pages. With a focus on action and a low vocabulary, the series strove to foster an interest in reading for pleasure in young adults. 
 
-There's a plot twist here that 
-Laymon cannibalized for his later novel, _No Sanctuary_. If you've read that one, Goldie's predicament will seem a bit familiar, but it's still a fun fast read.
+There's a plot twist here that Laymon cannibalized for his later novel, _No Sanctuary_. But it's a good twist, even if I did see it coming.

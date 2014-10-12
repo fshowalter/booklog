@@ -4,6 +4,10 @@ Dir[File.expand_path('../**/*.rb', __FILE__)].each { |f| require f }
 
 module Booklog
   class << self
+    def site_url
+      'http://booklog.frankshowalter.com'
+    end
+
     def site_title
       "Frank's Book Log"
     end
