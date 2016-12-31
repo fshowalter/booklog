@@ -1,0 +1,12 @@
+@import 'source/layouts/layout_single';
+@import 'source/templates/home/home_pagination';
+@import 'source/templates/home/home_review_list';
+
+.home {
+  padding: 20px;
+
+  @media only screen and (min-width: 40.625em) {
+    padding: 20px 110px;
+  }
+}
+

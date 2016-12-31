@@ -1,0 +1,53 @@
+!!!
+%html{ xmlns: 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en-us', lang: 'en-us' }
+  %head{ prefix: 'og: http://ogp.me/ns#' }
+    %meta{ 'http-equiv' => 'content-type', content: 'text/html; charset=utf-8' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1' }
+    %title
+      - if current_page.data.title
+        #{current_page.data.title} | #{Booklog.site_title}
+      - elsif content_for?(:title)
+        #{yield_content(:title)} | #{Booklog.site_title}
+      - else
+        = Booklog.site_title
+    - if content_for?(:head)
+      = yield_content(:head)
+    :javascript
+      document.documentElement.classList.add('js');
+    - if content_for?(:inline_css)
+      %style{ type: 'text/css' }
+        = inline_css(yield_content(:inline_css))
+
+    %link{ rel: 'apple-touch-icon', sizes: '57x57', href: '/apple-touch-icon-57x57.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '114x114', href: '/apple-touch-icon-114x114.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '72x72', href: '/apple-touch-icon-72x72.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '144x144', href: '/apple-touch-icon-144x144.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '60x60', href: '/apple-touch-icon-60x60.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '120x120', href: '/apple-touch-icon-120x120.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '76x76', href: '/apple-touch-icon-76x76.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '152x152', href: '/apple-touch-icon-152x152.png' }
+    %link{ rel: 'icon', type: 'image/png', href: '/favicon-196x196.png', sizes: '196x196' }
+    %link{ rel: 'icon', type: 'image/png', href: '/favicon-160x160.png', sizes: '160x160' }
+    %link{ rel: 'icon', type: 'image/png', href: '/favicon-96x96.png', sizes: '96x96' }
+    %link{ rel: 'icon', type: 'image/png', href: '/favicon-16x16.png', sizes: '16x16' }
+    %link{ rel: 'icon', type: 'image/png', href: '/favicon-32x32.png?v=2', sizes: '32x32' }
+    %meta{ name: 'msapplication-TileColor', content: '#2b5797' }
+    %meta{ name: 'msapplication-TileImage', content: '/mstile-144x144.png' }
+    %link{ rel: 'alternate', type: 'application/atom+xml', title: 'Feed', href: '/feed.xml' }
+    %link{ href: "https://www.franksmovielog.com#{current_page.url}", rel: 'canonical' }
+  %body
+    = partial 'layouts/layout_mast'
+    = yield
+    = partial 'layouts/layout_footer'
+    = javascript_include_tag('toggle-search', async: :async)
+    - if content_for?(:javascript)
+      = yield_content(:javascript)
+    - if build?
+      :javascript
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-55282521-1', 'auto');
+        ga('send', 'pageview');

@@ -1,0 +1,56 @@
+@import 'source/stylesheets/variables';
+
+.readings_list {
+  margin: 0 0 35px;
+  padding: 0;
+
+  @media only screen and (min-width: 50em) {
+    margin-top: 24px;
+  }
+}
+
+.readings_list-item {
+  font-weight: normal;
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+
+  &:after {
+    background-color: $color_primary;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 20px;
+    margin: 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.readings_list-item_title {
+  display: block;
+  font-size: 18px;
+  overflow: hidden;
+  padding: 20px 20px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.readings_list-item_author {
+  display: block;
+  font-size: 15px;
+  overflow: hidden;
+  padding: 0 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.readings_list-item_slug {
+  color: $color_text_hint;
+  font-family: $font_family_system;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 20px 20px;
+  text-rendering: optimizeLegibility;
+}

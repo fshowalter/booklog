@@ -1,0 +1,87 @@
+@import 'source/layouts/layout_single';
+@import 'source/components/post_backdrop/post_backdrop';
+@import 'source/components/post_content/post_content';
+@import 'source/templates/review/review_meta';
+@import 'source/templates/review/review_tags';
+@import 'source/templates/review/review_more';
+
+$review_post_content_first_line_color: #000;
+
+.review {
+  padding-bottom: 30px;
+
+  .post_content {
+    time {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.review-title {
+  font-size: 32px;
+  line-height: 1.1;
+  margin-bottom: 0;
+  padding: 30px 0 0;
+
+  @media only screen and (min-width: 35em) {
+    font-size: 42px;
+  }
+}
+
+.review-author {
+  @include body_text;
+  margin-bottom: 0;
+}
+
+.review-grade {
+  display: block;
+  height: auto;
+  margin: 10px 0 30px;
+  max-width: 150px;
+  width: 33%;
+}
+
+.review-cover_wrap {
+  background-repeat: no-repeat;
+  background-size: cover;
+  // border: 9px solid $color_primary;
+  display: block;
+  margin: 30px 15px 10px 0;
+  float: left;
+  width: 20%;
+  position: relative;
+
+  @media only screen and (min-width: 56.25em) {
+    margin-bottom: 15px;
+  }
+}
+
+.review-cover_placeholder {
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  transition: .8s opacity linear;
+  width: 100%;
+}
+
+.review-cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  margin: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 0;
+    padding-top: 150%;
+  }
+
+  &.loaded {
+    .review-cover_placeholder {
+      opacity: 0;
+    }
+  }
+}

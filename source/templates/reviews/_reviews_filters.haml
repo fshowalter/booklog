@@ -1,0 +1,18 @@
+.reviews_filters{ data: { filter_controls: true, target: '#reviews' } }
+  %h2.reviews_filters-heading Filter and Sort
+  .reviews_filters-content
+    = text_filter(placeholder: 'Enter all or part of a title', attribute: 'data-title', label: 'Title')
+    = range_filter(label: 'Release Year',
+                   attribute: 'data-release-date-year',
+                   min: oldest_year(collection: reviews, date_method: :release_date),
+                   max: newest_year(collection: reviews, date_method: :release_date))
+    = sort_filter(label: 'Order By',
+                  attribute: 'sort-title-asc',
+                  target: '#reviews',
+                  options: [%w(Title sort-title-asc),
+                            ['Grade (Best First)', 'grade-desc'],
+                            ['Grade (Worst First)', 'grade-asc'],
+                            ['Review Date (Newest First)', 'review-date-desc'],
+                            ['Review Date (Oldest First)', 'review-date-asc'],
+                            ['Release Date (Newest First)', 'release-date-desc'],
+                            ['Release Date (Oldest First)', 'release-date-asc']])

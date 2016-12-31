@@ -1,0 +1,16 @@
+---
+layout: :layout_single
+pagination:
+  for: reviews
+  per_page: 20
+  path: page-:num/index
+---
+:ruby
+  content_for(:title, "Page #{pagination.page_num}") unless pagination.page_num == 1
+  content_for(:inline_css, 'source/templates/home/home.scss')
+  content_for(:javascript, javascript_include_tag('load-covers.js', async: :async))
+
+.home
+  = partial('templates/home/home_review_list', locals: { reviews: pagination })
+  = partial('templates/home/home_pagination', locals: { pagination: pagination })
+

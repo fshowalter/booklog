@@ -1,0 +1,11 @@
+%ol.more_list
+  - reviews.each do |review|
+    %li.more_list-item
+      %a.more_list-item_wrap{ href: "/reviews/#{review.slug}/" }
+        .more_list-backdrop_wrap
+          .more_list-backdrop{ data: { backdrop: review.backdrop } }
+          %noscript
+            %img.backdrop-noscript{ src: review.backdrop }
+        .more_list-title
+          = review.title_without_year
+        = grade_to_image_tag(grade: review.grade, options: { class: 'more_list-grade', width: '90px', height: '18px' })

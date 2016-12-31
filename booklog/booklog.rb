@@ -1,11 +1,15 @@
+# frozen_string_literal: true
 require 'active_support/core_ext/array/conversions'
 
 Dir[File.expand_path('../**/*.rb', __FILE__)].each { |f| require f }
 
+#
+# Responsible for defining the Booklog API.
+#
 module Booklog
   class << self
     def site_url
-      'http://booklog.frankshowalter.com'
+      'https://booklog.frankshowalter.com'
     end
 
     def site_title
@@ -16,20 +20,56 @@ module Booklog
       'Literature is a Relative Term'
     end
 
+    def next_reading_number
+      readings.length + 1
+    end
+
+    def next_review_number
+      reviews.length + 1
+    end
+
+    def next_post_number
+      (reviews.length + pages.length) + 1
+    end
+
+    def readings_path
+      File.expand_path('../../readings/', __FILE__)
+    end
+
+    def reviews_path
+      File.expand_path('../../reviews/', __FILE__)
+    end
+
+    def books_path
+      File.expand_path('../../books/', __FILE__)
+    end
+
+    def pages_path
+      File.expand_path('../../pages/', __FILE__)
+    end
+
+    def readings
+      ParseReadings.call(readings_path: readings_path) || {}
+    end
+
     def reviews
-      ParseReviews.call(reviews_path) || {}
+      ParseReviews.call(reviews_path: reviews_path) || {}
     end
 
-    def features
-      ParseFeatures.call(features_path) || {}
+    def books
+      ParseBooks.call(books_path: books_path) || {}
     end
 
-    def posts
-      features.merge(reviews)
+    def reviews_by_sequence
+      reviews.values.sort_by(&:sequence).reverse
+    end
+
+    def pages
+      ParsePages.call(pages_path: pages_path) || {}
     end
 
     def authors
-      reviews.reduce({}) do |memo, (_sequence, review)|
+      reviews.each_with_object({}) do |(_sequence, review), memo|
         review.authors.each do |author|
           memo[author] ||= Author.new(name: author)
           memo[author].slug ||= slugize(author)
@@ -40,15 +80,15 @@ module Booklog
       end
     end
 
-    def create_review(review_hash)
-      review_hash[:date] = Date.today
-      review_hash[:sequence] = posts.length + 1
-      review_hash[:slug] = slugize(
-        "#{review_hash[:title]} by #{review_hash[:authors].to_sentence}")
-      CreateReview.call(reviews_path, review_hash)
+    def info_for_book(id:)
+      books[id]
     end
 
-    def create_feature(feature_hash)
+    def readings_for_id(id:)
+      readings.values.select { |reading| reading.book_id == id }
+    end
+
+    def create_page(feature_hash)
       feature_hash[:date] = Date.today
       feature_hash[:sequence] = posts.length + 1
       feature_hash[:slug] = slugize(feature_hash[:title])
@@ -60,7 +100,7 @@ module Booklog
     def slugize(words, slug = '-')
       slugged = words.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?')
       slugged.gsub!(/&/, 'and')
-      slugged.gsub!(/:/, '')
+      slugged.delete!(':')
       slugged.gsub!(/[^\w_\-#{Regexp.escape(slug)}]+/i, slug)
       slugged.gsub!(/#{slug}{2,}/i, slug)
       slugged.gsub!(/^#{slug}|#{slug}$/i, '')
@@ -70,14 +110,5 @@ module Booklog
     def url_encode(word)
       URI.escape(word, /[^\w_+-]/i)
     end
-
-    def reviews_path
-      File.expand_path('../../reviews/', __FILE__)
-    end
-
-    def features_path
-      File.expand_path('../../features/', __FILE__)
-    end
   end
 end
-

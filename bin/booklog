@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'thor'
 require_relative '../booklog/booklog'
@@ -8,21 +9,36 @@ require_relative '../booklog/booklog'
 #
 module Booklog
   #
-  # Namespace for movielog console use cases.
+  # Responsible for the console interface.
   #
   module Console
     #
     # Responsible for handling the new sub-command.
     #
     class New < Thor
+      desc 'reading', 'create a new reading entry'
+      def reading
+        Console::CreateReading.call
+      end
+
+      desc 'book', 'create a new book entry'
+      def book
+        Console::CreateBook.call
+      end
+
       desc 'review', 'create a new review entry'
       def review
         Console::CreateReview.call
       end
 
-      desc 'feature', 'create a new feature entry'
-      def feature
-        Console::CreateFeature.call
+      desc 'page', 'create a new page entry'
+      def page
+        Console::CreatePage.call
+      end
+
+      desc 'placeholder', 'create a new image placeholder'
+      def placeholder
+        Console::CreatePlaceholder.call
       end
     end
 

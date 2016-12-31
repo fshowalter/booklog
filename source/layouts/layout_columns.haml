@@ -1,0 +1,7 @@
+= wrap_layout :layout_base do
+  .layout_columns
+    .layout_columns-column_1
+      = yield_content(:layout_column_1) if content_for?(:layout_column_1)
+    .layout_columns-column_2
+      = yield_content(:layout_column_2) if content_for?(:layout_column_2)
+

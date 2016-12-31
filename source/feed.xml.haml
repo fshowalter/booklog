@@ -1,33 +1,33 @@
 ---
 layout: false
 ---
+:ruby
+  review_content = lambda do |r|
+    content = r.content
+    grade = "<p><strong>Grade: #{r.grade}</strong>"
+
+    markdown(content + grade)
+  end
+
 !!! XML
 %feed{ xmlns: 'http://www.w3.org/2005/Atom' }
-  - posts = Booklog.posts
-  - sorted_keys = posts.keys.sort.reverse
-  %title= Booklog.site_title
-  %link{ href: "#{Booklog.site_url}/feed.xml", rel: 'self' }/
-  %link{ href: "#{Booklog.site_url}" }/
+  %title= Movielog.site_title
+  %subtitle= "I'm not a great writer. Maybe not even a good one. But with practice I can be better."
+  %link{ href: "#{Movielog.site_url}/feed.xml", rel: 'self' }/
+  %link{ href: Movielog.site_url }/
   %updated= Time.now.xmlschema
-  %id= Booklog.site_url
+  %id= Movielog.site_url
   %author
     %name Frank Showalter
 
-  - sorted_keys.each_with_index do |key, index|
+  - Movielog.reviews_by_sequence.each_with_index do |review, index|
     - break if index > 9
-    - post = posts[key]
     %entry
-      - if post.kind_of?(Booklog::Review)
-        - review = post
-        %title
-          #{review.sequence}. #{review.title} by #{review.authors.to_sentence} #{grade_to_unicode_stars(grade: review.grade)}
-        %link{ href: "#{Booklog.site_url}/reviews/#{review.slug}" }
-        %id= "#{Booklog.site_url}/reviews/#{review.slug}"
-      - else
-        %title
-          #{post.sequence}. #{post.title}
-        %link{ href: "#{Booklog.site_url}features/#{post.slug}" }
-        %id= "#{Booklog.site_url}features/#{post.slug}"
-      %updated= post.date_finished.xmlschema
+      %title
+        #{review.sequence}. #{review.title} #{grade_to_unicode_stars(grade: review.grade)}
+      %link{ href: "#{Movielog.site_url}#{href_for_review(review)}/" }
+      %id #{Movielog.site_url}#{href_for_review(review)}
+      %updated= review.date.xmlschema
       %content{ type: 'html' }
-        = CGI.escapeHTML(markdown(post.content))
+        = CGI.escapeHTML("<a href=\"#{href_for_review(review)}\">#{image_tag(review.backdrop)}</a>")
+        = CGI.escapeHTML(review_content.call(review))

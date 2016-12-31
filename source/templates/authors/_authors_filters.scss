@@ -1,0 +1,30 @@
+@import 'source/stylesheets/variables';
+@import 'source/stylesheets/filters';
+
+.cast_and_crew_filters {
+  border: 1px solid $color_primary;
+  border-radius: 5px;
+  margin: 20px;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.js-filters .cast_and_crew_filters {
+  opacity: 1;
+}
+
+.cast_and_crew_filters-heading {
+  border-bottom: 1px solid $color_primary;
+  color: $color_accent;
+  display: block;
+  font-size: 19px;
+  font-weight: normal;
+  margin: 0 0 20px;
+  padding: 20px;
+  position: relative;
+  text-decoration: none;
+}
+
+.cast_and_crew_filters-content {
+  padding: 0 20px;
+}

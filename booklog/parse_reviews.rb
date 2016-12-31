@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'yaml'
 
 module Booklog
@@ -6,7 +7,7 @@ module Booklog
   #
   class ParseReviews
     class << self
-      def call(reviews_path)
+      def call(reviews_path:)
         Dir["#{reviews_path}/*.md"].reduce({}) do |memo, file|
           begin
             read_file(memo, file)

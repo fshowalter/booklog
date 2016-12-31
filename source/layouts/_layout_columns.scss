@@ -1,0 +1,36 @@
+@import 'source/stylesheets/variables';
+@import 'layout_base';
+
+.layout_columns {
+  background: $color_content_background;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+  @media only screen and (min-width: 50em) {
+    max-width: 1000px;
+  }
+}
+
+.layout_columns-column_1 {
+  display: inline-block;
+  width: 100%;
+
+  @media only screen and (min-width: 50em) {
+    float: left;
+    width: 38.196601126%;
+  }
+}
+
+.layout_columns-column_2 {
+  @media only screen and (min-width: 50em) {
+    float: right;
+    width: 61.803398875%;
+  }
+}

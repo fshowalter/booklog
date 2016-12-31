@@ -1,13 +1,13 @@
-CyclomaticComplexity:
+AllCops:
   Exclude:
-    - config.rb
+    - 'extensions/**/*'
+    - 'vendor/**/*'
 
-MethodLength:
-  Exclude:
-    - config.rb
+Metrics/LineLength:
+  Max: 120
 
-LineLength:
-  Max: 99
+Metrics/ParameterLists:
+  CountKeywordArgs: false
 
-EachWithObject:
+MultilineOperationIndentation:
   Enabled: false

@@ -1,0 +1,36 @@
+@import 'source/stylesheets/variables';
+
+.post_backdrop-wrap {
+  margin: 0;
+  position: relative;
+}
+
+
+.post_backdrop-placeholder {
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  transition: .8s opacity linear;
+  width: 100%;
+}
+
+.post_backdrop {
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 0;
+    padding-top: 56.249999993%;
+  }
+
+  &.loaded {
+    .post_backdrop-placeholder {
+      opacity: 0;
+    }
+  }
+}

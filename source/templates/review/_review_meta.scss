@@ -1,0 +1,55 @@
+@import 'source/stylesheets/variables';
+@import 'source/stylesheets/mixin_body_text';
+
+.review_meta {
+  @include body_text;
+  border-top: 1px solid $color_primary;
+  margin: 40px 0 20px;
+  padding: 20px 0;
+}
+
+.review_meta-title {
+  font-weight: bold;
+}
+
+.review_meta-grade {
+  display: block;
+  height: auto;
+  margin: 10px 0 0;
+  max-width: 150px;
+  width: 33%;
+}
+
+.review_meta-aka_heading {
+  &:after {
+    content: ': ';
+  }
+}
+
+.review_meta-divider {
+  color: $color_accent;
+}
+
+.review_meta-aka_title {
+  display: block;
+  font-style: italic;
+  white-space: nowrap;
+
+  &:nth-of-type(2) {
+    display: inline;
+  }
+
+  @media only screen and (min-width: 40.625em) {
+    display: inline;
+
+    &:after {
+      color: $color_accent;
+      content: '|';
+      white-space: normal;
+    }
+
+    &:last-of-type:after {
+      content: '';
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import 'source/stylesheets/variables';
+@import 'layout_base';
+
+.layout_single {
+  background: $color_content_background;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+
+  @media only screen and (min-width: 50em) {
+    max-width: 920px;
+  }
+}

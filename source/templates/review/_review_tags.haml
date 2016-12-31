@@ -1,0 +1,7 @@
+:ruby
+  authors = review.authors
+
+.review_tags
+  %ul.review_tags-list
+    - authors.each do |person|
+      %li.review_tags-list_item= author_link(author: person, options: { class: 'review_tags-link' })

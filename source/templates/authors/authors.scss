@@ -1,0 +1,16 @@
+@import 'source/stylesheets/variables';
+@import 'source/layouts/layout_columns';
+@import 'source/templates/cast_and_crew/cast_and_crew_header';
+@import 'source/templates/cast_and_crew/cast_and_crew_filters';
+@import 'source/templates/cast_and_crew/cast_and_crew_list';
+
+.cast_and_crew {
+  padding: 20px;
+}
+
+.cast_and_crew-heading {
+  color: $color_accent;
+  line-height: 30px;
+  margin-top: 20px;
+  padding: 0 20px;
+}

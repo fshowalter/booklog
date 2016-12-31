@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Booklog
   #
   # Responsible for converting a letter grade into a number.
@@ -9,9 +10,9 @@ module Booklog
       'C' => 3,
       'D' => 2,
       'F' => 1
-    }
+    }.freeze
     class << self
-      def call(grade: grade)
+      def call(grade:)
         NUMBER_FOR_LETTER_GRADE[grade]
       end
     end

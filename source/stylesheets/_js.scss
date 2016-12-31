@@ -1,0 +1,14 @@
+.js .js-toggle {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.js .js-toggle_off:not(.js-toggling) {
+  visibility: hidden;
+}
+
+.js-no_outline {
+  a { outline: none; }
+  button { outline: none; }
+  input { outline: none; }
+}

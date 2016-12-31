@@ -1,30 +1,38 @@
+# frozen_string_literal: true
 # If you have OpenSSL installed, we recommend updating
 # the following line to use "https"
 source 'http://rubygems.org'
 
-gem "middleman-core", "~>3.3.2"
-gem "middleman-sprockets", ">=3.1.2"
+gem 'middleman-core', '~>3.4.0'
+gem 'middleman-sprockets', '>=3.1.2'
 
 # Live-reloading plugin
-gem "middleman-livereload", "~> 3.1.0"
+gem 'middleman-livereload', '3.4.6'
 
-gem 'middleman-pagination'
-gem "middleman-deploy"
-gem "middleman-sitemap"
-gem "middleman-autoprefixer"
+gem 'middleman-pagination', path: '../middleman-pagination'
+gem 'middleman-deploy'
+gem 'middleman-sitemap', path: '../middleman-sitemap'
+gem 'middleman-autoprefixer'
+gem 'middleman-minify-html'
 
 gem 'haml'
-gem 'sass', '3.3.0'
-gem 'coffee-script'
+gem 'sass'
+# gem 'sass-globbing', '1.1.0'
 gem 'redcarpet'
 gem 'uglifier'
 gem 'execjs'
-gem 'therubyracer'
 gem 'oj'
 
 gem 'inquirer'
-gem 'activesupport'
+gem 'nokogiri'
 
-gem 'rubocop'
-gem 'scss-lint'
-gem 'haml-lint'
+gem 'rubocop', require: false
+gem 'scss_lint', require: false
+gem 'haml_lint'
+gem 'csscss'
+gem 'yard'
+gem 'rspec', require: false
+gem 'simplecov', require: false
+gem 'fuubar'
+gem 'fakeweb', require: false
+gem 'pry', require: false

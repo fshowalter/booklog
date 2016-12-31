@@ -1,0 +1,27 @@
+:ruby
+
+  date_for_viewing = lambda do |reading|
+    date_slug = "#{reading.date_started.strftime("%B %d, %Y")} to #{reading.date_finished.strftime("%%B d, %Y")}."
+
+    if reading.date_started.year == reading.date_finished.year &&
+      reading.date_started.month == reading.date_started.month
+      date_slug = "#{reading.date_started.strftime("%B %d")} to #{reading.date_finished.strftime("%d, %Y")}"
+    end
+
+    date_slug
+  end
+
+%ol.readings_list#readings
+  - readings.values.sort_by(&:number).reverse.each do |reading|
+    - review = Booklog.reviews[reading.isbn]
+    %li.readings_list-item{ data_for_reading(reading: reading) }
+      .readings_list-item_title
+        - if review
+          %a{ href: href_for_review(review) }
+            = review.title
+        - else
+          = reading.title
+      .readings_list-item_author
+        = "by #{reading.authors.to_sentence}"
+      %div{ class: "readings_list-item_slug #{'with-rating' if review}" }
+        = "Read from #{date_for_viewing.call(reading)}."

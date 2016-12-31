@@ -1,0 +1,15 @@
+linters:
+  SelectorFormat:
+    convention: ^(?:(js)-)?([^[A-B]-]*)(?:-{1,2})?([^[A-B]-]*)$
+    ignored_names:
+      - noUi-target
+      - noUi-base
+      - noUi-handle
+      - noUi-active
+      - noUi-background
+      - noUi-origin
+      - noUi-stacking
+      - noUiSlider
+      - noUi-state-drag
+  NameFormat:
+    convention: snake_case

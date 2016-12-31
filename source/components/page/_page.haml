@@ -1,0 +1,8 @@
+%article.page
+  = partial('components/post_backdrop/post_backdrop', locals: { post: page })
+
+  %h1.page-title
+    = page.title
+
+  = partial('components/post_content/post_content') do
+    = markdown(page.content)

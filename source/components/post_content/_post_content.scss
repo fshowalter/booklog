@@ -1,0 +1,40 @@
+@import 'source/stylesheets/variables';
+@import 'source/stylesheets/mixin_body_text';
+
+.post_content {
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 0 20px;
+
+  p {
+    @include body_text;
+  }
+
+  .footnotes {
+    padding-top: 20px;
+    position: relative;
+
+    &:before {
+      background-color: $color_primary;
+      content: '';
+      display: block;
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    hr {
+      display: none;
+    }
+
+    ol {
+      padding: 0 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+}

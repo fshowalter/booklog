@@ -1,0 +1,20 @@
+:ruby
+  review_slug = lambda do |review|
+    grade = grade_to_image_tag(
+      grade: review.grade,
+      options: { class: 'reviews_list-grade' }
+    )
+
+    date = review.date.strftime('%d %b %Y')
+
+    "#{grade} on #{date}"
+  end
+
+%ul.reviews_list#reviews
+  - reviews.sort_by(&:sortable_title).each do |review|
+    %li.reviews_list-item{ data_for_review(review: review) }
+      .reviews_list-title
+        %a{ href: href_for_review(review) }
+          = review.title
+      .reviews_list-slug
+        = review_slug.call(review)

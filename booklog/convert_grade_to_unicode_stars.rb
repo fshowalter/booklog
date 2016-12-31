@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Booklog
   #
   # Responsible for converting a letter grade into a unicode star sequence.
@@ -9,9 +10,9 @@ module Booklog
       'C' => '★★★☆☆',
       'D' => '★★☆☆☆',
       'F' => '★☆☆☆☆'
-    }
+    }.freeze
     class << self
-      def call(grade: grade)
+      def call(grade:)
         UNICODE_STAR_FOR_LETTER_GRADE[grade]
       end
     end

@@ -1,0 +1,26 @@
+:ruby
+  next_items = lambda do |pagination|
+    count = 4
+    array = pagination.pageable_context.set
+    first = pagination.per_page * pagination.page_num
+    last = first + (count - 1)
+
+    if last > array.length
+      return array.slice(first)
+    end
+
+    array.slice(first, count)
+  end
+
+  next_reviews = next_items.call(pagination)
+
+- if pagination.next_page
+  .home_pagination-more_heading
+    More from Frank's Movie Log
+  = partial('components/more_list/more_list', locals: { reviews: next_reviews })
+
+- if pagination.next_page
+  .home_pagination
+    .home_pagination-next_page
+      %a.home_pagination-next_page_link{ href: pagination.next_page.url }
+        More reviews

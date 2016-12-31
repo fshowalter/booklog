@@ -1,29 +1,47 @@
+# frozen_string_literal: true
 require 'booklog/booklog'
 require 'active_support/core_ext/array/conversions'
+require 'active_support/core_ext/integer/inflections'
 require 'time'
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload
+  activate :livereload, ignore: [%r{/coverage/}, /\.haml_lint\./]
 end
 
 helpers Booklog::Helpers
 
 # Methods defined in the helpers block are available in templates
 helpers do
+  def href_for_review(review)
+    "/reviews/#{review.slug}/"
+  end
+
   def markdown(source)
-    Tilt['markdown'].new(smartypants: true) { source }.render
+    return source if source.blank?
+
+    Tilt['markdown'].new(footnotes: true) { source }.render
   end
 
-  def published_date(date)
-    date.iso8601
+  def author_link(author:, options: {})
+    slug = Booklog::Slugize.call(text: author)
+
+    link_to(author, "/authors/#{slug}/", options)
   end
 
-  def authors_to_links(authors)
-    authors.reduce([]) do |memo, author_name|
-      author = Booklog.authors[author_name]
-      memo << link_to(author_name, "/authors/#{author.slug}/")
-    end.to_sentence
+  def inline_css(_file)
+    filename = File.expand_path("../#{yield_content(:inline_css)}", __FILE__)
+    style = Tilt['scss'].new { File.open(filename, 'rb', &:read) }.render
+
+    Middleman::Extensions::MinifyCss::SassCompressor.compress(style)
+  end
+
+  def first_paragraph(source)
+    return source if source.blank?
+
+    source = source.split("\n\n", 2)[0]
+
+    Tilt['markdown'].new { source }.render.gsub(/\[\^\d\]/, '')
   end
 end
 
@@ -32,6 +50,7 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 set :markdown_engine, :redcarpet
+set :markdown, footnotes: true
 
 set :haml, remove_whitespace: true
 
@@ -39,59 +58,98 @@ page 'feed.xml', mime_type: 'text/xml'
 
 activate :directory_indexes
 
+page '/googlee90f4c89e6c3d418.html', directory_index: false
+
+ignore 'templates/*'
+
 activate :autoprefixer do |config|
-  config.browsers = ['last 2 versions', 'Explorer >= 9', 'Firefox ESR']
+  config.inline = true
+  config.browsers = ['last 2 versions', 'Firefox ESR']
 end
 
 activate :pagination do
   pageable_set :reviews do
-    Booklog.reviews.keys.sort.reverse
-  end
-
-  pageable_set :posts do
-    Booklog.posts.keys.sort.reverse
-  end
-
-  pageable_set :authors do
-    Booklog.authors.keys.sort
+    Booklog.reviews_by_sequence
   end
 end
 
 activate :deploy do |deploy|
   deploy.method = :git
   deploy.build_before = true
+  deploy.clean = true
 end
 
-activate :sitemap, hostname: 'http://booklog.frankshowalter.com'
+activate :sitemap, hostname: 'https://booklog.frankshowalter.com'
 
 # Build-specific configuration
 configure :build do
   activate :minify_css
   activate :minify_javascript
+  activate :minify_html, remove_input_attributes: false, remove_http_protocol: false
+
+  set :js_compressor, Uglifier.new(output: { comments: :jsdoc })
 
   # Enable cache buster
   activate :asset_hash
 
   # Use relative URLs
-  activate :relative_assets
+  # activate :relative_assets
 
   activate :gzip
 end
 
 ready do
-  Booklog.reviews.each do |_id, review|
-    proxy("reviews/#{review.slug}.html", 'review.html',
-          locals: { review: review }, ignore: true)
+  proxy('index.html', 'templates/home/home.html', ignore: true)
+  proxy('404.html', 'templates/404/404.html', directory_index: false, ignore: true)
+  proxy('readings/index.html', 'templates/readings/readings.html', ignore: true)
+  proxy('reviews/index.html', 'templates/reviews/reviews.html', ignore: true)
+  proxy('how-i-grade/index.html', 'templates/how_i_grade/how_i_grade.html', ignore: true)
+  proxy('about/index.html', 'templates/about/about.html', ignore: true)
+  proxy('metrics/index.html', 'templates/metrics/metrics.html', ignore: true)
+  proxy('authors/index.html', 'templates/authors/authors.html', ignore: true)
+
+  Booklog.reviews.values.each do |review|
+    proxy("reviews/#{review.slug}/index.html", 'templates/review/review.html',
+          locals: { review: review, title: "#{review.display_title} Book Review" }, ignore: true)
   end
 
-  # Booklog::App.features.each do |_id, feature|
-  #   raise feature.inspect
-  #   proxy("features/#{feature.slug}.html", 'feature.html',
-  #         locals: { feature: feature, title: "#{feature.title}" }, ignore: true)
-  # end
+  Booklog.authors.each do |_id, person|
+    proxy("authors/#{person.slug}/index.html", 'templates/reviews_for_person/reviews_for_person.html',
+          locals: { person: person }, ignore: true)
+  end
+end
 
-  # Booklog::App.authors.each do |id, author|
-  #   proxy("authors/#{author.slug}.html", 'author.html',
-  #         locals: { author: author, title: "#{author.name}" }, ignore: true)
-  # end
+require 'sass'
+require 'cgi'
+
+Sass.load_paths << File.expand_path(File.dirname(__FILE__))
+
+#
+# Opened to add the encode_svg helper function.
+#
+module Sass::Script::Functions # rubocop:disable Style/ClassAndModuleChildren
+  def encode_svg(svg)
+    encoded_svg = CGI.escape(svg.value).gsub('+', '%20')
+    data_url = "url('data:image/svg+xml;charset=utf-8," + encoded_svg + "')"
+    Sass::Script::String.new(data_url)
+  end
+end
+
+#
+# Opened to fix build deleting the .git directory.
+#
+class Middleman::Cli::BuildAction < ::Thor::Actions::EmptyDirectory # rubocop:disable Style/ClassAndModuleChildren
+  # Remove files which were not built in this cycle
+  # @return [void]
+  def clean!
+    @to_clean.each do |f|
+      base.remove_file(f, force: true) unless f =~ /\.git/
+    end
+
+    ::Middleman::Util.glob_directory(@build_dir.join('**', '*'))
+                     .select { |d| File.directory?(d) }
+                     .each do |d|
+      base.remove_file d, force: true if directory_empty? d
+    end
+  end
 end

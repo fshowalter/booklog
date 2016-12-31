@@ -1,0 +1,15 @@
+---
+title: Reading Log
+layout: :layout_columns
+---
+:ruby
+  content_for(:title, 'Reading Log')
+  content_for(:inline_css, 'source/templates/readings/readings.scss')
+
+- content_for :layout_column_1 do
+  = partial('templates/readings/readings_header', locals: { readings: Booklog.readings })
+  = partial('templates/readings/readings_filters', locals: { readings: Booklog.readings })
+
+- content_for :layout_column_2 do
+  = partial('templates/readings/readings_list', locals: { readings: Booklog.readings })
+  = javascript_include_tag('filters.js', async: true)

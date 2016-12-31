@@ -1,0 +1,63 @@
+@import 'source/stylesheets/variables';
+@import 'source/layouts/layout_single';
+@import 'source/components/page/page';
+
+%horizontal_rule {
+  background-color: $color_primary;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 1px;
+  left: calc(50% - 2.5rem);
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  width: 5rem;
+}
+
+.how_i_grade {
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-top: 20px;
+    position: relative;
+
+    &:before {
+      @extend %horizontal_rule;
+      margin: 0 auto 20px;
+    }
+  }
+
+  h3 {
+    color: $color_accent;
+    font-size: 22px;
+    font-weight: bold;
+
+    @media (min-width: 48em) {
+      font-size: 24px;
+    }
+  }
+
+  ul {
+    margin: 0 0 2.4rem;
+    padding: 0;
+
+    li {
+      font-weight: 400;
+      list-style-type: none;
+    }
+  }
+
+  .post_content img {
+    display: inline-block;
+    height: 17px;
+    margin-right: 2px;
+    position: relative;
+    top: 1px;
+
+    @media (min-width: 48em) {
+      height: 19px;
+    }
+  }
+}
