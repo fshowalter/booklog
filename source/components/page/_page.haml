@@ -5,4 +5,4 @@
     = page.title
 
   = partial('components/post_content/post_content') do
-    = markdown(page.content)
+    = markdown(page.content).sub('<p>', "<p data-time=\"#{page.date.strftime('%b %-d, %Y')}\">")

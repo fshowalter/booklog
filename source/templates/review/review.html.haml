@@ -2,49 +2,49 @@
 layout: :layout_single
 ---
 :ruby
+  book = Booklog.books[review.book_id]
   description = Nokogiri::HTML(first_paragraph(review.content)).text
   content_for(:inline_css, 'source/templates/review/review.scss')
-  content_for(:title, "#{review.title} Movie Review")
+  content_for(:title, "#{book.title} Movie Review")
   content_for(:javascript, javascript_include_tag('load-covers.js', async: :async))
-  author = review.authors.to_sentence
-  info = Booklog.info_for_book(id: review.book_id)
+  author = book.authors.map(&:name).to_sentence
 
   review_content = lambda do |r|
-    date = r.date.strftime('<time>%b %-d, %Y</time>&mdash;')
     content = r.content
     grade = "<p><strong>Grade: #{r.grade}</strong>"
 
-    markdown(date + content + grade)
+    md = markdown(content + grade)
+    md.sub('<p>', "<p data-time=\"#{r.date.strftime('%b %-d, %Y')}\">")
   end
 
 - content_for(:head) do
   %meta{ name: 'description', content: description }
-  %meta{ property: 'og:title', content: review.title }
-  %meta{ property: 'og:url', content: "https://www.franksmovielog.com/reviews/#{review.slug}" }
-  %meta{ property: 'og:image', content: review.backdrop }
+  %meta{ property: 'og:title', content: "#{book.title_with_author} Book Review" }
+  %meta{ property: 'og:url', content: "https://www.franksmovielog.com/reviews/#{review.book_id}" }
+  %meta{ property: 'og:image', content: book.cover }
   %meta{ property: 'og:description', content: description }
   %meta{ name: 'twitter:card', content: 'summary_large_image' }
-  %meta{ name: 'twitter:site', content: '@franksmovielog' }
-  %meta{ name: 'twitter:title', content: review.title }
+  %meta{ name: 'twitter:site', content: '@franksbooklog' }
+  %meta{ name: 'twitter:title', content: "#{book.title_with_author} Book Review" }
   %meta{ name: 'twitter:description', content: description }
-  %meta{ name: 'twitter:image', content: review.backdrop }
+  %meta{ name: 'twitter:image', content: book.cover }
 
 %article.review
   = partial('components/post_content/post_content') do
     .review-cover_wrap{ href: href_for_review(review) }
-      .review-cover{ data: { cover: review.cover } }
-        %img.review-cover_placeholder{ src: review.cover_placeholder }
+      .review-cover{ data: { cover: book.cover } }
+        %img.review-cover_placeholder{ src: book.cover_placeholder }
         %noscript
-          %img.cover-noscript{ src: review.cover }
+          %img.cover-noscript{ src: book.cover }
     %h1.review-title
-      = review.title
+      = book.title
     .review-author
-      by #{review.authors.map { |a| author_link(author: a) }.join(' & ')}
+      by #{book.authors.map { |a| author_link(author: a) }.join(' & ')}
 
     = grade_to_image_tag(grade: review.grade, options: { class: 'review-grade' })
 
     = review_content.call(review)
-    = partial('templates/review/review_meta', locals: { review: review })
+    = partial('templates/review/review_meta', locals: { book: book })
 
 
 %script{ type: 'application/ld+json' }
@@ -62,12 +62,12 @@ layout: :layout_single
       "inLanguage":"en",
       "itemReviewed":{
         "@type":"Book",
-        "name":"#{review.title}",
-        "isbn":"#{review.isbn}",
-        "datePublished": "#{info.date_published.iso8601}",
+        "name":"#{book.title}",
+        "isbn":"#{book.isbn}",
+        "datePublished":"#{book.year_published}",
         "author": {
           "@type":"Person",
-          "name": "#{author}"
+          "name":"#{author}"
         }
       },
       "publisher":{

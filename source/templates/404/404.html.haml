@@ -3,7 +3,7 @@ layout: :layout_single
 sitemap_ignore: true
 ---
 :ruby
-  page = Movielog.pages['not-found']
+  page = Booklog.pages['not-found']
   content_for(:title, 'Not Found')
   content_for(:inline_css, 'source/templates/404/404.scss')
   content_for(:javascript, javascript_include_tag('load-backdrops.js', async: :async))

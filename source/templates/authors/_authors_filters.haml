@@ -1,10 +1,10 @@
-.cast_and_crew_filters{ data: { filter_controls: true, target: '.cast_and_crew_list' } }
-  %h2.cast_and_crew_filters-heading Filter and Sort
-  .cast_and_crew_filters-content
+.authors_filters{ data: { filter_controls: true, target: '.authors_list' } }
+  %h2.authors_filters-heading Filter and Sort
+  .authors_filters-content
     = text_filter(placeholder: 'Enter all or part of a name', attribute: 'data-name', label: 'Name')
     = sort_filter(label: 'Order By',
                   attribute: 'sort-name-asc',
-                  target: '.cast_and_crew_list',
+                  target: '.authors_list',
                   options: [['Name (A-Z)', 'sort-name-asc'],
                             ['Name (Z-A)', 'sort-name-desc'],
                             ['Review Count (Most First)', 'review-count-desc'],

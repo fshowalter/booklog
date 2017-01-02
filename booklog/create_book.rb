@@ -15,7 +15,9 @@ module Booklog
           authors: authors,
           page_count: page_count,
           year_published: year_published,
-          isbn: isbn
+          isbn: isbn,
+          cover: '',
+          cover_placeholder: nil
         }
 
         content = "#{front_matter.to_yaml}\n"

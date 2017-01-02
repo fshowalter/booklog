@@ -69,46 +69,25 @@ module Booklog
     end
 
     def authors
-      reviews.each_with_object({}) do |(_sequence, review), memo|
-        review.authors.each do |author|
-          memo[author] ||= Author.new(name: author)
-          memo[author].slug ||= slugize(author)
-          memo[author].titles ||= {}
-          memo[author].titles[review.title] = review
+      reviews.values.each_with_object({}) do |review, memo|
+        book = books[review.book_id]
+        book.authors.each do |author|
+          memo[author] ||= author
+          memo[author].reviews[review.book_id] = review
         end
         memo
       end
     end
 
-    def info_for_book(id:)
-      books[id]
-    end
-
-    def readings_for_id(id:)
-      readings.values.select { |reading| reading.book_id == id }
+    def readings_for_book_id(book_id:)
+      readings.select { |reading| reading.book_id == book_id }
     end
 
     def create_page(feature_hash)
       feature_hash[:date] = Date.today
       feature_hash[:sequence] = posts.length + 1
-      feature_hash[:slug] = slugize(feature_hash[:title])
+      feature_hash[:slug] = Booklog::Slugize.call(text: feature_hash[:title])
       CreateFeature.call(features_path, feature_hash)
-    end
-
-    private
-
-    def slugize(words, slug = '-')
-      slugged = words.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?')
-      slugged.gsub!(/&/, 'and')
-      slugged.delete!(':')
-      slugged.gsub!(/[^\w_\-#{Regexp.escape(slug)}]+/i, slug)
-      slugged.gsub!(/#{slug}{2,}/i, slug)
-      slugged.gsub!(/^#{slug}|#{slug}$/i, '')
-      url_encode(slugged.downcase)
-    end
-
-    def url_encode(word)
-      URI.escape(word, /[^\w_+-]/i)
     end
   end
 end

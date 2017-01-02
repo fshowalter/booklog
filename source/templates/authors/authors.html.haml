@@ -4,29 +4,16 @@ layout: :layout_columns
 ---
 :ruby
   content_for(:title, 'Reviewed Cast and Crew')
-  content_for(:inline_css, 'source/templates/cast_and_crew/cast_and_crew.scss')
+  content_for(:inline_css, 'source/templates/authors/authors.scss')
   content_for(:javascript, javascript_include_tag('filters.js', async: :async))
 
-  directors = Movielog.cast_and_crew.values.select(&:direction_credits)
-  performers = Movielog.cast_and_crew.values.select(&:performance_credits)
-  writers = Movielog.cast_and_crew.values.select(&:writing_credits)
-
+  authors = Booklog.authors
 
 - content_for :layout_column_1 do
-  = partial('templates/cast_and_crew/cast_and_crew_header')
-  = partial('templates/cast_and_crew/cast_and_crew_filters')
+  = partial('templates/authors/authors_header')
+  = partial('templates/authors/authors_filters')
 
 - content_for :layout_column_2 do
-  .cast_and_crew
-    %h3.cast_and_crew-heading#directors Directors
-    = partial('templates/cast_and_crew/cast_and_crew_list',
-      locals: { people: directors, credits_method: :direction_credits })
-
-    %h3.cast_and_crew-heading#performers Performers
-    = partial('templates/cast_and_crew/cast_and_crew_list',
-      locals: { people: performers, credits_method: :performance_credits })
-
-    %h3.cast_and_crew-heading#writers Writers
-    = partial('templates/cast_and_crew/cast_and_crew_list',
-      locals: { people: writers, credits_method: :writing_credits })
+  .authors
+    = partial('templates/authors/authors_list', locals: { authors: authors.values })
 

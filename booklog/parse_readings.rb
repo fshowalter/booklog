@@ -8,11 +8,11 @@ module Booklog
   class ParseReadings
     class << self
       def call(readings_path:)
-        Dir["#{readings_path}/*.yml"].each_with_object({}) do |file, readings|
-          reading = read_reading(file)
-          next unless reading.is_a?(Hash)
-          readings[reading[:number]] = OpenStruct.new(reading)
-        end
+        Dir["#{readings_path}/*.yml"].map do |file|
+          reading_data = read_reading(file)
+          next unless reading_data.is_a?(Hash)
+          Reading.new(reading_data)
+        end.sort_by(&:sequence)
       end
 
       private

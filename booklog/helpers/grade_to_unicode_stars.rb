@@ -5,7 +5,7 @@ module Booklog
   #
   module Helpers
     def grade_to_unicode_stars(grade:)
-      Movielog::ConvertGradeToUnicodeStars.call(grade: grade)
+      Booklog::ConvertGradeToUnicodeStars.call(grade: grade)
     end
   end
 end

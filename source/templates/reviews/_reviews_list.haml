@@ -10,11 +10,14 @@
     "#{grade} on #{date}"
   end
 
+  books = reviews.keys.map { |book_id| Booklog.books[book_id] }
+
 %ul.reviews_list#reviews
-  - reviews.sort_by(&:sortable_title).each do |review|
-    %li.reviews_list-item{ data_for_review(review: review) }
+  - books.sort_by(&:sortable_title).each do |book|
+    - review = reviews[book.id]
+    %li.reviews_list-item{ data_for_review(book: book, review: review) }
       .reviews_list-title
         %a{ href: href_for_review(review) }
-          = review.title
+          = book.title_with_author
       .reviews_list-slug
         = review_slug.call(review)

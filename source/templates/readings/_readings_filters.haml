@@ -1,12 +1,14 @@
 :ruby
+  published_years = Booklog.readings.map { |reading| Booklog.books[reading.book_id].year_published }.sort
+  oldest_year = published_years.first
+  newest_year = published_years.last
+
+
 .readings_filters{ data: { filter_controls: true, target: '#readings' } }
   %h2.readings_filters-heading Filter and Sort
   .readings_filters-content
     = text_filter(placeholder: 'Enter all or part of a title', attribute: 'data-title', label: 'Title')
-    = range_filter(label: 'Year Published',
-                   attribute: 'data-year-published',
-                   min: oldest_year(collection: readings.values, date_method: :date_published),
-                   max: newest_year(collection: readings.values, date_method: :date_published))
+    = range_filter(label: 'Year Published', attribute: 'data-year-published', min: oldest_year, max: newest_year)
     = sort_filter(label: 'Order By',
                   attribute: 'reading-date-desc',
                   target: '#readings',

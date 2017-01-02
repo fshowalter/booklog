@@ -1,0 +1,29 @@
+:ruby
+  excerpt_for_review = lambda do |review|
+    grade = grade_to_image_tag(
+      grade: review.grade,
+      options: {
+        class: 'reviews_for_author_review_list-grade',
+        width: '90px',
+        height: '18px'
+      }
+    )
+
+    first_paragraph(grade + ' ' + review.content)
+  end
+
+.reviews_for_author_review_list
+  %ol.reviews_for_author_review_list-list
+    - author.reviews.values.each do |review|
+      - book = Booklog.books[review.book_id]
+      %li.reviews_for_author_review_list-credit
+        %h3
+          %a.reviews_for_author_review_list-title{ href: href_for_review(review) }
+            = book.title
+        %a.reviews_for_author_review_list-cover_wrap{ href: href_for_review(review) }
+          .reviews_for_author_review_list-cover{ data: { cover: book.cover } }
+            %img.reviews_for_author_review_list-cover_placeholder{ src: book.cover_placeholder }
+            %noscript
+              %img.backdrop-noscript{ src: book.cover }
+        .reviews_for_author_review_list-excerpt
+          = excerpt_for_review.call(review)

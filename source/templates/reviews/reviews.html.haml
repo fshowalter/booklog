@@ -7,8 +7,8 @@ layout: :layout_columns
   content_for(:title, 'Reviews')
 
 - content_for :layout_column_1 do
-  = partial('templates/reviews/reviews_header', locals: { reviews: Movielog.reviews.values })
-  = partial('templates/reviews/reviews_filters', locals: { reviews: Movielog.reviews.values })
+  = partial('templates/reviews/reviews_header', locals: { reviews: Booklog.reviews.values })
+  = partial('templates/reviews/reviews_filters', locals: { reviews: Booklog.reviews.values })
 
 - content_for :layout_column_2 do
-  = partial('templates/reviews/reviews_list', locals: { reviews: Movielog.reviews.values })
+  = partial('templates/reviews/reviews_list', locals: { reviews: Booklog.reviews })

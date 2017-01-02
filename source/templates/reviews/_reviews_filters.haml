@@ -1,11 +1,13 @@
+:ruby
+  published_years = Booklog.reviews.keys.map { |book_id| Booklog.books[book_id].year_published }.sort
+  oldest_year = published_years.first
+  newest_year = published_years.last
+
 .reviews_filters{ data: { filter_controls: true, target: '#reviews' } }
   %h2.reviews_filters-heading Filter and Sort
   .reviews_filters-content
     = text_filter(placeholder: 'Enter all or part of a title', attribute: 'data-title', label: 'Title')
-    = range_filter(label: 'Release Year',
-                   attribute: 'data-release-date-year',
-                   min: oldest_year(collection: reviews, date_method: :release_date),
-                   max: newest_year(collection: reviews, date_method: :release_date))
+    = range_filter(label: 'Release Year', attribute: 'data-release-date-year', min: oldest_year, max: newest_year)
     = sort_filter(label: 'Order By',
                   attribute: 'sort-title-asc',
                   target: '#reviews',

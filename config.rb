@@ -14,7 +14,7 @@ helpers Booklog::Helpers
 # Methods defined in the helpers block are available in templates
 helpers do
   def href_for_review(review)
-    "/reviews/#{review.slug}/"
+    "/reviews/#{review.book_id}/"
   end
 
   def markdown(source)
@@ -24,9 +24,7 @@ helpers do
   end
 
   def author_link(author:, options: {})
-    slug = Booklog::Slugize.call(text: author)
-
-    link_to(author, "/authors/#{slug}/", options)
+    link_to(author.name, "/authors/#{author.slug}/", options)
   end
 
   def inline_css(_file)
@@ -61,6 +59,7 @@ activate :directory_indexes
 page '/googlee90f4c89e6c3d418.html', directory_index: false
 
 ignore 'templates/*'
+ignore 'redirect.html.haml'
 
 activate :autoprefixer do |config|
   config.inline = true
@@ -104,18 +103,17 @@ ready do
   proxy('readings/index.html', 'templates/readings/readings.html', ignore: true)
   proxy('reviews/index.html', 'templates/reviews/reviews.html', ignore: true)
   proxy('how-i-grade/index.html', 'templates/how_i_grade/how_i_grade.html', ignore: true)
-  proxy('about/index.html', 'templates/about/about.html', ignore: true)
-  proxy('metrics/index.html', 'templates/metrics/metrics.html', ignore: true)
   proxy('authors/index.html', 'templates/authors/authors.html', ignore: true)
 
   Booklog.reviews.values.each do |review|
-    proxy("reviews/#{review.slug}/index.html", 'templates/review/review.html',
-          locals: { review: review, title: "#{review.display_title} Book Review" }, ignore: true)
+    book = Booklog.books[review.book_id]
+    proxy("reviews/#{review.book_id}/index.html", 'templates/review/review.html',
+          locals: { review: review, title: "#{book.title_with_author} Book Review" }, ignore: true)
   end
 
-  Booklog.authors.each do |_id, person|
-    proxy("authors/#{person.slug}/index.html", 'templates/reviews_for_person/reviews_for_person.html',
-          locals: { person: person }, ignore: true)
+  Booklog.authors.values.each do |author|
+    proxy("authors/#{author.slug}/index.html", 'templates/reviews_for_author/reviews_for_author.html',
+          locals: { author: author }, ignore: true)
   end
 end
 

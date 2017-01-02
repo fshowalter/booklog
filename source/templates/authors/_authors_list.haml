@@ -1,4 +1,4 @@
-%ol.cast_and_crew_list
-  - people.each do |person|
-    %li.cast_and_crew_list-item{ data_for_person(person: person, credits_method: credits_method) }
-      #{cast_and_crew_link(person, class: 'cast_and_crew_list-name')} (#{person.send(credits_method).length})
+%ol.authors_list
+  - authors.each do |author|
+    %li.authors_list-item{ data_for_author(author: author) }
+      #{author_link(author: author, options: { class: 'authors_list-name' })} (#{author.reviews.length})

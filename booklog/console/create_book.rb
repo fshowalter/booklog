@@ -49,7 +49,7 @@ module Booklog
         end
 
         def build_id(title:, authors:)
-          id = "#{title} by #{authors.to_sentence}"
+          id = "#{title} by #{authors.map(&:slug).to_sentence}"
           Booklog::Slugize.call(text: id)
         end
 
@@ -80,8 +80,8 @@ module Booklog
           add_authors = true
 
           while add_authors
-            author = Ask.input 'Author'
-            authors << author if Ask.confirm author
+            author_sortable_name = Ask.input 'Author [Last Name, First Name (Annotation)]'
+            authors << Booklog::Author.new(author_sortable_name) if Ask.confirm author_sortable_name
             add_authors = Ask.confirm 'Add More Authors', default: false
           end
 

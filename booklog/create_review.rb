@@ -13,8 +13,6 @@ module Booklog
           book_id: book_id,
           date: date,
           grade: '',
-          cover: '',
-          cover_placeholder: ''
         }
 
         content = "#{review.to_yaml}---\n"

@@ -1,0 +1,10 @@
+---
+layout: :layout_single
+---
+:ruby
+  content_for(:title, "#{author.first_name} #{author.last_name} Book Reviews")
+  content_for(:inline_css, 'source/templates/reviews_for_author/reviews_for_author.scss')
+  content_for(:javascript, javascript_include_tag('load-covers.js', async: :async))
+
+= partial('templates/reviews_for_author/reviews_for_author_header', locals: { author: author })
+= partial('templates/reviews_for_author/reviews_for_author_review_list', locals: { author: author })

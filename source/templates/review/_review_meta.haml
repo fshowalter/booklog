@@ -1,24 +1,23 @@
 :ruby
-  readings = Booklog.readings_for_id(id: review.book_id)
-  authors = review.authors.to_sentence
+  readings = Booklog.readings_for_book_id(book_id: book.id)
+  authors = book.authors.map(&:name).to_sentence
   divider = '<span class="review_meta-divider">|</span>'
-  info = Booklog.info_for_book(id: review.book_id)
 
 .review_meta
   .review_meta-title
-    = review.title
-  - if info.aka_titles
+    = book.title
+  - if book.aka_titles.any?
     %span.review_meta-aka
       %span.review_meta-aka_heading
         aka
-      - info.aka_titles.each do |aka_title|
+      - book.aka_titles.each do |aka_title|
         %span.review_meta-aka_title
           = " #{aka_title.gsub(/\([^\)]+\)$/, '').strip} "
   .review_meta-author
-    by #{review.authors.map { |a| author_link(author: a) }.join(' & ')}
+    by #{book.authors.map { |a| author_link(author: a) }.join(' & ')}
   .review_meta-info
-    #{info.date_published.year} #{divider} #{info.page_count} pp.
+    #{book.year_published} #{divider} #{book.page_count} pp.
   .review_meta-read
     = "I've read it "
-    %a{ href: "/readings/?title=#{URI.escape(review.title)}" }
+    %a{ href: "/readings/?isbn=#{URI.escape(book.isbn)}" }
       = "#{pluralize(readings.length, 'time')}."
