@@ -1,0 +1,11 @@
+---
+layout: :layout_single
+---
+:ruby
+  page = Booklog.pages['on-abandoning-books']
+  content_for(:title, page.title)
+  content_for(:inline_css, 'source/templates/on_abandoning_books/on_abandoning_books.scss')
+  content_for(:javascript, javascript_include_tag('load-backdrops.js', async: :async))
+
+.on_abandoning_books
+  = partial('components/page/page', locals: { page: page })

@@ -1,14 +1,20 @@
 :ruby
 
-  date_for_reading = lambda do |reading|
-    date_slug = "#{reading.date_started.strftime("%B %d, %Y")} to #{reading.date_finished.strftime("%%B d, %Y")}."
+  slug_for_reading = lambda do |reading, book|
+    status = 'Read '
+
+    if reading.pages_read != book.page_count
+      status = "Abandoned after #{reading.pages_read} of #{book.pages} pages"
+    end
+
+    dates = "#{reading.date_started.strftime("%b %d, %Y")} to #{reading.date_finished.strftime("%b d, %Y")}."
 
     if reading.date_started.year == reading.date_finished.year &&
       reading.date_started.month == reading.date_started.month
-      date_slug = "#{reading.date_started.strftime("%B %d")} to #{reading.date_finished.strftime("%d, %Y")}"
+      dates = "#{reading.date_started.strftime("%b %d")} to #{reading.date_finished.strftime("%d, %Y")}"
     end
 
-    date_slug
+    "#{status} from #{dates}"
   end
 
 %ol.readings_list#readings
@@ -23,4 +29,4 @@
         - else
           = book.title_with_author
       %div{ class: "readings_list-item_slug #{'with-rating' if review}" }
-        = "Read from #{date_for_reading.call(reading)}."
+        = slug_for_reading.call(reading, book)

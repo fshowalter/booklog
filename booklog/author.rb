@@ -8,9 +8,9 @@ module Booklog
       @reviews = {}
 
       name_match = name_regex.match(sortable_name)
-      @last_name = name_match[1]
-      @first_name = name_match[2]
-      @annotation = name_match[3]
+      @last_name = name_match[1].strip
+      @first_name = name_match[2].strip
+      @annotation = name_match[3].try(:strip)
       @name = "#{first_name} #{last_name}"
       @slug = Booklog::Slugize.call(text: "#{name} #{annotation}")
     end

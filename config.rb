@@ -103,6 +103,7 @@ ready do
   proxy('readings/index.html', 'templates/readings/readings.html', ignore: true)
   proxy('reviews/index.html', 'templates/reviews/reviews.html', ignore: true)
   proxy('how-i-grade/index.html', 'templates/how_i_grade/how_i_grade.html', ignore: true)
+  proxy('on-abandoning-books/index.html', 'templates/on_abandoning_books/on_abandoning_books.html', ignore: true)
   proxy('authors/index.html', 'templates/authors/authors.html', ignore: true)
 
   Booklog.reviews.values.each do |review|

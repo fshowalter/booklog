@@ -21,18 +21,31 @@ module Booklog
 
         private
 
-        def create_placeholder(book)
-          Booklog::CreatePlaceholder.call(image: book.cover)
+        def create_placeholder(image)
+          Booklog::CreatePlaceholder.call(image: image)
         end
 
         def ask_for_book
-          books_without_placeholder = Booklog.books.values.reject(&:cover_placeholder)
+          options = build_options
+          keys = options.keys
 
-          options = books_without_placeholder.map { |b| "#{b.title} by #{b.authors.to_sentence}"}
+          idx = Ask.list(' Title', keys)
 
-          idx = Ask.list(' Title', options)
+          options[keys[idx]]
+        end
 
-          books_without_placeholder[idx]
+        def build_options
+          options = {}
+
+          Booklog.books.values.reject(&:cover_placeholder).each do |book|
+            options[book.title_with_author] = book.cover
+          end
+
+          Booklog.pages.values.reject(&:backdrop_placeholder).each do |page|
+            options[page.title] = page.backdrop
+          end
+
+          options
         end
       end
     end
