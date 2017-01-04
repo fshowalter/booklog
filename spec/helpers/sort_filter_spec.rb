@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'support/stub_template_context'
 
-describe Movielog::Helpers do
+describe Booklog::Helpers do
   let(:context) { stub_template_context }
   describe '#sort_filter' do
     it 'returns a javascript range filter' do

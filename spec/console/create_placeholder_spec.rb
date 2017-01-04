@@ -2,27 +2,32 @@
 require 'spec_helper'
 require 'support/io_helper'
 
-describe Movielog::Console::CreatePlaceholder do
-  let(:reviews) do
+describe Booklog::Console::CreatePlaceholder do
+  let(:books) do
     {
-      'Rio Bravo' => OpenStruct.new(backdrop: 'backdrop', backdrop_placeholder: 'placeholder'),
-      'Fright Night ' => OpenStruct.new(backdrop: 'backdrop-url')
+      'the-shining-by-stephen-king' => OpenStruct.new(cover: 'cover', cover_placeholder: 'placeholder'),
+      'night-shift-by-stephen-king ' => OpenStruct.new(cover: 'cover-url')
     }
+  end
+
+  let(:pages) do
+    {}
   end
 
   before(:each) do
     IOHelper.clear
-    allow(Movielog).to receive(:reviews).and_return(reviews)
+    allow(Booklog).to receive(:books).and_return(books)
+    allow(Booklog).to receive(:pages).and_return(pages)
   end
 
   it 'creates placeholder' do
     IOHelper.type_input("\r")
 
-    expect(Movielog::Console::CreatePlaceholder).to(receive(:puts))
-    expect(Movielog::CreatePlaceholder).to(receive(:call).with(image: 'backdrop-url')) do
+    expect(Booklog::Console::CreatePlaceholder).to(receive(:puts))
+    expect(Booklog::CreatePlaceholder).to(receive(:call).with(image: 'cover-url')) do
       'created placeholder'
     end
 
-    expect(Movielog::Console::CreatePlaceholder.call).to eq 'created placeholder'
+    expect(Booklog::Console::CreatePlaceholder.call).to eq 'created placeholder'
   end
 end

@@ -27,7 +27,7 @@ module Booklog
 
         data = YAML.load(Regexp.last_match[1])
         data[:content] = $POSTMATCH
-        reviews[data[:book_id]] = Review.new(data)
+        reviews[data[:book_id]] = Booklog::Review.new(data)
       end
     end
   end

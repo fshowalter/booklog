@@ -5,6 +5,12 @@
 :grade: B+
 ---
 
+After losing a teaching job due to his violent temper, once-promising writer (and recovering alcoholic) Jack Torrence uproots his wife Wendy and son Danny to Colorado, where they'll serve as winter caretakers for the Overlook Hotel.
+
+The hotel was once a premier destination haunted by a malevolent presence bent on claiming Danny for its own ends.
+
+King uses the hotel's supernatural presence and Danny's burgeoning telepathy to explore the nature of addiction from the perspective of the addicted and afflicted. Though the finale is somewhat confusing, knowing what we know now about King's battles with alcoholism and addiction, it's impossible not to read this as a painfully honest confession of an alcoholic parent.
+
 It’s hard to read _The Shining_ and not see Jack Nicholson. That's how popular Stanley Kubrick’s film adaptation has become. New readers will likely be surprised that the Jack in the novel never utters the famous “Here’s Johnny!” line.
 
 The movie and book both share a similar plot. Jack Torrance takes a job as winter caretaker for the Overlook Hotel. He moves in with his wife and five-year-old son just as the last of the hotel staff are leaving for the off-season. Soon, the snow comes, blocking the roads and isolating the hotel. Cut off from the outside world, Jack goes crazy and turns against his family in a murderous rage.

@@ -20,16 +20,12 @@ module Booklog
       'Literature is a Relative Term'
     end
 
-    def next_reading_number
+    def next_reading_number(readings: Booklog.readings)
       readings.length + 1
     end
 
-    def next_review_number
+    def next_review_number(reviews: Booklog.reviews)
       reviews.length + 1
-    end
-
-    def next_post_number
-      (reviews.length + pages.length) + 1
     end
 
     def readings_path
@@ -49,7 +45,7 @@ module Booklog
     end
 
     def readings
-      ParseReadings.call(readings_path: readings_path) || {}
+      ParseReadings.call(readings_path: readings_path) || []
     end
 
     def reviews
@@ -79,7 +75,7 @@ module Booklog
       end
     end
 
-    def readings_for_book_id(book_id:)
+    def readings_for_book_id(readings: Booklog.readings, book_id:)
       readings.select { |reading| reading.book_id == book_id }
     end
 

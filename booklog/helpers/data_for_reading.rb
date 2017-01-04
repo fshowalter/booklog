@@ -8,6 +8,7 @@ module Booklog
       {
         data: {
           title: book.title,
+          isbn: book.isbn,
           sort_title: book.sortable_title,
           year_published: book.year_published,
           date_started: reading.date_started,

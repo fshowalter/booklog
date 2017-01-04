@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'support/stub_files_helper'
 
-describe Movielog::ParsePages do
+describe Booklog::ParsePages do
   let(:files) do
     {
       'page1.md' => <<-EOF,
@@ -30,7 +30,7 @@ Page 2 content.
   it 'reads pages from the given directory' do
     stub_files(files: files, path: 'test_pages_path/*.md')
 
-    pages = Movielog::ParsePages.call(pages_path: 'test_pages_path')
+    pages = Booklog::ParsePages.call(pages_path: 'test_pages_path')
 
     expect(pages.length).to eq 2
 
@@ -59,11 +59,11 @@ Page 1 content.
     it 'writes an error message' do
       stub_files(files: bad_files, path: 'test_pages_path/*.md')
 
-      expect(Movielog::ParsePages).to receive(:puts) do |arg|
+      expect(Booklog::ParsePages).to receive(:puts) do |arg|
         expect(arg).to start_with('YAML Exception reading page1.md:')
       end
 
-      Movielog::ParsePages.call(pages_path: 'test_pages_path')
+      Booklog::ParsePages.call(pages_path: 'test_pages_path')
     end
   end
 
@@ -97,10 +97,10 @@ Page 2 content.
         original_load.call(args)
       end
 
-      expect(Movielog::ParsePages).to receive(:puts)
+      expect(Booklog::ParsePages).to receive(:puts)
         .with('Error reading file page1.md: RuntimeError')
 
-      Movielog::ParsePages.call(pages_path: 'test_pages_path')
+      Booklog::ParsePages.call(pages_path: 'test_pages_path')
     end
   end
 end

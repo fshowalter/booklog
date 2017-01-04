@@ -23,6 +23,8 @@ module Booklog
           puts "\n Created Review ##{Bold.call(text: review.sequence.to_s)}!\n" \
           " #{Bold.call(text: ' Title:')} #{book.title}\n" \
           " #{Bold.call(text: ' Author:')} #{book.authors.to_sentence}\n" \
+
+          review
         end
 
         private

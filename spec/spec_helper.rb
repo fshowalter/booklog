@@ -13,8 +13,7 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
-require_relative '../movielog/movielog'
-require 'movie_db/rspec'
+require_relative '../booklog/booklog'
 
 require 'fakeweb'
 FakeWeb.allow_net_connect = false

@@ -13,7 +13,8 @@ module Booklog
     }.freeze
     class << self
       def call(grade:)
-        UNICODE_STAR_FOR_LETTER_GRADE[grade]
+        return '' if grade.blank?
+        UNICODE_STAR_FOR_LETTER_GRADE[grade[0]]
       end
     end
   end

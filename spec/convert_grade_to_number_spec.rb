@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Movielog::ConvertGradeToNumber do
+describe Booklog::ConvertGradeToNumber do
   grades = ('A'..'D').map { |l| ['+', '', '-'].map { |m| "#{l}#{m}" } }.flatten
 
   best = 17
@@ -12,15 +12,15 @@ describe Movielog::ConvertGradeToNumber do
 
   grades.each do |grade|
     it "returns a numeric value for #{grade}" do
-      expect(Movielog::ConvertGradeToNumber.call(grade: grade)).to eq map[grade]
+      expect(Booklog::ConvertGradeToNumber.call(grade: grade)).to eq map[grade]
     end
   end
 
   it 'returns a numeric value for F' do
-    expect(Movielog::ConvertGradeToNumber.call(grade: 'F')).to eq 5
+    expect(Booklog::ConvertGradeToNumber.call(grade: 'F')).to eq 5
   end
 
   it 'returns nil for nil' do
-    expect(Movielog::ConvertGradeToNumber.call(grade: nil)).to eq nil
+    expect(Booklog::ConvertGradeToNumber.call(grade: nil)).to eq nil
   end
 end

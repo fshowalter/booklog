@@ -24,7 +24,7 @@ module Booklog
 
         File.open(file_name, 'w') { |file| file.write(content) }
 
-        OpenStruct.new(front_matter)
+        Book.new(front_matter)
       end
     end
   end

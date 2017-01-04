@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Movielog
+module Booklog
   #
   # Responsible for stubbing review/viewing/feature files.
   #
@@ -27,5 +27,5 @@ module Movielog
 end
 
 RSpec.configure do |config|
-  config.include(Movielog::StubFilesHelper)
+  config.include(Booklog::StubFilesHelper)
 end

@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'support/stub_files_helper'
 
-describe Movielog::ParseReviews do
+describe Booklog::ParseReviews do
   let(:files) do
     {
       'review1.md' => <<-EOF,
@@ -36,7 +36,7 @@ Review 2 content.
   it 'reads reviews from the given directory' do
     stub_files(files: files, path: 'test_reviews_path/*.md')
 
-    reviews = Movielog::ParseReviews.call(reviews_path: 'test_reviews_path')
+    reviews = Booklog::ParseReviews.call(reviews_path: 'test_reviews_path')
 
     expect(reviews.length).to eq 2
 
@@ -65,11 +65,11 @@ Review 1 content.
     it 'writes an error message' do
       stub_files(files: bad_files, path: 'test_reviews_path/*.md')
 
-      expect(Movielog::ParseReviews).to receive(:puts) do |arg|
+      expect(Booklog::ParseReviews).to receive(:puts) do |arg|
         expect(arg).to start_with('YAML Exception reading review1.md:')
       end
 
-      Movielog::ParseReviews.call(reviews_path: 'test_reviews_path')
+      Booklog::ParseReviews.call(reviews_path: 'test_reviews_path')
     end
   end
 
@@ -106,10 +106,10 @@ Review 2 content.
         original_load.call(args)
       end
 
-      expect(Movielog::ParseReviews).to receive(:puts)
+      expect(Booklog::ParseReviews).to receive(:puts)
         .with('Error reading file review1.md: RuntimeError')
 
-      Movielog::ParseReviews.call(reviews_path: 'test_reviews_path')
+      Booklog::ParseReviews.call(reviews_path: 'test_reviews_path')
     end
   end
 end

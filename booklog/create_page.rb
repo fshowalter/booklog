@@ -7,12 +7,12 @@ module Booklog
   #
   class CreatePage
     class << self
-      def call(pages_path:, title:, sequence:, slug:)
+      def call(pages_path: Booklog.pages_path, title:)
+        slug = Booklog::Slugize.call(text: title)
         file_name = new_page_file_name(pages_path, slug)
 
         front_matter = {
           title: title,
-          sequence: sequence,
           slug: slug,
           date: Date.today
         }

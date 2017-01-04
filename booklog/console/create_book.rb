@@ -22,7 +22,7 @@ module Booklog
           puts "\n Created Book \"#{Bold.call(text: book.id)}\"!\n" \
           " #{Bold.call(text: '         Title:')} #{book.title}\n" \
           " #{Bold.call(text: '           AKA:')} #{book.aka_titles.to_sentence}\n" \
-          " #{Bold.call(text: '       Authors:')} #{book.authors.to_sentence}\n" \
+          " #{Bold.call(text: '       Authors:')} #{book.authors.map(&:name).to_sentence}\n" \
           " #{Bold.call(text: '    Page Count:')} #{book.page_count}\n" \
           " #{Bold.call(text: 'Year Published:')} #{book.year_published}\n" \
           " #{Bold.call(text: '          ISBN:')} #{book.isbn}\n" \
@@ -41,7 +41,7 @@ module Booklog
             id: build_id(title: title, authors: authors),
             title: title,
             aka_titles: ask_for_aka_titles,
-            authors: authors,
+            authors: authors.map(&:sortable_name),
             page_count: ask_for_page_count,
             year_published: ask_for_year_published,
             isbn: ask_for_isbn
@@ -81,7 +81,7 @@ module Booklog
 
           while add_authors
             author_sortable_name = Ask.input 'Author [Last Name, First Name (Annotation)]'
-            authors << Booklog::Author.new(author_sortable_name) if Ask.confirm author_sortable_name
+            authors << Booklog::Author.new(sortable_name: author_sortable_name) if Ask.confirm author_sortable_name
             add_authors = Ask.confirm 'Add More Authors', default: false
           end
 

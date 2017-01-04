@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'padrino-helpers'
 
-module Movielog
+module Booklog
   #
   # Responsible for providing helper methods to test template helpers.
   #
@@ -47,10 +47,10 @@ module Movielog
 
     attr_writer :development
 
-    include Movielog::Helpers
+    include Booklog::Helpers
   end
 end
 
 RSpec.configure do |config|
-  config.include(Movielog::TemplateContextHelper)
+  config.include(Booklog::TemplateContextHelper)
 end

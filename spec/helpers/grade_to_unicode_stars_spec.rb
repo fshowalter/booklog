@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'support/stub_template_context'
 
-describe Movielog::Helpers do
+describe Booklog::Helpers do
   let(:context) { stub_template_context }
   describe '#grade_to_unicode_stars' do
     ('A'..'D').each do |letter|

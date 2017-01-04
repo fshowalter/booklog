@@ -12,7 +12,7 @@ module Booklog
           sequence: sequence,
           book_id: book_id,
           date: date,
-          grade: '',
+          grade: ''
         }
 
         content = "#{review.to_yaml}---\n"
