@@ -27,7 +27,7 @@ module Booklog
 
         def ask_for_book
           options = build_options
-          keys = options.keys
+          keys = options.keys.sort
 
           idx = Ask.list(' Title', keys)
 

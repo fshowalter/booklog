@@ -18,11 +18,11 @@ describe Booklog::Console::CreateReading do
   before(:each) do
     IOHelper.clear
     allow(File).to receive(:open).and_call_original
-    allow(File).to receive(:open).with(Booklog.readings_path + '/0001-the-shining-by-stephen-king.yml', 'w')
+    allow(File).to receive(:open).with(Booklog.readings_path + '/9999-the-shining-by-stephen-king.yml', 'w')
     allow(Booklog).to receive(:reviews).and_return({})
 
     expect(Booklog).to receive(:books).and_return(books)
-    expect(Booklog).to receive(:next_reading_number).and_return(12)
+    expect(Booklog).to receive(:next_reading_number).and_return(9999)
   end
 
   it 'creates reading' do
@@ -42,7 +42,7 @@ describe Booklog::Console::CreateReading do
     expect(reading.to_h).to eq(
       book_id: 'the-shining-by-stephen-king',
       pages_read: '447',
-      sequence: 12,
+      sequence: 9999,
       date_started: Date.parse('2011-11-04'),
       date_finished: Date.parse('2011-11-06')
     )

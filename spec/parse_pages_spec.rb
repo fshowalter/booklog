@@ -7,7 +7,6 @@ describe Booklog::ParsePages do
     {
       'page1.md' => <<-EOF,
 ---
-:sequence: 1
 :title: Page 1
 :slug: page-1
 :date: 2014-07-01
@@ -17,7 +16,6 @@ Page 1 content.
 
       'page2.md' => <<-EOF
 ---
-:sequence: 2
 :title: Page 2
 :slug: page-2
 :date: 2014-07-01
@@ -35,11 +33,9 @@ Page 2 content.
     expect(pages.length).to eq 2
 
     expect(pages['page-1'].title).to eq 'Page 1'
-    expect(pages['page-1'].sequence).to eq 1
     expect(pages['page-1'].content).to eq "Page 1 content.\n"
 
     expect(pages['page-2'].title).to eq 'Page 2'
-    expect(pages['page-2'].sequence).to eq 2
     expect(pages['page-2'].content).to eq "Page 2 content.\n"
   end
 
@@ -79,7 +75,6 @@ Page 1 content.
 
         'page2.md' => <<-EOF
 ---
-:sequence: 2
 :title: Page 2
 :slug: page-2
 :date: 2014-07-01
@@ -98,7 +93,7 @@ Page 2 content.
       end
 
       expect(Booklog::ParsePages).to receive(:puts)
-        .with('Error reading file page1.md: RuntimeError')
+        .with('Error reading page1.md: RuntimeError')
 
       Booklog::ParsePages.call(pages_path: 'test_pages_path')
     end

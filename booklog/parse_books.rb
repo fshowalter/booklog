@@ -8,11 +8,11 @@ module Booklog
   class ParseBooks
     class << self
       def call(books_path:)
-        Dir["#{books_path}/*.yml"].each_with_object({}) do |file, books|
+        Dir["#{books_path}/*.yml"].map do |file|
           book = read_book(file)
           next unless book.is_a?(Hash)
-          books[book[:id]] = Book.new(book)
-        end
+          [book[:isbn], Book.new(book)]
+        end.compact.to_h
       end
 
       private
@@ -22,7 +22,7 @@ module Booklog
       rescue YAML::SyntaxError => e
         puts "YAML Exception reading #{file}: #{e.message}"
       rescue => e
-        puts "Error reading file #{file}: #{e.message}"
+        puts "Error reading #{file}: #{e.message}"
       end
     end
   end

@@ -5,7 +5,8 @@ module Booklog
   #
   class CreateBook
     class << self
-      def call(books_path:, id:, title:, aka_titles:, authors:, page_count:, year_published:, isbn:)
+      def call(books_path: Booklog.books_path, title:, aka_titles:, authors:, page_count:, year_published:, isbn:)
+        id = build_id(title: title, authors: authors)
         file_name = File.join(books_path, id + '.yml')
 
         front_matter = {
@@ -24,7 +25,15 @@ module Booklog
 
         File.open(file_name, 'w') { |file| file.write(content) }
 
-        Book.new(front_matter)
+        OpenStruct.new(front_matter)
+      end
+
+      private
+
+      def build_id(title:, authors:)
+        author_slug = authors.map { |a| Author.new(sortable_name: a).slug }.to_sentence
+
+        Booklog::Slugize.call(text: "#{title} by #{author_slug}")
       end
     end
   end

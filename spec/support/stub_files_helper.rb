@@ -16,9 +16,8 @@ module Booklog
 
     def stub_dir_enumerable(files:)
       enumerable_stub = double('enumerable')
-      expect(enumerable_stub).to receive(:each_with_object) do |object, &block|
-        files.each { |file| block.call(file, object) }
-        object
+      expect(enumerable_stub).to receive(:map) do |&block|
+        files.map { |file| block.call(file) }
       end
 
       enumerable_stub

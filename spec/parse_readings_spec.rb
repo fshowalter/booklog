@@ -7,38 +7,38 @@ describe Booklog::ParseReadings do
     {
       'reading1.yml' => <<-EOF,
 ---
-:number: 5
-:title: Black Legion (1937)
-:display_title: Black Legion (1937)
-:date: 2014-08-22
-:venue: TCM HD
+:sequence: 1
+:book_id: the-shining-by-stephen-king
+:pages_read: '447'
+:date_started: 2011-11-04
+:date_finished: 2011-11-06
 ---
       EOF
 
       'reading2.yml' => <<-EOF
 ---
-:number: 4
-:title: Circus of Fear (1966)
-:display_title: Psycho-Circus (1967)
-:date: 2014-08-11
-:venue: DVD
+:sequence: 2
+:book_id: night-shift-by-stephen-king
+:pages_read: '326'
+:date_started: 2012-05-13
+:date_finished: 2012-05-14
 ---
       EOF
     }
   end
 
-  it 'reads reviews from the given directory' do
+  it 'reads readings from the given directory' do
     stub_files(files: files, path: 'test_readings_path/*.yml')
 
     readings = Booklog::ParseReadings.call(readings_path: 'test_readings_path')
 
     expect(readings.length).to eq 2
 
-    expect(readings[5].title).to eq 'Black Legion (1937)'
-    expect(readings[5].number).to eq 5
+    expect(readings[0].book_id).to eq 'the-shining-by-stephen-king'
+    expect(readings[0].sequence).to eq 1
 
-    expect(readings[4].title).to eq 'Circus of Fear (1966)'
-    expect(readings[4].number).to eq 4
+    expect(readings[1].book_id).to eq 'night-shift-by-stephen-king'
+    expect(readings[1].sequence).to eq 2
   end
 
   context 'when error parsing yaml' do
@@ -75,11 +75,11 @@ describe Booklog::ParseReadings do
 
         'reading2.yml' => <<-EOF
 ---
-:number: 4
-:title: Circus of Fear (1966)
-:display_title: Psycho-Circus (1967)
-:date: 2014-08-11
-:venue: DVD
+:sequence: 2
+:book_id: night-shift-by-stephen-king
+:pages_read: '326'
+:date_started: 2012-05-13
+:date_finished: 2012-05-14
 ---
       EOF
       }
@@ -94,7 +94,7 @@ describe Booklog::ParseReadings do
       end
 
       expect(Booklog::ParseReadings).to receive(:puts)
-        .with('Error reading file reading1.yml: RuntimeError')
+        .with('Error reading reading1.yml: RuntimeError')
 
       Booklog::ParseReadings.call(readings_path: 'test_readings_path')
     end

@@ -8,25 +8,27 @@ module Booklog
   class ParsePages
     class << self
       def call(pages_path:)
-        Dir["#{pages_path}/*.md"].each_with_object({}) do |file, pages|
-          begin
-            read_file(file: file, pages: pages)
-          rescue YAML::SyntaxError => e
-            puts "YAML Exception reading #{file}: #{e.message}"
-          rescue => e
-            puts "Error reading file #{file}: #{e.message}"
-          end
-        end
+        pages = Dir["#{pages_path}/*.md"].map do |file|
+          page = read_file(file: file)
+          next unless page.is_a?(Page)
+          [page.slug, page]
+        end.compact.to_h
       end
 
       private
 
-      def read_file(file:, pages:)
+      def read_file(file:)
         content = IO.read(file)
         return unless content =~ /\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)/m
+
         data = YAML.load(Regexp.last_match[1])
         data[:content] = $POSTMATCH
-        pages[data[:slug]] = Page.new(data)
+        Page.new(data)
+
+        rescue YAML::SyntaxError => e
+          puts "YAML Exception reading #{file}: #{e.message}"
+        rescue => e
+          puts "Error reading #{file}: #{e.message}"
       end
     end
   end

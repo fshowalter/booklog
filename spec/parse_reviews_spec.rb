@@ -7,26 +7,20 @@ describe Booklog::ParseReviews do
     {
       'review1.md' => <<-EOF,
 ---
-:sequence: 5
-:title: Black Legion (1937)
-:slug: black-legion-1937
-:db_title: Black Legion (1937)
-:date: 2014-08-22
-:grade: C
-:imdb_id: tt0027367
+:sequence: 1
+:book_id: the-shining-by-stephen-king
+:date: 2016-12-30
+:grade: B+
 ---
 Review 1 content.
       EOF
 
       'review2.md' => <<-EOF
 ---
-:sequence: 4
-:db_title: Circus of Fear (1966)
-:slug: psycho-circus-1967
-:title: Psycho-Circus (1967)
-:date: 2014-08-11
-:imdb_id: tt0060865
-:grade: C
+:sequence: 2
+:book_id: night-shift-by-stephen-king
+:date: 2017-01-02
+:grade: C+
 ---
 Review 2 content.
       EOF
@@ -40,13 +34,13 @@ Review 2 content.
 
     expect(reviews.length).to eq 2
 
-    expect(reviews['Black Legion (1937)'].title).to eq 'Black Legion (1937)'
-    expect(reviews['Black Legion (1937)'].sequence).to eq 5
-    expect(reviews['Black Legion (1937)'].content).to eq "Review 1 content.\n"
+    expect(reviews['the-shining-by-stephen-king'].book_id).to eq 'the-shining-by-stephen-king'
+    expect(reviews['the-shining-by-stephen-king'].sequence).to eq 1
+    expect(reviews['the-shining-by-stephen-king'].content).to eq "Review 1 content.\n"
 
-    expect(reviews['Circus of Fear (1966)'].db_title).to eq 'Circus of Fear (1966)'
-    expect(reviews['Circus of Fear (1966)'].sequence).to eq 4
-    expect(reviews['Circus of Fear (1966)'].content).to eq "Review 2 content.\n"
+    expect(reviews['night-shift-by-stephen-king'].book_id).to eq 'night-shift-by-stephen-king'
+    expect(reviews['night-shift-by-stephen-king'].sequence).to eq 2
+    expect(reviews['night-shift-by-stephen-king'].content).to eq "Review 2 content.\n"
   end
 
   context 'when error parsing yaml' do
@@ -85,13 +79,10 @@ Review 1 content.
 
         'review2.md' => <<-EOF
 ---
-:sequence: 4
-:title: Circus of Fear (1966)
-:slug: psycho-circus-1967
-:display_title: Psycho-Circus (1967)
-:date: 2014-08-11
-:imdb_id: tt0060865
-:grade: C
+:sequence: 2
+:book_id: night-shift-by-stephen-king
+:date: 2017-01-02
+:grade: C+
 ---
 Review 2 content.
       EOF
@@ -107,7 +98,7 @@ Review 2 content.
       end
 
       expect(Booklog::ParseReviews).to receive(:puts)
-        .with('Error reading file review1.md: RuntimeError')
+        .with('Error reading review1.md: RuntimeError')
 
       Booklog::ParseReviews.call(reviews_path: 'test_reviews_path')
     end

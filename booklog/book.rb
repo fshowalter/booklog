@@ -5,10 +5,9 @@ module Booklog
   # Responsible for holding review data.
   #
   class Book
-    attr_reader :id, :title, :aka_titles, :authors, :page_count, :year_published, :isbn, :cover, :cover_placeholder
+    attr_reader :title, :aka_titles, :authors, :page_count, :year_published, :isbn, :cover, :cover_placeholder
 
-    def initialize(id:, title:, aka_titles:, authors:, page_count:, year_published:, isbn:, cover: '', cover_placeholder: nil)
-      @id = id
+    def initialize(title:, aka_titles:, authors:, page_count:, year_published:, isbn:, cover: '', cover_placeholder: nil)
       @title = title
       @aka_titles = aka_titles
       @authors = authors.map { |sortable_name| Author.new(sortable_name: sortable_name) }

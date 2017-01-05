@@ -4,7 +4,7 @@ require 'support/stub_template_context'
 
 describe Booklog::Helpers do
   let(:context) { stub_template_context }
-  describe '#grade_to_svg_stars' do
+  describe '#grade_to_image_tag' do
     ('A'..'D').each do |letter|
       ['+', '', '-'].each do |modifier|
         grade = "#{letter}#{modifier}"

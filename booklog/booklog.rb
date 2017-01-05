@@ -78,12 +78,5 @@ module Booklog
     def readings_for_book_id(readings: Booklog.readings, book_id:)
       readings.select { |reading| reading.book_id == book_id }
     end
-
-    def create_page(feature_hash)
-      feature_hash[:date] = Date.today
-      feature_hash[:sequence] = posts.length + 1
-      feature_hash[:slug] = Booklog::Slugize.call(text: feature_hash[:title])
-      CreateFeature.call(features_path, feature_hash)
-    end
   end
 end

@@ -14,6 +14,12 @@ describe Booklog do
     end
   end
 
+  describe '#site_tagline' do
+    it 'returns the site tagline' do
+      expect(Booklog.site_tagline).to eq "Literature is a Relative Term"
+    end
+  end
+
   describe '#next_reading_number' do
     it 'returns the number of readings plus one' do
       expect(Booklog::ParseReadings).to(
@@ -26,6 +32,22 @@ describe Booklog do
       end
 
       expect(Booklog.next_reading_number).to eq 3
+    end
+  end
+
+  describe '#books' do
+    it 'calls Booklog::ParseBooks' do
+      expect(Booklog::ParseBooks).to(receive(:call)).and_return('parse data')
+
+      expect(Booklog.books).to eq 'parse data'
+    end
+  end
+
+  describe '#pages' do
+    it 'calls Booklog::ParsePages' do
+      expect(Booklog::ParsePages).to(receive(:call)).and_return('parse data')
+
+      expect(Booklog.pages).to eq 'parse data'
     end
   end
 

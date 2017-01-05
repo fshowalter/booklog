@@ -40,9 +40,5 @@ module IOHelper
     def confirm
       @keys << 'y'
     end
-
-    def move_down
-      @keys << 'down'
-    end
   end
 end

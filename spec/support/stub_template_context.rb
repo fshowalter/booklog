@@ -28,7 +28,7 @@ module Booklog
     #   include helper
     # end
 
-    Dir[File.expand_path('../../../movielog/helpers/*.rb', __FILE__)].each do |file|
+    Dir[File.expand_path('../../../booklog/helpers/*.rb', __FILE__)].each do |file|
       require file
     end
 

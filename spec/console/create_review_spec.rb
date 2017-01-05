@@ -17,13 +17,13 @@ describe Booklog::Console::CreateReview do
 
   before(:each) do
     IOHelper.clear
+    allow(Booklog).to receive(:next_review_number).and_return(9999)
     allow(File).to receive(:open).and_call_original
-    allow(File).to receive(:open).with(Booklog.reviews_path + '/0002-the-shining-by-stephen-king.md', 'w')
+    allow(File).to receive(:open).with(Booklog.reviews_path + '/9999-the-shining-by-stephen-king.md', 'w')
   end
 
   it 'creates review' do
     expect(Booklog).to receive(:books).and_return(books)
-    expect(Booklog).to receive(:next_review_number).and_return(2)
     expect(Booklog::Console::CreateReview).to(receive(:puts))
 
     IOHelper.type_input('the shining')
@@ -32,6 +32,6 @@ describe Booklog::Console::CreateReview do
 
     review = Booklog::Console::CreateReview.call
     expect(review.book_id).to eq 'the-shining-by-stephen-king'
-    expect(review.sequence).to eq 2
+    expect(review.sequence).to eq 9999
   end
 end

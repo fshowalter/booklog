@@ -5,13 +5,25 @@ require 'support/io_helper'
 describe Booklog::Console::CreatePlaceholder do
   let(:books) do
     {
-      'the-shining-by-stephen-king' => OpenStruct.new(cover: 'cover', cover_placeholder: 'placeholder'),
-      'night-shift-by-stephen-king ' => OpenStruct.new(cover: 'cover-url')
+      'the-shining-by-stephen-king' => OpenStruct.new(
+        title_with_author: 'The Shining by Stephen King',
+        cover: 'cover',
+        cover_placeholder: 'placeholder'
+      ),
+      'night-shift-by-stephen-king ' => OpenStruct.new(
+        title_with_author: 'Night Shift by Stephen King',
+        cover: 'cover-url'
+      )
     }
   end
 
   let(:pages) do
-    {}
+    {
+      'z-page' => OpenStruct.new(
+        title: 'Z Page',
+        backdrop: 'backdrop'
+      )
+    }
   end
 
   before(:each) do
