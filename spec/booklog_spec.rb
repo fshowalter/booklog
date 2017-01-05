@@ -20,18 +20,29 @@ describe Booklog do
     end
   end
 
-  describe '#next_reading_number' do
-    it 'returns the number of readings plus one' do
-      expect(Booklog::ParseReadings).to(
-        receive(:call).with(readings_path: Booklog.readings_path)
-      ) do
+  describe '#next_reading_sequence' do
+    it 'returns the length of readings plus one' do
+      expect(Booklog).to(receive(:readings)) do
         {
-          1 => OpenStruct.new(db_title: 'title 1', sequence: 2),
-          2 => OpenStruct.new(db_title: 'title 2', sequence: 1)
+          1 => OpenStruct.new(sequence: 3),
+          2 => OpenStruct.new(sequence: 1)
         }
       end
 
-      expect(Booklog.next_reading_number).to eq 3
+      expect(Booklog.next_reading_sequence).to eq 3
+    end
+  end
+
+  describe '#next_review_sequence' do
+    it 'returns the length of reviews plus one' do
+      expect(Booklog).to(receive(:reviews)) do
+        {
+          1 => OpenStruct.new(sequence: 3),
+          2 => OpenStruct.new(sequence: 1)
+        }
+      end
+
+      expect(Booklog.next_review_sequence).to eq 3
     end
   end
 
@@ -51,40 +62,144 @@ describe Booklog do
     end
   end
 
+  describe '#reviews' do
+    it 'calls Booklog::ParseReviews' do
+      expect(Booklog::ParseReviews).to(receive(:call)).and_return('parse data')
+
+      expect(Booklog.reviews).to eq 'parse data'
+    end
+
+    describe 'when #cache_reviews is true' do
+      before(:each) do
+        Booklog.cache_reviews = true
+      end
+
+      after(:each) do
+        Booklog.cache_reviews = false
+      end
+
+      it 'caches reviews' do
+        expect(Booklog::ParseReviews).to(receive(:call)).and_return('parse data')
+
+        expect(Booklog.reviews).to eq 'parse data'
+
+        expect(Booklog.instance_variable_get('@reviews')).to eq 'parse data'
+      end
+    end
+  end
+
+  describe '#readings' do
+    it 'calls Booklog::ParseReadings' do
+      expect(Booklog::ParseReadings).to(receive(:call)).and_return('parse data')
+
+      expect(Booklog.readings).to eq 'parse data'
+    end
+  end
+
   describe '#reviews_by_sequence' do
     it 'returns the reviews sorted by sequence in reverse' do
-      expect(Booklog::ParseReviews).to(
-        receive(:call).with(reviews_path: Booklog.reviews_path)
-      ) do
+      expect(Booklog).to(receive(:reviews)) do
         {
-          'title 1' => OpenStruct.new(db_title: 'title 1', sequence: 2),
-          'title 2' => OpenStruct.new(db_title: 'title 2', sequence: 1)
+          'isbn 1' => OpenStruct.new(isbn: 'isbn 1', sequence: 2),
+          'isbn 2' => OpenStruct.new(isbn: 'isbn 2', sequence: 1)
         }
       end
 
       reviews_by_sequence = Booklog.reviews_by_sequence
 
-      expect(reviews_by_sequence.first.db_title).to eq('title 1')
-      expect(reviews_by_sequence.last.db_title).to eq('title 2')
+      expect(reviews_by_sequence.first.isbn).to eq('isbn 1')
+      expect(reviews_by_sequence.last.isbn).to eq('isbn 2')
+    end
+
+    describe 'when #cache_reviews is true' do
+      before(:each) do
+        Booklog.cache_reviews = true
+      end
+
+      after(:each) do
+        Booklog.cache_reviews = false
+      end
+
+      it 'caches reviews_by_sequence' do
+        expect(Booklog).to(receive(:reviews)) do
+          {
+            'isbn 1' => OpenStruct.new(isbn: 'isbn 1', sequence: 2),
+            'isbn 2' => OpenStruct.new(isbn: 'isbn 2', sequence: 1)
+          }
+        end
+
+        reviews_by_sequence = Booklog.reviews_by_sequence
+
+        expect(reviews_by_sequence.first.isbn).to eq('isbn 1')
+        expect(reviews_by_sequence.last.isbn).to eq('isbn 2')
+
+        expect(Booklog.instance_variable_get('@reviews_by_sequence').length).to eq 2
+      end
     end
   end
 
-  describe '#readings_for_book_id' do
-    it 'returns a collection of readings for the given book_id' do
+  describe '#authors' do
+    it 'returns a collection of reviewed authors' do
+      expect(Booklog).to(receive(:books)) do
+        {
+          'isbn 1' => OpenStruct.new(
+            isbn: 'isbn 1',
+            authors: [
+              OpenStruct.new(slug: 'stephen-king'),
+              OpenStruct.new(slug: 'peter-straub')
+            ]
+          ),
+          'isbn 2' => OpenStruct.new(
+            isbn: 'isbn 2',
+            authors: [
+              OpenStruct.new(slug: 'piers-anthony')
+            ]
+          ),
+          'isbn 3' => OpenStruct.new(
+            isbn: 'isbn 3',
+            authors: [
+              OpenStruct.new(slug: 'richard-laymon')
+            ]
+          ),
+          'isbn 4' => OpenStruct.new(
+            isbn: 'isbn 4',
+            authors: [
+              OpenStruct.new(slug: 'stephen-king')
+            ]
+          )
+        }
+      end
+
+      expect(Booklog).to(receive(:reviews)) do
+        {
+          'isbn 1' => OpenStruct.new(isbn: 'isbn 1'),
+          'isbn 3' => OpenStruct.new(isbn: 'isbn 3'),
+          'isbn 4' => OpenStruct.new(isbn: 'isbn 3')
+        }
+      end
+
+      authors = Booklog.authors
+      expect(authors.length).to eq 3
+
+      expect(authors.map(&:slug)).to match_array(
+        ['stephen-king', 'richard-laymon', 'peter-straub']
+      )
+    end
+  end
+
+  describe '#readings_for_isbn' do
+    it 'returns a collection of readings for the given isbn' do
       expect(Booklog).to(receive(:readings)) do
         [
-          OpenStruct.new(book_id: 'the-shining-by-stephen-king', sequence: 1),
-          OpenStruct.new(book_id: 'night-shift-by-stephen-king', sequence: 2),
-          OpenStruct.new(book_id: 'the-shining-by-stephen-king', sequence: 3)
+          OpenStruct.new(isbn: 'isbn 1'),
+          OpenStruct.new(isbn: 'isbn 2'),
+          OpenStruct.new(isbn: 'isbn 3'),
+          OpenStruct.new(isbn: 'isbn 2'),
         ]
       end
 
-      readings = Booklog.readings_for_book_id(book_id: 'the-shining-by-stephen-king')
+      readings = Booklog.readings_for_isbn(isbn: 'isbn 2')
       expect(readings.length).to eq 2
-      expect(readings.first.book_id).to eq 'the-shining-by-stephen-king'
-      expect(readings.first.sequence).to eq 1
-      expect(readings.last.book_id).to eq 'the-shining-by-stephen-king'
-      expect(readings.last.sequence).to eq 3
     end
   end
 end

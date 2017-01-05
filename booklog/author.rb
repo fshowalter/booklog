@@ -5,7 +5,6 @@ module Booklog
 
     def initialize(sortable_name:)
       @sortable_name = sortable_name
-      @reviews = {}
 
       name_match = name_regex.match(sortable_name)
       @last_name = name_match[1].strip
