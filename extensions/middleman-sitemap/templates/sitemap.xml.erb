@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<% @pages.each do |p| %>
+  <url>
+<% if p.url == '/' %>    <loc><%= @hostname + p.url.gsub(/\/$/,'') %></loc>
+<% else %>    <loc><%= @hostname + p.url %></loc>
+<% end %>
+<% if p.data.lastmod %>    <lastmod><%= p.data.lastmod %></lastmod>
+<% end %>
+<% if p.data.changefreq %>    <changefreq><%= p.data.changefreq %></changefreq>
+<% end %>
+<% if p.data.priority %>    <priority><%= p.data.priority %></priority>
+<% end %>
+  </url>
+<% end %>
+</urlset>
