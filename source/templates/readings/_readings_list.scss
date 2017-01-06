@@ -1,8 +1,9 @@
 @import 'source/stylesheets/variables';
 
 .readings_list {
-  margin: 0 0 35px;
-  padding: 0;
+  counter-reset: reading-list;
+  margin: 0 20px;
+  padding: 0 0 60px;
 
   @media only screen and (min-width: 50em) {
     margin-top: 24px;
@@ -17,33 +18,55 @@
 
   &:after {
     background-color: $color_primary;
-    bottom: 0;
+    bottom: -4px;
     content: '';
     display: block;
     height: 1px;
-    left: 20px;
-    margin: 0;
+    left: 30px;
+    margin: 2px 0;
     position: absolute;
     right: 0;
+  }
+
+  @media only screen and (min-width: 40.625em) {
+    display: flex;
   }
 }
 
 .readings_list-item_title {
-  display: block;
+  align-items: baseline;
+  display: flex;
   font-size: 18px;
-  overflow: hidden;
-  padding: 20px 20px 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+  &:before {
+    content: counter(reading-list) '. ';
+    counter-increment: reading-list;
+    font-size: 14px;
+    max-width: 30px;
+    min-width: 30px;
+    padding-right: 5px;
+    text-align: right;
+    width: 30px;
+  }
+
+
+  @media only screen and (min-width: 40.625em) {
+    flex-grow: 1;
+    min-width: 0;
+  }
 }
 
 .readings_list-item_author {
-  display: block;
-  font-size: 15px;
-  overflow: hidden;
-  padding: 0 20px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  @media only screen and (min-width: 40.625em) {
+    font-size: 14px;
+    display: block;
+  }
+}
+
+.readings_list-item_divider {
+  @media only screen and (min-width: 40.625em) {
+    display: none;
+  }
 }
 
 .readings_list-item_slug {
@@ -51,6 +74,22 @@
   font-family: $font_family_system;
   font-size: 14px;
   line-height: 20px;
-  padding: 0 20px 20px;
+  margin-left: 30px;
   text-rendering: optimizeLegibility;
+
+  @media only screen and (min-width: 40.625em) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.readings_list-item_pages {
+  white-space: nowrap;
+
+  @media only screen and (min-width: 40.625em) {
+    font-size: 12px;
+    display: block;
+    text-align: right;
+    order: 2;
+  }
 }

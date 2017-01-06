@@ -7,14 +7,14 @@
       status = "Abandoned after #{reading.pages_read} of #{reading.pages_total} pages"
     end
 
-    dates = "#{reading.date_started.strftime("%b %d, %Y")} to #{reading.date_finished.strftime("%b d, %Y")}."
+    dates = "#{reading.date_started.strftime("%b %d, %Y")} to #{reading.date_finished.strftime("%b %d, %Y")}"
 
-    if reading.date_started.year == reading.date_finished.year &&
-      reading.date_started.month == reading.date_started.month
-      dates = "#{reading.date_started.strftime("%b %d")} to #{reading.date_finished.strftime("%d, %Y")}"
-    end
+    # if reading.date_started.year == reading.date_finished.year &&
+    #  reading.date_started.month == reading.date_started.month
+    #  dates = "#{reading.date_started.strftime("%b %d")} to #{reading.date_finished.strftime("%d, %Y")}"
+    # end
 
-    "#{status} from #{dates}"
+    dates
   end
 
 %ol.readings_list#readings
@@ -24,8 +24,15 @@
       .readings_list-item_title
         - if review
           %a{ href: href_for_review(review) }
-            = reading.title_with_author
+            = reading.title
+            %span.readings_list-item_author
+              = " by #{reading.authors.map(&:name).to_sentence}"
         - else
           = reading.title_with_author
-      %div{ class: "readings_list-item_slug #{'with-rating' if review}" }
+      .readings_list-item_slug
+        %span.readings_list-item_pages
+          pp. #{reading.pages_read}/#{reading.pages_total}
+        %span.readings_list-item_divider
+          =" | "
         = slug_for_reading.call(reading)
+
