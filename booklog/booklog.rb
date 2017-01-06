@@ -46,20 +46,24 @@ module Booklog
       File.expand_path('../../pages/', __FILE__)
     end
 
-    def readings(readings_path: Booklog.readings_path)
-      @readings ||= ParseReadings.call(readings_path: readings_path) || []
+    def authors_path
+      File.expand_path('../../authors/', __FILE__)
     end
 
-    def reviews(reviews_path: Booklog.reviews_path)
+    def readings(readings_path: Booklog.readings_path, books: Booklog.books)
+      @readings ||= ParseReadings.call(readings_path: readings_path, books: books) || []
+    end
+
+    def reviews(reviews_path: Booklog.reviews_path, books: Booklog.books)
       if cache_reviews
-        @reviews ||= ParseReviews.call(reviews_path: reviews_path) || {}
+        @reviews ||= ParseReviews.call(reviews_path: reviews_path, books: books) || {}
       else
-        ParseReviews.call(reviews_path: reviews_path) || {}
+        ParseReviews.call(reviews_path: reviews_path, books: books) || {}
       end
     end
 
-    def books(books_path: Booklog.books_path)
-      @books ||= ParseBooks.call(books_path: books_path) || {}
+    def books(books_path: Booklog.books_path, authors: Booklog.authors)
+      @books ||= ParseBooks.call(books_path: books_path, authors: authors) || {}
     end
 
     def reviews_by_sequence(reviews: Booklog.reviews)
@@ -70,18 +74,34 @@ module Booklog
       end
     end
 
+    def reviews_by_author(reviews: Booklog.reviews)
+      if cache_reviews
+        @reviews_by_author ||= reviews.values.each_with_object({}) do |review, memo|
+          review.authors.each do |author|
+            memo[author.id] ||= []
+            memo[author.id] << review
+          end
+        end
+      else
+        reviews.values.each_with_object({}) do |review, memo|
+          review.authors.each do |author|
+            memo[author.id] ||= []
+            memo[author.id] << review
+          end
+        end
+      end
+    end
+
     def pages(pages_path: Booklog.pages_path)
       @pages ||= ParsePages.call(pages_path: pages_path) || {}
     end
 
-    def authors(reviews: Booklog.reviews, books: Booklog.books)
-      @authors ||= reviews.values.map do |review|
-        books[review.isbn].authors
-      end.flatten.uniq(&:slug)
+    def authors(authors_path: Booklog.authors_path)
+      @authors ||= ParseAuthors.call(authors_path: authors_path) || {}
     end
 
-    def readings_for_isbn(readings: Booklog.readings, isbn:)
-      readings.select { |reading| reading.isbn == isbn }
+    def readings_for_book_id(readings: Booklog.readings, book_id:)
+      readings.select { |reading| reading.book_id == book_id }
     end
   end
 end

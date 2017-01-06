@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'active_support/core_ext/object/try'
 require 'active_support/core_ext/array/conversions'
+require 'awesome_print'
 
 module Booklog
   #
@@ -19,13 +20,8 @@ module Booklog
         def call
           book = Booklog::CreateBook.call(**build_book_data)
 
-          puts "\n Created Book \"#{Bold.call(text: book.id)}\"!\n" \
-          " #{Bold.call(text: '         Title:')} #{book.title}\n" \
-          " #{Bold.call(text: '           AKA:')} #{book.aka_titles.to_sentence}\n" \
-          " #{Bold.call(text: '       Authors:')} #{book.authors.to_sentence}\n" \
-          " #{Bold.call(text: '    Page Count:')} #{book.page_count}\n" \
-          " #{Bold.call(text: 'Year Published:')} #{book.year_published}\n" \
-          " #{Bold.call(text: '          ISBN:')} #{book.isbn}\n" \
+          puts "\n Created Book ##{Bold.call(text: book.id)}!\n"
+          ap(book.to_h, ruby19_syntax: true)
 
           book
         end
@@ -37,11 +33,11 @@ module Booklog
 
           {
             title: title,
+            sortable_title: ask_for_sortable_title(title: title),
             aka_titles: ask_for_aka_titles,
             authors: ask_for_authors,
-            page_count: ask_for_page_count,
-            year_published: ask_for_year_published,
-            isbn: ask_for_isbn
+            isbn: ask_for_isbn,
+            year_published: ask_for_year_published
           }
         end
 
@@ -56,6 +52,27 @@ module Booklog
           title
         end
 
+        def ask_for_sortable_title(title:)
+          sortable_title = nil
+
+          while sortable_title.nil?
+            entered_title = Ask.input 'Sortable Title', default: build_sortable_title(title: title)
+            sortable_title = entered_title if Ask.confirm entered_title
+          end
+
+          sortable_title
+        end
+
+        def build_sortable_title(title:)
+          @sortable_title_regex ||= Regexp.new("^('|(?:[Tt]he|[Aa]n?)\\s)")
+
+          if (sortable_match = @sortable_title_regex.match(title))
+            sortable_match.post_match + ", #{sortable_match[1].strip}"
+          else
+            title
+          end
+        end
+
         def ask_for_aka_titles
           aka_titles = []
 
@@ -68,27 +85,13 @@ module Booklog
         end
 
         def ask_for_authors
-          authors = []
-          add_authors = true
+          authors = [AskForAuthor.call(authors: Booklog.authors.values)]
 
-          while add_authors
-            author = Ask.input 'Author [Last Name, First Name (Annotation)]'
-            authors << author if Ask.confirm author
-            add_authors = Ask.confirm 'Add More Authors', default: false
+          while Ask.confirm 'Add Author', default: false
+            authors << AskForAuthor.call(authors: Booklog.authors.values)
           end
 
           authors
-        end
-
-        def ask_for_page_count
-          page_count = nil
-
-          while page_count.nil?
-            entered_page_count = Ask.input 'Page Count'
-            page_count = entered_page_count if Ask.confirm entered_page_count
-          end
-
-          page_count
         end
 
         def ask_for_year_published

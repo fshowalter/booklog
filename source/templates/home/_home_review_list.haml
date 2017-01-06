@@ -14,7 +14,6 @@
 
 %ol.home_review_list
   - reviews.each do |review|
-    - book = Booklog.books[review.book_id]
     %li.home_review_list-item
       %article.home_review_list-review
         .home_review_list-date_wrap
@@ -23,12 +22,12 @@
         %header.home_review_list-header
           %h3.home_review_list-title
             %a.home_review_list-header_link{ href: href_for_review(review) }
-              #{book.title} <span class="home_review_list-title_author">by #{book.authors.map(&:name).to_sentence}</span>
+              #{review.title} <span class="home_review_list-title_author">by #{review.authors.map(&:name).to_sentence}</span>
         %a.home_review_list-cover_wrap{ href: href_for_review(review) }
-          .home_review_list-cover{ data: { cover: book.cover } }
-            %img.home_review_list-cover_placeholder{ src: book.cover_placeholder }
+          .home_review_list-cover{ data: { cover: review.cover } }
+            %img.home_review_list-cover_placeholder{ src: review.cover_placeholder }
             %noscript
-              %img.cover-noscript{ src: book.cover }
+              %img.cover-noscript{ src: review.cover }
         .home_review_list-excerpt
           = excerpt_for_review.call(review)
 

@@ -9,7 +9,7 @@ module Booklog
         data: {
           sort_name: author.sortable_name,
           name: author.name,
-          review_count: author.reviews.length.to_s.rjust(3, '0')
+          review_count: Booklog.reviews_by_author[author.id].length.to_s.rjust(3, '0')
         }
       }
     end

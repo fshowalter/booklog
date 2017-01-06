@@ -1,10 +1,10 @@
 :ruby
 
-  slug_for_reading = lambda do |reading, book|
+  slug_for_reading = lambda do |reading|
     status = 'Read '
 
-    if reading.pages_read != book.page_count
-      status = "Abandoned after #{reading.pages_read} of #{book.pages} pages"
+    if reading.pages_read != reading.pages_total
+      status = "Abandoned after #{reading.pages_read} of #{reading.pages_total} pages"
     end
 
     dates = "#{reading.date_started.strftime("%b %d, %Y")} to #{reading.date_finished.strftime("%b d, %Y")}."
@@ -20,13 +20,12 @@
 %ol.readings_list#readings
   - readings.reverse.each do |reading|
     - review = Booklog.reviews[reading.book_id]
-    - book = Booklog.books[reading.book_id]
-    %li.readings_list-item{ data_for_reading(book: book, reading: reading) }
+    %li.readings_list-item{ data_for_reading(reading: reading) }
       .readings_list-item_title
         - if review
           %a{ href: href_for_review(review) }
-            = book.title_with_author
+            = reading.title_with_author
         - else
-          = book.title_with_author
+          = reading.title_with_author
       %div{ class: "readings_list-item_slug #{'with-rating' if review}" }
-        = slug_for_reading.call(reading, book)
+        = slug_for_reading.call(reading)

@@ -7,7 +7,7 @@
 
     date = review.date.strftime('%d %b %Y')
 
-    "#{grade} on #{date}"
+    "#{grade} #{date}"
   end
 
   books = reviews.keys.map { |book_id| Booklog.books[book_id] }

@@ -1,8 +1,8 @@
 @import 'source/stylesheets/variables';
 
 .reviews_list {
-  list-style-type: none;
-  margin: 0;
+  counter-reset: review-list;
+  margin: 0 20px;
   padding: 0 0 60px;
 
   @media only screen and (min-width: 50em) {
@@ -11,45 +11,76 @@
 }
 
 .reviews_list-item {
-  list-style-type: none;
-  padding: 0;
+  display: block;
+  margin-bottom: 5px;
   position: relative;
 
   &:after {
     background-color: $color_primary;
-    bottom: 0;
+    bottom: -4px;
     content: '';
     display: block;
     height: 1px;
-    left: 20px;
-    margin: 0;
+    left: 30px;
+    margin: 2px 0;
     position: absolute;
     right: 0;
+  }
+
+  @media only screen and (min-width: 40.625em) {
+    display: flex;
   }
 }
 
 .reviews_list-title {
-  display: block;
-  font-size: 18px;
-  line-height: 40px;
-  overflow: hidden;
-  padding: 20px 20px 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  align-items: baseline;
+  display: flex;
+
+  a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &:before {
+    content: counter(review-list) '. ';
+    counter-increment: review-list;
+    font-size: 14px;
+    max-width: 30px;
+    min-width: 30px;
+    padding-right: 5px;
+    text-align: right;
+    width: 30px;
+  }
+
+  @media only screen and (min-width: 40.625em) {
+    flex-grow: 1;
+    min-width: 0;
+  }
 }
 
 .reviews_list-slug {
   color: $color_text_hint;
-  font-size: 15px;
-  line-height: 20px;
-  padding: 0 20px 20px;
+  font-family: $font_family_system;
+  font-feature-settings: 'tnum';
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 10px;
+  text-align: right;
   text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  width: 175px;
+
+  @media only screen and (min-width: 40.625em) {
+    margin-left: 0;
+  }
 }
 
 .reviews_list-grade {
   display: inline-block;
   height: auto;
+  padding: 0 5px;
   position: relative;
   top: 3px;
-  width: 95px;
+  width: 85px;
 }

@@ -14,16 +14,15 @@
 
 .reviews_for_author_review_list
   %ol.reviews_for_author_review_list-list
-    - author.reviews.values.each do |review|
-      - book = Booklog.books[review.book_id]
+    - Booklog.reviews_by_author[author.id].each do |review|
       %li.reviews_for_author_review_list-credit
         %h3
           %a.reviews_for_author_review_list-title{ href: href_for_review(review) }
-            = book.title
+            = review.title
         %a.reviews_for_author_review_list-cover_wrap{ href: href_for_review(review) }
-          .reviews_for_author_review_list-cover{ data: { cover: book.cover } }
-            %img.reviews_for_author_review_list-cover_placeholder{ src: book.cover_placeholder }
+          .reviews_for_author_review_list-cover{ data: { cover: review.cover } }
+            %img.reviews_for_author_review_list-cover_placeholder{ src: review.cover_placeholder }
             %noscript
-              %img.backdrop-noscript{ src: book.cover }
+              %img.backdrop-noscript{ src: review.cover }
         .reviews_for_author_review_list-excerpt
           = excerpt_for_review.call(review)

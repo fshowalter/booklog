@@ -12,7 +12,7 @@ layout: false
 !!! XML
 %feed{ xmlns: 'http://www.w3.org/2005/Atom' }
   %title= Booklog.site_title
-  %subtitle= "Literature is a relative term."
+  %subtitle= Booklog.site_tagline
   %link{ href: "#{Booklog.site_url}/feed.xml", rel: 'self' }/
   %link{ href: Booklog.site_url }/
   %updated= Time.now.xmlschema
@@ -22,13 +22,12 @@ layout: false
 
   - Booklog.reviews_by_sequence.each_with_index do |review, index|
     - break if index > 9
-    - book = Booklog.books[review.book_id]
     %entry
       %title
-        #{review.sequence}. #{book.title_with_author} #{grade_to_unicode_stars(grade: review.grade)}
+        #{review.sequence}. #{review.title_with_author} #{grade_to_unicode_stars(grade: review.grade)}
       %link{ href: "#{Booklog.site_url}#{href_for_review(review)}/" }
       %id #{Booklog.site_url}#{href_for_review(review)}
       %updated= review.date.xmlschema
       %content{ type: 'html' }
-        = CGI.escapeHTML("<a href=\"#{href_for_review(review)}\">#{image_tag(book.cover)}</a>")
+        = CGI.escapeHTML("<a href=\"#{href_for_review(review)}\">#{image_tag(review.cover)}</a>")
         = CGI.escapeHTML(review_content.call(review))

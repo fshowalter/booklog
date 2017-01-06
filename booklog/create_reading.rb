@@ -8,12 +8,20 @@ module Booklog
       #
       # Responsible for creating a new reading instance.
       #
-      def call(readings_path:, book_id:, pages_read:, date_started:, date_finished:, sequence:)
-        file_name = File.join(readings_path, format('%04d', sequence) + '-' + book_id + '.yml')
+      def call(
+        readings_path: Booklog.readings_path,
+        sequence: Booklog.next_reading_number,
+        book:,
+        pages_read:,
+        date_started:,
+        date_finished:
+      )
+
+        file_name = File.join(readings_path, format('%04d', sequence) + '-' + book.slug + '.yml')
 
         reading = {
           sequence: sequence,
-          book_id: book_id,
+          isbn: book.isbn,
           pages_read: pages_read,
           date_started: date_started,
           date_finished: date_finished

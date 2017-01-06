@@ -4,14 +4,20 @@ module Booklog
   # Responsible for holding review data.
   #
   class Review
-    attr_reader :sequence, :book_id, :date, :grade, :content
+    extend Forwardable
 
-    def initialize(sequence:, book_id:, date:, grade:, content:)
+    attr_reader :sequence, :date, :grade, :content, :cover, :cover_placeholder
+
+    def initialize(sequence:, book:, date:, grade:, content:, cover: '', cover_placeholder: nil)
+      @book = book
       @sequence = sequence
-      @book_id = book_id
       @date = date
       @grade = grade
       @content = content
+      @cover = cover
+      @cover_placeholder = cover_placeholder
     end
+
+    def_delegators :@book, :id, :title, :aka_titles, :title_with_author, :authors, :year_published, :isbn
   end
 end

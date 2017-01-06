@@ -34,7 +34,7 @@ describe Booklog::Console::CreateBook do
       id: 'test-book-by-joe-user',
       title: 'Test Book',
       aka_titles: [
-        'Alternate Title',
+        'Alternate Title'
       ],
       page_count: '123',
       authors: [

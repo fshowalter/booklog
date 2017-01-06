@@ -16,7 +16,7 @@ describe Booklog do
 
   describe '#site_tagline' do
     it 'returns the site tagline' do
-      expect(Booklog.site_tagline).to eq "Literature is a Relative Term"
+      expect(Booklog.site_tagline).to eq 'Literature is a Relative Term'
     end
   end
 
@@ -194,7 +194,7 @@ describe Booklog do
           OpenStruct.new(isbn: 'isbn 1'),
           OpenStruct.new(isbn: 'isbn 2'),
           OpenStruct.new(isbn: 'isbn 3'),
-          OpenStruct.new(isbn: 'isbn 2'),
+          OpenStruct.new(isbn: 'isbn 2')
         ]
       end
 

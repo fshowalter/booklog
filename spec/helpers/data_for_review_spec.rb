@@ -10,7 +10,7 @@ describe Booklog::Helpers do
         title: 'The Shining',
         year_published: '1977',
         sortable_title: 'Shining, The',
-        isbn: '123456789',
+        isbn: '123456789'
       )
 
       review = OpenStruct.new(

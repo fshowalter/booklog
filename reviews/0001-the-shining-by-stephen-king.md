@@ -1,8 +1,10 @@
 ---
 :sequence: 1
-:book_id: the-shining-by-stephen-king
+:book_id: 'the-shining-by-stephen-king'
 :date: 2016-12-30
 :grade: B+
+:cover: https://lh3.googleusercontent.com/m0VM5ikyjVqjV1tiVPAq7qNhwrhnU5nAuQgPE_RjnVHgDikUhzZc9S9zmQHi_wR11e7ZPJl82SOcPhyHsIrMq_3Zy1tHD4ZJ9VP4qkpjbIO2F5p9UhYRT1ZN4opRZ8AhMlzluw=w350-l75-rj
+:cover_placeholder: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//gBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Oz47Pjs+Pj4+Ozs7Pj4+Pj4+Oz4+Pj4+Pjs+Oz4+P/AABEIAB8AFAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAAAgQDAf/EACIQAAICAQMEAwAAAAAAAAAAAAECABEDBCExEhMiQTJRcf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oADAMBAAIRAxEAPwC3JkyB2C2R7AHEzXNkUn5NVij9x9R2mLEqGYjx3IuT4GTKQr4gHBo0xmS1dp2L4uo82YR8YCoFHAhKibUgsVoeKgk1z+RcGOmRwtIRZDb0ZT2wRRG04F6dh6qGk1FEbQnAdoRC/9k="
 ---
 
 After losing a teaching job due to his violent temper, once-promising writer (and recovering alcoholic) Jack Torrence uproots his wife Wendy and son Danny to Colorado, where they'll serve as winter caretakers for the Overlook Hotel.

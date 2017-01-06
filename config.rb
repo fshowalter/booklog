@@ -6,25 +6,29 @@ require 'time'
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload, ignore: [%r{/coverage/}, /\.haml_lint\./]
+  activate :livereload, ignore: [/coverage/, /\.haml_lint\./, /spec/]
+end
+
+configure :build do
+  Booklog.cache_reviews = true
 end
 
 helpers Booklog::Helpers
 
 # Methods defined in the helpers block are available in templates
 helpers do
+  def author_link(author:, options: {})
+    link_to(author.name, "/authors/#{author.id}/", options)
+  end
+
   def href_for_review(review)
-    "/reviews/#{review.book_id}/"
+    "/reviews/#{review.id}/"
   end
 
   def markdown(source)
     return source if source.blank?
 
     Tilt['markdown'].new(footnotes: true) { source }.render
-  end
-
-  def author_link(author:, options: {})
-    link_to(author.name, "/authors/#{author.slug}/", options)
   end
 
   def inline_css(_file)
@@ -78,7 +82,7 @@ activate :deploy do |deploy|
   deploy.clean = true
 end
 
-activate :sitemap, hostname: 'https://booklog.frankshowalter.com'
+activate :sitemap, hostname: Booklog.site_url
 
 # Build-specific configuration
 configure :build do
@@ -107,13 +111,12 @@ ready do
   proxy('authors/index.html', 'templates/authors/authors.html', ignore: true)
 
   Booklog.reviews.values.each do |review|
-    book = Booklog.books[review.book_id]
-    proxy("reviews/#{review.book_id}/index.html", 'templates/review/review.html',
-          locals: { review: review, title: "#{book.title_with_author} Book Review" }, ignore: true)
+    proxy("reviews/#{review.id}/index.html", 'templates/review/review.html',
+          locals: { review: review }, ignore: true)
   end
 
   Booklog.authors.values.each do |author|
-    proxy("authors/#{author.slug}/index.html", 'templates/reviews_for_author/reviews_for_author.html',
+    proxy("authors/#{author.id}/index.html", 'templates/reviews_for_author/reviews_for_author.html',
           locals: { author: author }, ignore: true)
   end
 end

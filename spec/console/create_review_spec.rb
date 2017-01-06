@@ -29,7 +29,6 @@ describe Booklog::Console::CreateReview do
     IOHelper.type_input('the shining')
     IOHelper.type_input("\r")
 
-
     review = Booklog::Console::CreateReview.call
     expect(review.book_id).to eq 'the-shining-by-stephen-king'
     expect(review.sequence).to eq 9999

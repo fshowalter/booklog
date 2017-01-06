@@ -5,20 +5,18 @@ module Booklog
   #
   class CreateBook
     class << self
-      def call(books_path: Booklog.books_path, title:, aka_titles:, authors:, page_count:, year_published:, isbn:)
+      def call(books_path: Booklog.books_path, title:, sortable_title:, aka_titles:, authors:, isbn:, year_published:)
         id = build_id(title: title, authors: authors)
         file_name = File.join(books_path, id + '.yml')
 
         front_matter = {
           id: id,
           title: title,
+          sortable_title: sortable_title,
           aka_titles: aka_titles,
-          authors: authors,
-          page_count: page_count,
-          year_published: year_published,
+          author_ids: authors.map(&:id),
           isbn: isbn,
-          cover: '',
-          cover_placeholder: nil
+          year_published: year_published
         }
 
         content = "#{front_matter.to_yaml}\n"
@@ -31,9 +29,9 @@ module Booklog
       private
 
       def build_id(title:, authors:)
-        author_slug = authors.map { |a| Author.new(sortable_name: a).slug }.to_sentence
+        author_names = authors.map(&:name).to_sentence
 
-        Booklog::Slugize.call(text: "#{title} by #{author_slug}")
+        Booklog::Slugize.call(text: "#{title} by #{author_names}")
       end
     end
   end

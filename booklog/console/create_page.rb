@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'inquirer'
+require 'awesome_print'
 
 module Booklog
   #
@@ -19,6 +20,7 @@ module Booklog
           page = Booklog::CreatePage.call(title: ask_for_title)
 
           puts "\n Created Page #{Bold.call(text: page.title)}!\n"
+          ap(page.to_h, ruby19_syntax: true)
 
           page
         end

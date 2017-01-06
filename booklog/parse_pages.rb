@@ -25,10 +25,10 @@ module Booklog
         data[:content] = $POSTMATCH
         Page.new(data)
 
-        rescue YAML::SyntaxError => e
-          puts "YAML Exception reading #{file}: #{e.message}"
-        rescue => e
-          puts "Error reading #{file}: #{e.message}"
+      rescue YAML::SyntaxError => e
+        puts "YAML Exception reading #{file}: #{e.message}"
+      rescue => e
+        puts "Error reading #{file}: #{e.message}"
       end
     end
   end

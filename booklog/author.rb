@@ -1,32 +1,14 @@
 # frozen_string_literal: true
 module Booklog
   class Author
-    attr_reader :name, :sortable_name, :reviews, :slug, :last_name, :first_name, :annotation
+    attr_reader :id, :name, :name_with_annotation, :sortable_name, :url
 
-    def initialize(sortable_name:)
+    def initialize(id:, name:, name_with_annotation:, sortable_name:, url:)
+      @id = id
+      @name = name
+      @name_with_annotation = name_with_annotation
       @sortable_name = sortable_name
-
-      name_match = name_regex.match(sortable_name)
-      @last_name = name_match[1].strip
-      @first_name = name_match[2].strip
-      @annotation = name_match[3].try(:strip)
-      @name = "#{first_name} #{last_name}"
-      @slug = Booklog::Slugize.call(text: "#{name} #{annotation}")
-    end
-
-    private
-
-    def name_regex
-      @name_regex ||= Regexp.new(
-        # from the beginning of the line capture everything up to a tab or comma
-        '^([^(\t,]*)' +
-        # followed by an optional comma
-        ',?' +
-        # then optionally capture anything up to an open paren or tab
-        '([^\t(]*)?' +
-        # then optionally capture everything between two parens that isn't a whitespace
-        '(?:[(]([^\s)]*)[)])?'
-      )
+      @url = url
     end
   end
 end

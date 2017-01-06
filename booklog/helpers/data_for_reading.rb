@@ -4,13 +4,12 @@ module Booklog
   # Responsible for providing template helper methods.
   #
   module Helpers
-    def data_for_reading(book:, reading:)
+    def data_for_reading(reading:)
       {
         data: {
-          title: book.title,
-          isbn: book.isbn,
-          sort_title: book.sortable_title,
-          year_published: book.year_published,
+          title: reading.title_with_author,
+          sort_title: reading.sortable_title,
+          year_published: reading.year_published,
           date_started: reading.date_started,
           date_finished: reading.date_finished
         }

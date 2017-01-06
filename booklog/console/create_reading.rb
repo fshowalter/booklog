@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'inquirer'
+require 'awesome_print'
 
 module Booklog
   module Console
@@ -16,12 +17,9 @@ module Booklog
           book = ask_for_book
           reading = Booklog::CreateReading.call(**build_reading_data(book: book))
 
-          puts "\n Created Reading ##{Bold.call(text: reading.sequence.to_s)}!\n" \
-            " #{Bold.call(text: '         Title:')} #{book.title}\n" \
-            " #{Bold.call(text: '        Author:')} #{book.authors.to_sentence}\n" \
-            " #{Bold.call(text: '    Pages Read:')} #{reading.pages_read}/#{book.page_count}\n" \
-            " #{Bold.call(text: '  Date Started:')} #{reading.date_started}\n" \
-            " #{Bold.call(text: ' Date Finished:')} #{reading.date_finished}\n" \
+          puts "\n Created Reading ##{Bold.call(text: reading.sequence.to_s)}!\n"
+
+          ap(reading.to_h, ruby19_syntax: true)
 
           reading
         end
@@ -30,9 +28,7 @@ module Booklog
 
         def build_reading_data(book:)
           {
-            readings_path: Booklog.readings_path,
-            sequence: Booklog.next_reading_number,
-            book_id: book.id,
+            book: book,
             pages_read: ask_for_pages_read(total_pages: book.page_count),
             date_started: ask_for_date_started,
             date_finished: ask_for_date_finished
@@ -54,6 +50,17 @@ module Booklog
           pages_read
         end
 
+        def ask_for_page_count
+          page_count = nil
+
+          while page_count.nil?
+            entered_page_count = Ask.input 'Page Count'
+            page_count = entered_page_count if Ask.confirm entered_page_count
+          end
+
+          page_count
+        end
+
         def ask_for_date_started
           date = nil
           last_date = Booklog.reviews[Booklog.reviews.length]
@@ -67,6 +74,17 @@ module Booklog
           end
 
           date
+        end
+
+        def ask_for_isbn
+          isbn = nil
+
+          while isbn.nil?
+            entered_isbn = Ask.input 'ISBN'
+            isbn = entered_isbn if Ask.confirm entered_isbn
+          end
+
+          isbn
         end
 
         def ask_for_date_finished

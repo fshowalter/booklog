@@ -1,5 +1,5 @@
 :ruby
-  published_years = Booklog.readings.map { |reading| Booklog.books[reading.book_id].year_published }.sort
+  published_years = Booklog.readings.map(&:year_published).sort
   oldest_year = published_years.first
   newest_year = published_years.last
 

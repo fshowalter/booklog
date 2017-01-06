@@ -16,14 +16,19 @@ module Booklog
     # Responsible for handling the new sub-command.
     #
     class New < Thor
-      desc 'reading', 'create a new reading entry'
-      def reading
-        Console::CreateReading.call
+      desc 'author', 'create a new author entry'
+      def author
+        Console::CreateAuthor.call
       end
 
       desc 'book', 'create a new book entry'
       def book
         Console::CreateBook.call
+      end
+
+      desc 'reading', 'create a new reading entry'
+      def reading
+        Console::CreateReading.call
       end
 
       desc 'review', 'create a new review entry'

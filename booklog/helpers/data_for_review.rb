@@ -7,9 +7,8 @@ module Booklog
     def data_for_review(book:, review:)
       {
         data: {
-          title: book.title,
+          title: book.title_with_author,
           sort_title: book.sortable_title,
-          isbn: book.isbn,
           year_published: book.year_published,
           review_date: review.date,
           grade: Booklog::ConvertGradeToNumber.call(grade: review.grade).to_s.rjust(2, '0')
