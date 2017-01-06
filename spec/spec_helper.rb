@@ -2,6 +2,7 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter '/vendor/'
+  add_filter '/extensions/'
 end
 
 require 'bundler/setup'

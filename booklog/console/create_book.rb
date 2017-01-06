@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require 'active_support/core_ext/object/try'
-require 'active_support/core_ext/array/conversions'
 require 'awesome_print'
 
 module Booklog
