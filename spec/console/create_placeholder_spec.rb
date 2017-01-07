@@ -28,18 +28,17 @@ describe Booklog::Console::CreatePlaceholder do
 
   before(:each) do
     IOHelper.clear
-    allow(Booklog).to receive(:books).and_return(books)
-    allow(Booklog).to receive(:pages).and_return(pages)
   end
 
-  it 'creates placeholder' do
+  it 'calls Booklog::CreatePlaceholder with correct data' do
     IOHelper.type_input("\r")
 
     expect(Booklog::Console::CreatePlaceholder).to(receive(:puts))
+
     expect(Booklog::CreatePlaceholder).to(receive(:call).with(image: 'cover-url')) do
       'created placeholder'
     end
 
-    expect(Booklog::Console::CreatePlaceholder.call).to eq 'created placeholder'
+    Booklog::Console::CreatePlaceholder.call(books: books, pages: pages)
   end
 end

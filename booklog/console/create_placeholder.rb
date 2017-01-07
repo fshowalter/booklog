@@ -10,9 +10,9 @@ module Booklog
         # Responsible for providing a console interface to create a new placeholder image.
         #
         # @return the base64 encoded placeholder
-        def call
-          book = ask_for_book
-          placeholder = create_placeholder(book)
+        def call(books: Booklog.books, pages: Booklog.pages)
+          image = ask_for_image(books: books, pages: pages)
+          placeholder = Booklog::CreatePlaceholder.call(image: image)
 
           puts "\n #{placeholder} \n" \
 
@@ -21,27 +21,23 @@ module Booklog
 
         private
 
-        def create_placeholder(image)
-          Booklog::CreatePlaceholder.call(image: image)
-        end
-
-        def ask_for_book
-          options = build_options
+        def ask_for_image(books:, pages:)
+          options = build_options(books: books, pages: pages)
           keys = options.keys.sort
 
-          idx = Ask.list(' Title', keys)
+          idx = Ask.list(' Post', keys)
 
           options[keys[idx]]
         end
 
-        def build_options
+        def build_options(books:, pages:)
           options = {}
 
-          Booklog.books.values.reject(&:cover_placeholder).each do |book|
+          books.values.reject(&:cover_placeholder).each do |book|
             options[book.title_with_author] = book.cover
           end
 
-          Booklog.pages.values.reject(&:backdrop_placeholder).each do |page|
+          pages.values.reject(&:backdrop_placeholder).each do |page|
             options[page.title] = page.backdrop
           end
 
