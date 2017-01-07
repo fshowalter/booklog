@@ -26,24 +26,13 @@ module Booklog
         private
 
         def search_books(books:, query:)
-          books.select do |book|
+          books.sort_by(&:sortable_title).select do |book|
             book.title.match(/.*#{query}.*/i)
           end
         end
 
         def format_title_results(results:)
-          results.map do |book|
-            [
-              Bold.call(text: book.title),
-              format_authors(authors: book.authors),
-              "\n",
-            ].join
-          end
-        end
-
-        def format_authors(authors:)
-          return unless authors.any?
-          "\n   by " + authors.to_sentence
+          results.map(&:title_with_author)
         end
       end
     end

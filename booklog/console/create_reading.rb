@@ -13,8 +13,8 @@ module Booklog
         # Responsible for processing a new reading command.
         #
         # @return [Hash] The new reading.
-        def call
-          book = ask_for_book
+        def call(books: Booklog.books)
+          book = AskForBook.call(books: books.values)
           reading = Booklog::CreateReading.call(**build_reading_data(book: book))
 
           puts "\n Created Reading ##{Bold.call(text: reading.sequence.to_s)}!\n"
@@ -27,35 +27,41 @@ module Booklog
         private
 
         def build_reading_data(book:)
+          isbn = ask_for_isbn(book: book)
+          pages_read, pages_total = ask_for_pages
+
           {
             book: book,
-            pages_read: ask_for_pages_read(total_pages: book.page_count),
+            isbn: isbn,
+            pages_total: pages_total,
+            pages_read: pages_read,
             date_started: ask_for_date_started,
             date_finished: ask_for_date_finished,
           }
         end
 
-        def ask_for_book
-          AskForBook.call(books: Booklog.books.values)
-        end
+        def ask_for_isbn(book:)
+          isbn = nil
 
-        def ask_for_pages_read(total_pages:)
-          pages_read = nil
-
-          while pages_read.nil?
-            entered_pages_read = Ask.input 'Pages Read', default: total_pages
-            pages_read = entered_pages_read if Ask.confirm entered_pages_read
+          while isbn.nil?
+            entered_isbn = Ask.input 'ISBN', default: book.isbn
+            isbn = entered_isbn if Ask.confirm entered_isbn
           end
 
-          pages_read
+          isbn
         end
 
-        def ask_for_page_count
+        def ask_for_pages
           page_count = nil
 
           while page_count.nil?
             entered_page_count = Ask.input 'Page Count'
-            page_count = entered_page_count if Ask.confirm entered_page_count
+
+            pages_read, pages_total = entered_page_count.split('/')
+
+            pages_total ||= pages_read
+
+            page_count = entered_page_count if Ask.confirm("Read #{pages_read} of #{pages_total}")
           end
 
           page_count
@@ -63,28 +69,15 @@ module Booklog
 
         def ask_for_date_started
           date = nil
-          last_date = Booklog.reviews[Booklog.reviews.length]
-          default = last_date.try(:[], :date_finished).to_s
 
           while date.nil?
-            entered_date = Ask.input 'Date Started', default: default
+            entered_date = Ask.input 'Date Started'
             next unless (entered_date = Date.parse(entered_date))
 
             date = entered_date if Ask.confirm entered_date.strftime('%A, %B %d, %Y?  ')
           end
 
           date
-        end
-
-        def ask_for_isbn
-          isbn = nil
-
-          while isbn.nil?
-            entered_isbn = Ask.input 'ISBN'
-            isbn = entered_isbn if Ask.confirm entered_isbn
-          end
-
-          isbn
         end
 
         def ask_for_date_finished
