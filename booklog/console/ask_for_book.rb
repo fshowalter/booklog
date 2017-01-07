@@ -36,7 +36,7 @@ module Booklog
             [
               Bold.call(text: book.title),
               format_authors(authors: book.authors),
-              "\n"
+              "\n",
             ].join
           end
         end

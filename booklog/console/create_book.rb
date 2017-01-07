@@ -15,8 +15,8 @@ module Booklog
         # Responsible for processing a new book command.
         #
         # @return [String] The full path to the new entry.
-        def call
-          book = Booklog::CreateBook.call(**build_book_data)
+        def call(authors: Booklog.authors)
+          book = Booklog::CreateBook.call(**build_book_data(authors: authors))
 
           puts "\n Created Book ##{Bold.call(text: book.id)}!\n"
           ap(book.to_h, ruby19_syntax: true)
@@ -26,16 +26,16 @@ module Booklog
 
         private
 
-        def build_book_data
+        def build_book_data(authors:)
           title = ask_for_title
 
           {
             title: title,
             sortable_title: ask_for_sortable_title(title: title),
             aka_titles: ask_for_aka_titles,
-            authors: ask_for_authors,
+            authors: ask_for_authors(authors: authors),
             isbn: ask_for_isbn,
-            year_published: ask_for_year_published
+            year_published: ask_for_year_published,
           }
         end
 
@@ -82,14 +82,14 @@ module Booklog
           aka_titles
         end
 
-        def ask_for_authors
-          authors = [AskForAuthor.call(authors: Booklog.authors.values)]
+        def ask_for_authors(authors:)
+          selected_authors = [AskForAuthor.call(authors: authors.values)]
 
           while Ask.confirm 'Add Author', default: false
-            authors << AskForAuthor.call(authors: Booklog.authors.values)
+            selected_authors << AskForAuthor.call(authors: authors.values)
           end
 
-          authors
+          selected_authors
         end
 
         def ask_for_year_published

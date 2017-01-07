@@ -31,7 +31,7 @@ module Booklog
             book: book,
             pages_read: ask_for_pages_read(total_pages: book.page_count),
             date_started: ask_for_date_started,
-            date_finished: ask_for_date_finished
+            date_finished: ask_for_date_finished,
           }
         end
 

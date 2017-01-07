@@ -31,7 +31,7 @@ module Booklog
           {
             name: name,
             sortable_name: ask_for_sortable_name(name: name),
-            url: ask_for_url
+            url: ask_for_url,
           }
         end
 

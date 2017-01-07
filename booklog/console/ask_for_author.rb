@@ -26,7 +26,7 @@ module Booklog
         private
 
         def search_authors(authors:, query:)
-          authors.select do |author|
+          authors.sort_by(&:sortable_name).select do |author|
             author.name.match(/.*#{query}.*/i)
           end
         end

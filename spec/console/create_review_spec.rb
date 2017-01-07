@@ -9,9 +9,9 @@ describe Booklog::Console::CreateReview do
         id: 'the-shining-by-stephen-king',
         title: 'The Shining',
         authors: [
-          OpenStruct.new(name: 'Stephen King')
-        ]
-      )
+          OpenStruct.new(name: 'Stephen King'),
+        ],
+      ),
     }
   end
 

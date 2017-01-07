@@ -5,20 +5,18 @@ require 'support/io_helper'
 describe Booklog::Console::CreatePage do
   before(:each) do
     IOHelper.clear
-    allow(File).to receive(:open).and_call_original
-    allow(File).to receive(:open).with(Booklog.pages_path + '/test-page.md', 'w')
   end
 
-  it 'creates pages with titles and date' do
-    IOHelper.type_input('test page')
+  it 'calls Booklog::CreatePage with correct data' do
+    IOHelper.type_input('Test Page')
     IOHelper.confirm
 
-    expect(Booklog::Console::CreatePage).to(receive(:puts))
+    expect(Booklog::Console::CreatePage).to(receive(:puts)).twice
 
-    page = Booklog::Console::CreatePage.call
+    expect(Booklog::CreatePage).to receive(:call).with(
+      title: 'Test Page',
+    ).and_return(OpenStruct.new(title: 'New Page Title'))
 
-    expect(page.title).to eq 'test page'
-    expect(page.date).to eq Date.today
-    expect(page.slug).to eq 'test-page'
+    Booklog::Console::CreatePage.call
   end
 end

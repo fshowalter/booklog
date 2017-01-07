@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-01-06T00:08:47-05:00">2017-01-06T00:08:47-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-01-06T20:42:17-05:00">2017-01-06T20:42:17-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">47.81%</span></span>
+    (<span class="covered_percent"><span class="red">45.24%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.77
+         0.59
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>43</b> files in total.
-    <b>684</b> relevant lines. 
-    <span class="green"><b>327</b> lines covered</span> and
-    <span class="red"><b>357</b> lines missed </span>
+    <b>42</b> files in total.
+    <b>683</b> relevant lines. 
+    <span class="green"><b>309</b> lines covered</span> and
+    <span class="red"><b>374</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -112,12 +112,12 @@
       
       <tr>
         <td class="strong"><a href="#2e19904d0be1b9106b9acdda996a2a1c0a05cdc7" class="src_link" title="booklog/console/create_author.rb">booklog/console/create_author.rb</a></td>
-        <td class="green strong">100.0 %</td>
+        <td class="red strong">36.11 %</td>
         <td>79</td>
         <td>36</td>
-        <td>36</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td>13</td>
+        <td>23</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -132,12 +132,12 @@
       
       <tr>
         <td class="strong"><a href="#79efbf478079332d864b636db901a5d12c87b609" class="src_link" title="booklog/console/create_page.rb">booklog/console/create_page.rb</a></td>
-        <td class="red strong">52.94 %</td>
+        <td class="green strong">100.0 %</td>
         <td>41</td>
         <td>17</td>
-        <td>9</td>
-        <td>8</td>
-        <td>0.5</td>
+        <td>17</td>
+        <td>0</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -248,16 +248,6 @@
         <td>4</td>
         <td>5</td>
         <td>0.4</td>
-      </tr>
-      
-      <tr>
-        <td class="strong"><a href="#a6a931cec87186e5d6bdc5cf7d3cad958ebd389d" class="src_link" title="booklog/feature.rb">booklog/feature.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>3</td>
-        <td>3</td>
-        <td>0</td>
-        <td>1.0</td>
       </tr>
       
       <tr>
@@ -472,12 +462,12 @@
       
       <tr>
         <td class="strong"><a href="#a6522243e59f237eba57335afd03e7fbf4e9cb8b" class="src_link" title="spec/support/io_helper.rb">spec/support/io_helper.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>44</td>
+        <td class="green strong">92.31 %</td>
+        <td>48</td>
+        <td>26</td>
         <td>24</td>
-        <td>24</td>
-        <td>0</td>
-        <td>7.3</td>
+        <td>2</td>
+        <td>2.7</td>
       </tr>
       
     </tbody>
@@ -774,8 +764,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="43" data-linenumber="4">
-          <span class="hits">43</span>
+        <li class="covered" data-hits="42" data-linenumber="4">
+          <span class="hits">42</span>
           
           <code class="ruby">Dir[File.expand_path(&#39;../**/*.rb&#39;, __FILE__)].each { |f| require f }</code>
         </li>
@@ -1587,7 +1577,7 @@
         <li class="missed" data-hits="0" data-linenumber="29">
           
           
-          <code class="ruby">          authors.select do |author|</code>
+          <code class="ruby">          authors.sort_by(&amp;:sortable_name).select do |author|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">
@@ -1905,7 +1895,7 @@
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">              &quot;\n&quot;</code>
+          <code class="ruby">              &quot;\n&quot;,</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="40">
@@ -2101,11 +2091,11 @@
         <div class="source_table" id="2e19904d0be1b9106b9acdda996a2a1c0a05cdc7">
   <div class="header">
     <h3>booklog/console/create_author.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="red">36.11 %</span> covered</h4>
     <div>
       <b>36</b> relevant lines. 
-      <span class="green"><b>36</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="green"><b>13</b> lines covered</span> and
+      <span class="red"><b>23</b> lines missed.</span>
     </div>
   </div>
   
@@ -2208,8 +2198,8 @@
           <code class="ruby">        def call</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
           
           <code class="ruby">          author = Booklog::CreateAuthor.call(**build_author_data)</code>
         </li>
@@ -2220,8 +2210,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
           
           <code class="ruby">          puts &quot;\n Created Author ##{Bold.call(text: author.id)}!\n&quot;</code>
         </li>
@@ -2232,8 +2222,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
           
           <code class="ruby">          ap(author.to_h, ruby19_syntax: true)</code>
         </li>
@@ -2244,8 +2234,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
           
           <code class="ruby">          author</code>
         </li>
@@ -2280,8 +2270,8 @@
           <code class="ruby">        def build_author_data</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
           
           <code class="ruby">          name = ask_for_name</code>
         </li>
@@ -2313,11 +2303,11 @@
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">            url: ask_for_url</code>
+          <code class="ruby">            url: ask_for_url,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="35">
+          
           
           <code class="ruby">          }</code>
         </li>
@@ -2340,8 +2330,8 @@
           <code class="ruby">        def ask_for_name</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="39">
+          
           
           <code class="ruby">          name = nil</code>
         </li>
@@ -2352,20 +2342,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="41">
+          
           
           <code class="ruby">          while name.nil?</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="42">
+          
           
           <code class="ruby">            entered_name = Ask.input &#39;Name&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
           
           <code class="ruby">            name = entered_name if Ask.confirm entered_name</code>
         </li>
@@ -2382,8 +2372,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="46">
+          
           
           <code class="ruby">          name</code>
         </li>
@@ -2406,8 +2396,8 @@
           <code class="ruby">        def ask_for_sortable_name(name:)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="50">
+          
           
           <code class="ruby">          sortable_name = nil</code>
         </li>
@@ -2418,20 +2408,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="52">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="52">
+          
           
           <code class="ruby">          while sortable_name.nil?</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="53">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
           
           <code class="ruby">            entered_name = Ask.input &#39;Sortable Name&#39;, default: build_default_sortable_name(name)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
           
           <code class="ruby">            sortable_name = entered_name if Ask.confirm entered_name</code>
         </li>
@@ -2448,8 +2438,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="57">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="57">
+          
           
           <code class="ruby">          sortable_name</code>
         </li>
@@ -2472,8 +2462,8 @@
           <code class="ruby">        def ask_for_url</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="61">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="61">
+          
           
           <code class="ruby">          url = nil</code>
         </li>
@@ -2484,20 +2474,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="63">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="63">
+          
           
           <code class="ruby">          while url.nil?</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="64">
+          
           
           <code class="ruby">            entered_url = Ask.input &#39;URL&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="65">
+          
           
           <code class="ruby">            url = entered_url if Ask.confirm entered_url</code>
         </li>
@@ -2514,8 +2504,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="68">
+          
           
           <code class="ruby">          url</code>
         </li>
@@ -2538,8 +2528,8 @@
           <code class="ruby">        def build_default_sortable_name(name)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="72">
+          
           
           <code class="ruby">          first_name, _, last_name = name.rpartition(&#39; &#39;)</code>
         </li>
@@ -2550,8 +2540,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="74">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="74">
+          
           
           <code class="ruby">          &quot;#{last_name}, #{first_name}&quot;</code>
         </li>
@@ -2709,13 +2699,13 @@
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">        def call</code>
+          <code class="ruby">        def call(authors: Booklog.authors)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">          book = Booklog::CreateBook.call(**build_book_data)</code>
+          <code class="ruby">          book = Booklog::CreateBook.call(**build_book_data(authors: authors))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
@@ -2775,7 +2765,7 @@
         <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
-          <code class="ruby">        def build_book_data</code>
+          <code class="ruby">        def build_book_data(authors:)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">
@@ -2817,7 +2807,7 @@
         <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">            authors: ask_for_authors,</code>
+          <code class="ruby">            authors: ask_for_authors(authors: authors),</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
@@ -2829,7 +2819,7 @@
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">            year_published: ask_for_year_published</code>
+          <code class="ruby">            year_published: ask_for_year_published,</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="39">
@@ -3111,13 +3101,13 @@
         <li class="covered" data-hits="1" data-linenumber="85">
           <span class="hits">1</span>
           
-          <code class="ruby">        def ask_for_authors</code>
+          <code class="ruby">        def ask_for_authors(authors:)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="86">
           
           
-          <code class="ruby">          authors = [AskForAuthor.call(authors: Booklog.authors.values)]</code>
+          <code class="ruby">          selected_authors = [AskForAuthor.call(authors: authors.values)]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="87">
@@ -3135,7 +3125,7 @@
         <li class="missed" data-hits="0" data-linenumber="89">
           
           
-          <code class="ruby">            authors &lt;&lt; AskForAuthor.call(authors: Booklog.authors.values)</code>
+          <code class="ruby">            selected_authors &lt;&lt; AskForAuthor.call(authors: authors.values)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="90">
@@ -3153,7 +3143,7 @@
         <li class="missed" data-hits="0" data-linenumber="92">
           
           
-          <code class="ruby">          authors</code>
+          <code class="ruby">          selected_authors</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="93">
@@ -3331,11 +3321,11 @@
         <div class="source_table" id="79efbf478079332d864b636db901a5d12c87b609">
   <div class="header">
     <h3>booklog/console/create_page.rb</h3>
-    <h4><span class="red">52.94 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>17</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
-      <span class="red"><b>8</b> lines missed.</span>
+      <span class="green"><b>17</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -3456,8 +3446,8 @@
           <code class="ruby">        def call</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
           
           <code class="ruby">          page = Booklog::CreatePage.call(title: ask_for_title)</code>
         </li>
@@ -3468,14 +3458,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
           
           <code class="ruby">          puts &quot;\n Created Page #{Bold.call(text: page.title)}!\n&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="23">
-          
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
           
           <code class="ruby">          ap(page.to_h, ruby19_syntax: true)</code>
         </li>
@@ -3486,8 +3476,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
           
           <code class="ruby">          page</code>
         </li>
@@ -3522,20 +3512,20 @@
           <code class="ruby">        def ask_for_title(title = nil)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
-          
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
           
           <code class="ruby">          while title.nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
           
           <code class="ruby">            entered_title = Ask.input &#39;Page Title&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
-          
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
           
           <code class="ruby">            title = entered_title if Ask.confirm entered_title</code>
         </li>
@@ -3552,8 +3542,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
-          
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
           
           <code class="ruby">          title</code>
         </li>
@@ -4143,7 +4133,7 @@
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">            date_finished: ask_for_date_finished</code>
+          <code class="ruby">            date_finished: ask_for_date_finished,</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="35">
@@ -6673,66 +6663,6 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-      
-        <div class="source_table" id="a6a931cec87186e5d6bdc5cf7d3cad958ebd389d">
-  <div class="header">
-    <h3>booklog/feature.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
-    <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="never" data-hits="" data-linenumber="1">
-          
-          
-          <code class="ruby"># frozen_string_literal: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="2">
-          <span class="hits">1</span>
-          
-          <code class="ruby">require &#39;ostruct&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="3">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
-          
-          <code class="ruby">module Booklog</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  class Feature &lt; OpenStruct</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">end</code>
@@ -10333,11 +10263,11 @@
         <div class="source_table" id="a6522243e59f237eba57335afd03e7fbf4e9cb8b">
   <div class="header">
     <h3>spec/support/io_helper.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">92.31 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
+      <b>26</b> relevant lines. 
       <span class="green"><b>24</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -10398,8 +10328,8 @@
           <code class="ruby">    def render(sth)</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="10">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="4" data-linenumber="10">
+          <span class="hits">4</span>
           
           <code class="ruby">      @output += sth</code>
         </li>
@@ -10422,8 +10352,8 @@
           <code class="ruby">    def clear</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="14">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
           
           <code class="ruby">      @output = &#39;&#39;</code>
         </li>
@@ -10446,8 +10376,8 @@
           <code class="ruby">    def rerender(sth)</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="18">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="9" data-linenumber="18">
+          <span class="hits">9</span>
           
           <code class="ruby">      @output = sth</code>
         </li>
@@ -10470,26 +10400,26 @@
           <code class="ruby">    def read_key_while(_return_char = false)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="22">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="2" data-linenumber="22">
+          <span class="hits">2</span>
           
           <code class="ruby">      chop_index = nil</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="23">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="2" data-linenumber="23">
+          <span class="hits">2</span>
           
           <code class="ruby">      Array(@keys).each_with_index do |key, index|</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="24">
-          <span class="hits">32</span>
+        <li class="covered" data-hits="11" data-linenumber="24">
+          <span class="hits">11</span>
           
           <code class="ruby">        chop_index = index</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="25">
-          <span class="hits">32</span>
+        <li class="covered" data-hits="11" data-linenumber="25">
+          <span class="hits">11</span>
           
           <code class="ruby">        break unless yield(key)</code>
         </li>
@@ -10500,8 +10430,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="27">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
           
           <code class="ruby">      @keys.slice!(0, chop_index + 1) if chop_index</code>
         </li>
@@ -10524,20 +10454,20 @@
           <code class="ruby">    def type_input(input)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="31">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
           
           <code class="ruby">      @keys ||= []</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="32">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="10" data-linenumber="32">
+          <span class="hits">10</span>
           
           <code class="ruby">      input.each_char { |c| @keys &lt;&lt; c }</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="33">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
           
           <code class="ruby">      @keys &lt;&lt; &quot;\r&quot;</code>
         </li>
@@ -10560,8 +10490,8 @@
           <code class="ruby">    def select</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="37">
+          
           
           <code class="ruby">      @keys &lt;&lt; &#39;return&#39;</code>
         </li>
@@ -10584,8 +10514,8 @@
           <code class="ruby">    def confirm</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="41">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
           
           <code class="ruby">      @keys &lt;&lt; &#39;y&#39;</code>
         </li>
@@ -10599,10 +10529,34 @@
         <li class="never" data-hits="" data-linenumber="43">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def move_down</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="45">
+          
+          
+          <code class="ruby">      @keys &lt;&lt; &#39;down&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby">end</code>

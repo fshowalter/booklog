@@ -8,12 +8,12 @@ describe Booklog::Console::CreatePlaceholder do
       'the-shining-by-stephen-king' => OpenStruct.new(
         title_with_author: 'The Shining by Stephen King',
         cover: 'cover',
-        cover_placeholder: 'placeholder'
+        cover_placeholder: 'placeholder',
       ),
       'night-shift-by-stephen-king ' => OpenStruct.new(
         title_with_author: 'Night Shift by Stephen King',
-        cover: 'cover-url'
-      )
+        cover: 'cover-url',
+      ),
     }
   end
 
@@ -21,8 +21,8 @@ describe Booklog::Console::CreatePlaceholder do
     {
       'z-page' => OpenStruct.new(
         title: 'Z Page',
-        backdrop: 'backdrop'
-      )
+        backdrop: 'backdrop',
+      ),
     }
   end
 

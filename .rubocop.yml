@@ -11,3 +11,9 @@ Metrics/ParameterLists:
 
 MultilineOperationIndentation:
   Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma

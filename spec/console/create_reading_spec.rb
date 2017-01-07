@@ -9,9 +9,9 @@ describe Booklog::Console::CreateReading do
         id: 'the-shining-by-stephen-king',
         title: 'The Shining',
         authors: [
-          OpenStruct.new(name: 'Stephen King')
-        ]
-      )
+          OpenStruct.new(name: 'Stephen King'),
+        ],
+      ),
     }
   end
 
@@ -44,7 +44,7 @@ describe Booklog::Console::CreateReading do
       pages_read: '447',
       sequence: 9999,
       date_started: Date.parse('2011-11-04'),
-      date_finished: Date.parse('2011-11-06')
+      date_finished: Date.parse('2011-11-06'),
     )
   end
 end

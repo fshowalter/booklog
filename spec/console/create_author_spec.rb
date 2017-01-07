@@ -20,8 +20,8 @@ describe Booklog::Console::CreateAuthor do
     expect(Booklog::CreateAuthor).to receive(:call).with(
       name: 'Joe Author',
       sortable_name: 'Author, Joe',
-      url: 'https://some.url'
-    ).and_return(OpenStruct.new(id: 'joe-author'))
+      url: 'https://some.url',
+    ).and_return(OpenStruct.new(id: 'new-author-id'))
 
     Booklog::Console::CreateAuthor.call
   end
