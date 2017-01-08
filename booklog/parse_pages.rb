@@ -8,7 +8,7 @@ module Booklog
   class ParsePages
     class << self
       def call(pages_path:)
-        pages = Dir["#{pages_path}/*.md"].map do |file|
+        Dir["#{pages_path}/*.md"].map do |file|
           page = read_file(file: file)
           next unless page.is_a?(Page)
           [page.slug, page]

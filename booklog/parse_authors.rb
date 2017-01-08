@@ -8,7 +8,7 @@ module Booklog
   class ParseAuthors
     class << self
       def call(authors_path:)
-        authors = Dir["#{authors_path}/*.yml"].map do |file|
+        Dir["#{authors_path}/*.yml"].map do |file|
           author_data = read_author(file)
           next unless author_data.is_a?(Hash)
           author = Author.new(author_data)
@@ -21,9 +21,9 @@ module Booklog
       def read_author(file)
         YAML.load(IO.read(file))
       rescue YAML::SyntaxError => e
-        puts "YAML Exception author #{file}: #{e.message}"
+        puts "YAML Exception reading #{file}: #{e.message}"
       rescue => e
-        puts "Error author #{file}: #{e.message}"
+        puts "Error reading #{file}: #{e.message}"
       end
     end
   end

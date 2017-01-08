@@ -3,35 +3,40 @@ require 'spec_helper'
 require 'support/stub_files_helper'
 
 describe Booklog::ParseBooks do
+  let(:author) do
+    OpenStruct.new
+  end
+
+  let(:authors) do
+    {
+      'stephen-king' => author,
+    }
+  end
+
   let(:files) do
     {
       'book1.yml' => <<-EOF,
 ---
+:id: the-shining-by-stephen-king
 :title: The Shining
+:sortable_title: Shining, The
 :aka_titles: []
-:authors:
-- King, Stephen
-:page_count: '447'
+:author_ids:
+- stephen-king
+:isbn: '9780385121675'
 :year_published: '1977'
-:isbn: '1234567890'
-:cover: 'cover'
-:cover_placeholder: 'placeholder'
----
       EOF
 
       'book2.yml' => <<-EOF
 ---
+:id: night-shift-by-stephen-king
 :title: Night Shift
+:sortable_title: Night Shift
 :aka_titles: []
-:authors:
-- King, Stephen
-:page_count: '326'
+:author_ids:
+- stephen-king
+:isbn: '9780385129916'
 :year_published: '1978'
-:isbn: '0987654321'
-:cover: 'cover'
-:cover_placeholder: 'placeholder'
-
----
       EOF
     }
   end
@@ -39,12 +44,12 @@ describe Booklog::ParseBooks do
   it 'reads books from the given directory' do
     stub_files(files: files, path: 'test_books_path/*.yml')
 
-    books = Booklog::ParseBooks.call(books_path: 'test_books_path')
+    books = Booklog::ParseBooks.call(books_path: 'test_books_path', authors: authors)
 
-    expect(books.length).to eq 2
-
-    expect(books['1234567890'].isbn).to eq '1234567890'
-    expect(books['0987654321'].isbn).to eq '0987654321'
+    expect(books.keys).to eq([
+                               'the-shining-by-stephen-king',
+                               'night-shift-by-stephen-king',
+                             ])
   end
 
   context 'when error parsing yaml' do
@@ -52,7 +57,7 @@ describe Booklog::ParseBooks do
       {
         'book1.yml' => <<-EOF,
 ---
-:sequence: 1
+:id: 1
 1:bad
 ---
         EOF
@@ -66,7 +71,7 @@ describe Booklog::ParseBooks do
         expect(arg).to start_with('YAML Exception reading book1.yml:')
       end
 
-      Booklog::ParseBooks.call(books_path: 'test_books_path')
+      Booklog::ParseBooks.call(books_path: 'test_books_path', authors: authors)
     end
   end
 
@@ -81,16 +86,14 @@ describe Booklog::ParseBooks do
 
         'book2.yml' => <<-EOF
 ---
+:id: night-shift-by-stephen-king
 :title: Night Shift
+:sortable_title: Night Shift
 :aka_titles: []
-:authors:
-- King, Stephen
-:page_count: '326'
+:author_ids:
+- stephen-king
+:isbn: '9780385129916'
 :year_published: '1978'
-:isbn: '0987654321'
-:cover: 'cover'
-:cover_placeholder: 'placeholder'
----
       EOF
       }
     end
@@ -106,7 +109,7 @@ describe Booklog::ParseBooks do
       expect(Booklog::ParseBooks).to receive(:puts)
         .with('Error reading book1.yml: RuntimeError')
 
-      Booklog::ParseBooks.call(books_path: 'test_books_path')
+      Booklog::ParseBooks.call(books_path: 'test_books_path', authors: authors)
     end
   end
 end

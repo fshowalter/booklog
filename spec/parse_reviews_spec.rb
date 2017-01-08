@@ -3,14 +3,36 @@ require 'spec_helper'
 require 'support/stub_files_helper'
 
 describe Booklog::ParseReviews do
+  let(:book1) do
+    OpenStruct.new(id: 'book-1-id', title: 'Book 1', sortable_title: 'Book 1')
+  end
+
+  let(:book2) do
+    OpenStruct.new(id: 'book-2-id', title: 'Book 2', sortable_title: 'Book 2')
+  end
+
+  let(:book3) do
+    OpenStruct.new(id: 'book-3-id', title: 'Book 3', sortable_title: 'Book 3')
+  end
+
+  let(:books) do
+    {
+      'book-2-id' => book2,
+      'book-1-id' => book1,
+      'book-3-id' => book3,
+    }
+  end
+
   let(:files) do
     {
       'review1.md' => <<-EOF,
 ---
 :sequence: 1
-:book_id: the-shining-by-stephen-king
+:book_id: book-2-id
 :date: 2016-12-30
 :grade: B+
+:cover: cover
+:cover_placeholder: placeholder
 ---
 Review 1 content.
       EOF
@@ -18,9 +40,11 @@ Review 1 content.
       'review2.md' => <<-EOF
 ---
 :sequence: 2
-:book_id: night-shift-by-stephen-king
+:book_id: book-3-id
 :date: 2017-01-02
 :grade: C+
+:cover: cover
+:cover_placeholder: placeholder
 ---
 Review 2 content.
       EOF
@@ -30,17 +54,14 @@ Review 2 content.
   it 'reads reviews from the given directory' do
     stub_files(files: files, path: 'test_reviews_path/*.md')
 
-    reviews = Booklog::ParseReviews.call(reviews_path: 'test_reviews_path')
+    reviews = Booklog::ParseReviews.call(reviews_path: 'test_reviews_path', books: books)
 
-    expect(reviews.length).to eq 2
+    expect(reviews.keys).to eq ['book-2-id', 'book-3-id']
 
-    expect(reviews['the-shining-by-stephen-king'].book_id).to eq 'the-shining-by-stephen-king'
-    expect(reviews['the-shining-by-stephen-king'].sequence).to eq 1
-    expect(reviews['the-shining-by-stephen-king'].content).to eq "Review 1 content.\n"
-
-    expect(reviews['night-shift-by-stephen-king'].book_id).to eq 'night-shift-by-stephen-king'
-    expect(reviews['night-shift-by-stephen-king'].sequence).to eq 2
-    expect(reviews['night-shift-by-stephen-king'].content).to eq "Review 2 content.\n"
+    expect(reviews['book-2-id'].title).to eq 'Book 2'
+    expect(reviews['book-2-id'].content).to eq "Review 1 content.\n"
+    expect(reviews['book-3-id'].title).to eq 'Book 3'
+    expect(reviews['book-3-id'].content).to eq "Review 2 content.\n"
   end
 
   context 'when error parsing yaml' do
@@ -63,7 +84,7 @@ Review 1 content.
         expect(arg).to start_with('YAML Exception reading review1.md:')
       end
 
-      Booklog::ParseReviews.call(reviews_path: 'test_reviews_path')
+      Booklog::ParseReviews.call(reviews_path: 'test_reviews_path', books: books)
     end
   end
 
@@ -80,9 +101,11 @@ Review 1 content.
         'review2.md' => <<-EOF
 ---
 :sequence: 2
-:book_id: night-shift-by-stephen-king
+:book_id: book-3-id
 :date: 2017-01-02
 :grade: C+
+:cover: cover
+:cover_placeholder: placeholder
 ---
 Review 2 content.
       EOF
@@ -100,7 +123,7 @@ Review 2 content.
       expect(Booklog::ParseReviews).to receive(:puts)
         .with('Error reading review1.md: RuntimeError')
 
-      Booklog::ParseReviews.call(reviews_path: 'test_reviews_path')
+      Booklog::ParseReviews.call(reviews_path: 'test_reviews_path', books: books)
     end
   end
 end

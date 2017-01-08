@@ -22,27 +22,23 @@ describe Booklog do
 
   describe '#next_reading_sequence' do
     it 'returns the length of readings plus one' do
-      expect(Booklog).to(receive(:readings)) do
-        {
-          1 => OpenStruct.new(sequence: 3),
-          2 => OpenStruct.new(sequence: 1)
-        }
-      end
+      readings = {
+        1 => OpenStruct.new(sequence: 3),
+        2 => OpenStruct.new(sequence: 1),
+      }
 
-      expect(Booklog.next_reading_sequence).to eq 3
+      expect(Booklog.next_reading_sequence(readings: readings)).to eq 3
     end
   end
 
   describe '#next_review_sequence' do
     it 'returns the length of reviews plus one' do
-      expect(Booklog).to(receive(:reviews)) do
-        {
-          1 => OpenStruct.new(sequence: 3),
-          2 => OpenStruct.new(sequence: 1)
-        }
-      end
+      reviews = {
+        1 => OpenStruct.new(sequence: 3),
+        2 => OpenStruct.new(sequence: 1),
+      }
 
-      expect(Booklog.next_review_sequence).to eq 3
+      expect(Booklog.next_review_sequence(reviews: reviews)).to eq 3
     end
   end
 
@@ -50,7 +46,7 @@ describe Booklog do
     it 'calls Booklog::ParseBooks' do
       expect(Booklog::ParseBooks).to(receive(:call)).and_return('parse data')
 
-      expect(Booklog.books).to eq 'parse data'
+      expect(Booklog.books(authors: {})).to eq 'parse data'
     end
   end
 
@@ -66,7 +62,7 @@ describe Booklog do
     it 'calls Booklog::ParseReviews' do
       expect(Booklog::ParseReviews).to(receive(:call)).and_return('parse data')
 
-      expect(Booklog.reviews).to eq 'parse data'
+      expect(Booklog.reviews(books: {})).to eq 'parse data'
     end
 
     describe 'when #cache_reviews is true' do
@@ -81,7 +77,7 @@ describe Booklog do
       it 'caches reviews' do
         expect(Booklog::ParseReviews).to(receive(:call)).and_return('parse data')
 
-        expect(Booklog.reviews).to eq 'parse data'
+        expect(Booklog.reviews(books: {})).to eq 'parse data'
 
         expect(Booklog.instance_variable_get('@reviews')).to eq 'parse data'
       end
@@ -92,23 +88,21 @@ describe Booklog do
     it 'calls Booklog::ParseReadings' do
       expect(Booklog::ParseReadings).to(receive(:call)).and_return('parse data')
 
-      expect(Booklog.readings).to eq 'parse data'
+      expect(Booklog.readings(books: {})).to eq 'parse data'
     end
   end
 
   describe '#reviews_by_sequence' do
     it 'returns the reviews sorted by sequence in reverse' do
-      expect(Booklog).to(receive(:reviews)) do
-        {
-          'isbn 1' => OpenStruct.new(isbn: 'isbn 1', sequence: 2),
-          'isbn 2' => OpenStruct.new(isbn: 'isbn 2', sequence: 1)
-        }
-      end
+      reviews = {
+        'book-id-1' => OpenStruct.new(sequence: 1),
+        'book-id-2' => OpenStruct.new(sequence: 2),
+      }
 
-      reviews_by_sequence = Booklog.reviews_by_sequence
+      reviews_by_sequence = Booklog.reviews_by_sequence(reviews: reviews)
 
-      expect(reviews_by_sequence.first.isbn).to eq('isbn 1')
-      expect(reviews_by_sequence.last.isbn).to eq('isbn 2')
+      expect(reviews_by_sequence.first.sequence).to eq(2)
+      expect(reviews_by_sequence.last.sequence).to eq(1)
     end
 
     describe 'when #cache_reviews is true' do
@@ -121,17 +115,15 @@ describe Booklog do
       end
 
       it 'caches reviews_by_sequence' do
-        expect(Booklog).to(receive(:reviews)) do
-          {
-            'isbn 1' => OpenStruct.new(isbn: 'isbn 1', sequence: 2),
-            'isbn 2' => OpenStruct.new(isbn: 'isbn 2', sequence: 1)
-          }
-        end
+        reviews = {
+          'book-id-1' => OpenStruct.new(sequence: 1),
+          'book-id-2' => OpenStruct.new(sequence: 2),
+        }
 
-        reviews_by_sequence = Booklog.reviews_by_sequence
+        reviews_by_sequence = Booklog.reviews_by_sequence(reviews: reviews)
 
-        expect(reviews_by_sequence.first.isbn).to eq('isbn 1')
-        expect(reviews_by_sequence.last.isbn).to eq('isbn 2')
+        expect(reviews_by_sequence.first.sequence).to eq(2)
+        expect(reviews_by_sequence.last.sequence).to eq(1)
 
         expect(Booklog.instance_variable_get('@reviews_by_sequence').length).to eq 2
       end
@@ -139,66 +131,23 @@ describe Booklog do
   end
 
   describe '#authors' do
-    it 'returns a collection of reviewed authors' do
-      expect(Booklog).to(receive(:books)) do
-        {
-          'isbn 1' => OpenStruct.new(
-            isbn: 'isbn 1',
-            authors: [
-              OpenStruct.new(slug: 'stephen-king'),
-              OpenStruct.new(slug: 'peter-straub')
-            ]
-          ),
-          'isbn 2' => OpenStruct.new(
-            isbn: 'isbn 2',
-            authors: [
-              OpenStruct.new(slug: 'piers-anthony')
-            ]
-          ),
-          'isbn 3' => OpenStruct.new(
-            isbn: 'isbn 3',
-            authors: [
-              OpenStruct.new(slug: 'richard-laymon')
-            ]
-          ),
-          'isbn 4' => OpenStruct.new(
-            isbn: 'isbn 4',
-            authors: [
-              OpenStruct.new(slug: 'stephen-king')
-            ]
-          )
-        }
-      end
+    it 'calls Booklog::ParseAuthors' do
+      expect(Booklog::ParseAuthors).to(receive(:call)).and_return('parse data')
 
-      expect(Booklog).to(receive(:reviews)) do
-        {
-          'isbn 1' => OpenStruct.new(isbn: 'isbn 1'),
-          'isbn 3' => OpenStruct.new(isbn: 'isbn 3'),
-          'isbn 4' => OpenStruct.new(isbn: 'isbn 3')
-        }
-      end
-
-      authors = Booklog.authors
-      expect(authors.length).to eq 3
-
-      expect(authors.map(&:slug)).to match_array(
-        ['stephen-king', 'richard-laymon', 'peter-straub']
-      )
+      expect(Booklog.authors).to eq 'parse data'
     end
   end
 
-  describe '#readings_for_isbn' do
-    it 'returns a collection of readings for the given isbn' do
-      expect(Booklog).to(receive(:readings)) do
-        [
-          OpenStruct.new(isbn: 'isbn 1'),
-          OpenStruct.new(isbn: 'isbn 2'),
-          OpenStruct.new(isbn: 'isbn 3'),
-          OpenStruct.new(isbn: 'isbn 2')
-        ]
-      end
+  describe '#readings_for_book_id' do
+    it 'returns a collection of readings for the given book_id' do
+      readings = [
+        OpenStruct.new(book_id: 'book-1'),
+        OpenStruct.new(book_id: 'book-2'),
+        OpenStruct.new(book_id: 'book-3'),
+        OpenStruct.new(book_id: 'book-2'),
+      ]
 
-      readings = Booklog.readings_for_isbn(isbn: 'isbn 2')
+      readings = Booklog.readings_for_book_id(readings: readings, book_id: 'book-2')
       expect(readings.length).to eq 2
     end
   end

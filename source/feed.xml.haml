@@ -24,7 +24,7 @@ layout: false
     - break if index > 9
     %entry
       %title
-        #{review.sequence}. #{review.title_with_author} #{grade_to_unicode_stars(grade: review.grade)}
+        #{review.sequence}. #{review.title_with_author}
       %link{ href: "#{Booklog.site_url}#{href_for_review(review)}/" }
       %id #{Booklog.site_url}#{href_for_review(review)}
       %updated= review.date.xmlschema

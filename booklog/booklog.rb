@@ -76,19 +76,9 @@ module Booklog
 
     def reviews_by_author(reviews: Booklog.reviews)
       if cache_reviews
-        @reviews_by_author ||= reviews.values.each_with_object({}) do |review, memo|
-          review.authors.each do |author|
-            memo[author.id] ||= []
-            memo[author.id] << review
-          end
-        end
+        @reviews_by_author ||= hash_reviews_by_author(reviews: reviews)
       else
-        reviews.values.each_with_object({}) do |review, memo|
-          review.authors.each do |author|
-            memo[author.id] ||= []
-            memo[author.id] << review
-          end
-        end
+        hash_reviews_by_author(reviews: reviews)
       end
     end
 
@@ -102,6 +92,17 @@ module Booklog
 
     def readings_for_book_id(readings: Booklog.readings, book_id:)
       readings.select { |reading| reading.book_id == book_id }
+    end
+
+    private
+
+    def hash_reviews_by_author(reviews:)
+      reviews.values.each_with_object({}) do |review, memo|
+        review.authors.each do |author|
+          memo[author.id] ||= []
+          memo[author.id] << review
+        end
+      end
     end
   end
 end

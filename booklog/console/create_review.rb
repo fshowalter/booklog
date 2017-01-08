@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-require 'active_support/core_ext/object/try'
-require 'active_support/core_ext/array/conversions'
+require 'awesome_print'
 
 module Booklog
   #
@@ -16,12 +15,13 @@ module Booklog
         # Responsible for processing a new review command.
         #
         # @return [String] The full path to the new entry.
-        def call
-          book = AskForBook.call(books: Booklog.books.values)
+        def call(books: Booklog.books)
+          book = AskForBook.call(books: books.values)
           review = Booklog::CreateReview.call(book: book)
 
-          puts "\n Created Review ##{Bold.call(text: review.sequence.to_s)}:" \
-          "#{book.title_with_author}\n" \
+          puts "\n Created Review ##{Bold.call(text: review.sequence.to_s)}!"
+
+          ap(review.to_h, ruby19_syntax: true)
 
           review
         end

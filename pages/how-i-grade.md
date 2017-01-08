@@ -1,6 +1,5 @@
 ---
 :title: How I Grade
-:sequence: 13
 :slug: how-i-grade
 :date: 2014-12-07
 :backdrop: https://lh3.googleusercontent.com/pNKh2GOyobs4BZMqBJlYSj5PEQCAkg6hkwAjfEU4RAHFdB1902cxfnn8gcU-raMGsYzWMUj2T6Qw=w1000-l75-rj

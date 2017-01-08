@@ -1,6 +1,5 @@
 ---
 :title: On Abandoning Books
-:sequence: 13
 :slug: on-abandoning-books
 :date: 2016-02-13
 :backdrop: https://lh3.googleusercontent.com/k_mJO8xcqe6kcyH2pe52TTSJoJH2GNBXpJkewi58P2aiLRUsrsgv1tJiGFBk10tKkkF5Ow9K8pooZ1E9PsJup0T9cK6XfweNwBBbGd0WrZ1MjERfvKgnDwVORtWeRnBBrq5Pgw=w1000-l75-rj

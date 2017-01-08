@@ -8,7 +8,7 @@ module Booklog
   class ParseReadings
     class << self
       def call(readings_path:, books:)
-        readings = Dir["#{readings_path}/*.yml"].map do |file|
+        Dir["#{readings_path}/*.yml"].map do |file|
           reading_data = read_reading(file)
           next unless reading_data.is_a?(Hash)
           build_reading(reading_data: reading_data, books: books)

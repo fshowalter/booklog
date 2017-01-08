@@ -3,48 +3,54 @@ require 'spec_helper'
 require 'support/io_helper'
 
 describe Booklog::Console::CreateReading do
+  let(:book1) do
+    OpenStruct.new(id: 'book-1-id', title: 'Book 1', sortable_title: 'Book 1')
+  end
+
+  let(:book2) do
+    OpenStruct.new(id: 'book-2-id', title: 'Book 2', sortable_title: 'Book 2')
+  end
+
+  let(:book3) do
+    OpenStruct.new(id: 'book-3-id', title: 'Book 3', sortable_title: 'Book 3')
+  end
+
   let(:books) do
     {
-      'the-shining-by-stephen-king' => OpenStruct.new(
-        id: 'the-shining-by-stephen-king',
-        title: 'The Shining',
-        authors: [
-          OpenStruct.new(name: 'Stephen King'),
-        ],
-      ),
+      'book-2-id' => book2,
+      'book-1-id' => book1,
+      'book-3-id' => book3,
     }
   end
 
   before(:each) do
     IOHelper.clear
-    allow(File).to receive(:open).and_call_original
-    allow(File).to receive(:open).with(Booklog.readings_path + '/9999-the-shining-by-stephen-king.yml', 'w')
-    allow(Booklog).to receive(:reviews).and_return({})
-
-    expect(Booklog).to receive(:books).and_return(books)
-    expect(Booklog).to receive(:next_reading_number).and_return(9999)
   end
 
-  it 'creates reading' do
-    IOHelper.type_input('The Shining')
+  it 'calls Booklog::CreateReading with correct data' do
+    IOHelper.type_input('Book')
+    IOHelper.move_down
     IOHelper.select
-    IOHelper.type_input('447')
+    IOHelper.type_input('9876543210')
+    IOHelper.confirm
+    IOHelper.type_input('276')
     IOHelper.confirm
     IOHelper.type_input('2011-11-04')
     IOHelper.confirm
     IOHelper.type_input('2011-11-06')
     IOHelper.confirm
 
-    expect(Booklog::Console::CreateReading).to receive(:puts)
+    expect(Booklog::Console::CreateReading).to receive(:puts).twice
 
-    reading = Booklog::Console::CreateReading.call
-
-    expect(reading.to_h).to eq(
-      book_id: 'the-shining-by-stephen-king',
-      pages_read: '447',
-      sequence: 9999,
+    expect(Booklog::CreateReading).to receive(:call).with(
+      book: book2,
+      isbn: '9876543210',
+      pages_read: '276',
+      pages_total: '276',
       date_started: Date.parse('2011-11-04'),
       date_finished: Date.parse('2011-11-06'),
-    )
+    ).and_return(OpenStruct.new(sequence: 'new-sequence-number'))
+
+    Booklog::Console::CreateReading.call(books: books)
   end
 end

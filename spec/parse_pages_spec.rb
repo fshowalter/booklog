@@ -10,6 +10,8 @@ describe Booklog::ParsePages do
 :title: Page 1
 :slug: page-1
 :date: 2014-07-01
+:backdrop: backdrop
+:backdrop_placeholder: placeholder
 ---
 Page 1 content.
       EOF
@@ -19,6 +21,8 @@ Page 1 content.
 :title: Page 2
 :slug: page-2
 :date: 2014-07-01
+:backdrop: backdrop
+:backdrop_placeholder: placeholder
 ---
 Page 2 content.
       EOF
@@ -30,7 +34,7 @@ Page 2 content.
 
     pages = Booklog::ParsePages.call(pages_path: 'test_pages_path')
 
-    expect(pages.length).to eq 2
+    expect(pages.keys).to eq(['page-1', 'page-2'])
 
     expect(pages['page-1'].title).to eq 'Page 1'
     expect(pages['page-1'].content).to eq "Page 1 content.\n"
@@ -44,7 +48,7 @@ Page 2 content.
       {
         'page1.md' => <<-EOF,
 ---
-:sequence: 1
+:slug: 1
 1:bad
 ---
 Page 1 content.
@@ -78,6 +82,8 @@ Page 1 content.
 :title: Page 2
 :slug: page-2
 :date: 2014-07-01
+:backdrop: backdrop
+:backdrop_placeholder: placeholder
 ---
 Page 2 content.
         EOF

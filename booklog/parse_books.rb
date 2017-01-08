@@ -3,7 +3,7 @@ require 'yaml'
 
 module Booklog
   #
-  # Responsible for parsing reading data.
+  # Responsible for parsing book data.
   #
   class ParseBooks
     class << self

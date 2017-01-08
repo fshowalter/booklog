@@ -7,25 +7,20 @@ describe Booklog::Helpers do
   describe '#data_for_reading' do
     it 'returns a data hash for the given reading' do
       reading = OpenStruct.new(
+        date_finished: '2011-11-06',
         date_started: '2011-11-04',
-        date_finished: '2011-11-06'
-      )
-
-      book = OpenStruct.new(
-        title: 'The Shining',
-        isbn: '0451150325',
         sortable_title: 'Shining, The',
-        year_published: 1977
+        title_with_author: 'The Shining by Stephen King',
+        year_published: 1977,
       )
 
-      expect(context.data_for_reading(book: book, reading: reading)).to eq(
+      expect(context.data_for_reading(reading: reading)).to eq(
         data: {
-          title: 'The Shining',
-          isbn: '0451150325',
+          title: 'The Shining by Stephen King',
           sort_title: 'Shining, The',
           year_published: 1977,
           date_started: '2011-11-04',
-          date_finished: '2011-11-06'
+          date_finished: '2011-11-06',
         }
       )
     end

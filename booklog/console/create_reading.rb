@@ -65,7 +65,7 @@ module Booklog
             page_count = entered_page_count if Ask.confirm("Read #{pages_read} of #{pages_total}")
           end
 
-          pages_read, pages_total
+          [pages_read, pages_total]
         end
 
         def ask_for_date_started
