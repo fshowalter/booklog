@@ -24,6 +24,8 @@ module Booklog
           id: id,
           title: title,
           date: Date.today,
+          backdrop: '',
+          backdrop_placeholder: nil,
         }
       end
 

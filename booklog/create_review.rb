@@ -29,7 +29,7 @@ module Booklog
       def write_file(reviews_path:, front_matter:)
         file_name = File.join(
           reviews_path,
-          format('%04d', front_matter[:sequence]) + '-' + book.id + '.md',
+          format('%04d', front_matter[:sequence]) + '-' + front_matter[:book_id] + '.md',
         )
 
         content = "#{front_matter.to_yaml}---\n"

@@ -49,7 +49,7 @@ module Booklog
             "#{name_with_annotation} (#{Booklog::ConvertIntToRoman.call(existing_authors.length + 1)})"
         end
 
-        Booklog::Slugize.call(text: name_with_annotation)
+        id = Booklog::Slugize.call(text: name_with_annotation)
 
         [id, name_with_annotation]
       end

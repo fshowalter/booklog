@@ -31,10 +31,10 @@ module Booklog
         @digits_lookup.keys.sort.reverse.each_with_object('') do |digit_value, result|
           while remainder >= digit_value
             remainder -= digit_value
-            result += @@digits_lookup[digit_value]
+            result += @digits_lookup[digit_value]
           end
 
-          break if remainder <= 0
+          break(result) if remainder <= 0
         end
       end
     end

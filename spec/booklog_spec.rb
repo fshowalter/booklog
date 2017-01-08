@@ -84,6 +84,66 @@ describe Booklog do
     end
   end
 
+  describe '#reviews_by_author' do
+    let(:author1) do
+      OpenStruct.new(name: 'Author 1')
+    end
+
+    let(:author2) do
+      OpenStruct.new(name: 'Author 2')
+    end
+
+    let(:author3) do
+      OpenStruct.new(name: 'Author 3')
+    end
+
+    let(:review1) do
+      OpenStruct.new(id: 'review-1', authors: [author1])
+    end
+
+    let(:review2) do
+      OpenStruct.new(id: 'review-2', authors: [author1, author2])
+    end
+
+    let(:review3) do
+      OpenStruct.new(id: 'review-3', authors: [author3])
+    end
+
+    let(:reviews) do
+      {
+        'review-1' => review1,
+        'review-2' => review2,
+        'review-3' => review3,
+      }
+    end
+
+    it 'rehashes reviews by author' do
+      reviews_by_author = Booklog.reviews_by_author(reviews: reviews)
+
+      expect(reviews_by_author).to match(author1 => [review1, review2],
+                                         author2 => [review2],
+                                         author3 => [review3])
+    end
+
+    describe 'when #cache_reviews is true' do
+      before(:each) do
+        Booklog.cache_reviews = true
+      end
+
+      after(:each) do
+        Booklog.cache_reviews = false
+      end
+
+      it 'rehashes reviews by author' do
+        Booklog.reviews_by_author(reviews: reviews)
+
+        expect(Booklog.instance_variable_get('@reviews_by_author')).to match(author1 => [review1, review2],
+                                                                             author2 => [review2],
+                                                                             author3 => [review3])
+      end
+    end
+  end
+
   describe '#readings' do
     it 'calls Booklog::ParseReadings' do
       expect(Booklog::ParseReadings).to(receive(:call)).and_return('parse data')
