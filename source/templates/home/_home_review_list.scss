@@ -10,7 +10,7 @@
   margin: 0 0 25px;
   padding: 0;
 
-  &:after {
+  &::after {
     background-color: $color_primary;
     clear: both;
     content: '';
@@ -19,7 +19,7 @@
     margin: 40px 0 25px;
   }
 
-  &:last-of-type:after {
+  &:last-of-type::after {
     display: none;
   }
 
@@ -45,7 +45,7 @@
 }
 
 .home_review_list-review {
-  &:after {
+  &::after {
     clear: both;
     content: '';
     display: table;
@@ -116,7 +116,7 @@
   cursor: pointer;
   margin: 0;
 
-  &:before {
+  &::before {
     content: '';
     display: block;
     height: 0;

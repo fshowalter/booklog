@@ -15,8 +15,8 @@ describe Booklog::Helpers do
           %w(Newest release-date-desc),
           %w(Oldest release-date-asc),
           ['Newest Viewing', 'viewing-date-desc'],
-          ['Oldest Viewing', 'viewing-date-asc']
-        ]
+          ['Oldest Viewing', 'viewing-date-asc'],
+        ],
       )
 
       expect(filter).to eq(
@@ -28,7 +28,7 @@ describe Booklog::Helpers do
         "<option value=\"release-date-desc\">Newest</option>\n" \
         "<option value=\"release-date-asc\">Oldest</option>\n" \
         "<option value=\"viewing-date-desc\">Newest Viewing</option>\n" \
-        "<option value=\"viewing-date-asc\">Oldest Viewing</option>\n</select></div>"
+        "<option value=\"viewing-date-asc\">Oldest Viewing</option>\n</select></div>",
       )
     end
   end

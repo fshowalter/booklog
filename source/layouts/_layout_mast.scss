@@ -3,6 +3,7 @@ $color_mast_nav_link: #c9c4b3;
 $color_mast_background: #222;
 $color_search_button_background: #1f1f1f;
 $color_search_button_border: #444;
+$color_search_input_border: rgba(85, 119, 153, .85);
 
 .layout_mast {
   height: 80px;
@@ -46,7 +47,7 @@ $color_search_button_border: #444;
   &.active {
     color: $color_content_background;
 
-    &:after {
+    &::after {
       background: $color_primary;
       bottom: 0;
       content: '';
@@ -112,7 +113,7 @@ $color_search_button_border: #444;
 .layout_mast-title_link {
   color: inherit;
 
-  &:before {
+  &::before {
     background: $color_mast_background;
     border-radius: 50%;
     color: $color_content_background;
@@ -128,7 +129,7 @@ $color_search_button_border: #444;
   }
 
   @media only screen and (min-width: 40.625em) {
-    &:before {
+    &::before {
       border-radius: 50%;
       font-size: 32px;
       height: 52px;
@@ -159,7 +160,7 @@ $color_search_button_border: #444;
   width: 34px;
   z-index: 1000;
 
-  &:before {
+  &::before {
     background-image: encode_svg('<svg fill="#c9c4b3" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/> <path d="M0 0h24v24H0z" fill="none"/></svg>');
     background-size: contain;
     content: '';
@@ -225,7 +226,7 @@ $color_search_button_border: #444;
   }
 
   &:hover {
-    border-color: rgba(85, 119, 153, .85);
+    border-color: $color_search_input_border;
   }
 }
 

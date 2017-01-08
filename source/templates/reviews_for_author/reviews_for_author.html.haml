@@ -7,4 +7,4 @@ layout: :layout_single
   content_for(:javascript, javascript_include_tag('load-covers.js', async: :async))
 
 = partial('templates/reviews_for_author/reviews_for_author_header', locals: { author: author })
-= partial('templates/reviews_for_author/reviews_for_author_review_list', locals: { author: author })
+= partial('templates/reviews_for_author/reviews_for_author_review_list', locals: { author: author, reviews: reviews })

@@ -2,7 +2,7 @@
   review_slug = lambda do |review|
     grade = grade_to_image_tag(
       grade: review.grade,
-      options: { class: 'reviews_list-grade' }
+      options: { class: 'reviews_list-grade' },
     )
 
     date = review.date.strftime('%d %b %Y')
@@ -10,14 +10,11 @@
     "#{grade} #{date}"
   end
 
-  books = reviews.keys.map { |book_id| Booklog.books[book_id] }
-
 %ul.reviews_list#reviews
-  - books.sort_by(&:sortable_title).each do |book|
-    - review = reviews[book.id]
-    %li.reviews_list-item{ data_for_review(book: book, review: review) }
+  - reviews.each do |review|
+    %li.reviews_list-item{ data_for_review(review: review) }
       .reviews_list-title
         %a{ href: href_for_review(review) }
-          = book.title_with_author
+          = review.title_with_author
       .reviews_list-slug
         = review_slug.call(review)

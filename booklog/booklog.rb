@@ -99,8 +99,8 @@ module Booklog
     def hash_reviews_by_author(reviews:)
       reviews.values.each_with_object({}) do |review, memo|
         review.authors.each do |author|
-          memo[author.id] ||= []
-          memo[author.id] << review
+          memo[author] ||= []
+          memo[author] << review
         end
       end
     end

@@ -8,25 +8,31 @@ module Booklog
   class CreatePage
     class << self
       def call(pages_path: Booklog.pages_path, title:)
-        slug = Booklog::Slugize.call(text: title)
-        file_name = new_page_file_name(pages_path, slug)
+        front_matter = build_front_matter(title: title)
 
-        front_matter = {
-          title: title,
-          slug: slug,
-          date: Date.today
-        }
+        write_file(pages_path: pages_path, front_matter: front_matter)
 
-        content = "#{front_matter.to_yaml}---\n"
-        File.open(file_name, 'w') { |file| file.write(content) }
-
-        Page.new(front_matter)
+        OpenStruct.new(front_matter)
       end
 
       private
 
-      def new_page_file_name(pages_path, slug)
-        File.join(pages_path, slug + '.md')
+      def build_front_matter(title:)
+        id = Booklog::Slugize.call(text: title)
+
+        {
+          id: id,
+          title: title,
+          date: Date.today,
+        }
+      end
+
+      def write_file(pages_path:, front_matter:)
+        file_name = File.join(pages_path, front_matter[:id] + '.md')
+
+        content = "#{front_matter.to_yaml}---\n"
+
+        File.open(file_name, 'w') { |file| file.write(content) }
       end
     end
   end

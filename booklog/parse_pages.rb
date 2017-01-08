@@ -11,7 +11,7 @@ module Booklog
         Dir["#{pages_path}/*.md"].map do |file|
           page = read_file(file: file)
           next unless page.is_a?(Page)
-          [page.slug, page]
+          [page.id, page]
         end.compact.to_h
       end
 

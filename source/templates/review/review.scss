@@ -43,12 +43,12 @@ $review_post_content_first_line_color: #000;
 .review-cover_wrap {
   background-repeat: no-repeat;
   background-size: cover;
-  // border: 9px solid $color_primary;
+  border: 9px solid $color_primary;
   display: block;
-  margin: 30px 15px 10px 0;
   float: left;
-  width: 20%;
+  margin: 30px 15px 10px 0;
   position: relative;
+  width: 20%;
 
   @media only screen and (min-width: 56.25em) {
     margin-bottom: 15px;
@@ -71,7 +71,7 @@ $review_post_content_first_line_color: #000;
   cursor: pointer;
   margin: 0;
 
-  &:before {
+  &::before {
     content: '';
     display: block;
     height: 0;

@@ -10,7 +10,7 @@ module Booklog
       content_tag(:div, class: 'filter-control') do
         [
           label,
-          control
+          control,
         ].join.html_safe
       end
     end

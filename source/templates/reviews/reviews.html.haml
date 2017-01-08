@@ -4,11 +4,11 @@ layout: :layout_columns
 :ruby
   content_for(:inline_css, 'source/templates/reviews/reviews.scss')
   content_for(:javascript, javascript_include_tag('filters.js', async: :async))
-  content_for(:title, 'Reviews')
+  content_for(:title, 'Book Reviews')
 
 - content_for :layout_column_1 do
   = partial('templates/reviews/reviews_header', locals: { reviews: Booklog.reviews.values })
   = partial('templates/reviews/reviews_filters', locals: { reviews: Booklog.reviews.values })
 
 - content_for :layout_column_2 do
-  = partial('templates/reviews/reviews_list', locals: { reviews: Booklog.reviews })
+  = partial('templates/reviews/reviews_list', locals: { reviews: Booklog.reviews.values })

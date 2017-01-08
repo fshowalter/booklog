@@ -27,7 +27,7 @@ module Booklog
         'B' => ['4-stars.svg', '4 Stars (out of 5)'],
         'C' => ['3-stars.svg', '3 Stars (out of 5)'],
         'D' => ['2-stars.svg', '2 Stars (out of 5)'],
-        'F' => ['1-star.svg', '1 Star (out of 5)']
+        'F' => ['1-star.svg', '1 Star (out of 5)'],
       }.freeze
 
       class << self

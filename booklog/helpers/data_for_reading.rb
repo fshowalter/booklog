@@ -11,8 +11,8 @@ module Booklog
           sort_title: reading.sortable_title,
           year_published: reading.year_published,
           date_started: reading.date_started,
-          date_finished: reading.date_finished
-        }
+          date_finished: reading.date_finished,
+        },
       }
     end
   end

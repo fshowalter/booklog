@@ -8,7 +8,7 @@ module Booklog
       #
       # Responsible for creating a new reading instance.
       #
-      def call(
+      def call( # rubocop:disable Metrics/MethodLength
         readings_path: Booklog.readings_path,
         sequence: Booklog.next_reading_sequence,
         book:,
@@ -18,22 +18,32 @@ module Booklog
         date_started:,
         date_finished:
       )
-
-        file_name = File.join(readings_path, format('%04d', sequence) + '-' + book.id + '.yml')
-
-        reading = {
+        front_matter = {
           sequence: sequence,
           book_id: book.id,
           isbn: isbn,
           pages_total: pages_total,
           pages_read: pages_read,
           date_started: date_started,
-          date_finished: date_finished
+          date_finished: date_finished,
         }
 
-        File.open(file_name, 'w') { |file| file.write(reading.to_yaml) }
+        write_file(readings_path: readings_path, front_matter: front_matter)
 
-        OpenStruct.new(reading)
+        OpenStruct.new(front_matter)
+      end
+
+      private
+
+      def write_file(readings_path:, front_matter:)
+        file_name = File.join(
+          readings_path,
+          format('%04d', front_matter[:sequence]) + '-' + front_matter[:book_id] + '.yml',
+        )
+
+        content = "#{front_matter.to_yaml}\n"
+
+        File.open(file_name, 'w') { |file| file.write(content) }
       end
     end
   end

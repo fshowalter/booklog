@@ -18,6 +18,7 @@ module Booklog
       @cover_placeholder = cover_placeholder
     end
 
-    def_delegators :@book, :id, :title, :aka_titles, :title_with_author, :authors, :year_published, :isbn
+    def_delegators :@book, :id, :title, :sortable_title, :aka_titles, :title_with_author, :authors, :year_published,
+                   :isbn
   end
 end

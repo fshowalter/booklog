@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
 
-  &:after {
+  &::after {
     clear: both;
     content: '';
     display: table;
@@ -72,7 +72,7 @@
   transition: .8s opacity;
   width: 100%;
 
-  &:before {
+  &::before {
     content: '';
     display: block;
     height: 0;

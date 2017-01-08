@@ -10,22 +10,31 @@ module Booklog
           sequence: Booklog.next_review_sequence,
           book:
       )
-
-        file_name = File.join(reviews_path, format('%04d', sequence) + '-' + book.slug + '.md')
-
-        review = {
+        front_matter = {
           sequence: sequence,
           book_id: book.id,
           date: Date.today,
           grade: '',
           cover: '',
-          cover_placeholder: nil
+          cover_placeholder: nil,
         }
 
-        content = "#{review.to_yaml}---\n"
-        File.open(file_name, 'w') { |file| file.write(content) }
+        write_file(reviews_path: reviews_path, front_matter: front_matter)
 
-        OpenStruct.new(review)
+        OpenStruct.new(front_matter)
+      end
+
+      private
+
+      def write_file(reviews_path:, front_matter:)
+        file_name = File.join(
+          reviews_path,
+          format('%04d', front_matter[:sequence]) + '-' + book.id + '.md',
+        )
+
+        content = "#{front_matter.to_yaml}---\n"
+
+        File.open(file_name, 'w') { |file| file.write(content) }
       end
     end
   end

@@ -21,7 +21,7 @@
   background-size: cover;
   margin: 0;
 
-  &:before {
+  &::before {
     content: '';
     display: block;
     height: 0;

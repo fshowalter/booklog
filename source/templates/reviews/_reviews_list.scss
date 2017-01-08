@@ -15,7 +15,7 @@
   margin-bottom: 5px;
   position: relative;
 
-  &:after {
+  &::after {
     background-color: $color_primary;
     bottom: -4px;
     content: '';
@@ -42,7 +42,7 @@
     white-space: nowrap;
   }
 
-  &:before {
+  &::before {
     content: counter(review-list) '. ';
     counter-increment: review-list;
     font-size: 14px;

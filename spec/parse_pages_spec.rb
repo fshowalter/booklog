@@ -7,8 +7,8 @@ describe Booklog::ParsePages do
     {
       'page1.md' => <<-EOF,
 ---
+:id: page-1
 :title: Page 1
-:slug: page-1
 :date: 2014-07-01
 :backdrop: backdrop
 :backdrop_placeholder: placeholder
@@ -18,8 +18,8 @@ Page 1 content.
 
       'page2.md' => <<-EOF
 ---
+:id: page-2
 :title: Page 2
-:slug: page-2
 :date: 2014-07-01
 :backdrop: backdrop
 :backdrop_placeholder: placeholder
@@ -79,8 +79,8 @@ Page 1 content.
 
         'page2.md' => <<-EOF
 ---
+:id: page-2
 :title: Page 2
-:slug: page-2
 :date: 2014-07-01
 :backdrop: backdrop
 :backdrop_placeholder: placeholder

@@ -7,7 +7,7 @@ describe Booklog::Helpers do
   describe '#range_filter' do
     it 'returns a javascript range filter' do
       filter = context.range_filter(
-        label: 'Year', attribute: 'data-year', min: '1959', max: '2014'
+        label: 'Year', attribute: 'data-year', min: '1959', max: '2014',
       )
       expect(filter).to eq(
         '<div class="filter-control">' \
@@ -22,7 +22,7 @@ describe Booklog::Helpers do
         '<div class="noUi-handle noUi-handle-upper"></div></div></div></div>' \
         '<input type="number" value="1959" min="1959" max="2014" step="1" ' \
         'class="filter-numeric min" /><input type="number" value="2014" min="1959" ' \
-        'max="2014" step="1" class="filter-numeric max" /></div></div>'
+        'max="2014" step="1" class="filter-numeric max" /></div></div>',
       )
     end
   end

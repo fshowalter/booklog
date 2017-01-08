@@ -1,22 +1,5 @@
 :ruby
 
-  slug_for_reading = lambda do |reading|
-    status = 'Read '
-
-    if reading.pages_read != reading.pages_total
-      status = "Abandoned after #{reading.pages_read} of #{reading.pages_total} pages"
-    end
-
-    dates = "#{reading.date_started.strftime("%b %d, %Y")} to #{reading.date_finished.strftime("%b %d, %Y")}"
-
-    # if reading.date_started.year == reading.date_finished.year &&
-    #  reading.date_started.month == reading.date_started.month
-    #  dates = "#{reading.date_started.strftime("%b %d")} to #{reading.date_finished.strftime("%d, %Y")}"
-    # end
-
-    dates
-  end
-
 %ol.readings_list#readings
   - readings.reverse.each do |reading|
     - review = Booklog.reviews[reading.book_id]
@@ -33,6 +16,6 @@
         %span.readings_list-item_pages
           pp. #{reading.pages_read}/#{reading.pages_total}
         %span.readings_list-item_divider
-          =" | "
-        = slug_for_reading.call(reading)
+          = ' | '
+        #{reading.date_started.strftime('%b %d, %Y')} to #{reading.date_finished.strftime('%b %d, %Y')}
 

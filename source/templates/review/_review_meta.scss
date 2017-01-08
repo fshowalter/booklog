@@ -21,7 +21,7 @@
 }
 
 .review_meta-aka_heading {
-  &:after {
+  &::after {
     content: ': ';
   }
 }
@@ -42,13 +42,13 @@
   @media only screen and (min-width: 40.625em) {
     display: inline;
 
-    &:after {
+    &::after {
       color: $color_accent;
       content: '|';
       white-space: normal;
     }
 
-    &:last-of-type:after {
+    &:last-of-type::after {
       content: '';
     }
   }

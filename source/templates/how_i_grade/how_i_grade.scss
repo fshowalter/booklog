@@ -23,7 +23,7 @@
     padding-top: 20px;
     position: relative;
 
-    &:before {
+    &::before {
       @extend %horizontal_rule;
       margin: 0 auto 20px;
     }

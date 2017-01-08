@@ -10,7 +10,7 @@
     @include body_text;
   }
 
-  > p:first-of-type:before {
+  > p:first-of-type::before {
     content: attr(data-time) '\2014';
     text-transform: uppercase;
   }
@@ -21,7 +21,7 @@
     padding-top: 20px;
     position: relative;
 
-    &:before {
+    &::before {
       background-color: $color_primary;
       content: '';
       display: block;

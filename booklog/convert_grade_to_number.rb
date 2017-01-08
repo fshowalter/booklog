@@ -17,7 +17,7 @@ module Booklog
       'D+' => 8,
       'D' => 7,
       'D-' => 6,
-      'F' => 5
+      'F' => 5,
     }.freeze
     class << self
       def call(grade:)

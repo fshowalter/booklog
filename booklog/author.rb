@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 module Booklog
+  #
+  # Responsible for holding author data.
+  #
   class Author
     attr_reader :id, :name, :name_with_annotation, :sortable_name, :url
 

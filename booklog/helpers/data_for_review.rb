@@ -4,15 +4,15 @@ module Booklog
   # Responsible for providing template helper methods.
   #
   module Helpers
-    def data_for_review(book:, review:)
+    def data_for_review(review:)
       {
         data: {
-          title: book.title_with_author,
-          sort_title: book.sortable_title,
-          year_published: book.year_published,
+          title: review.title_with_author,
+          sort_title: review.sortable_title,
+          year_published: review.year_published,
           review_date: review.date,
-          grade: Booklog::ConvertGradeToNumber.call(grade: review.grade).to_s.rjust(2, '0')
-        }
+          grade: Booklog::ConvertGradeToNumber.call(grade: review.grade).to_s.rjust(2, '0'),
+        },
       }
     end
   end

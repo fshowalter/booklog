@@ -5,8 +5,8 @@
       options: {
         class: 'reviews_for_author_review_list-grade',
         width: '90px',
-        height: '18px'
-      }
+        height: '18px',
+      },
     )
 
     first_paragraph(grade + ' ' + review.content)
@@ -14,7 +14,7 @@
 
 .reviews_for_author_review_list
   %ol.reviews_for_author_review_list-list
-    - Booklog.reviews_by_author[author.id].each do |review|
+    - reviews.each do |review|
       %li.reviews_for_author_review_list-credit
         %h3
           %a.reviews_for_author_review_list-title{ href: href_for_review(review) }

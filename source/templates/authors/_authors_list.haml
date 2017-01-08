@@ -1,4 +1,4 @@
 %ol.authors_list
-  - authors.each do |author|
-    %li.authors_list-item{ data_for_author(author: author) }
-      #{author_link(author: author, options: { class: 'authors_list-name' })} (#{Booklog.reviews_by_author[author.id].length})
+  - authors.each do |author, reviews|
+    %li.authors_list-item{ data_for_author(author: author, reviews: reviews) }
+      #{author_link(author: author, options: { class: 'authors_list-name' })} (#{reviews.length})

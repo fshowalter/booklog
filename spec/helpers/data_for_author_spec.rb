@@ -9,18 +9,19 @@ describe Booklog::Helpers do
       author = OpenStruct.new(
         sortable_name: 'King, Stephen',
         name: 'Stephen King',
-        reviews: [
-          'title 1',
-          'title 2'
-        ]
       )
 
-      expect(context.data_for_author(author: author)).to eq(
+      reviews = [
+        OpenStruct.new(title: 'title 1'),
+        OpenStruct.new(title: 'title 2'),
+      ]
+
+      expect(context.data_for_author(author: author, reviews: reviews)).to eq(
         data: {
           name: 'Stephen King',
           sort_name: 'King, Stephen',
-          review_count: '002'
-        }
+          review_count: '002',
+        },
       )
     end
   end

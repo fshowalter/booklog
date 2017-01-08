@@ -21,7 +21,7 @@ module Booklog
             [
               build_slider(context: context),
               context.input_tag(:number, value: min, min: min, max: max, step: 1, class: 'filter-numeric min'),
-              context.input_tag(:number, value: max, min: min, max: max, step: 1, class: 'filter-numeric max')
+              context.input_tag(:number, value: max, min: min, max: max, step: 1, class: 'filter-numeric max'),
             ].join.html_safe
           end
         end
@@ -33,7 +33,7 @@ module Booklog
             context.content_tag(:div, class: 'noUi-base noUi-background noUi-horizontal') do
               [
                 build_slider_handle(context: context, position: 'lower', left: '0%'),
-                build_slider_handle(context: context, position: 'upper', left: '100%')
+                build_slider_handle(context: context, position: 'upper', left: '100%'),
               ].join.html_safe
             end
           end
@@ -43,7 +43,7 @@ module Booklog
           context.content_tag(
             :div,
             context.content_tag(:div, nil, class: "noUi-handle noUi-handle-#{position}"),
-            class: "noUi-origin noUi-origin-#{position}", style: "left: #{left};"
+            class: "noUi-origin noUi-origin-#{position}", style: "left: #{left};",
           )
         end
 
@@ -54,8 +54,8 @@ module Booklog
               'filter-attribute' => attribute,
               'filter-type' => 'range',
               'filter-min-value' => min,
-              'filter-max-value' => max
-            }
+              'filter-max-value' => max,
+            },
           }
         end
       end

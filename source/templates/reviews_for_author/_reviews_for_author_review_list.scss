@@ -22,7 +22,7 @@
   margin: 0;
   padding: 0;
 
-  &:after {
+  &::after {
     clear: both;
     content: '';
     display: table;
@@ -33,7 +33,7 @@
   margin: 0;
   padding: 0;
 
-  &:after {
+  &::after {
     background-color: $color_primary;
     clear: both;
     content: '';
@@ -42,7 +42,7 @@
     margin: 40px 0;
   }
 
-  &:last-of-type:after {
+  &:last-of-type::after {
     display: none;
   }
 }
@@ -94,7 +94,7 @@
   cursor: pointer;
   margin: 0;
 
-  &:before {
+  &::before {
     content: '';
     display: block;
     height: 0;

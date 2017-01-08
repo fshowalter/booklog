@@ -115,9 +115,9 @@ ready do
           locals: { review: review }, ignore: true)
   end
 
-  Booklog.authors.values.each do |author|
+  Booklog.reviews_by_author.each do |author, reviews|
     proxy("authors/#{author.id}/index.html", 'templates/reviews_for_author/reviews_for_author.html',
-          locals: { author: author }, ignore: true)
+          locals: { author: author, reviews: reviews }, ignore: true)
   end
 end
 
