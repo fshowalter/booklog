@@ -7,15 +7,10 @@
       .readings_list-item_title
         - if review
           %a{ href: href_for_review(review) }
-            = reading.title
-            %span.readings_list-item_author
-              = " by #{reading.authors.map(&:name).to_sentence}"
+            = reading.title_with_author
         - else
           = reading.title_with_author
-      .readings_list-item_slug
-        %span.readings_list-item_pages
-          pp. #{reading.pages_read}/#{reading.pages_total}
-        %span.readings_list-item_divider
-          = ' | '
-        #{reading.date_started.strftime('%b %d, %Y')} to #{reading.date_finished.strftime('%b %d, %Y')}
+      %span.readings_list-item_slug
+        #{reading.pages_read}/#{reading.pages_total} pp. from
+        #{reading.date_started.strftime(' %b %d, %Y')} to #{reading.date_finished.strftime('%b %d, %Y')}
 
