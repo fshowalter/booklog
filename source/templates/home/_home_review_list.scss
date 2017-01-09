@@ -22,26 +22,6 @@
   &:last-of-type::after {
     display: none;
   }
-
-  @media only screen and (min-width: 56.25em) {
-    .home_review_list-header {
-      float: right;
-      padding-left: 20px;
-      width: 80%;
-    }
-
-    .home_review_list-cover_wrap {
-      float: left;
-      margin: 0;
-      width: 20%;
-    }
-
-    .home_review_list-excerpt {
-      float: right;
-      padding-left: 20px;
-      width: 80%;
-    }
-  }
 }
 
 .home_review_list-review {
@@ -54,10 +34,14 @@
 
 .home_review_list-header {
   margin: 0 0 10px;
+  // float: right;
+  // padding-left: 20px;
+
+  // width: calc(75% - 20px);
 }
 
 .home_review_list-title {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.3;
   margin: 0;
@@ -66,8 +50,10 @@
 
 .home_review_list-title_author {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .home_review_list-header_link {
@@ -90,10 +76,16 @@
 .home_review_list-cover_wrap {
   background-repeat: no-repeat;
   background-size: cover;
-  border: 9px solid $color_primary;
+  float: left;
+  margin: 0;
+  width: 25%;
+  border: 1px solid $color_primary;
   display: block;
-  margin: 0 0 10px;
+  margin: 0 20px 10px 0;
   position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 150px;
 
   @media only screen and (min-width: 56.25em) {
     margin-bottom: 15px;
@@ -145,4 +137,7 @@
   letter-spacing: .16px;
   line-height: 28px;
   max-width: 700px;
+  // float: right;
+  // padding-left: 20px;
+  // width: 75%;
 }

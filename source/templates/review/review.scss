@@ -13,17 +13,21 @@ $review_post_content_first_line_color: #000;
     time {
       text-transform: uppercase;
     }
+
+    > p {
+      // clear: both;
+    }
   }
 }
 
 .review-title {
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1.1;
   margin-bottom: 0;
   padding: 30px 0 0;
 
   @media only screen and (min-width: 35em) {
-    font-size: 42px;
+    font-size: 36px;
   }
 }
 
@@ -43,12 +47,15 @@ $review_post_content_first_line_color: #000;
 .review-cover_wrap {
   background-repeat: no-repeat;
   background-size: cover;
-  border: 9px solid $color_primary;
+  border: 1px solid $color_primary;
   display: block;
   float: left;
   margin: 30px 15px 10px 0;
   position: relative;
-  width: 20%;
+  width: 25%;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 150px;
 
   @media only screen and (min-width: 56.25em) {
     margin-bottom: 15px;

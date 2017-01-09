@@ -19,17 +19,17 @@
         .home_review_list-date_wrap
           .home_review_list-date
             = review.date.strftime('%d %b %Y')
+        %a.home_review_list-cover_wrap{ href: href_for_review(review) }
+          .home_review_list-cover{ data: { cover: review.cover } }
+            %img.home_review_list-cover_placeholder{ src: review.cover_placeholder }
+            %noscript
+              %img.cover-noscript{ src: review.cover }
         %header.home_review_list-header
           %h3.home_review_list-title
             %a.home_review_list-header_link{ href: href_for_review(review) }
               = "#{review.title} "
               %span.home_review_list-title_author
                 by #{review.authors.map(&:name).to_sentence}
-        %a.home_review_list-cover_wrap{ href: href_for_review(review) }
-          .home_review_list-cover{ data: { cover: review.cover } }
-            %img.home_review_list-cover_placeholder{ src: review.cover_placeholder }
-            %noscript
-              %img.cover-noscript{ src: review.cover }
         .home_review_list-excerpt
           = excerpt_for_review.call(review)
 
