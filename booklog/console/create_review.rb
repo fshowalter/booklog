@@ -14,13 +14,12 @@ module Booklog
         #
         # Responsible for processing a new review command.
         #
-        # @return [String] The full path to the new entry.
+        # @return [OpenStruct] The new review data.
         def call(books: Booklog.books)
           book = AskForBook.call(books: books.values)
           review = Booklog::CreateReview.call(book: book)
 
-          puts "\n Created Review ##{Bold.call(text: review.sequence.to_s)}!"
-
+          puts "\n Created Review ##{Bold.call(text: review.sequence.to_s)}!\n"
           ap(review.to_h, ruby19_syntax: true)
 
           review

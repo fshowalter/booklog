@@ -6,7 +6,7 @@
   padding: 0 0 60px;
 
   @media only screen and (min-width: 50em) {
-    margin-top: 24px;
+    margin-top: 62px;
   }
 }
 
@@ -14,7 +14,7 @@
   font-weight: normal;
   list-style-type: none;
   margin-bottom: 5px;
-  padding: 0;
+  padding: 10px 0;
   position: relative;
 
   &::after {
@@ -35,8 +35,10 @@
   }
 }
 
-.readings_list-item_title {
+.readings_list-item_header {
   align-items: baseline;
+  display: flex;
+  padding-bottom: 5px;
 
   &::before {
     content: counter(reading-list) '. ';
@@ -56,13 +58,22 @@
   }
 }
 
+.readings_list-item_title {
+  font-size: 18px;
+}
+
+.readings_list-item_authors {
+  font-size: 14px;
+  letter-spacing: .5px;
+}
+
 .readings_list-item_slug {
   color: $color_text_hint;
   font-family: $font_family_system;
   font-feature-settings: 'tnum';
-  font-size: 13px;
+  font-size: 12px;
   line-height: 20px;
-  margin-left: 20px;
+  margin-left: 30px;
   text-rendering: optimizeLegibility;
   white-space: nowrap;
 }

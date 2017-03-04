@@ -4,12 +4,19 @@
   - readings.reverse.each do |reading|
     - review = Booklog.reviews[reading.book_id]
     %li.readings_list-item{ data_for_reading(reading: reading) }
-      .readings_list-item_title
+      .readings_list-item_header
         - if review
           %a{ href: href_for_review(review) }
-            = reading.title_with_author
+            .readings_list-item_title
+              = reading.title
+            .readings_list-item_authors
+              by #{reading.authors.map(&:name).to_sentence}
         - else
-          = reading.title_with_author
+          .readings_list-item_wrap
+            .readings_list-item_title
+              = reading.title
+            .readings_list-item_authors
+              by #{reading.authors.map(&:name).to_sentence}
       %span.readings_list-item_slug
         #{reading.pages_read}/#{reading.pages_total} pp. from
         #{reading.date_started.strftime(' %b %d, %Y')} to #{reading.date_finished.strftime('%b %d, %Y')}

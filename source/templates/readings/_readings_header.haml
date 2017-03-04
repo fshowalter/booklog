@@ -1,5 +1,9 @@
+:ruby
+  read_total = readings.select {|r| r.pages_read == r.pages_total }.length
+  abandoned = readings.length - read_total
+
 %header.readings_header
   %h1.readings_header-heading
     Reading Log
   .readings_header-slug
-    I've finished or abandoned #{readings.length} books since November 2011.
+    I've read #{read_total} books and abandoned #{abandoned} since November 2011.

@@ -15,7 +15,7 @@ module Booklog
         #
         # Responsible for processing a new viewing command.
         #
-        # @return [String] The full path to the new entry.
+        # @return [OpenStruct] the new page data.
         def call
           page = Booklog::CreatePage.call(title: ask_for_title)
 
