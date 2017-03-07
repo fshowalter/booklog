@@ -1,9 +1,11 @@
 :ruby
   readings = Booklog.readings_for_book_id(book_id: review.id)
+  divider = '<span class="review_meta-divider">|</span>'
+
 
 .review_meta
   .review_meta-title
-    #{review.title} (#{review.year_published})
+    #{review.title}
   - if review.aka_titles.any?
     %span.review_meta-aka
       %span.review_meta-aka_heading
@@ -13,6 +15,10 @@
           = " #{aka_title.gsub(/\([^\)]+\)$/, '').strip} "
   .review_meta-author
     by #{review.authors.map { |a| author_link(author: a) }.join(' & ')}
+  .review_meta-about
+    #{review.year_published} #{divider} #{review.publisher} #{divider} #{review.pages_total} pp.
+  .review_meta-isbn
+    ISBN: #{review.isbn}
   .review_meta-read
     = "I've read it "
     %a{ href: "/readings/?title=#{URI.escape(review.title_with_author)}" }

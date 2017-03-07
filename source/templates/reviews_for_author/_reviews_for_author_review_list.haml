@@ -12,17 +12,24 @@
     first_paragraph(grade + ' ' + review.content)
   end
 
+- content_for(:head) do
+  - reviews.each_with_index do |review, index|
+    :css
+      .reviews_for_author_review_list-credit:nth-child(#{index + 1}) .reviews_for_author_review_list-cover::before {
+        padding-top: #{review.cover_ratio * 100.00}%;
+      }
+
 .reviews_for_author_review_list
   %ol.reviews_for_author_review_list-list
     - reviews.each do |review|
       %li.reviews_for_author_review_list-credit
-        %h3
-          %a.reviews_for_author_review_list-title{ href: href_for_review(review) }
+        %a.reviews_for_author_review_list-link{ href: href_for_review(review) }
+          .reviews_for_author_review_list-cover_wrap
+            .reviews_for_author_review_list-cover{ data: { cover: review.cover } }
+              %img.reviews_for_author_review_list-cover_placeholder{ src: review.cover_placeholder }
+              %noscript
+                %img.backdrop-noscript{ src: review.cover }
+          %h3.reviews_for_author_review_list-title
             = review.title
-        %a.reviews_for_author_review_list-cover_wrap{ href: href_for_review(review) }
-          .reviews_for_author_review_list-cover{ data: { cover: review.cover } }
-            %img.reviews_for_author_review_list-cover_placeholder{ src: review.cover_placeholder }
-            %noscript
-              %img.backdrop-noscript{ src: review.cover }
-        .reviews_for_author_review_list-excerpt
-          = excerpt_for_review.call(review)
+          .reviews_for_author_review_list-excerpt
+            = excerpt_for_review.call(review)

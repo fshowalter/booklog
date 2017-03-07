@@ -2,6 +2,7 @@
 layout: :layout_single
 ---
 :ruby
+  review = Booklog.reviews[review.id]
   description = Nokogiri::HTML(first_paragraph(review.content)).text
   content_for(:inline_css, 'source/templates/review/review.scss')
   content_for(:title, "#{review.title_with_author} Book Review")
@@ -26,20 +27,25 @@ layout: :layout_single
   %meta{ name: 'twitter:title', content: "#{review.title_with_author} Book Review" }
   %meta{ name: 'twitter:description', content: description }
   %meta{ name: 'twitter:image', content: review.cover }
+  :css
+    .review-cover::before {
+      padding-top: #{review.cover_ratio * 100}%;
+    }
+
 
 %article.review
   = partial('components/post_content/post_content') do
-    .review-cover_wrap{ href: href_for_review(review) }
-      .review-cover{ data: { cover: review.cover } }
-        %img.review-cover_placeholder{ src: review.cover_placeholder }
-        %noscript
-          %img.cover-noscript{ src: review.cover }
-    %h1.review-title
-      = review.title
-    .review-author
-      by #{review.authors.map { |a| author_link(author: a) }.join(' & ')}
-
-    = grade_to_image_tag(grade: review.grade, options: { class: 'review-grade' })
+    .review-header
+      .review-cover_wrap{ href: href_for_review(review) }
+        .review-cover{ data: { cover: review.cover } }
+          %img.review-cover_placeholder{ src: review.cover_placeholder }
+            %noscript
+              %img.cover-noscript{ src: review.cover }
+      %h1.review-title
+        = review.title
+      .review-author
+        by #{review.authors.map { |a| author_link(author: a) }.join(' & ')}
+      = grade_to_image_tag(grade: review.grade, options: { class: 'review-grade' })
 
     = review_content.call(review)
     = partial('templates/review/review_meta', locals: { review: review })

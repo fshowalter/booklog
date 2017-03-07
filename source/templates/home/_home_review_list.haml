@@ -12,6 +12,13 @@
     first_paragraph(grade + ' ' + review.content)
   end
 
+- content_for(:head) do
+  - reviews.each_with_index do |review, index|
+    :css
+      .home_review_list-item:nth-child(#{index + 1}) .home_review_list-cover::before {
+        padding-top: #{review.cover_ratio * 100.00}%;
+      }
+
 %ol.home_review_list
   - reviews.each do |review|
     %li.home_review_list-item
@@ -19,17 +26,17 @@
         .home_review_list-date_wrap
           .home_review_list-date
             = review.date.strftime('%d %b %Y')
-        %a.home_review_list-cover_wrap{ href: href_for_review(review) }
-          .home_review_list-cover{ data: { cover: review.cover } }
-            %img.home_review_list-cover_placeholder{ src: review.cover_placeholder }
-            %noscript
-              %img.cover-noscript{ src: review.cover }
-        %header.home_review_list-header
-          %h3.home_review_list-title
-            %a.home_review_list-header_link{ href: href_for_review(review) }
+        %a.home_review_list-header_link{ href: href_for_review(review) }
+          .home_review_list-cover_wrap
+            .home_review_list-cover{ data: { cover: review.cover } }
+              %img.home_review_list-cover_placeholder{ src: review.cover_placeholder }
+              %noscript
+                %img.cover-noscript{ src: review.cover }
+          %header.home_review_list-header
+            %h3.home_review_list-title
               = "#{review.title} "
               %span.home_review_list-title_author
                 by #{review.authors.map(&:name).to_sentence}
-        .home_review_list-excerpt
-          = excerpt_for_review.call(review)
+          .home_review_list-excerpt
+            = excerpt_for_review.call(review)
 
