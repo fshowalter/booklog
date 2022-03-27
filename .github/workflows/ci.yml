@@ -1,0 +1,134 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  black:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: set up python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: cache python environment
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-2${{ hashFiles('requirements.txt') }}
+
+      - name: pip install
+        run: |
+          pip install -r requirements.txt
+
+      - name: black movielog
+        run: black movielog
+
+      - name: black tests
+        run: black tests
+
+  mypy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: set up python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: cache python environment
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-2${{ hashFiles('requirements.txt') }}
+
+      - name: pip install
+        run: |
+          pip install -r requirements.txt
+
+      - name: mypy movielog tests
+        run: mypy movielog tests
+
+  flake8:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: set up python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: cache python environment
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-2${{ hashFiles('requirements.txt') }}
+
+      - name: pip install
+        run: |
+          pip install -r requirements.txt
+
+      - name: flake8 movielog
+        run: |
+          flake8 movielog --count --show-source --statistics
+
+      - name: flake8 tests
+        run: |
+          flake8 tests --count --show-source --statistics
+
+  pytest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: set up python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: cache python environment
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-2${{ hashFiles('requirements.txt') }}
+
+      - name: pip install
+        run: |
+          pip install -r requirements.txt
+
+      - name: pytest
+        run: |
+          pytest
+
+  vale:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Vale
+        uses: errata-ai/vale-action@v1.5.0
+        with:
+          # Optional
+          files: reviews
+        env:
+          # Required, set by GitHub actions automatically:
+          # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
