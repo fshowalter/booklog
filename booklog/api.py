@@ -24,6 +24,8 @@ create_review = reviews_api.create
 
 all_editions = reviews_api.all_editions
 
+WORK_KINDS = bookdata_api.WORK_KINDS
+
 
 class ExportedAuthor(TypedDict):
     name: str

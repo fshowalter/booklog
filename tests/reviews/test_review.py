@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from movielog.reviews.review import Review
+from booklog.reviews.review import ProgressMark, Review
 
 
 @pytest.mark.parametrize(
@@ -28,12 +28,14 @@ def test_grade_value_accounts_for_modifers(
 ) -> None:
     review = Review(
         sequence=1,
+        slug="on-writing-by-stephen-king",
+        edition="Kindle",
         grade=grade,
-        imdb_id="tt0053221",
-        title="Rio Bravo",
-        date=date(2017, 3, 12),
-        venue="Alamo Drafthouse",
-        slug="rio-bravo-1959",
+        progress=[
+            ProgressMark(date=date(2016, 3, 10), percent=15),
+            ProgressMark(date=date(2016, 3, 11), percent=50),
+            ProgressMark(date=date(2016, 3, 12), percent=100),
+        ],
     )
 
     assert review.grade_value == expected_grade_value

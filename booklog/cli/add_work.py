@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import html
-from typing import List, Optional, Tuple
+from typing import Optional, Tuple
 
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
@@ -11,8 +11,15 @@ from booklog.cli import ask, radio_list
 
 AuthorOption = Tuple[Optional[booklog_api.AuthorWithWorks], AnyFormattedText]
 
+Option = Tuple[Optional[str], AnyFormattedText]
+
 
 def prompt() -> None:
+    kind = ask_for_kind()
+
+    if not kind:
+        return
+
     title = ask_for_title()
 
     if not title:
@@ -35,6 +42,7 @@ def prompt() -> None:
         authors=work_authors,
         subtitle=subtitle,
         year=year,
+        kind=kind,
     )
 
 
@@ -103,7 +111,7 @@ def ask_for_author() -> Optional[str]:
 
 def build_author_options(
     authors: list[booklog_api.AuthorWithWorks],
-) -> List[AuthorOption]:
+) -> list[AuthorOption]:
     options: list[AuthorOption] = []
 
     for author in authors:
@@ -143,3 +151,41 @@ def ask_for_subtitle() -> Optional[str]:
         return subtitle
 
     return ask_for_subtitle()
+
+
+def ask_for_kind() -> Optional[str]:
+    options: list[Option] = build_kind_options()
+
+    selected_kind = None
+
+    while selected_kind is None:
+
+        selected_kind = radio_list.prompt(
+            title="Select kind:",
+            options=options,
+        )
+
+        if selected_kind is None:
+            break
+
+    if not selected_kind:
+        return None
+
+    if confirm("{0}?".format(selected_kind)):
+        return selected_kind
+
+    return ask_for_kind()
+
+
+def build_kind_options() -> list[Option]:
+    kinds = booklog_api.WORK_KINDS
+
+    options: list[Option] = []
+
+    for kind in kinds:
+        option = (kind, "<cyan>{0}</cyan>".format(html.escape(kind)))
+        options.append(option)
+
+    options.append((None, "Go back"))
+
+    return options
