@@ -12,6 +12,8 @@ create_author = authors.create
 
 create_work = works.create
 
+WORK_KINDS = works.KINDS
+
 WorkAuthor = works.WorkAuthor
 
 Work = works.Work

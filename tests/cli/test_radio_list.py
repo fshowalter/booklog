@@ -4,7 +4,7 @@ import pytest
 from prompt_toolkit.formatted_text import AnyFormattedText
 from pytest_mock import MockerFixture
 
-from movielog.cli import radio_list
+from booklog.cli import radio_list
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Down, End, Enter, Home, Up
 

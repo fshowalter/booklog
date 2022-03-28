@@ -13,6 +13,17 @@ from booklog.utils.logging import logger
 
 FOLDER_NAME = "works"
 
+KINDS = set(
+    [
+        "Anthology",
+        "Collection",
+        "Nonfiction",
+        "Novel",
+        "Novella",
+        "Short Story",
+    ]
+)
+
 
 @dataclass
 class WorkAuthor(object):
@@ -39,7 +50,20 @@ class Work(object):
 
 
 def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
-    return title
+    title_with_subtitle = title
+
+    if subtitle:
+        title_with_subtitle = "{0}: {1}".format(title, subtitle)
+
+    title_lower = title_with_subtitle.lower()
+    title_words = title_with_subtitle.split(" ")
+    lower_words = title_lower.split(" ")
+    articles = set(["a", "an", "the"])
+
+    if (len(title_words) > 1) and (lower_words[0] in articles):
+        return "{0}".format(" ".join(title_words[1 : len(title_words)]))
+
+    return title_with_subtitle
 
 
 def create(
@@ -115,3 +139,7 @@ def serialize(work: Work) -> None:
         "Wrote {}.",
         file_path,
     )
+
+
+def all_kinds() -> set[str]:
+    return set()

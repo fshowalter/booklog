@@ -114,6 +114,9 @@ def ask_for_progress() -> list[booklog_api.ProgressMark]:
                 booklog_api.ProgressMark(date=progress_date, percent=progress_percent)
             )
 
+            if progress_percent == 100:
+                return progress_marks
+
         if not confirm("Add more?"):
             return progress_marks
 
