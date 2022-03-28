@@ -29,8 +29,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: black movielog
-        run: black movielog
+      - name: black booklog
+        run: black booklog
 
       - name: black tests
         run: black tests
@@ -57,8 +57,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: mypy movielog tests
-        run: mypy movielog tests
+      - name: mypy booklog tests
+        run: mypy booklog tests
 
   flake8:
     runs-on: ubuntu-latest
@@ -82,9 +82,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: flake8 movielog
+      - name: flake8 booklog
         run: |
-          flake8 movielog --count --show-source --statistics
+          flake8 booklog --count --show-source --statistics
 
       - name: flake8 tests
         run: |
