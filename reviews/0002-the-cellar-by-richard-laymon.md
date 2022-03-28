@@ -20,7 +20,7 @@ progress:
     percent: 100
 ---
 
-The Cellar opens with Donna and her daughter Sandy fleeing Donna's recently parolled ex-husband Roy. A car accident strands them in Malcasa Point, a small California town whose claim to fame is an aging mansion that has served as the site of several grisly murders over the years. Known as Beast House, the current owners have turned it into a tourist attraction complete with wax replicas of the murder victims. In Malcasa, Donna and Sandy cross paths with Judge, a mercenary in town to kill the monster that supposedly haunts Beast House. Meanwhile, Roy learns of Donna's whereabouts and heads to Malcasa Point himself. The inevitable conclusion blurs the line between man and monster as the mysteries of Beast House are revealed.
+The Cellar opens with Donna and her daughter Sandy fleeing Donna's recently paroled ex-husband Roy. A car accident strands them in Malcasa Point, a small California town whose claim to fame is an aging mansion that has served as the site of several grisly murders over the years. Known as Beast House, the current owners have turned it into a tourist attraction complete with wax replicas of the murder victims. In Malcasa, Donna and Sandy cross paths with Judge, a mercenary in town to kill the monster that supposedly haunts Beast House. Meanwhile, Roy learns of Donna's whereabouts and heads to Malcasa Point himself. The inevitable conclusion blurs the line between man and monster as the mysteries of Beast House are revealed.
 
 <!-- end -->
 
