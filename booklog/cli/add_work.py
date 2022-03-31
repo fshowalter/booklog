@@ -168,13 +168,7 @@ def ask_for_kind() -> Optional[str]:
         if selected_kind is None:
             break
 
-    if not selected_kind:
-        return None
-
-    if confirm("{0}?".format(selected_kind)):
-        return selected_kind
-
-    return ask_for_kind()
+    return selected_kind
 
 
 def build_kind_options() -> list[Option]:
