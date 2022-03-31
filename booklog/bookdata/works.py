@@ -70,7 +70,9 @@ def create(
     title: str, subtitle: Optional[str], year: str, authors: list[WorkAuthor], kind: str
 ) -> Work:
     slug = slugify(
-        "{0}-by-{1}".format(title, ", ".join(author.slug for author in authors))
+        "{0}-by-{1}".format(
+            title.replace("'", ""), ", ".join(author.slug for author in authors)
+        )
     )
 
     work = Work(
