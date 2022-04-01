@@ -8,6 +8,8 @@ from booklog.utils import export_tools
 
 AuthorWithWorks = bookdata_api.AuthorWithWorks
 
+WorkWithAuthors = bookdata_api.WorkWithAuthors
+
 Work = bookdata_api.Work
 
 WorkAuthor = bookdata_api.WorkAuthor
@@ -17,6 +19,8 @@ ProgressMark = reviews_api.ProgressMark
 create_author = bookdata_api.create_author
 
 search_authors = bookdata_api.search_authors
+
+search_works = bookdata_api.search_works
 
 create_work = bookdata_api.create_work
 

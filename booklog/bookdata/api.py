@@ -29,6 +29,13 @@ class AuthorWithWorks(object):
     works: list[works.Work]
 
 
+@dataclass
+class WorkWithAuthors(object):
+    title: str
+    slug: str
+    author_names: list[str]
+
+
 def search_authors(query: str) -> list[AuthorWithWorks]:
     filtered_authors = filter(
         lambda author: query.lower() in author.name.lower(), all_authors()
@@ -47,3 +54,31 @@ def search_authors(query: str) -> list[AuthorWithWorks]:
         )
 
     return matching_authors
+
+
+def author_names_for_work(work: Work) -> list[str]:
+    author_slugs = list(map(lambda author: author.slug, work.authors))
+
+    filtered_authors = filter(lambda author: author.slug in author_slugs, all_authors())
+
+    return list(map(lambda author: author.name, filtered_authors))
+
+
+def search_works(query: str) -> list[WorkWithAuthors]:
+    filtered_works = filter(
+        lambda work: query.lower() in work.full_title.lower(), all_works()
+    )
+
+    matching_works: list[WorkWithAuthors] = []
+
+    for filtered_work in filtered_works:
+
+        matching_works.append(
+            WorkWithAuthors(
+                title=filtered_work.title,
+                slug=filtered_work.slug,
+                author_names=author_names_for_work(filtered_work),
+            )
+        )
+
+    return matching_works

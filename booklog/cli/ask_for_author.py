@@ -49,11 +49,12 @@ def build_author_options(
     options: list[AuthorOption] = []
 
     for author in authors:
+        works = author.works[:3]
         option = (
             author,
             "<cyan>{0}</cyan> ({1})".format(
                 html.escape(author.sort_name),
-                ", ".join(html.escape(work.title) for work in author.works),
+                ", ".join(html.escape(work.title) for work in works),
             ),
         )
         options.append(option)

@@ -31,6 +31,7 @@ def mock_create_search_authors(mocker: MockerFixture) -> MagicMock:
                     authors=[WorkAuthor(slug="stephen-king", notes=None)],
                     slug="on-writing-by-stephen-king",
                     kind="Kindle",
+                    included_works=[],
                 )
             ],
         )

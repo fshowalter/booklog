@@ -40,6 +40,7 @@ class Work(object):
     authors: list[WorkAuthor]
     slug: str
     kind: str
+    included_works: list[str]
 
     @property
     def full_title(self) -> str:
@@ -66,8 +67,13 @@ def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
     return title_with_subtitle
 
 
-def create(
-    title: str, subtitle: Optional[str], year: str, authors: list[WorkAuthor], kind: str
+def create(  # noqa: WPS211
+    title: str,
+    subtitle: Optional[str],
+    year: str,
+    authors: list[WorkAuthor],
+    kind: str,
+    included_works: Optional[list[str]] = None,
 ) -> Work:
     slug = slugify(
         "{0}-by-{1}".format(
@@ -83,6 +89,7 @@ def create(
         authors=authors,
         slug=slug,
         kind=kind,
+        included_works=included_works or [],
     )
 
     serialize(work)
@@ -106,6 +113,7 @@ def deserialize_json_work(json_work: dict[str, Any]) -> Work:
         authors=authors,
         slug=json_work["slug"],
         kind=json_work["kind"],
+        included_works=json_work.get("included_works", []),
     )
 
 
