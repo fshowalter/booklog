@@ -6,6 +6,12 @@ def test_create_generates_sort_title() -> None:
 
     work_author = works.WorkAuthor("richard-laymon", None)
 
-    work = works.create("The Cellar", None, "1980", [work_author], "Novel")
+    work = works.create(
+        title="The Cellar",
+        subtitle=None,
+        year="1980",
+        authors=[work_author],
+        kind="Novel",
+    )
 
     assert expected == work.sort_title

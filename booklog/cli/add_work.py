@@ -7,14 +7,14 @@ from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
 from booklog import api as booklog_api
-from booklog.cli import ask, radio_list
+from booklog.cli import ask, ask_for_author, ask_for_work, radio_list
 
 AuthorOption = Tuple[Optional[booklog_api.AuthorWithWorks], AnyFormattedText]
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
 
-def prompt() -> None:
+def prompt() -> None:  # noqa: WPS210
     kind = ask_for_kind()
 
     if not kind:
@@ -37,12 +37,18 @@ def prompt() -> None:
     if not work_authors:
         return
 
+    included_works = []
+
+    if kind in {"Collection", "Anthology"}:
+        included_works = ask_for_works()
+
     booklog_api.create_work(
         title=title,
         authors=work_authors,
         subtitle=subtitle,
         year=year,
         kind=kind,
+        included_works=included_works,
     )
 
 
@@ -62,71 +68,33 @@ def ask_for_authors() -> list[booklog_api.WorkAuthor]:
     work_authors: list[booklog_api.WorkAuthor] = []
 
     while True:
-        author_slug = ask_for_author()
+        author = ask_for_author.prompt()
 
-        if author_slug:
+        if author:
             author_notes = ask.prompt("Notes: ")
 
             if not author_notes:
                 author_notes = None
 
             work_authors.append(
-                booklog_api.WorkAuthor(slug=author_slug, notes=author_notes)
+                booklog_api.WorkAuthor(slug=author.slug, notes=author_notes)
             )
 
         if not confirm("Add more?"):
             return work_authors
 
 
-def ask_for_author() -> Optional[str]:
-    name = None
+def ask_for_works() -> list[str]:
+    works: list[str] = []
 
-    while name is None:
-        name = ask.prompt("Author name: ")
+    while True:
+        work = ask_for_work.prompt()
 
-    authors = booklog_api.search_authors(name)
+        if work:
+            works.append(work.slug)
 
-    options: list[AuthorOption] = build_author_options(authors)
-
-    selected_author = None
-
-    while selected_author is None:
-
-        selected_author = radio_list.prompt(
-            title="Select author:",
-            options=options,
-        )
-
-        if selected_author is None:
-            break
-
-    if not selected_author:
-        return None
-
-    if confirm("{0}?".format(selected_author.name)):
-        return selected_author.slug
-
-    return ask_for_author()
-
-
-def build_author_options(
-    authors: list[booklog_api.AuthorWithWorks],
-) -> list[AuthorOption]:
-    options: list[AuthorOption] = []
-
-    for author in authors:
-        option = (
-            author,
-            "<cyan>{0}</cyan> ({1})".format(
-                html.escape(author.sort_name),
-                ", ".join(html.escape(work.title) for work in author.works),
-            ),
-        )
-        options.append(option)
-
-    options.append((None, "Search again"))
-
-    return options
+        if not confirm("Add more?"):
+            return works
 
 
 def ask_for_title() -> Optional[str]:
