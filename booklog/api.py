@@ -52,6 +52,7 @@ class ExportedWork(TypedDict):
     slug: str
     kind: str
     reviewed: bool
+    included_works: list[str]
 
 
 def all_reviewed_work_slugs(all_reviews: Sequence[reviews_api.Review]) -> set[str]:
@@ -137,6 +138,7 @@ def export_works(
                 slug=work.slug,
                 reviewed=work_reviewed,
                 kind=work.kind,
+                included_works=work.included_works,
             )
         )
 
