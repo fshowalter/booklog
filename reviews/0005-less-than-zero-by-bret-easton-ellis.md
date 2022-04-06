@@ -18,7 +18,7 @@ progress:
     percent: 100
 ---
 
-Bret Easton Ellis's debut novel is a powerhouse of existential horror. Narrated by Clay, an affluent college freshman, who returns home to Los Angeles for winter break in the early 80s.
+**Bret Easton Ellis's debut novel** is a powerhouse of existential horror. Narrated by Clay, an affluent college freshman, who returns home to Los Angeles for winter break in the early 80s.
 
 <!-- end -->
 
