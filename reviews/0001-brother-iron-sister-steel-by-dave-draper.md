@@ -12,7 +12,7 @@ progress:
     percent: 100
 ---
 
-A strained intercostal muscle has me laid up from training, and I wanted motivation. This came recommended by Eric Helms on his _Iron Culture_ podcast.
+A strained intercostal muscle has me laid up from training, and I wanted motivation. Eric Helms recommended this on his podcast, _Iron Culture_.
 
 <!-- end -->
 

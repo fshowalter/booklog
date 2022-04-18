@@ -1,0 +1,25 @@
+{
+  "title": "Behold the Void",
+  "subtitle": null,
+  "year": "2017",
+  "sort_title": "Behold the Void",
+  "authors": [
+    {
+      "slug": "philip-fracassi",
+      "notes": null
+    }
+  ],
+  "slug": "behold-the-void-by-philip-fracassi",
+  "kind": "Collection",
+  "included_works": [
+    "soft-construction-of-a-sunset-by-philip-fracassi",
+    "altar-by-philip-fracassi",
+    "the-horse-thief-by-philip-fracassi",
+    "coffin-by-philip-fracassi",
+    "the-baby-farmer-by-philip-fracassi",
+    "surfer-girl-by-philip-fracassi",
+    "mother-by-philip-fracassi",
+    "fail-safe-by-philip-fracassi",
+    "mandala-by-philip-fracassi"
+  ]
+}

@@ -20,7 +20,7 @@ progress:
     percent: 100
 ---
 
-Single-mom Donna flees town with her daughter Sandy after her ex-husband Roy makes parole. A car accident strands Donna and Sandy in Malcasa Point, a small northern California town whose claim to fame is an aging mansion known as Beast House.
+**Richard Laymon's debut novel.** Single-mom Donna flees town with her daughter Sandy after her ex-husband Roy makes parole. A car accident strands Donna and Sandy in Malcasa Point, a small northern California town whose claim to fame is an aging mansion known as Beast House.
 
 <!-- end -->
 
@@ -36,4 +36,4 @@ This implies self-censorship on King's part. For example, he excised a gruesome 
 
 And while Laymon trades in the same small-town dynamics as King, I found his writing closer to the pulp sensibilities of Robert E. Howard. Where King's characters are nuanced and relatable, Laymon's are identifiable archetypes. Roy is pure, calculating evil driven by his basest, grotesque desires. Judge is an epitome of masculinity. Muscled, capable, and virile. Donna is the Madonna-whore, a good mother, loyal to her daughter, but quick to give herself to the hero, Judge. Wasting little prose on exposition, Laymon propels the narrative along with action and dialogue, making for a brisk read.
 
-And yet, there's the ending. Even on my second read through, Laymon's adolescent characterization and pulp plotting lulled me into a false sense of security, which he shatters with a nightmarish coda. One could interpret this twist as masochistic or cynical, but that may be short-sighted. I think it hints a deeper fear, one few authors would dare acknowledge. Judge for yourself.
+And yet, there's the ending. Even on my second read through, Laymon's adolescent characterization and pulp plotting lulled me into a false sense of security, which he shatters with a nihilistic coda. King without a conscience, indeed.
