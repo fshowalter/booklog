@@ -20,7 +20,7 @@ The story concerns a mother, Martha, and her kids, twelve-year-old Gary and fift
 
 My lone nit lies here, as it wasn't until they arrived at the pool that Fracassi reveals Gary's age. During the car ride, I pictured him as seven or eight, not twelve. A minor quibble, but why pin the age of either sibling? Between Gary's thoughts and the perfect detail of Abbey scribbling love letters in bright green ink to her teenage crush, we know enough. But I digress.
 
-Back to the story. Once we arrive at the pool, the story introduces another point of view, young Tyler, who's almost old enough to graduate from his floaties. Fracassi imbues both Tyler and Gary's perspectives with the anxieties, frustrations, and simple joys of childhood. They never feel cloying or contrived.
+Back to the story. Once we arrive at the pool, it introduces another point of view, young Tyler, who's almost old enough to graduate from his floaties. Fracassi imbues both Tyler and Gary's perspectives with the anxieties, frustrations, and simple joys of childhood. They never feel cloying or contrived.
 
 > Kids splashed mercilessly around him but he didn’t mind, part of him actually grateful now for the wings that kept him easily aloft, although he’d never admit it to his mother.
 
