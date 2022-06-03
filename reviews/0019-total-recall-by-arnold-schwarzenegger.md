@@ -16,7 +16,7 @@ progress:
     percent: 100
 ---
 
-I got the Audible version thinking it was read by Schwarzenegger. He reads the first and last chapters. I was set to return the book after realizing this, but the narrative kept me engaged. Stephen Lang, while no Arnold, does a fine—if unremarkable—job.
+I got the Audible version thinking it was read by Schwarzenegger. He reads the first and last chapters. I was set to return the book after realizing this, but the narrative kept me engaged. Stephen Lang, while no Arnold, does a competent job.
 
 <!-- end -->
 

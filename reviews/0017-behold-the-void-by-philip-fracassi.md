@@ -28,4 +28,4 @@ progress:
     percent: 100
 ---
 
-An accomplished debut collection from Fracassi. "Altar" shines with _Mandala_ a strong second. Not a below average entry in the bunch. And I loved the author’s notes section, where Fracassi grants insight into each story’s origin (and confirms my thoughts _Mandala_'s ending).
+An accomplished debut collection from Fracassi. "<span data-work-slug="altar-by-philip-fracassi">Altar</span>" shines with <span data-work-slug="mandala-by-philip-fracassi">_Mandala_</span> a strong second. Not a below average entry in the bunch. And I loved the author’s notes section, where Fracassi grants insight into each story’s origin (and confirms my thoughts _Mandala_'s ending).
