@@ -4,12 +4,11 @@ slug: mandala-by-philip-fracassi
 grade: B+
 edition: Kindle
 edition_notes: <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the Void_</span>, Lovecraft eZine Press, 2018
-isbn:
-progress:
+timeline:
   - date: 2022-05-01
-    percent: 50
+    progress: 50%
   - date: 2022-05-07
-    percent: 100
+    progress: Finished
 ---
 
 At the beach, twelve-year-olds Mike and Joe play, unaware of the malevolent forces at work around them.

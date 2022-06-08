@@ -3,25 +3,24 @@ sequence: 18
 slug: the-rise-of-theodore-roosevelt-by-edmund-morris
 grade: A-
 edition: Audible
-edition_notes: Narrated by Mark Deakins
-isbn:
-progress:
+edition_notes: Read by Mark Deakins
+timeline:
   - date: 2022-03-19
-    percent: 5
+    progress: 5%
   - date: 2022-03-20
-    percent: 6
+    progress: 6%
   - date: 2022-03-22
-    percent: 16
+    progress: 16%
   - date: 2022-03-26
-    percent: 23
+    progress: 23%
   - date: 2022-03-27
-    percent: 27
+    progress: 27%
   - date: 2022-04-03
-    percent: 33
+    progress: 33%
   - date: 2022-04-30
-    percent: 57
+    progress: 57%
   - date: 2022-05-07
-    percent: 100
+    progress: Finished
 ---
 
 An immersive epic that celebrates—but never sugar-coats—its subject.

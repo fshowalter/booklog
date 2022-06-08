@@ -4,14 +4,13 @@ slug: on-writing-by-stephen-king
 grade: A-
 edition: Kindle
 edition_notes: Scribner
-isbn:
-progress:
+timeline:
   - date: 2022-03-19
-    percent: 20
+    progress: 20%
   - date: 2022-03-20
-    percent: 71
+    progress: 71%
   - date: 2022-03-21
-    percent: 100
+    progress: Finished
 ---
 
 When writing my review of <span data-work-slug="the-cellar-by-richard-laymon">_The Cellar_</span>, I remembered something King had written in _On Writing_ about reader-friendliness. Looking for the exact quote hooked me and I decided a reread might prove inspirational.

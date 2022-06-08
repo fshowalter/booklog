@@ -23,9 +23,9 @@ def prompt() -> None:
     if not work_slug:
         return
 
-    progress = ask_for_progress()
+    timeline = ask_for_timeline()
 
-    if not progress:
+    if not timeline:
         return
 
     edition = ask_for_edition()
@@ -33,15 +33,18 @@ def prompt() -> None:
     if not edition:
         return
 
-    grade = ask_for_grade()
+    grade = None
 
-    if not grade:
-        return
+    if timeline[-1].progress == "Finished":
+        grade = ask_for_grade()
+
+        if not grade:
+            return
 
     booklog_api.create_review(
         work_slug=work_slug,
         edition=edition,
-        progress=progress,
+        timeline=timeline,
         grade=grade,
     )
 
@@ -82,43 +85,54 @@ def ask_for_date() -> Optional[date]:
     return ask_for_date()
 
 
-def is_percent(text: str) -> bool:
+def is_valid_progress(text: str) -> bool:
+    if text in {"F", "A"}:
+        return True
+
     return bool(re.match("^[0-9]$|^[1-9][0-9]$|^(100)$", text))
 
 
-def ask_for_percent() -> int:
+def ask_for_progress() -> str:
     validator = Validator.from_callable(
-        is_percent,
-        error_message="Must be a whole number (no % sign).",
+        is_valid_progress,
+        error_message='Must be a whole number (no % sign), F for "Finished", or A for "Abandoned"',
         move_cursor_to_end=True,
     )
 
-    percent = ask.prompt("Percent: ", validator=validator, default="")
+    progress = ask.prompt(
+        "Progress: ",
+        validator=validator,
+        default="",
+        rprompt='Whole number (no % sign), F for "Finished", or A for "Abandoned"',
+    )
 
-    if percent:
-        return int(percent)
+    if progress:
+        if progress == "F":
+            return "Finished"
 
-    return ask_for_percent()
+        if progress == "A":
+            return "Abandoned"
+
+        return "{0}%".format(progress)
+
+    return ask_for_progress()
 
 
-def ask_for_progress() -> list[booklog_api.ProgressMark]:
-    progress_marks: list[booklog_api.ProgressMark] = []
+def ask_for_timeline() -> list[booklog_api.TimelineEntry]:
+    timeline_entries: list[booklog_api.TimelineEntry] = []
 
     while True:
-        progress_date = ask_for_date()
+        timeline_date = ask_for_date()
 
-        if progress_date:
-            progress_percent = ask_for_percent()
+        if timeline_date:
+            progress = ask_for_progress()
 
-            progress_marks.append(
-                booklog_api.ProgressMark(date=progress_date, percent=progress_percent)
+            timeline_entries.append(
+                booklog_api.TimelineEntry(date=timeline_date, progress=progress)
             )
 
-            if progress_percent == 100:
-                return progress_marks
-
-        if not confirm("Add more?"):
-            return progress_marks
+            if progress in {"Finished", "Abandoned"}:
+                return timeline_entries
 
 
 def ask_for_work() -> Optional[str]:

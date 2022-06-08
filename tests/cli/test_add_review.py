@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 import pytest
 from pytest_mock import MockerFixture
 
-from booklog.api import AuthorWithWorks, ProgressMark, Work, WorkAuthor
+from booklog.api import AuthorWithWorks, TimelineEntry, Work, WorkAuthor
 from booklog.cli import add_review
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Backspace, Enter
@@ -88,19 +88,17 @@ def test_calls_add_review(mock_input: MockInput, mock_create_review: MagicMock) 
             "y",
             "15",
             Enter,
-            "y",
             CLEAR_DEFAULT_DATE,
             "2016-03-11",
             Enter,
             "y",
             "50",
             Enter,
-            "y",
             CLEAR_DEFAULT_DATE,
             "2016-03-12",
             Enter,
             "y",
-            "100",
+            "F",
             Enter,
             Enter,
             "y",
@@ -115,10 +113,10 @@ def test_calls_add_review(mock_input: MockInput, mock_create_review: MagicMock) 
     mock_create_review.assert_called_once_with(
         work_slug="on-writing-by-stephen-king",
         edition="Kindle",
-        progress=[
-            ProgressMark(date=date(2016, 3, 10), percent=15),
-            ProgressMark(date=date(2016, 3, 11), percent=50),
-            ProgressMark(date=date(2016, 3, 12), percent=100),
+        timeline=[
+            TimelineEntry(date=date(2016, 3, 10), progress="15%"),
+            TimelineEntry(date=date(2016, 3, 11), progress="50%"),
+            TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
         ],
         grade="A+",
     )

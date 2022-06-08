@@ -4,28 +4,27 @@ slug: behold-the-void-by-philip-fracassi
 grade: B+
 edition: Kindle
 edition_notes: Lovecraft eZine Press, 2018
-isbn:
-progress:
+timeline:
   - date: 2022-04-17
-    percent: 9
+    progress: 9%
   - date: 2022-04-18
-    percent: 20
+    progress: 20%
   - date: 2022-04-19
-    percent: 31
+    progress: 31%
   - date: 2022-04-20
-    percent: 36
+    progress: 36%
   - date: 2022-04-21
-    percent: 45
+    progress: 45%
   - date: 2022-04-22
-    percent: 53
+    progress: 53%
   - date: 2022-04-23
-    percent: 64
+    progress: 64%
   - date: 2022-04-30
-    percent: 70
+    progress: 70%
   - date: 2022-05-01
-    percent: 87
+    progress: 87%
   - date: 2022-05-07
-    percent: 100
+    progress: Finished
 ---
 
 An accomplished debut collection from Fracassi. "<span data-work-slug="altar-by-philip-fracassi">Altar</span>" shines with <span data-work-slug="mandala-by-philip-fracassi">_Mandala_</span> a strong second. Not a below average entry in the bunch. And I loved the author’s notes section, where Fracassi grants insight into each story’s origin (and confirms my thoughts _Mandala_'s ending).

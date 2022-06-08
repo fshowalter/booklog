@@ -14,7 +14,7 @@ Work = bookdata_api.Work
 
 WorkAuthor = bookdata_api.WorkAuthor
 
-ProgressMark = reviews_api.ProgressMark
+TimelineEntry = reviews_api.TimelineEntry
 
 create_author = bookdata_api.create_author
 

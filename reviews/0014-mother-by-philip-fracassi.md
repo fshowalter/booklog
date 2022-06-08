@@ -4,10 +4,9 @@ slug: mother-by-philip-fracassi
 grade: B-
 edition: Kindle
 edition_notes: <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the Void_</span>, Lovecraft eZine Press, 2018
-isbn:
-progress:
+timeline:
   - date: 2022-04-23
-    percent: 100
+    progress: Finished
 ---
 
 Boy meets girl at a college freshman mixer. They date, fall in love, graduate and marry. They move to his hometown and begin their lives together. The bliss fades. His career takes off, hers flounders. Resentment sets in. Things escalate when she takes an interest in the ominous woods surrounding their home.

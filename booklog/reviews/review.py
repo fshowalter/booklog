@@ -6,9 +6,9 @@ from typing import Optional
 
 
 @dataclass
-class ProgressMark(object):
+class TimelineEntry(object):
     date: datetime.date
-    percent: int
+    progress: str
 
 
 @dataclass
@@ -16,14 +16,16 @@ class Review(object):
     sequence: int
     slug: str
     edition: str
-    grade: str
-    progress: list[ProgressMark]
-    isbn: Optional[str] = None
+    timeline: list[TimelineEntry]
+    grade: Optional[str] = None
     edition_notes: Optional[str] = None
     review_content: Optional[str] = None
 
     @property
-    def grade_value(self) -> float:
+    def grade_value(self) -> Optional[float]:
+        if not self.grade:
+            return None
+
         value_modifier = 0.33
 
         grade_map = {

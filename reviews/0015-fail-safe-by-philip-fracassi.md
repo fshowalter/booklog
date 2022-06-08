@@ -4,10 +4,9 @@ slug: fail-safe-by-philip-fracassi
 grade: C
 edition: Kindle
 edition_notes: <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the Void_</span>, Lovecraft eZine Press, 2018
-isbn:
-progress:
+timeline:
   - date: 2022-04-30
-    percent: 100
+    progress: Finished
 ---
 
 A twelve-year-old boy's father and other family “friends” have built a chamber in the family basement to contain his mother when she “turns”. One night, things go wrong.

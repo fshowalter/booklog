@@ -4,20 +4,19 @@ slug: the-cellar-by-richard-laymon
 grade: C+
 edition: Kindle
 edition_notes: 47 North, 2016
-isbn:
-progress:
+timeline:
   - date: 2022-03-07
-    percent: 23
+    progress: 23%
   - date: 2022-03-10
-    percent: 34
+    progress: 34%
   - date: 2022-03-13
-    percent: 40
+    progress: 40%
   - date: 2022-03-14
-    percent: 64
+    progress: 64%
   - date: 2022-03-15
-    percent: 76
+    progress: 76%
   - date: 2022-03-16
-    percent: 100
+    progress: Finished
 ---
 
 **Richard Laymon's debut novel.** Single-mom Donna flees town with her daughter Sandy after her ex-husband Roy makes parole. A car accident strands Donna and Sandy in Malcasa Point, a small northern California town whose claim to fame is an aging mansion known as Beast House.

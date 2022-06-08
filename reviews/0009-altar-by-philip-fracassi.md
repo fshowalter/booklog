@@ -4,10 +4,9 @@ slug: altar-by-philip-fracassi
 grade: A-
 edition: Kindle
 edition_notes: <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the Void_</span>, Lovecraft eZine Press, 2018
-isbn:
-progress:
+timeline:
   - date: 2022-04-18
-    percent: 100
+    progress: Finished
 ---
 
 I struggle to remember the last time a story evoked such a visceral sense of dread. Both <span data-work-slug="guts-by-chuck-palahniuk">Chuck Palahniuk's “Guts”</span> and <span data-work-slug="american-psycho-by-bret-easton-ellis">Bret Easton Ellis's _American Psycho_</span> had scenes that forced me to stop reading, but "Altar" is different.
