@@ -5,10 +5,9 @@ grade: C-
 edition: Kindle
 edition_notes: >
   <span data-work-slug="short-stories-volume-one-by-richard-laymon">_Short Stories: Volume One: The Mystery and Men's Magazines_</span>, Laymusings, 2014
-isbn:
-progress:
+timeline:
   - date: 2022-04-03
-    percent: 100
+    progress: Finished
 ---
 
 **Richard Laymon’s commercial debut.** Published in the November 1970 issue of _Ellery Queen’s Mystery Magazine_, this flash-fiction style story concerns an unnamed young man hitchhiking along a desert road. An unnamed young woman picks him up. To discuss more, I must spoil the story.

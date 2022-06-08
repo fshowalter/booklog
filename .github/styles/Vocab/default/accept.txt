@@ -1,3 +1,4 @@
+audiobook
 dentals
 dratty
 dreamscapes
@@ -6,6 +7,8 @@ Ellery
 floaties
 Fracassi
 Gabino
+Goggins
+Itzler
 Laymon
 Lovecraftian
 lutely

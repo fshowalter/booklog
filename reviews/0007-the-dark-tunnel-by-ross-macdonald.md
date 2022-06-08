@@ -4,28 +4,27 @@ slug: the-dark-tunnel-by-ross-macdonald
 grade: D+
 edition: Kindle
 edition_notes: MysteriousPress.com / Open Road, 2013
-isbn:
-progress:
+timeline:
   - date: 2022-04-03
-    percent: 9
+    progress: 9%
   - date: 2022-04-07
-    percent: 18
+    progress: 18%
   - date: 2022-04-09
-    percent: 24
+    progress: 24%
   - date: 2022-04-11
-    percent: 27
+    progress: 27%
   - date: 2022-04-12
-    percent: 36
+    progress: 36%
   - date: 2022-04-13
-    percent: 41
+    progress: 41%
   - date: 2022-04-14
-    percent: 49
+    progress: 49%
   - date: 2022-04-15
-    percent: 57
+    progress: 57%
   - date: 2022-04-16
-    percent: 60
+    progress: 60%
   - date: 2022-04-17
-    percent: 100
+    progress: Finished
 ---
 
 **Ross MacDonald's debut novel** sees college professor Robert Branch thwarting a cadre of Nazi spies.

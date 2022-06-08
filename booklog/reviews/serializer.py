@@ -9,7 +9,7 @@ from typing import Any, Optional, Sequence, TypedDict, cast
 import yaml
 from slugify import slugify
 
-from booklog.reviews.review import ProgressMark, Review
+from booklog.reviews.review import Review, TimelineEntry
 from booklog.utils import path_tools
 from booklog.utils.logging import logger
 
@@ -25,30 +25,31 @@ def represent_none(self: Any, _: Any) -> Any:
 yaml.add_representer(type(None), represent_none)
 
 
-class ProgressYaml(TypedDict):
+class TimelineYaml(TypedDict):
     date: datetime.date
-    percent: int
+    progress: str
 
 
 class ReviewYaml(TypedDict):
     sequence: int
     slug: str
-    grade: str
+    grade: Optional[str]
     edition: str
-    progress: list[ProgressYaml]
+    timeline: list[TimelineYaml]
     edition_notes: Optional[str]
-    isbn: Optional[str]
 
 
-def deserialize_progress(review_yaml: ReviewYaml) -> list[ProgressMark]:
-    progress_marks = []
+def deserialize_timeline(review_yaml: ReviewYaml) -> list[TimelineEntry]:
+    timeline = []
 
-    for progress_yaml in review_yaml["progress"]:
-        progress_marks.append(
-            ProgressMark(date=progress_yaml["date"], percent=progress_yaml["percent"])
+    for timeline_entry in review_yaml["timeline"]:
+        timeline.append(
+            TimelineEntry(
+                date=timeline_entry["date"], progress=timeline_entry["progress"]
+            )
         )
 
-    return progress_marks
+    return timeline
 
 
 def deserialize(file_path: str) -> Review:
@@ -57,7 +58,7 @@ def deserialize(file_path: str) -> Review:
 
     review_yaml = cast(ReviewYaml, yaml.safe_load(frontmatter))
 
-    progess = deserialize_progress(review_yaml=review_yaml)
+    timeline = deserialize_timeline(review_yaml=review_yaml)
 
     return Review(
         grade=review_yaml["grade"],
@@ -65,8 +66,7 @@ def deserialize(file_path: str) -> Review:
         sequence=review_yaml["sequence"],
         edition=review_yaml["edition"],
         edition_notes=review_yaml["edition_notes"],
-        isbn=review_yaml["isbn"],
-        progress=progess,
+        timeline=timeline,
         review_content=review_content,
     )
 
@@ -100,10 +100,9 @@ def generate_yaml(review: Review) -> ReviewYaml:
         grade=review.grade,
         edition=review.edition,
         edition_notes=review.edition_notes,
-        isbn=review.isbn,
-        progress=[
-            ProgressYaml(date=progress.date, percent=progress.percent)
-            for progress in review.progress
+        timeline=[
+            TimelineYaml(date=timeline_entry.date, progress=timeline_entry.progress)
+            for timeline_entry in review.timeline
         ],
     )
 

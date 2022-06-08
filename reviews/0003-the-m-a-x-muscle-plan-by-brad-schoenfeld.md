@@ -4,12 +4,11 @@ slug: the-max-muscle-plan-by-brad-schoenfeld
 grade: C-
 edition: Kindle
 edition_notes: Human Kinetics, 2013
-isbn:
-progress:
+timeline:
   - date: 2022-03-17
-    percent: 20
+    progress: 20%
   - date: 2022-03-18
-    percent: 100
+    progress: Finished
 ---
 
 Still laid up with a strained intercostal, I turned to another recommendation gleaned from various podcasts. Brad Schoenfeld turns up on all the evidence-based strength shows, as he publishes a considerable amount of research on muscular hypertrophy.

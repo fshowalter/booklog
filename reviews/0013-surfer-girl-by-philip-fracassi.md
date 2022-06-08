@@ -4,10 +4,9 @@ slug: surfer-girl-by-philip-fracassi
 grade: C+
 edition: Kindle
 edition_notes: <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the Void_</span>, Lovecraft eZine Press, 2018
-isbn:
-progress:
+timeline:
   - date: 2022-04-22
-    percent: 100
+    progress: Finished
 ---
 
 A serial killer comes of age during a vacation with his mother and step-father in Acapulco.

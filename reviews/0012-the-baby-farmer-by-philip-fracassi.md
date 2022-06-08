@@ -4,10 +4,9 @@ slug: the-baby-farmer-by-philip-fracassi
 grade: C+
 edition: Kindle
 edition_notes: <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the Void_</span>, Lovecraft eZine Press, 2018
-isbn:
-progress:
+timeline:
   - date: 2022-04-21
-    percent: 100
+    progress: Finished
 ---
 
 The local vicar strikes up a relationship with a woman seeking to build an orphanage on church lands. But the woman harbors a secret interest in Amelia Dyer, a notorious Victorian-era serial killer who preyed on infants in her care.

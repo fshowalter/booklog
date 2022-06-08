@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from booklog.reviews.review import ProgressMark, Review
+from booklog.reviews.review import Review, TimelineEntry
 
 
 @pytest.mark.parametrize(
@@ -30,12 +30,12 @@ def test_grade_value_accounts_for_modifers(
         sequence=1,
         slug="on-writing-by-stephen-king",
         edition="Kindle",
-        grade=grade,
-        progress=[
-            ProgressMark(date=date(2016, 3, 10), percent=15),
-            ProgressMark(date=date(2016, 3, 11), percent=50),
-            ProgressMark(date=date(2016, 3, 12), percent=100),
+        timeline=[
+            TimelineEntry(date=date(2016, 3, 10), progress="15%"),
+            TimelineEntry(date=date(2016, 3, 11), progress="50%"),
+            TimelineEntry(date=date(2016, 3, 12), progress="100%"),
         ],
+        grade=grade,
     )
 
     assert review.grade_value == expected_grade_value

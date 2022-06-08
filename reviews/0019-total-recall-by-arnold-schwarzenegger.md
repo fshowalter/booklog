@@ -3,17 +3,16 @@ sequence: 19
 slug: total-recall-by-arnold-schwarzenegger
 grade: C+
 edition: Audible
-edition_notes: Narrated by Stephen Lang and Arnold Schwarzenegger
-isbn:
-progress:
+edition_notes: Read by Stephen Lang and Arnold Schwarzenegger
+timeline:
   - date: 2022-05-07
-    percent: 2
+    progress: 2%
   - date: 2022-05-09
-    percent: 28
+    progress: 28%
   - date: 2022-05-15
-    percent: 77
+    progress: 77%
   - date: 2022-05-21
-    percent: 100
+    progress: Finished
 ---
 
 I got the Audible version thinking it was read by Schwarzenegger. He reads the first and last chapters. I was set to return the book after realizing this, but the narrative kept me engaged. Stephen Lang, while no Arnold, does a competent job.

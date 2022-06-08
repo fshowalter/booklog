@@ -4,18 +4,17 @@ slug: less-than-zero-by-bret-easton-ellis
 grade: B+
 edition: Kindle
 edition_notes: Vintage Contemporaries
-isbn:
-progress:
+timeline:
   - date: 2022-03-22
-    percent: 17
+    progress: 17%
   - date: 2022-03-23
-    percent: 33
+    progress: 33%
   - date: 2022-03-27
-    percent: 50
+    progress: 50%
   - date: 2022-03-28
-    percent: 66
+    progress: 66%
   - date: 2022-04-02
-    percent: 100
+    progress: Finished
 ---
 
 **Bret Easton Ellis's debut novel** is a powerhouse of existential horror. Narrated by Clay, an affluent college freshman, who returns home to Los Angeles for winter break in the early 80s.

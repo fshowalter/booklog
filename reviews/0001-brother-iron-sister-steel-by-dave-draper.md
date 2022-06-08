@@ -4,12 +4,11 @@ slug: brother-iron-sister-steel-by-dave-draper
 grade: C
 edition: Kindle
 edition_notes: On Target Publications
-isbn:
-progress:
+timeline:
   - date: 2022-03-05
-    percent: 47
+    progress: 47%
   - date: 2022-03-06
-    percent: 100
+    progress: Finished
 ---
 
 A strained intercostal muscle has me laid up from training, and I wanted motivation. Eric Helms recommended this on his podcast, _Iron Culture_.
