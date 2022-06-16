@@ -19,6 +19,8 @@ timeline:
 
 **Ian Fleming’s first novel and James Bond’s debut.** Soviet agent Le Chiffre has embezzled agency funds into failed business ventures and fears discovery. He travels to the Royale-les-Eaux casino in northern France where he plans to win back his losses in high-stakes baccarat. The British Secret Service dispatches Bond to thwart him by beating him in the big game.
 
+<!-- end -->
+
 > The scent and smoke and sweat of a casino are nauseating at three in the morning.
 
 With that hook, Fleming ushers in a pop-culture icon. He paints Bond as a man in complete command of his body and mind. Driven by a cold laser-focus on the job at hand, but able to savor fine food and drink. Fleming suggests a Hollywood likeness, but it wasn’t the then-unknown Sean Connery or the then-unborn Daniel Craig.
