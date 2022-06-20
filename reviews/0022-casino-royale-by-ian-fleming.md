@@ -17,7 +17,7 @@ timeline:
     progress: Finished
 ---
 
-**Ian Fleming’s first novel and James Bond’s debut.** Soviet agent Le Chiffre has embezzled agency funds into failed business ventures and fears discovery. He travels to the Royale-les-Eaux casino in northern France where he plans to win back his losses in high-stakes baccarat. The British Secret Service dispatches Bond to thwart him by beating him in the big game.
+**Ian Fleming’s first novel and James Bond’s debut.** Soviet agent Le Chiffre has embezzled agency funds into failed business ventures and fears discovery. He travels to the Royale-les-Eaux casino in northern France where he plans to win back his losses in high-stakes baccarat. The British Secret Service dispatches Bond to beat him in the big game.
 
 <!-- end -->
 
