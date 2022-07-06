@@ -43,7 +43,7 @@ The “it” is ambiguous, but I read it as America's rampant racism, which Flem
 
 This awareness doesn't excuse Fleming's other insensitivity and ignorance, but intent factors when examining yesterday's world through today's lens.
 
-Back to the story. Besides the uncomfortable racism, we also get a softer Bond. The ice-cold, borderline sociopath of the first book is gone, replaced with a more sensitive man who faints when a goon breaks his finger and breaks out in a sweat when his plane hits turbulence. This Bond proves quick to fall in love with this story's love interest, despite having ended the last novel—set just six months prior—with “The bitch is dead.”
+Back to the story. Besides the uncomfortable racism, we also get a softer Bond. The ice-cold, borderline sociopath of the first book is gone, replaced with a more sensitive man who faints when a goon breaks his finger and breaks out in a sweat when his plane hits turbulence. This Bond proves quick to fall for this story's love interest, despite having ended the last novel—set just six months prior—with “The bitch is dead.”
 
 His original stoic persona makes appearances, but it's no longer the norm.
 
