@@ -49,3 +49,6 @@ Tennant
 Uri
 Verhoeven
 Willink
+Tartt
+Corcoran
+Lestat
