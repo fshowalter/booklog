@@ -33,7 +33,7 @@ Brett Easton Ellis's follow-up to <span data-work-slug="less-than-zero-by-bret-e
 >
 > “Could you stop? I need cigarettes,” I said, checking my pockets.
 >
-> “Can I remind you that we have someone O.D.ing in the backseat?” Donald said.
+> “Can I remind you that we have someone ODing in the backseat?” Donald said.
 >
 > Raymond was hunched over the wheel, looking worried, like he could use a cigarette and was seriously considering it.
 >
