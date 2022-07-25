@@ -3,7 +3,7 @@ sequence: 29
 slug: the-48-laws-of-power-by-robert-greene
 grade: D+
 edition: Audible
-edition_notes:
+edition_notes: Read by Richard Poe
 timeline:
   - date: 2022-07-10
     progress: 41%
