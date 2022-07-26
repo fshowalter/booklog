@@ -13,6 +13,8 @@ timeline:
 
 The narrator, a young, single man plagued by insomnia, meets a charismatic nihilist named Tyler. One night, after returning home to find his apartment destroyed via a gas explosion, the narrator reaches out to Tyler for a place to crash. Tyler agrees under one condition. “I want you to hit me as hard as you can,” he says.
 
+<!-- end -->
+
 This leads to the pair forming a secret, late night fighting club where disillusioned men battle with bare fists and feet until one taps out. Palahniuk springboards from here into a biting satire of consumerist culture and modern masculinity.
 
 Like most, I came to _Fight Club_ from the movie. It’s a great movie that improves on already great material. Lines like:
