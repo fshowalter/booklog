@@ -3,7 +3,7 @@ sequence: 32
 slug: the-postman-always-rings-twice-by-james-m-cain
 grade: B+
 edition: Kindle
-edition_notes:
+edition_notes: Vintage Crime / Black Lizard, 2010
 timeline:
   - date: 2022-07-18
     progress: 13%
