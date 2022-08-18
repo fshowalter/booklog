@@ -55,4 +55,4 @@ But the DA suspects (“suspicions”) the truth. It looks bad until Frank lucks
 
 > Oh, Chambers, you did me a favor all right when you called me in on this. I’ll never get another one like it.
 
-Up to this point, this ranked as one of the best books I'd read. But Cain runs out of steam. The story meanders, with Frank running out on Cora, then realizing he can't, then realizing he loves her. The ending, meant to be ironic, disappointed me. Cain taps into a primal nihilistic—or at least existential—undercurrent that thrilled and challenged, rendering the moralistic ending disingenuous. Still, the first two acts deliver some of the finest noir fiction I've read.
+Up to this point, this ranked as one of the best books I'd read. But Cain runs out of steam. The story meanders, with Frank running out on Cora, then realizing he can't, then realizing he loves her. The ending, meant to be ironic, disappointed me. Cain taps into a primal nihilistic—or at least existential—undercurrent that thrilled and challenged, rendering the moralistic ending disingenuous. Still, the first two acts deliver some of the finest hard-boiled fiction I've read.
