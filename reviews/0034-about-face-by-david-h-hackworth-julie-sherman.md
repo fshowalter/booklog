@@ -1,5 +1,5 @@
 ---
-sequence: 33
+sequence: 34
 slug: about-face-by-david-h-hackworth-julie-sherman
 grade: A-
 edition: Audible
