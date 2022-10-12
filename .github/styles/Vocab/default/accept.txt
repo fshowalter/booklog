@@ -1,3 +1,4 @@
+animalistic
 Annexe
 audiobook
 Babin
@@ -36,6 +37,7 @@ Itzler
 Katz
 Kellgren
 Kinna
+Krull
 Laymon
 Leiter
 Lennie
@@ -52,6 +54,7 @@ Mina
 Morrissey
 nana
 NCO
+Neala
 negress
 noir
 ODing
@@ -70,6 +73,7 @@ Schoenfeld
 se
 Sematary
 Shannyn 
+Shhhh
 Smyert
 Somerhalder
 Sossamon
