@@ -9,7 +9,7 @@ timeline:
     progress: Finished
 ---
 
-Richard Laymon’s sophomore effort proffers late-70s exploitation horror in novel form. Two collegiate girls stop at a roadside diner in a small town in the California wilderness. Across the street at the town’s lone motel, Lander Dills pulls in with his wife, their collegiate daughter and her boyfriend. All six soon discover the town’s dark secret when they’re abducted and ferried out to the wilderness as tribute to the Krulls, a clan of cannibalistic forest denizens.
+Richard Laymon’s sophomore effort proffers late-70s exploitation horror. Two collegiate girls stop at a roadside diner in a small town in the California wilderness. Across the street at the town’s lone motel, Lander Dills pulls in with his wife, their collegiate daughter and her boyfriend. All six soon discover the town’s dark secret when they’re abducted and ferried out to the wilderness as tribute to the Krulls, a clan of cannibalistic forest denizens.
 
 <!-- end -->
 
