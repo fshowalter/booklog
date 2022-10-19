@@ -5,15 +5,17 @@ grade: C+
 edition: Audible
 edition_notes: Read by Bob Dunsworth
 timeline:
+  - date: 2022-09-10
+    progress: 49%
   - date: 2022-09-11
     progress: Finished
 ---
 
-Richard Laymon’s sophomore effort proffers late-70s exploitation horror. Two collegiate girls stop at a roadside diner in a small town in the California wilderness. Across the street at the town’s lone motel, Lander Dills pulls in with his wife, their collegiate daughter and her boyfriend. All six soon discover the town’s dark secret when they’re abducted and ferried out to the wilderness as tribute to the Krulls, a clan of cannibalistic forest denizens.
+Two collegiate girls stop at a roadside diner in a small town in the California wilderness. Across the street at the town’s lone motel, Lander Dills pulls in with his wife, their collegiate daughter and her boyfriend. All six soon discover the town’s dark secret when they’re abducted and ferried out to the wilderness as tribute to the Krulls, a clan of cannibalistic forest denizens.
 
 <!-- end -->
 
-Laymon’s story lacks depth but compensates with relentless narrative propulsion via short, noun-verb sentences and dialogue-driven action.
+Richard Laymon’s sophomore effort proffers late-70s exploitation horror. It lacks depth but compensates with relentless narrative propulsion via short, noun-verb sentences and dialogue-driven action.
 
 > Neala heard the crunch of rushing feet. Off to the left. She raised her voice to call out. “Ov—” Robbins clapped a hand across her mouth.
 >
