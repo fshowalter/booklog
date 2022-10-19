@@ -20,6 +20,7 @@ Richard Laymon’s sophomore effort proffers late-70s exploitation horror. It la
 > Neala heard the crunch of rushing feet. Off to the left. She raised her voice to call out. “Ov—” Robbins clapped a hand across her mouth.
 >
 > “Shhhh.”
+>
 > His hand had a pungent odor of gun smoke.
 >
 > “Might not be them,” he whispered.
