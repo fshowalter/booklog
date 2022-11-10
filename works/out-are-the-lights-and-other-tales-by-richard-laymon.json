@@ -1,0 +1,22 @@
+{
+  "title": "Out Are the Lights and Other Tales",
+  "subtitle": null,
+  "year": "1993",
+  "sort_title": "Out Are the Lights and Other Tales",
+  "authors": [
+    {
+      "slug": "richard-laymon",
+      "notes": null
+    }
+  ],
+  "slug": "out-are-the-lights-and-other-tales-by-richard-laymon",
+  "kind": "Collection",
+  "included_works": [
+    "out-are-the-lights-by-richard-laymon",
+    "mess-hall-by-richard-laymon",
+    "dinkers-pond-by-richard-laymon",
+    "madman-stan-by-richard-laymon",
+    "bad-news-by-richard-laymon",
+    "the-tub-by-richard-laymon"
+  ]
+}
