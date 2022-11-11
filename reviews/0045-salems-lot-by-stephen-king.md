@@ -49,6 +49,8 @@ On the bright side, my biggest gripe—the finale's “blue flame of power"—di
 
 Ron McLarty's narration proved a mixed bag. He's perfect for Ben and I loved the New England drawl he brought to constable Parkins Gillespie, but pitching up his voice for Susan and Mark grated. And his performance of Barlow aims for Lugosi but lands closer to the Count from Sesame Street.
 
+---
+
 After this listen, I found a copy of the _Illustrated Edition_, which appends a "Deleted Scenes" section, showcasing bits excised from the final manuscript. This proved illuminating, as some of these excised scenes would have addressed my gripes.
 
 It’s all about the rats. They play a bigger part in the original manuscript. When Susan and Mark break into the Marsten House, they descend into the cellar where they find thousands of the vermin serving as Barlow’s Praetorian Guard. They swarm over the floor and walls. Susan raises the small cross around her neck and we get an early reference to the "blue flame of power" as it glows and the rats shrink back from the light, allowing her to part them like Moses.
