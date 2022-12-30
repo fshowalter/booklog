@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 from booklog.bookdata import authors, works
 
+Author = authors.Author
 Work = works.Work
 all_authors = authors.deserialize_all
 all_works = works.deserialize_all
@@ -50,6 +51,19 @@ def author_names_for_work(work: Work) -> list[str]:
     filtered_authors = filter(lambda author: author.slug in author_slugs, all_authors())
 
     return list(map(lambda author: author.name, filtered_authors))
+
+
+def author_for_slug(author_slug: str) -> Author:
+    return next(author for author in all_authors() if author.slug == author_slug)
+
+
+def works_for_author(author_slug: str) -> list[Work]:
+    return list(
+        filter(
+            lambda work: author_slug in set(author.slug for author in work.authors),
+            all_works(),
+        )
+    )
 
 
 def search_works(query: str) -> list[WorkWithAuthors]:
