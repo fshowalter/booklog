@@ -10,6 +10,11 @@ def mock_exports_folder_name(mocker: MockerFixture, tmp_path: str) -> None:
 
 
 @pytest.fixture(autouse=True)
+def mock_readings_folder_name(mocker: MockerFixture, tmp_path: str) -> None:
+    mocker.patch("booklog.readings.serializer.FOLDER_NAME", tmp_path)
+
+
+@pytest.fixture(autouse=True)
 def mock_reviews_folder_name(mocker: MockerFixture, tmp_path: str) -> None:
     mocker.patch("booklog.reviews.serializer.FOLDER_NAME", tmp_path)
 

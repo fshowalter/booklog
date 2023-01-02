@@ -42,7 +42,7 @@ class Work(object):
     slug: str
     kind: str
     included_works: list[str]
-    shelf: bool
+    shelf: Optional[bool] = False
 
     @property
     def full_title(self) -> str:
