@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from booklog.reviews.review import Review, TimelineEntry
+from booklog.reviews.review import Review
 
 
 @pytest.mark.parametrize(
@@ -27,14 +27,8 @@ def test_grade_value_accounts_for_modifers(
     grade: str, expected_grade_value: float
 ) -> None:
     review = Review(
-        sequence=1,
-        slug="on-writing-by-stephen-king",
-        edition="Kindle",
-        timeline=[
-            TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            TimelineEntry(date=date(2016, 3, 12), progress="100%"),
-        ],
+        work_slug="on-writing-by-stephen-king",
+        date=date(2016, 3, 10),
         grade=grade,
     )
 

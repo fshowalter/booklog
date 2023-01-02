@@ -8,6 +8,7 @@ from typing import Any, Optional
 
 from slugify import slugify
 
+from booklog.bookdata.authors import deserialize_all as all_authors
 from booklog.utils import path_tools
 from booklog.utils.logging import logger
 
@@ -41,6 +42,7 @@ class Work(object):
     slug: str
     kind: str
     included_works: list[str]
+    shelf: bool = False
 
     @property
     def full_title(self) -> str:
@@ -67,6 +69,18 @@ def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
     return title_with_subtitle
 
 
+def any_authors_on_shelf(work_authors: list[WorkAuthor]) -> bool:
+    authors = list(
+        filter(
+            lambda author: author.slug
+            in set(work_author.slug for work_author in work_authors),
+            all_authors(),
+        )
+    )
+
+    return any(author.shelf for author in authors)
+
+
 def create(  # noqa: WPS211
     title: str,
     subtitle: Optional[str],
@@ -90,6 +104,7 @@ def create(  # noqa: WPS211
         slug=slug,
         kind=kind,
         included_works=included_works or [],
+        shelf=any_authors_on_shelf(authors),
     )
 
     serialize(work)
@@ -114,6 +129,7 @@ def deserialize_json_work(json_work: dict[str, Any]) -> Work:
         slug=json_work["slug"],
         kind=json_work["kind"],
         included_works=json_work.get("included_works", []),
+        shelf=json_work.get("shelf", False),
     )
 
 
@@ -125,17 +141,6 @@ def deserialize_all() -> list[Work]:
             works.append(deserialize_json_work(json.load(json_file)))
 
     return works
-
-
-def works_for_author(author_slug: str) -> list[Work]:
-    all_works = deserialize_all()
-
-    return list(
-        filter(
-            lambda work: author_slug in set(author.slug for author in work.authors),
-            all_works,
-        )
-    )
 
 
 def serialize(work: Work) -> None:

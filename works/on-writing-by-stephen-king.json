@@ -3,12 +3,14 @@
   "subtitle": "A Memoir of the Craft",
   "year": "2000",
   "sort_title": "On Writing",
-  "kind": "Nonfiction",
   "authors": [
     {
       "slug": "stephen-king",
       "notes": null
     }
   ],
-  "slug": "on-writing-by-stephen-king"
+  "slug": "on-writing-by-stephen-king",
+  "kind": "Nonfiction",
+  "included_works": [],
+  "shelf": true
 }

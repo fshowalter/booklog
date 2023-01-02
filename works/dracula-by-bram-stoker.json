@@ -11,5 +11,6 @@
   ],
   "slug": "dracula-by-bram-stoker",
   "kind": "Novel",
-  "included_works": []
+  "included_works": [],
+  "shelf": true
 }

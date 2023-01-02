@@ -6,19 +6,10 @@ from typing import Optional
 
 
 @dataclass
-class TimelineEntry(object):
-    date: datetime.date
-    progress: str
-
-
-@dataclass
 class Review(object):
-    sequence: int
-    slug: str
-    edition: str
-    timeline: list[TimelineEntry]
+    work_slug: str
+    date: datetime.date
     grade: Optional[str] = None
-    edition_notes: Optional[str] = None
     review_content: Optional[str] = None
 
     @property

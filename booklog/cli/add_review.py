@@ -41,10 +41,15 @@ def prompt() -> None:
         if not grade:
             return
 
-    booklog_api.create_review(
+    booklog_api.create_reading(
         work_slug=work_slug,
         edition=edition,
         timeline=timeline,
+    )
+
+    booklog_api.create_review(
+        work_slug=work_slug,
+        date=timeline[-1].date,
         grade=grade,
     )
 

@@ -18,7 +18,7 @@ def serialize_dicts(dicts: Iterable[DictType], file_name: str) -> None:
 
     json_file_name = os.path.join(folder_path, "{0}.json".format(file_name))
     with open(json_file_name, "w") as output_file:
-        output_file.write(json.dumps(dicts, default=str))
+        output_file.write(json.dumps(dicts, default=str, indent=""))
 
     logger.log(
         "Wrote {} ({}).",
