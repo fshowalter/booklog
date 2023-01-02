@@ -16,6 +16,11 @@ def mock_create_review(mocker: MockerFixture) -> MagicMock:
 
 
 @pytest.fixture(autouse=True)
+def mock_create_reading(mocker: MockerFixture) -> MagicMock:
+    return mocker.patch("booklog.cli.add_review.booklog_api.create_reading")
+
+
+@pytest.fixture(autouse=True)
 def mock_create_search_authors(mocker: MockerFixture) -> MagicMock:
     authors_with_works = [
         AuthorWithWorks(
@@ -73,6 +78,56 @@ CLEAR_DEFAULT_DATE = "".join(
 )
 
 
+def test_calls_add_reading(
+    mock_input: MockInput, mock_create_reading: MagicMock
+) -> None:
+    mock_input(
+        [
+            "Stephen King",
+            Enter,
+            Enter,
+            "y",
+            Enter,
+            "y",
+            CLEAR_DEFAULT_DATE,
+            "2016-03-10",
+            Enter,
+            "y",
+            "15",
+            Enter,
+            CLEAR_DEFAULT_DATE,
+            "2016-03-11",
+            Enter,
+            "y",
+            "50",
+            Enter,
+            CLEAR_DEFAULT_DATE,
+            "2016-03-12",
+            Enter,
+            "y",
+            "F",
+            Enter,
+            Enter,
+            "y",
+            "A+",
+            Enter,
+            "y",
+        ]
+    )
+
+    add_review.prompt()
+
+    mock_create_reading.assert_called_once_with(
+        work_slug="on-writing-by-stephen-king",
+        edition="Kindle",
+        timeline=[
+            TimelineEntry(date=date(2016, 3, 10), progress="15%"),
+            TimelineEntry(date=date(2016, 3, 11), progress="50%"),
+            TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
+        ],
+    )
+
+
 def test_calls_add_review(mock_input: MockInput, mock_create_review: MagicMock) -> None:
     mock_input(
         [
@@ -112,11 +167,6 @@ def test_calls_add_review(mock_input: MockInput, mock_create_review: MagicMock) 
 
     mock_create_review.assert_called_once_with(
         work_slug="on-writing-by-stephen-king",
-        edition="Kindle",
-        timeline=[
-            TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
-        ],
+        date=date(2016, 3, 12),
         grade="A+",
     )
