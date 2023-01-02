@@ -6,7 +6,7 @@ import os
 import re
 from dataclasses import asdict
 from glob import glob
-from typing import Optional, Sequence, TypedDict, cast
+from typing import Optional, TypedDict, cast
 
 from slugify import slugify
 
@@ -60,7 +60,7 @@ def deserialize(file_path: str) -> Reading:
     )
 
 
-def deserialize_all() -> Sequence[Reading]:
+def deserialize_all() -> list[Reading]:
     file_paths = glob(os.path.join(FOLDER_NAME, "*.json"))
 
     return [deserialize(file_path) for file_path in sorted(file_paths)]

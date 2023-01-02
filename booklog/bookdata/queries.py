@@ -38,7 +38,7 @@ def search_authors(query: str) -> list[AuthorWithWorks]:
                 name=filtered_author.name,
                 sort_name=filtered_author.sort_name,
                 slug=filtered_author.slug,
-                works=works.works_for_author(filtered_author.slug),
+                works=works_for_author(filtered_author.slug),
             )
         )
 

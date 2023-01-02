@@ -129,6 +129,7 @@ def deserialize_json_work(json_work: dict[str, Any]) -> Work:
         slug=json_work["slug"],
         kind=json_work["kind"],
         included_works=json_work.get("included_works", []),
+        shelf=json_work.get("shelf", False),
     )
 
 

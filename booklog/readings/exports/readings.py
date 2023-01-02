@@ -24,7 +24,7 @@ JsonReading = TypedDict(
 def export(readings: list[Reading]) -> None:
     logger.log("==== Begin exporting {}...", "readings")
 
-    readings = [
+    json_readings = [
         JsonReading(
             sequence=reading.sequence,
             workSlug=reading.work_slug,
@@ -38,4 +38,4 @@ def export(readings: list[Reading]) -> None:
         for reading in serializer.deserialize_all()
     ]
 
-    export_tools.serialize_dicts(readings, "readings")
+    export_tools.serialize_dicts(json_readings, "readings")

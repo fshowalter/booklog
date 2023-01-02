@@ -4,12 +4,11 @@ import datetime
 import os
 import re
 from glob import glob
-from typing import Any, Optional, Sequence, TypedDict, cast
+from typing import Any, Optional, TypedDict, cast
 
 import yaml
-from slugify import slugify
 
-from booklog.reviews.review import Review, TimelineEntry
+from booklog.reviews.review import Review
 from booklog.utils import path_tools
 from booklog.utils.logging import logger
 
@@ -25,31 +24,10 @@ def represent_none(self: Any, _: Any) -> Any:
 yaml.add_representer(type(None), represent_none)
 
 
-class TimelineYaml(TypedDict):
-    date: datetime.date
-    progress: str
-
-
 class ReviewYaml(TypedDict):
-    sequence: int
-    slug: str
+    work_slug: str
     grade: Optional[str]
-    edition: str
-    timeline: list[TimelineYaml]
-    edition_notes: Optional[str]
-
-
-def deserialize_timeline(review_yaml: ReviewYaml) -> list[TimelineEntry]:
-    timeline = []
-
-    for timeline_entry in review_yaml["timeline"]:
-        timeline.append(
-            TimelineEntry(
-                date=timeline_entry["date"], progress=timeline_entry["progress"]
-            )
-        )
-
-    return timeline
+    date: datetime.date
 
 
 def deserialize(file_path: str) -> Review:
@@ -58,35 +36,26 @@ def deserialize(file_path: str) -> Review:
 
     review_yaml = cast(ReviewYaml, yaml.safe_load(frontmatter))
 
-    timeline = deserialize_timeline(review_yaml=review_yaml)
-
     return Review(
         grade=review_yaml["grade"],
-        slug=review_yaml["slug"],
-        sequence=review_yaml["sequence"],
-        edition=review_yaml["edition"],
-        edition_notes=review_yaml["edition_notes"],
-        timeline=timeline,
+        work_slug=review_yaml["work_slug"],
+        date=review_yaml["date"],
         review_content=review_content,
     )
 
 
-def deserialize_all() -> Sequence[Review]:
+def deserialize_all() -> list[Review]:
     reviews: list[Review] = []
     for review_file_path in glob(os.path.join(FOLDER_NAME, "*.md")):
         reviews.append(deserialize(review_file_path))
 
-    reviews.sort(key=lambda review: review.sequence)
+    reviews.sort(key=lambda review: review.date)
 
     return reviews
 
 
 def generate_file_path(review: Review) -> str:
-    file_name = slugify(
-        "{0:04d} {1}".format(review.sequence, review.slug),
-    )
-
-    file_path = os.path.join(FOLDER_NAME, "{0}.md".format(file_name))
+    file_path = os.path.join(FOLDER_NAME, "{0}.md".format(review.work_slug))
 
     path_tools.ensure_file_path(file_path)
 
@@ -94,17 +63,7 @@ def generate_file_path(review: Review) -> str:
 
 
 def generate_yaml(review: Review) -> ReviewYaml:
-    return ReviewYaml(
-        sequence=review.sequence,
-        slug=review.slug,
-        grade=review.grade,
-        edition=review.edition,
-        edition_notes=review.edition_notes,
-        timeline=[
-            TimelineYaml(date=timeline_entry.date, progress=timeline_entry.progress)
-            for timeline_entry in review.timeline
-        ],
-    )
+    return ReviewYaml(work_slug=review.work_slug, grade=review.grade, date=review.date)
 
 
 def serialize(review: Review) -> str:

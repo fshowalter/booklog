@@ -3,7 +3,7 @@ from booklog.bookdata.queries import author_for_slug, works_for_author
 from booklog.bookdata.works import serialize as serialize_work
 
 
-def add_author(author_slug: str):
+def add_author(author_slug: str) -> None:
     author = author_for_slug(author_slug=author_slug)
     author.shelf = True
     serialize_author(author)
