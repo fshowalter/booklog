@@ -80,7 +80,7 @@ def ask_for_authors() -> list[booklog_api.WorkAuthor]:
                 booklog_api.WorkAuthor(slug=author.slug, notes=author_notes)
             )
 
-        if not confirm("Add more?"):
+        if not confirm("Add more Authors?"):
             return work_authors
 
 
