@@ -1,0 +1,20 @@
+{
+  "title": "The Talisman",
+  "subtitle": null,
+  "year": "1984",
+  "sort_title": "Talisman",
+  "authors": [
+    {
+      "slug": "stephen-king",
+      "notes": null
+    },
+    {
+      "slug": "peter-straub",
+      "notes": null
+    }
+  ],
+  "slug": "the-talisman-by-stephen-king-peter-straub",
+  "kind": "Novel",
+  "included_works": [],
+  "shelf": true
+}
