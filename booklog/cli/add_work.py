@@ -140,7 +140,7 @@ def ask_for_kind() -> Optional[str]:
 
 
 def build_kind_options() -> list[Option]:
-    kinds = booklog_api.WORK_KINDS
+    kinds = sorted(booklog_api.WORK_KINDS)
 
     options: list[Option] = []
 
