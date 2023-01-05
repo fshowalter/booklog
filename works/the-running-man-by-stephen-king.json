@@ -1,0 +1,16 @@
+{
+  "title": "The Running Man",
+  "subtitle": null,
+  "year": "1981",
+  "sort_title": "Running Man",
+  "authors": [
+    {
+      "slug": "stephen-king",
+      "notes": "as Richard Bachman"
+    }
+  ],
+  "slug": "the-running-man-by-stephen-king",
+  "kind": "Novel",
+  "included_works": [],
+  "shelf": true
+}
