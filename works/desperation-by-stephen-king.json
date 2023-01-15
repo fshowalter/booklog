@@ -1,15 +1,15 @@
 {
-  "title": "Fight Club",
+  "title": "Desperation",
   "subtitle": null,
   "year": "1996",
-  "sort_title": "Fight Club",
+  "sort_title": "Desperation",
   "authors": [
     {
-      "slug": "chuck-palahniuk",
+      "slug": "stephen-king",
       "notes": null
     }
   ],
-  "slug": "fight-club-by-chuck-palahniuk",
+  "slug": "desperation-by-stephen-king",
   "kind": "Novel",
   "included_works": [],
   "shelf": true

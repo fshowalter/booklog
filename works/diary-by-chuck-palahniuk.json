@@ -1,15 +1,15 @@
 {
-  "title": "Fight Club",
+  "title": "Diary",
   "subtitle": null,
-  "year": "1996",
-  "sort_title": "Fight Club",
+  "year": "2003",
+  "sort_title": "Diary",
   "authors": [
     {
       "slug": "chuck-palahniuk",
       "notes": null
     }
   ],
-  "slug": "fight-club-by-chuck-palahniuk",
+  "slug": "diary-by-chuck-palahniuk",
   "kind": "Novel",
   "included_works": [],
   "shelf": true

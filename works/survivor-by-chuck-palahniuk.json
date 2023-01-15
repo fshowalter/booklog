@@ -1,15 +1,15 @@
 {
-  "title": "Fight Club",
+  "title": "Survivor",
   "subtitle": null,
-  "year": "1996",
-  "sort_title": "Fight Club",
+  "year": "1999",
+  "sort_title": "Survivor",
   "authors": [
     {
       "slug": "chuck-palahniuk",
       "notes": null
     }
   ],
-  "slug": "fight-club-by-chuck-palahniuk",
+  "slug": "survivor-by-chuck-palahniuk",
   "kind": "Novel",
   "included_works": [],
   "shelf": true
