@@ -6,6 +6,8 @@ date: 2023-01-14
 
 Stephen King’s sequel to <span data-work-slug="the-shining-by-stephen-king">_The Shining_</span> finds Dan Torrance a middle-aged recovering alcoholic living in New Hampshire and working as a hospice orderly. He uses his unique gifts to comfort residents as they transition to the other side.
 
+<!-- end -->
+
 A parallel plot thread follows Abra Stone, a girl born with a powerful shine dwarfing Dan’s. As she grows up, her gift manifests in strange occurrences, culminating in a birthday party where she levitates every spoon in the house.
 
 A third arc introduces the True Knot. A group of “hollow devils”--psychic vampires who prey upon children with the shine, torturing and killing them, then inhaling their essence. This essence—what they call steam—affords them preternatural youth.
