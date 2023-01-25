@@ -4,6 +4,7 @@ Annexe
 audiobook
 Babin
 backstepped
+Badham
 Beek
 Big's
 bon
@@ -15,6 +16,7 @@ Chandleresque
 Chiffre
 Corcoran
 Dal
+Dandrige
 dentals
 dratty
 Drax
@@ -93,17 +95,22 @@ rageth
 Ramadi
 reframe
 reframed
+rewatching
+Roddy
 Royale
+Sarandon
 Schoenfeld
 Schreck
 se
 Sematary
 Shannyn 
 Shhhh
+Skipp
 Skolnick
 Smyert
 Somerhalder
 Sossamon
+Spector
 Sperber
 Spionam
 steampipes
@@ -119,5 +126,6 @@ Verhoeven
 von
 Westenra
 Whitby
+Wickerman
 Willink
 Wim
