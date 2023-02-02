@@ -26,7 +26,7 @@ def ask_for_name() -> Optional[str]:
     if not name:
         return None
 
-    if confirm(name):  # noqa: WPS323
+    if confirm(name):
         return name
 
     return ask_for_name()

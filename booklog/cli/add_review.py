@@ -10,7 +10,7 @@ from prompt_toolkit.shortcuts import confirm
 from prompt_toolkit.validation import Validator
 
 from booklog import api as booklog_api
-from booklog.cli import ask, ask_for_author, radio_list
+from booklog.cli import ask, ask_for_work, radio_list
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
@@ -18,9 +18,9 @@ WorkOption = Tuple[Optional[booklog_api.Work], AnyFormattedText]
 
 
 def prompt() -> None:
-    work_slug = ask_for_work()
+    work_with_authors = ask_for_work.prompt()
 
-    if not work_slug:
+    if not work_with_authors:
         return
 
     timeline = ask_for_timeline()
@@ -42,13 +42,13 @@ def prompt() -> None:
             return
 
     booklog_api.create_reading(
-        work_slug=work_slug,
+        work_slug=work_with_authors.slug,
         edition=edition,
         timeline=timeline,
     )
 
     booklog_api.create_review(
-        work_slug=work_slug,
+        work_slug=work_with_authors.slug,
         date=timeline[-1].date,
         grade=grade,
     )
@@ -65,7 +65,9 @@ def string_to_date(date_string: str) -> date:
     return datetime.strptime(date_string, "%Y-%m-%d").date()  # noqa: WPS323
 
 
-def ask_for_date() -> Optional[date]:
+def ask_for_date(default_date: Optional[date] = None) -> Optional[date]:
+    default_date = default_date or date.today()
+
     validator = Validator.from_callable(
         is_date,
         error_message="Must be a valid date in YYYY-MM-DD format.",
@@ -76,7 +78,7 @@ def ask_for_date() -> Optional[date]:
         "Date: ",
         rprompt="YYYY-MM-DD format.",
         validator=validator,
-        default=date.today().strftime("%Y-%m-%d"),  # noqa: WPS323
+        default=default_date.strftime("%Y-%m-%d"),  # noqa: WPS323
     )
 
     if not date_string:
@@ -125,9 +127,10 @@ def ask_for_progress() -> str:
 
 def ask_for_timeline() -> list[booklog_api.TimelineEntry]:
     timeline_entries: list[booklog_api.TimelineEntry] = []
+    timeline_date = None
 
     while True:
-        timeline_date = ask_for_date()
+        timeline_date = ask_for_date(timeline_date)
 
         if timeline_date:
             progress = ask_for_progress()
@@ -140,52 +143,52 @@ def ask_for_timeline() -> list[booklog_api.TimelineEntry]:
                 return timeline_entries
 
 
-def ask_for_work() -> Optional[str]:
-    author_with_works = ask_for_author.prompt()
+# def ask_for_work() -> Optional[str]:
+#     author_with_works = ask_for_author.prompt()
 
-    if not author_with_works:
-        return None
+#     if not author_with_works:
+#         return None
 
-    options: list[WorkOption] = build_work_options(author_with_works.works)
+#     options: list[WorkOption] = build_work_options(author_with_works.works)
 
-    selected_work = None
+#     selected_work = None
 
-    while selected_work is None:
+#     while selected_work is None:
 
-        selected_work = radio_list.prompt(
-            title="Select work:",
-            options=options,
-        )
+#         selected_work = radio_list.prompt(
+#             title="Select work:",
+#             options=options,
+#         )
 
-        if selected_work is None:
-            break
+#         if selected_work is None:
+#             break
 
-    if not selected_work:
-        return None
+#     if not selected_work:
+#         return None
 
-    if confirm("{0}?".format(selected_work.title)):
-        return selected_work.slug
+#     if confirm("{0}?".format(selected_work.title)):
+#         return selected_work.slug
 
-    return ask_for_work()
+#     return ask_for_work()
 
 
-def build_work_options(
-    works: list[booklog_api.Work],
-) -> List[WorkOption]:
-    options: list[WorkOption] = []
+# def build_work_options(
+#     works: list[booklog_api.Work],
+# ) -> List[WorkOption]:
+#     options: list[WorkOption] = []
 
-    for work in works:
-        option = (
-            work,
-            "<cyan>{0}</cyan>".format(
-                html.escape(work.full_title),
-            ),
-        )
-        options.append(option)
+#     for work in works:
+#         option = (
+#             work,
+#             "<cyan>{0}</cyan>".format(
+#                 html.escape(work.full_title),
+#             ),
+#         )
+#         options.append(option)
 
-    options.append((None, "Select another author"))
+#     options.append((None, "Select another author"))
 
-    return options
+#     return options
 
 
 def ask_for_edition() -> Optional[str]:

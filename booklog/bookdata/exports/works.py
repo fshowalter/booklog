@@ -21,10 +21,9 @@ Work = TypedDict(
         "yearPublished": str,
         "sortTitle": str,
         "authors": list[WorkAuthor],
-        "slug": str,
+        "key": str,
         "kind": str,
         "includedWorks": list[str],
-        "shelf": bool,
     },
 )
 
@@ -38,14 +37,13 @@ def export() -> None:
             subtitle=work.subtitle,
             yearPublished=work.year,
             sortTitle=work.sort_title,
-            slug=work.slug,
+            key=work.slug,
             kind=work.kind,
             includedWorks=work.included_works,
             authors=[
                 WorkAuthor(key=author.slug, notes=author.notes)
                 for author in work.authors
             ],
-            shelf=work.shelf,
         )
         for work in works.deserialize_all()
     ]

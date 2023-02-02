@@ -14,42 +14,58 @@ AuthorOption = Tuple[Optional[booklog_api.AuthorWithWorks], AnyFormattedText]
 Option = Tuple[Optional[str], AnyFormattedText]
 
 
-def prompt() -> None:  # noqa: WPS210
-    kind = ask_for_kind()
-
-    if not kind:
-        return
-
-    title = ask_for_title()
-
-    if not title:
-        return
-
-    subtitle = ask_for_subtitle()
-
-    year = ask_for_year()
-
-    if not year:
-        return
-
+def prompt() -> None:  # noqa: WPS210, WPS231
+    works = []
     work_authors = ask_for_authors()
 
     if not work_authors:
         return
 
-    included_works = []
+    while True:
+        kind = ask_for_kind()
 
-    if kind in {"Collection", "Anthology"}:
-        included_works = ask_for_works()
+        if not kind:
+            return
 
-    booklog_api.create_work(
-        title=title,
-        authors=work_authors,
-        subtitle=subtitle,
-        year=year,
-        kind=kind,
-        included_works=included_works,
-    )
+        title = ask_for_title()
+
+        if not title:
+            return
+
+        subtitle = None
+
+        if kind == "Nonfiction":
+            subtitle = ask_for_subtitle()
+
+        year = ask_for_year()
+
+        if not year:
+            return
+
+        included_works = []
+
+        if kind in {"Collection", "Anthology"}:
+            included_works = ask_for_works()
+
+        works.append(
+            booklog_api.create_work(
+                title=title,
+                authors=work_authors,
+                subtitle=subtitle,
+                year=year,
+                kind=kind,
+                included_works=included_works,
+            )
+        )
+
+        if not ask_to_add_more_works(work_authors):
+            return
+
+
+def ask_to_add_more_works(work_authors: list[booklog_api.WorkAuthor]) -> bool:
+    work_author_names = " ".join(author.name() for author in work_authors)
+
+    return confirm("Add more works by {0}?".format(work_author_names))
 
 
 def ask_for_year() -> Optional[str]:
