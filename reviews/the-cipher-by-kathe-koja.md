@@ -30,7 +30,7 @@ Accompanying Nicholas in his discovery is Nakota, the object of his unrequited l
 
 Here the book falters. Koja paints Nakota with vivid detail, but never shows us what Nicholas sees in her. Instead, Koja relies on shared experience. We’ve all known someone like Nakota. Part of growing up is learning to steer clear of her type. Had I read this as a teen, I could have empathized with Nicholas. But middle-aged, it’s hard to place myself in that emotional state.
 
-Which ties to the book’s biggest shortcoming. Nicholas proves an uncompelling protagonist. He has no agency and no ambition. He has no friends, works in a video store, lives in a studio tenement, and subsists on beer. Though his body undergoes dramatic and unsettling changes, he lacks a corresponding emotional arc. Again, had I read this as a teenager, Nicholas’s angst may have resonated. But, as is, I found myself frustrated. The stilted plotting relies on other characters to move it forward.
+Which ties to the book’s biggest shortcoming. Nicholas proves an uncompelling protagonist. He is the titular cipher, with no agency and no ambition. He has no friends, works in a video store, lives in a studio tenement, and subsists on beer. Though his body undergoes dramatic and unsettling changes, he lacks a corresponding emotional arc. Again, had I read this as a teenager, Nicholas’s angst may have resonated. But, as is, I found myself frustrated. The stilted plotting relies on other characters to move it forward.
 
 Don’t let my frustrations dissuade you. The book entertains. Returning to the Raymond Chandler comparison, Koja proffers several memorable lines reminiscent of Chandler’s cynicism.
 
