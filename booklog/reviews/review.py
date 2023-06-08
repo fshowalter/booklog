@@ -25,6 +25,7 @@ class Review(object):
             "C": 3.0,
             "D": 2.0,
             "F": 1.0,
+            "Abandoned": 0,
         }
 
         grade_value = grade_map.get(self.grade[0], 3)
