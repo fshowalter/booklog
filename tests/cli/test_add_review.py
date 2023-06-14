@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 import pytest
 from pytest_mock import MockerFixture
 
-from booklog.api import AuthorWithWorks, TimelineEntry, Work, WorkAuthor
+from booklog.api import TimelineEntry, WorkWithAuthors
 from booklog.cli import add_review
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Backspace, Enter
@@ -22,29 +22,17 @@ def mock_create_reading(mocker: MockerFixture) -> MagicMock:
 
 @pytest.fixture(autouse=True)
 def mock_create_search_authors(mocker: MockerFixture) -> MagicMock:
-    authors_with_works = [
-        AuthorWithWorks(
-            name="Stephen King",
-            sort_name="King, Stephen",
-            slug="stephen-king",
-            works=[
-                Work(
-                    title="On Writing",
-                    subtitle="A Memoir of the Craft",
-                    year="2000",
-                    sort_title="On Writing: A Memoir of the Craft",
-                    authors=[WorkAuthor(slug="stephen-king", notes=None)],
-                    slug="on-writing-by-stephen-king",
-                    kind="Kindle",
-                    included_works=[],
-                )
-            ],
+    work_with_authors = [
+        WorkWithAuthors(
+            title="On Writing",
+            slug="on-writing-by-stephen-king",
+            author_names=["Stephen King"],
         )
     ]
 
     return mocker.patch(
-        "booklog.cli.ask_for_author.booklog_api.search_authors",
-        return_value=authors_with_works,
+        "booklog.cli.ask_for_work.booklog_api.search_works",
+        return_value=work_with_authors,
     )
 
 
@@ -83,10 +71,8 @@ def test_calls_add_reading(
 ) -> None:
     mock_input(
         [
-            "Stephen King",
+            "On Writing",
             Enter,
-            Enter,
-            "y",
             Enter,
             "y",
             CLEAR_DEFAULT_DATE,
@@ -131,10 +117,8 @@ def test_calls_add_reading(
 def test_calls_add_review(mock_input: MockInput, mock_create_review: MagicMock) -> None:
     mock_input(
         [
-            "Stephen King",
+            "On Writing",
             Enter,
-            Enter,
-            "y",
             Enter,
             "y",
             CLEAR_DEFAULT_DATE,

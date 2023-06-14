@@ -2,7 +2,6 @@ import datetime
 from typing import Optional, TypedDict
 
 from booklog.readings import serializer
-from booklog.readings.reading import Reading
 from booklog.utils import export_tools
 from booklog.utils.logging import logger
 
@@ -21,7 +20,7 @@ JsonReading = TypedDict(
 )
 
 
-def export(readings: list[Reading]) -> None:
+def export() -> None:
     logger.log("==== Begin exporting {}...", "readings")
 
     json_readings = [

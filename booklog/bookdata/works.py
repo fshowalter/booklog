@@ -31,6 +31,9 @@ class WorkAuthor(object):
     slug: str
     notes: Optional[str]
 
+    def name(self) -> str:
+        return next(author.name for author in all_authors() if author.slug == self.slug)
+
 
 @dataclass
 class Work(object):
@@ -42,7 +45,6 @@ class Work(object):
     slug: str
     kind: str
     included_works: list[str]
-    shelf: bool = False
 
     @property
     def full_title(self) -> str:
@@ -69,18 +71,6 @@ def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
     return title_with_subtitle
 
 
-def any_authors_on_shelf(work_authors: list[WorkAuthor]) -> bool:
-    authors = list(
-        filter(
-            lambda author: author.slug
-            in set(work_author.slug for work_author in work_authors),
-            all_authors(),
-        )
-    )
-
-    return any(author.shelf for author in authors)
-
-
 def create(  # noqa: WPS211
     title: str,
     subtitle: Optional[str],
@@ -104,7 +94,6 @@ def create(  # noqa: WPS211
         slug=slug,
         kind=kind,
         included_works=included_works or [],
-        shelf=any_authors_on_shelf(authors),
     )
 
     serialize(work)
@@ -129,7 +118,6 @@ def deserialize_json_work(json_work: dict[str, Any]) -> Work:
         slug=json_work["slug"],
         kind=json_work["kind"],
         included_works=json_work.get("included_works", []),
-        shelf=json_work.get("shelf", False),
     )
 
 

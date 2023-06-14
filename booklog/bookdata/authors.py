@@ -19,7 +19,6 @@ class Author(object):
     name: str
     sort_name: str
     slug: str
-    shelf: bool
 
 
 def generate_sort_name(name: str) -> str:
@@ -35,9 +34,7 @@ def create(
 ) -> Author:
     slug = slugify(name)
 
-    author = Author(
-        name=name, sort_name=generate_sort_name(name), slug=slug, shelf=False
-    )
+    author = Author(name=name, sort_name=generate_sort_name(name), slug=slug)
 
     serialize(author=author)
 
@@ -49,7 +46,6 @@ def deserialize_json_author(json_author: dict[str, Any]) -> Author:
         name=json_author["name"],
         sort_name=json_author["sort_name"],
         slug=json_author["slug"],
-        shelf=json_author.get("shelf", False),
     )
 
 

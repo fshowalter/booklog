@@ -1,6 +1,6 @@
 ---
 work_slug: living-with-a-seal-by-jesse-itzler
-grade:
+grade: Abandoned
 date: 2022-06-01
 ---
 

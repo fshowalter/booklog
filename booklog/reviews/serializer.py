@@ -4,7 +4,7 @@ import datetime
 import os
 import re
 from glob import glob
-from typing import Any, Optional, TypedDict, cast
+from typing import Any, TypedDict, cast
 
 import yaml
 
@@ -26,7 +26,7 @@ yaml.add_representer(type(None), represent_none)
 
 class ReviewYaml(TypedDict):
     work_slug: str
-    grade: Optional[str]
+    grade: str
     date: datetime.date
 
 
