@@ -9,7 +9,7 @@ Author = TypedDict(
     {
         "name": str,
         "sortName": str,
-        "key": str,
+        "slug": str,
     },
 )
 
@@ -21,7 +21,7 @@ def export() -> None:
         Author(
             name=author.name,
             sortName=author.sort_name,
-            key=author.slug,
+            slug=author.slug,
         )
         for author in authors.deserialize_all()
     ]

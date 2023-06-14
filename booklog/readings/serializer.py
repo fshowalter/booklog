@@ -20,7 +20,7 @@ FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
 
 
 class JsonTimeline(TypedDict):
-    date: datetime.date
+    date: str
     progress: str
 
 
@@ -38,7 +38,8 @@ def deserialize_timeline(reading: JsonReading) -> list[TimelineEntry]:
     for timeline_entry in reading["timeline"]:
         timeline.append(
             TimelineEntry(
-                date=timeline_entry["date"], progress=timeline_entry["progress"]
+                date=datetime.date.fromisoformat(timeline_entry["date"]),
+                progress=timeline_entry["progress"],
             )
         )
 

@@ -35,11 +35,13 @@ def prompt() -> None:
 
     grade = None
 
-    if timeline[-1].progress == "Finished":
+    if timeline[-1].progress == "Abandoned":
+        grade = "Abandoned"
+    else:
         grade = ask_for_grade()
 
-        if not grade:
-            return
+    if not grade:
+        return
 
     booklog_api.create_reading(
         work_slug=work_with_authors.slug,
@@ -143,61 +145,12 @@ def ask_for_timeline() -> list[booklog_api.TimelineEntry]:
                 return timeline_entries
 
 
-# def ask_for_work() -> Optional[str]:
-#     author_with_works = ask_for_author.prompt()
-
-#     if not author_with_works:
-#         return None
-
-#     options: list[WorkOption] = build_work_options(author_with_works.works)
-
-#     selected_work = None
-
-#     while selected_work is None:
-
-#         selected_work = radio_list.prompt(
-#             title="Select work:",
-#             options=options,
-#         )
-
-#         if selected_work is None:
-#             break
-
-#     if not selected_work:
-#         return None
-
-#     if confirm("{0}?".format(selected_work.title)):
-#         return selected_work.slug
-
-#     return ask_for_work()
-
-
-# def build_work_options(
-#     works: list[booklog_api.Work],
-# ) -> List[WorkOption]:
-#     options: list[WorkOption] = []
-
-#     for work in works:
-#         option = (
-#             work,
-#             "<cyan>{0}</cyan>".format(
-#                 html.escape(work.full_title),
-#             ),
-#         )
-#         options.append(option)
-
-#     options.append((None, "Select another author"))
-
-#     return options
-
-
 def ask_for_edition() -> Optional[str]:
     options: List[Option] = build_edition_options()
 
     selected_edition = None
 
     while selected_edition is None:
-
         selected_edition = radio_list.prompt(
             title="Select edition:",
             options=options,

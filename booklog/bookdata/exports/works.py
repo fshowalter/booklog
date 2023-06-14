@@ -7,7 +7,7 @@ from booklog.utils.logging import logger
 WorkAuthor = TypedDict(
     "WorkAuthor",
     {
-        "key": str,
+        "slug": str,
         "notes": Optional[str],
     },
 )
@@ -21,7 +21,7 @@ Work = TypedDict(
         "yearPublished": str,
         "sortTitle": str,
         "authors": list[WorkAuthor],
-        "key": str,
+        "slug": str,
         "kind": str,
         "includedWorks": list[str],
     },
@@ -37,11 +37,11 @@ def export() -> None:
             subtitle=work.subtitle,
             yearPublished=work.year,
             sortTitle=work.sort_title,
-            key=work.slug,
+            slug=work.slug,
             kind=work.kind,
             includedWorks=work.included_works,
             authors=[
-                WorkAuthor(key=author.slug, notes=author.notes)
+                WorkAuthor(slug=author.slug, notes=author.notes)
                 for author in work.authors
             ],
         )

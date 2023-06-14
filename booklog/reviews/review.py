@@ -9,26 +9,24 @@ from typing import Optional
 class Review(object):
     work_slug: str
     date: datetime.date
-    grade: Optional[str] = None
+    grade: str
     review_content: Optional[str] = None
 
     @property
-    def grade_value(self) -> Optional[float]:
-        if not self.grade:
-            return None
+    def grade_value(self) -> int:
+        if self.grade == "Abandoned":
+            return 0
 
-        value_modifier = 0.33
+        value_modifier = 1
 
         grade_map = {
-            "A": 5.0,
-            "B": 4.0,
-            "C": 3.0,
-            "D": 2.0,
-            "F": 1.0,
-            "Abandoned": 0,
+            "A": 12,
+            "B": 9,
+            "C": 6,
+            "D": 3,
         }
 
-        grade_value = grade_map.get(self.grade[0], 3)
+        grade_value = grade_map.get(self.grade[0], 1)
         modifier = self.grade[-1]
 
         if modifier == "+":
