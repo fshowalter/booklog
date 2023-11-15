@@ -3,10 +3,15 @@
     "authors": [
       {
         "name": "Stephen King",
+        "notes": null,
         "slug": "stephen-king"
       }
     ],
+    "date": "2016-03-12",
     "edition": "Kindle",
+    "grade": "A+",
+    "includedInWorkSlugs": [],
+    "kind": "Nonfiction",
     "sequence": 1,
     "title": "On Writing",
     "workSlug": "on-writing-by-stephen-king",

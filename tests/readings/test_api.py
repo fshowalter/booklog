@@ -1,6 +1,7 @@
 import json
 import os
 from datetime import date
+from pathlib import Path
 
 import pytest
 
@@ -9,8 +10,7 @@ from booklog.readings.reading import TimelineEntry
 from booklog.utils.sequence_tools import SequenceError
 
 
-def test_create_serializes_new_reading(tmp_path: str) -> None:
-
+def test_create_serializes_new_reading(tmp_path: Path) -> None:
     expected = json.dumps(
         {
             "sequence": 1,
@@ -46,14 +46,14 @@ def test_create_serializes_new_reading(tmp_path: str) -> None:
     )
 
     with open(
-        os.path.join(tmp_path, "0001-on-writing-by-stephen-king.json"), "r"
+        os.path.join(tmp_path / "readings", "0001-on-writing-by-stephen-king.json"), "r"
     ) as output_file:
         file_content = output_file.read()
 
     assert file_content == expected
 
 
-def test_create_raises_error_if_sequence_out_of_sync(tmp_path: str) -> None:
+def test_create_raises_error_if_sequence_out_of_sync(tmp_path: Path) -> None:
     existing_review = json.dumps(
         {
             "sequence": 3,
@@ -79,7 +79,7 @@ def test_create_raises_error_if_sequence_out_of_sync(tmp_path: str) -> None:
     )
 
     with open(
-        os.path.join(tmp_path, "0003-on-writing-by-stephen-king.json"),
+        os.path.join(tmp_path / "readings", "0003-on-writing-by-stephen-king.json"),
         "w",
     ) as output_file:
         output_file.write(existing_review)

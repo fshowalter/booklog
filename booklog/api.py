@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from booklog.bookdata import api as bookdata_api
+from booklog.exports import api as exports_api
 from booklog.readings import api as readings_api
 from booklog.reviews import api as reviews_api
 
@@ -13,6 +14,10 @@ Work = bookdata_api.Work
 Author = bookdata_api.Author
 
 WorkAuthor = bookdata_api.WorkAuthor
+
+Review = reviews_api.Review
+
+Reading = readings_api.Reading
 
 TimelineEntry = readings_api.TimelineEntry
 
@@ -37,3 +42,4 @@ def export_data() -> None:
     readings_api.export_data()
     bookdata_api.export_data()
     reviews_api.export_data()
+    exports_api.export_data()

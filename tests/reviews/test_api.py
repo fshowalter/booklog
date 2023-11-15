@@ -1,10 +1,11 @@
 import os
 from datetime import date
+from pathlib import Path
 
 from booklog.reviews import api as reviews_api
 
 
-def test_create_serializes_new_review(tmp_path: str) -> None:
+def test_create_serializes_new_review(tmp_path: Path) -> None:
     expected = "---\nwork_slug: on-writing-by-stephen-king\ngrade: A+\ndate: 2016-03-10\n---\n\n"  # noqa: 501
 
     reviews_api.create(
@@ -14,7 +15,7 @@ def test_create_serializes_new_review(tmp_path: str) -> None:
     )
 
     with open(
-        os.path.join(tmp_path, "on-writing-by-stephen-king.md"), "r"
+        os.path.join(tmp_path / "reviews", "on-writing-by-stephen-king.md"), "r"
     ) as output_file:
         file_content = output_file.read()
 
