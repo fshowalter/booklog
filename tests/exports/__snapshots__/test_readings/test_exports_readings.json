@@ -1,0 +1,15 @@
+[
+  {
+    "authors": [
+      {
+        "name": "Stephen King",
+        "slug": "stephen-king"
+      }
+    ],
+    "edition": "Kindle",
+    "sequence": 1,
+    "title": "On Writing",
+    "workSlug": "on-writing-by-stephen-king",
+    "yearPublished": "2000"
+  }
+]
