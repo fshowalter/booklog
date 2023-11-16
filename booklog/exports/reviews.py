@@ -14,6 +14,8 @@ JsonWorkAuthor = TypedDict(
     {"name": str, "slug": str, "notes": Optional[str]},
 )
 
+JsonTimelineEntry = TypedDict("JsonTimelineEntry", {})
+
 
 JsonReviewedWork = TypedDict(
     "JsonReviewedWork",
@@ -84,7 +86,7 @@ def export(
     works: list[Work],
     reviews: list[Review],
 ) -> None:
-    logger.log("==== Begin exporting {}...", "updates")
+    logger.log("==== Begin exporting {}...", "reviews")
 
     json_reviewed_works = []
 
@@ -111,8 +113,7 @@ def export(
             )
         )
 
-    export_tools.serialize_dicts_to_folder(
+    export_tools.serialize_dicts(
         sorted(json_reviewed_works, key=lambda work: work["sequence"], reverse=True),
-        "reviews",
-        lambda work: work.slug,
+        "updates",
     )
