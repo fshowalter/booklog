@@ -41,5 +41,4 @@ create_review = reviews_api.create
 def export_data() -> None:
     readings_api.export_data()
     bookdata_api.export_data()
-    reviews_api.export_data()
     exports_api.export_data()

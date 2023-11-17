@@ -1,18 +1,12 @@
 import datetime
 from typing import Optional, TypedDict
 
-from booklog.bookdata.api import Author, Work, WorkAuthor
-from booklog.readings.reading import Reading
+from booklog.bookdata.api import Author, Work
+from booklog.exports.json_work_author import JsonWorkAuthor, build_json_work_authors
+from booklog.readings.reading import Reading, TimelineEntry
 from booklog.reviews.review import Review
 from booklog.utils import export_tools, list_tools
 from booklog.utils.logging import logger
-
-TimelineEntry = TypedDict("TimelineEntry", {"date": datetime.date, "progress": str})
-
-JsonReviewedWorkAuthor = TypedDict(
-    "JsonReviewedWorkAuthor",
-    {"name": str, "sortName": str, "slug": str, "notes": Optional[str]},
-)
 
 JsonTimelineEntry = TypedDict("JsonTimelineEntry", {})
 
@@ -26,7 +20,7 @@ JsonReviewedWork = TypedDict(
         "title": str,
         "sortTitle": str,
         "yearPublished": str,
-        "authors": list[JsonReviewedWorkAuthor],
+        "authors": list[JsonWorkAuthor],
         "grade": str,
         "gradeValue": int,
         "kind": str,
@@ -34,26 +28,6 @@ JsonReviewedWork = TypedDict(
         "yearReviewed": int,
     },
 )
-
-
-def build_json_work_authors(
-    work_authors: list[WorkAuthor], authors: list[Author]
-) -> list[JsonReviewedWorkAuthor]:
-    json_work_authors = []
-
-    for work_author in work_authors:
-        author = next(author for author in authors if author.slug in work_author.slug)
-
-        json_work_authors.append(
-            JsonReviewedWorkAuthor(
-                slug=work_author.slug,
-                notes=work_author.notes,
-                name=author.name,
-                sortName=author.sort_name,
-            )
-        )
-
-    return json_work_authors
 
 
 def build_json_reviewed_work(
@@ -89,7 +63,7 @@ def export(
     works: list[Work],
     reviews: list[Review],
 ) -> None:
-    logger.log("==== Begin exporting {}...", "reviews")
+    logger.log("==== Begin exporting {}...", "reviewed_works")
 
     json_reviewed_works = []
 
@@ -117,7 +91,7 @@ def export(
         )
 
     export_tools.serialize_dicts_to_folder(
-        sorted(json_reviewed_works, key=lambda work: work["sequence"], reverse=True),
-        "reviews",
+        json_reviewed_works,
+        "reviewed_works",
         filename_key=lambda work: work["slug"],
     )

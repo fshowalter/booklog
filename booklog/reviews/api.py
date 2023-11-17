@@ -3,7 +3,6 @@ from __future__ import annotations
 import datetime
 
 from booklog.reviews import review, serializer
-from booklog.reviews.exports import api as exports_api
 
 Review = review.Review
 
@@ -24,7 +23,3 @@ def create(
     serializer.serialize(new_review)
 
     return new_review
-
-
-def export_data() -> None:
-    exports_api.export()
