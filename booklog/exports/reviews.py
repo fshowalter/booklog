@@ -9,9 +9,9 @@ from booklog.utils.logging import logger
 
 TimelineEntry = TypedDict("TimelineEntry", {"date": datetime.date, "progress": str})
 
-JsonWorkAuthor = TypedDict(
-    "JsonWorkAuthor",
-    {"name": str, "slug": str, "notes": Optional[str]},
+JsonReviewedWorkAuthor = TypedDict(
+    "JsonReviewedWorkAuthor",
+    {"name": str, "sortName": str, "slug": str, "notes": Optional[str]},
 )
 
 JsonTimelineEntry = TypedDict("JsonTimelineEntry", {})
@@ -21,32 +21,35 @@ JsonReviewedWork = TypedDict(
     "JsonReviewedWork",
     {
         "sequence": int,
-        "workSlug": str,
-        "includedInWorkSlugs": list[str],
+        "slug": str,
+        "includedInSlugs": list[str],
         "title": str,
+        "sortTitle": str,
         "yearPublished": str,
-        "edition": str,
-        "authors": list[JsonWorkAuthor],
+        "authors": list[JsonReviewedWorkAuthor],
         "grade": str,
+        "gradeValue": int,
         "kind": str,
         "date": datetime.date,
+        "yearReviewed": int,
     },
 )
 
 
 def build_json_work_authors(
     work_authors: list[WorkAuthor], authors: list[Author]
-) -> list[JsonWorkAuthor]:
+) -> list[JsonReviewedWorkAuthor]:
     json_work_authors = []
 
     for work_author in work_authors:
-        author_name = next(
-            author.name for author in authors if author.slug in work_author.slug
-        )
+        author = next(author for author in authors if author.slug in work_author.slug)
 
         json_work_authors.append(
-            JsonWorkAuthor(
-                slug=work_author.slug, notes=work_author.notes, name=author_name
+            JsonReviewedWorkAuthor(
+                slug=work_author.slug,
+                notes=work_author.notes,
+                name=author.name,
+                sortName=author.sort_name,
             )
         )
 
@@ -66,17 +69,17 @@ def build_json_reviewed_work(
 
     return JsonReviewedWork(
         sequence=most_recent_reading.sequence,
-        workSlug=review.work_slug,
+        slug=review.work_slug,
         title=work.title,
+        sortTitle=work.sort_title,
         yearPublished=work.year,
-        edition=most_recent_reading.edition,
         grade=review.grade,
+        gradeValue=review.grade_value,
         kind=work.kind,
-        date=sorted(
-            most_recent_reading.timeline, key=lambda entry: entry.date, reverse=True
-        )[0].date,
+        date=review.date,
         authors=build_json_work_authors(work_authors=work.authors, authors=authors),
-        includedInWorkSlugs=included_in_work_slugs,
+        includedInSlugs=included_in_work_slugs,
+        yearReviewed=review.date.year,
     )
 
 
@@ -113,7 +116,8 @@ def export(
             )
         )
 
-    export_tools.serialize_dicts(
+    export_tools.serialize_dicts_to_folder(
         sorted(json_reviewed_works, key=lambda work: work["sequence"], reverse=True),
-        "updates",
+        "reviews",
+        filename_key=lambda work: work["slug"],
     )

@@ -1,0 +1,21 @@
+{
+  "authors": [
+    {
+      "name": "Stephen King",
+      "notes": null,
+      "slug": "stephen-king",
+      "sortName": "King, Stephen"
+    }
+  ],
+  "date": "2016-03-10",
+  "grade": "A+",
+  "gradeValue": 13,
+  "includedInSlugs": [],
+  "kind": "Nonfiction",
+  "sequence": 1,
+  "slug": "on-writing-by-stephen-king",
+  "sortTitle": "On Writing: A Memoir of the Craft",
+  "title": "On Writing",
+  "yearPublished": "2000",
+  "yearReviewed": 2016
+}

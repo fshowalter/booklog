@@ -44,10 +44,15 @@ def snapshot_json(snapshot: SnapshotAssertion) -> SnapshotAssertion:
     return snapshot.with_defaults(extension_class=JSONSnapshotExtension)
 
 
-def test_exports_updates(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
+def test_exports_reviews(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
     api.export_data()
 
-    with open(os.path.join(tmp_path / "exports", "updates.json"), "r") as output_file:
+    with open(
+        os.path.join(
+            tmp_path / "exports" / "reviews", "on-writing-by-stephen-king.json"
+        ),
+        "r",
+    ) as output_file:
         file_content = json.load(output_file)
 
     assert file_content == snapshot_json
