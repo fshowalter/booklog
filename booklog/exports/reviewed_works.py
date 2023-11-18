@@ -1,9 +1,9 @@
 import datetime
-from typing import Optional, TypedDict
+from typing import TypedDict
 
 from booklog.bookdata.api import Author, Work
 from booklog.exports.json_work_author import JsonWorkAuthor, build_json_work_authors
-from booklog.readings.reading import Reading, TimelineEntry
+from booklog.readings.reading import Reading
 from booklog.reviews.review import Review
 from booklog.utils import export_tools, list_tools
 from booklog.utils.logging import logger
