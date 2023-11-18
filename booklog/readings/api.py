@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
+
+from booklog.bookdata.api import Work, all_works
 from booklog.readings import editions, reading, serializer
-from booklog.readings.exports import api as exports_api
 from booklog.utils import sequence_tools
 
 TimelineEntry = reading.TimelineEntry
@@ -11,6 +13,27 @@ Reading = reading.Reading
 all_editions = editions.all_editions
 
 all_readings = serializer.deserialize_all
+
+
+@dataclass
+class ReadingWithWork(Reading):
+    work: Work
+
+
+def all_readings_with_work() -> list[ReadingWithWork]:
+    works = all_works()
+
+    return [
+        ReadingWithWork(
+            sequence=reading.sequence,
+            work_slug=reading.work_slug,
+            edition=reading.edition,
+            timeline=reading.timeline,
+            edition_notes=reading.edition_notes,
+            work=next(work for work in works if work.slug == reading.work_slug),
+        )
+        for reading in all_readings()
+    ]
 
 
 def create(
@@ -30,7 +53,3 @@ def create(
     serializer.serialize(new_reading)
 
     return new_reading
-
-
-def export_data() -> None:
-    exports_api.export()

@@ -11,7 +11,7 @@ class TimelineEntry(object):
     progress: str
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Reading(object):
     sequence: int
     work_slug: str

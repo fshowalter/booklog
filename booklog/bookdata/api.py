@@ -28,5 +28,17 @@ AuthorWithWorks = queries.AuthorWithWorks
 WorkWithAuthors = queries.WorkWithAuthors
 
 
+@dataclass
+class WorkWithAuthors(Work):
+    authors: list[Author]
+
+
+def all_works_with_authors() -> list[WorkWithAuthors]:
+    works = all_works()
+    authors = all_authors()
+
+    return [WorkWithAuthors() for work in works]
+
+
 def export_data() -> None:
     exports_api.export()
