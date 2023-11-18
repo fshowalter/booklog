@@ -1,8 +1,8 @@
 {
   "title": "Blind Willie",
   "subtitle": null,
+  "sortTitle": "Blind Willie",
   "year": "1994",
-  "sort_title": "Blind Willie",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "blind-willie-by-stephen-king",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

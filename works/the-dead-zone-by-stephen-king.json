@@ -1,8 +1,8 @@
 {
   "title": "The Dead Zone",
   "subtitle": null,
+  "sortTitle": "Dead Zone",
   "year": "1979",
-  "sort_title": "Dead Zone",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-dead-zone-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

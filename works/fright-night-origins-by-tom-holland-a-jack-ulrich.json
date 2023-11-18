@@ -1,8 +1,8 @@
 {
   "title": "Fright Night Origins",
   "subtitle": null,
+  "sortTitle": "Fright Night Origins",
   "year": "2023",
-  "sort_title": "Fright Night Origins",
   "authors": [
     {
       "slug": "tom-holland",
@@ -15,5 +15,5 @@
   ],
   "slug": "fright-night-origins-by-tom-holland-a-jack-ulrich",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

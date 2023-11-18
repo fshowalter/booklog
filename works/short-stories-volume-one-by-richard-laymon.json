@@ -1,8 +1,8 @@
 {
   "title": "Short Stories: Volume One",
   "subtitle": "The Mystery and Men's Magazines",
+  "sortTitle": "Short Stories: Volume One: The Mystery and Men's Magazines",
   "year": "2014",
-  "sort_title": "Short Stories: Volume One: The Mystery and Men's Magazines",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,7 +11,7 @@
   ],
   "slug": "short-stories-volume-one-by-richard-laymon",
   "kind": "Collection",
-  "included_works": [
+  "includedWorks": [
     "desert-pickup-by-richard-laymon",
     "roadside-pickup-by-richard-laymon",
     "oscars-audition-by-richard-laymon",

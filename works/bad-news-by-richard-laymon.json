@@ -1,8 +1,8 @@
 {
   "title": "Bad News",
   "subtitle": null,
+  "sortTitle": "Bad News",
   "year": "1989",
-  "sort_title": "Bad News",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "bad-news-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

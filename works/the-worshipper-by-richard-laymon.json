@@ -1,8 +1,8 @@
 {
   "title": "The Worshipper",
   "subtitle": null,
+  "sortTitle": "Worshipper",
   "year": "2004",
-  "sort_title": "Worshipper",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-worshipper-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

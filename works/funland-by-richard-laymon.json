@@ -1,8 +1,8 @@
 {
   "title": "Funland",
   "subtitle": null,
+  "sortTitle": "Funland",
   "year": "1989",
-  "sort_title": "Funland",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "funland-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

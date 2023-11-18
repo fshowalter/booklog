@@ -1,8 +1,8 @@
 {
   "title": "Herman",
   "subtitle": null,
+  "sortTitle": "Herman",
   "year": "1996",
-  "sort_title": "Herman",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "herman-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

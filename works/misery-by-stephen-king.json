@@ -1,8 +1,8 @@
 {
   "title": "Misery",
   "subtitle": null,
+  "sortTitle": "Misery",
   "year": "1987",
-  "sort_title": "Misery",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "misery-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

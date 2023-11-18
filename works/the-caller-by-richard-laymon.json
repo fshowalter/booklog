@@ -1,8 +1,8 @@
 {
   "title": "The Caller",
   "subtitle": null,
+  "sortTitle": "Caller",
   "year": "1985",
-  "sort_title": "Caller",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-caller-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

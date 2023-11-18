@@ -1,8 +1,8 @@
 {
   "title": "Dolores Claiborne",
   "subtitle": null,
+  "sortTitle": "Dolores Claiborne",
   "year": "1993",
-  "sort_title": "Dolores Claiborne",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "dolores-claiborne-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

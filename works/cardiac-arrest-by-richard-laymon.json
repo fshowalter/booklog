@@ -1,8 +1,8 @@
 {
   "title": "Cardiac Arrest",
   "subtitle": null,
+  "sortTitle": "Cardiac Arrest",
   "year": "1984",
-  "sort_title": "Cardiac Arrest",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "cardiac-arrest-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

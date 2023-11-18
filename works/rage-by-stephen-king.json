@@ -1,8 +1,8 @@
 {
   "title": "Rage",
   "subtitle": null,
+  "sortTitle": "Rage",
   "year": "1976",
-  "sort_title": "Rage",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "rage-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "Less Than Zero",
   "subtitle": null,
+  "sortTitle": "Less Than Zero",
   "year": "1985",
-  "sort_title": "Less Than Zero",
   "authors": [
     {
       "slug": "bret-easton-ellis",
@@ -10,5 +10,6 @@
     }
   ],
   "slug": "less-than-zero-by-bret-easton-ellis",
-  "kind": "Novel"
+  "kind": "Novel",
+  "includedWorks": []
 }

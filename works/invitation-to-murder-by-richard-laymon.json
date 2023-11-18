@@ -1,8 +1,8 @@
 {
   "title": "Invitation to Murder",
   "subtitle": null,
+  "sortTitle": "Invitation to Murder",
   "year": "1991",
-  "sort_title": "Invitation to Murder",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "invitation-to-murder-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

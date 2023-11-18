@@ -1,8 +1,8 @@
 {
   "title": "Fiends",
   "subtitle": null,
+  "sortTitle": "Fiends",
   "year": "1997",
-  "sort_title": "Fiends",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "fiends-by-richard-laymon",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

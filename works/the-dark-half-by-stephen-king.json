@@ -1,8 +1,8 @@
 {
   "title": "The Dark Half",
   "subtitle": null,
+  "sortTitle": "Dark Half",
   "year": "1989",
-  "sort_title": "Dark Half",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-dark-half-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "The Night Creature",
   "subtitle": null,
+  "sortTitle": "Night Creature",
   "year": "1986",
-  "sort_title": "Night Creature",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-night-creature-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

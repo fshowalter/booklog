@@ -1,8 +1,8 @@
 {
   "title": "Double Date",
   "subtitle": null,
+  "sortTitle": "Double Date",
   "year": "2000",
-  "sort_title": "Double Date",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "double-date-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

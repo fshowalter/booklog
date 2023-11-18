@@ -1,8 +1,8 @@
 {
   "title": "Wishbone",
   "subtitle": null,
+  "sortTitle": "Wishbone",
   "year": "1989",
-  "sort_title": "Wishbone",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "wishbone-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

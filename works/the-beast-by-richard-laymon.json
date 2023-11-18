@@ -1,8 +1,8 @@
 {
   "title": "The Beast",
   "subtitle": null,
+  "sortTitle": "Beast",
   "year": "1986",
-  "sort_title": "Beast",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-beast-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

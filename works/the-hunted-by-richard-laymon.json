@@ -1,8 +1,8 @@
 {
   "title": "The Hunted",
   "subtitle": null,
+  "sortTitle": "Hunted",
   "year": "1997",
-  "sort_title": "Hunted",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-hunted-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

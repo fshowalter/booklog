@@ -1,8 +1,8 @@
 {
   "title": "Out Are the Lights and Other Tales",
   "subtitle": null,
+  "sortTitle": "Out Are the Lights and Other Tales",
   "year": "1993",
-  "sort_title": "Out Are the Lights and Other Tales",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,7 +11,7 @@
   ],
   "slug": "out-are-the-lights-and-other-tales-by-richard-laymon",
   "kind": "Collection",
-  "included_works": [
+  "includedWorks": [
     "out-are-the-lights-by-richard-laymon",
     "mess-hall-by-richard-laymon",
     "dinkers-pond-by-richard-laymon",

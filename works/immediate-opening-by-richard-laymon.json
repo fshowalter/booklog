@@ -1,8 +1,8 @@
 {
   "title": "Immediate Opening",
   "subtitle": null,
+  "sortTitle": "Immediate Opening",
   "year": "1976",
-  "sort_title": "Immediate Opening",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "immediate-opening-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

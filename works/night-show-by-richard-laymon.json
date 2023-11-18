@@ -1,8 +1,8 @@
 {
   "title": "Night Show",
   "subtitle": null,
+  "sortTitle": "Night Show",
   "year": "1984",
-  "sort_title": "Night Show",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "night-show-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "The Mirror",
   "subtitle": null,
+  "sortTitle": "Mirror",
   "year": "2011",
-  "sort_title": "Mirror",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-mirror-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

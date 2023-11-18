@@ -1,8 +1,8 @@
 {
   "title": "Marathon",
   "subtitle": null,
+  "sortTitle": "Marathon",
   "year": "1985",
-  "sort_title": "Marathon",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "marathon-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

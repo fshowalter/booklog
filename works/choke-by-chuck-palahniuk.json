@@ -1,8 +1,8 @@
 {
   "title": "Choke",
   "subtitle": null,
+  "sortTitle": "Choke",
   "year": "2001",
-  "sort_title": "Choke",
   "authors": [
     {
       "slug": "chuck-palahniuk",
@@ -11,5 +11,5 @@
   ],
   "slug": "choke-by-chuck-palahniuk",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

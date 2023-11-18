@@ -1,8 +1,8 @@
 {
   "title": "Live Bait",
   "subtitle": null,
+  "sortTitle": "Live Bait",
   "year": "1985",
-  "sort_title": "Live Bait",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "live-bait-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

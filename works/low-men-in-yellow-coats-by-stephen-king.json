@@ -1,8 +1,8 @@
 {
   "title": "Low Men in Yellow Coats",
   "subtitle": null,
+  "sortTitle": "Low Men in Yellow Coats",
   "year": "1999",
-  "sort_title": "Low Men in Yellow Coats",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "low-men-in-yellow-coats-by-stephen-king",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

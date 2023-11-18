@@ -1,8 +1,8 @@
 {
   "title": "The Creative Act",
   "subtitle": "A Way of Being",
+  "sortTitle": "Creative Act: A Way of Being",
   "year": "2023",
-  "sort_title": "Creative Act: A Way of Being",
   "authors": [
     {
       "slug": "rick-rubin",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-creative-act-by-rick-rubin",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

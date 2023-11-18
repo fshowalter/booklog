@@ -1,8 +1,8 @@
 {
   "title": "The Stand",
   "subtitle": null,
+  "sortTitle": "Stand",
   "year": "1978",
-  "sort_title": "Stand",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-stand-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

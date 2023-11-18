@@ -1,8 +1,8 @@
 {
   "title": "About Face",
   "subtitle": "The Odyssey of an American Warrior",
+  "sortTitle": "About Face: The Odyssey of an American Warrior",
   "year": "1989",
-  "sort_title": "About Face: The Odyssey of an American Warrior",
   "authors": [
     {
       "slug": "david-h-hackworth",
@@ -15,5 +15,5 @@
   ],
   "slug": "about-face-by-david-h-hackworth-julie-sherman",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

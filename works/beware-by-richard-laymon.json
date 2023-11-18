@@ -1,8 +1,8 @@
 {
   "title": "Beware!",
   "subtitle": null,
+  "sortTitle": "Beware!",
   "year": "1985",
-  "sort_title": "Beware!",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "beware-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

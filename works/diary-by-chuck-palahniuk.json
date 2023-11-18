@@ -1,8 +1,8 @@
 {
   "title": "Diary",
   "subtitle": null,
+  "sortTitle": "Diary",
   "year": "2003",
-  "sort_title": "Diary",
   "authors": [
     {
       "slug": "chuck-palahniuk",
@@ -11,5 +11,5 @@
   ],
   "slug": "diary-by-chuck-palahniuk",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

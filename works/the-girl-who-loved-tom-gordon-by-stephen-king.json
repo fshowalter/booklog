@@ -1,8 +1,8 @@
 {
   "title": "The Girl Who Loved Tom Gordon",
   "subtitle": null,
+  "sortTitle": "Girl Who Loved Tom Gordon",
   "year": "1999",
-  "sort_title": "Girl Who Loved Tom Gordon",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-girl-who-loved-tom-gordon-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

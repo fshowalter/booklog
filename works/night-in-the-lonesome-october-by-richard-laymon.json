@@ -1,8 +1,8 @@
 {
   "title": "Night in the Lonesome October",
   "subtitle": null,
+  "sortTitle": "Night in the Lonesome October",
   "year": "2001",
-  "sort_title": "Night in the Lonesome October",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "night-in-the-lonesome-october-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

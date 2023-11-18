@@ -1,8 +1,8 @@
 {
   "title": "The Body",
   "subtitle": null,
+  "sortTitle": "Body",
   "year": "1982",
-  "sort_title": "Body",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-body-by-stephen-king",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

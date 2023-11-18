@@ -1,8 +1,8 @@
 {
   "title": "The Trap",
   "subtitle": null,
+  "sortTitle": "Trap",
   "year": "1985",
-  "sort_title": "Trap",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-trap-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

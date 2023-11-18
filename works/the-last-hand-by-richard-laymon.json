@@ -1,8 +1,8 @@
 {
   "title": "The Last Hand",
   "subtitle": null,
+  "sortTitle": "Last Hand",
   "year": "1985",
-  "sort_title": "Last Hand",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-last-hand-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

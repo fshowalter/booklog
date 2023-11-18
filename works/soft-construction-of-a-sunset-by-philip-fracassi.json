@@ -1,8 +1,8 @@
 {
   "title": "Soft Construction of a Sunset",
   "subtitle": null,
+  "sortTitle": "Soft Construction of a Sunset",
   "year": "2017",
-  "sort_title": "Soft Construction of a Sunset",
   "authors": [
     {
       "slug": "philip-fracassi",
@@ -11,5 +11,5 @@
   ],
   "slug": "soft-construction-of-a-sunset-by-philip-fracassi",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

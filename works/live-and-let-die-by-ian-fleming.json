@@ -1,8 +1,8 @@
 {
   "title": "Live and Let Die",
   "subtitle": null,
+  "sortTitle": "Live and Let Die",
   "year": "1954",
-  "sort_title": "Live and Let Die",
   "authors": [
     {
       "slug": "ian-fleming",
@@ -11,5 +11,5 @@
   ],
   "slug": "live-and-let-die-by-ian-fleming",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

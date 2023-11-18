@@ -1,8 +1,8 @@
 {
   "title": "Desert Pickup",
   "subtitle": null,
+  "sortTitle": "Desert Pickup",
   "year": "1970",
-  "sort_title": "Desert Pickup",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "desert-pickup-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

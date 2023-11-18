@@ -1,8 +1,8 @@
 {
   "title": "In the Dark",
   "subtitle": null,
+  "sortTitle": "In the Dark",
   "year": "1994",
-  "sort_title": "In the Dark",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "in-the-dark-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

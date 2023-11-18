@@ -1,8 +1,8 @@
 {
   "title": "Cut",
   "subtitle": null,
+  "sortTitle": "Cut",
   "year": "1985",
-  "sort_title": "Cut",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "cut-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

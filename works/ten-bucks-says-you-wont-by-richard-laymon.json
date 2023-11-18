@@ -1,8 +1,8 @@
 {
   "title": "Ten Bucks Says You Won't",
   "subtitle": null,
+  "sortTitle": "Ten Bucks Says You Won't",
   "year": "2002",
-  "sort_title": "Ten Bucks Says You Won't",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "ten-bucks-says-you-wont-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

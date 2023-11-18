@@ -1,8 +1,8 @@
 {
   "title": "Spooked",
   "subtitle": null,
+  "sortTitle": "Spooked",
   "year": "1981",
-  "sort_title": "Spooked",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "spooked-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

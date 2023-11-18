@@ -1,8 +1,8 @@
 {
   "title": "A Writer's Tale",
   "subtitle": null,
+  "sortTitle": "Writer's Tale",
   "year": "1997",
-  "sort_title": "Writer's Tale",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "a-writers-tale-by-richard-laymon",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "The Library Policeman",
   "subtitle": null,
+  "sortTitle": "Library Policeman",
   "year": "1990",
-  "sort_title": "Library Policeman",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-library-policeman-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

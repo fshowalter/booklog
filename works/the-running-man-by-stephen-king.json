@@ -1,8 +1,8 @@
 {
   "title": "The Running Man",
   "subtitle": null,
+  "sortTitle": "Running Man",
   "year": "1981",
-  "sort_title": "Running Man",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-running-man-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

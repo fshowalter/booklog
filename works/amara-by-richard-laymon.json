@@ -1,8 +1,8 @@
 {
   "title": "Amara",
   "subtitle": null,
+  "sortTitle": "Amara",
   "year": "2003",
-  "sort_title": "Amara",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "amara-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

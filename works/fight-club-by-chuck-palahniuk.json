@@ -1,8 +1,8 @@
 {
   "title": "Fight Club",
   "subtitle": null,
+  "sortTitle": "Fight Club",
   "year": "1996",
-  "sort_title": "Fight Club",
   "authors": [
     {
       "slug": "chuck-palahniuk",
@@ -11,5 +11,5 @@
   ],
   "slug": "fight-club-by-chuck-palahniuk",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

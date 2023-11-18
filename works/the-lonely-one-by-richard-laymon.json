@@ -1,8 +1,8 @@
 {
   "title": "The Lonely One",
   "subtitle": null,
+  "sortTitle": "Lonely One",
   "year": "1985",
-  "sort_title": "Lonely One",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-lonely-one-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

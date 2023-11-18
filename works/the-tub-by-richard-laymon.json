@@ -1,8 +1,8 @@
 {
   "title": "The Tub",
   "subtitle": null,
+  "sortTitle": "Tub",
   "year": "1991",
-  "sort_title": "Tub",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-tub-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

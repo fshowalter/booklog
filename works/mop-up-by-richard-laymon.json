@@ -1,8 +1,8 @@
 {
   "title": "Mop-Up",
   "subtitle": null,
+  "sortTitle": "Mop-Up",
   "year": "1989",
-  "sort_title": "Mop-Up",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "mop-up-by-richard-laymon",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

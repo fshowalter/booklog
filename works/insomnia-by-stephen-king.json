@@ -1,8 +1,8 @@
 {
   "title": "Insomnia",
   "subtitle": null,
+  "sortTitle": "Insomnia",
   "year": "1994",
-  "sort_title": "Insomnia",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "insomnia-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

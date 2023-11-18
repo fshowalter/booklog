@@ -1,8 +1,8 @@
 {
   "title": "The Rise of Theodore Roosevelt",
   "subtitle": null,
+  "sortTitle": "Rise of Theodore Roosevelt",
   "year": "1979",
-  "sort_title": "Rise of Theodore Roosevelt",
   "authors": [
     {
       "slug": "edmund-morris",
@@ -10,5 +10,6 @@
     }
   ],
   "slug": "the-rise-of-theodore-roosevelt-by-edmund-morris",
-  "kind": "Nonfiction"
+  "kind": "Nonfiction",
+  "includedWorks": []
 }

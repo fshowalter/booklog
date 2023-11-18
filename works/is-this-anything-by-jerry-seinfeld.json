@@ -1,8 +1,8 @@
 {
   "title": "Is This Anything?",
   "subtitle": null,
+  "sortTitle": "Is This Anything?",
   "year": "2020",
-  "sort_title": "Is This Anything?",
   "authors": [
     {
       "slug": "jerry-seinfeld",
@@ -11,5 +11,5 @@
   ],
   "slug": "is-this-anything-by-jerry-seinfeld",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

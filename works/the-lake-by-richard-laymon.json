@@ -1,8 +1,8 @@
 {
   "title": "The Lake",
   "subtitle": null,
+  "sortTitle": "Lake",
   "year": "2004",
-  "sort_title": "Lake",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-lake-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

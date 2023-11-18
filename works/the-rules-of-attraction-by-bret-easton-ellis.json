@@ -1,8 +1,8 @@
 {
   "title": "The Rules of Attraction",
   "subtitle": null,
+  "sortTitle": "Rules of Attraction",
   "year": "1987",
-  "sort_title": "Rules of Attraction",
   "authors": [
     {
       "slug": "bret-easton-ellis",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-rules-of-attraction-by-bret-easton-ellis",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "Guts",
   "subtitle": null,
+  "sortTitle": "Guts",
   "year": "1985",
-  "sort_title": "Guts",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "guts-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

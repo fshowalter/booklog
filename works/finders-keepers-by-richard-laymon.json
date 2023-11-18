@@ -1,8 +1,8 @@
 {
   "title": "Finders Keepers",
   "subtitle": null,
+  "sortTitle": "Finders Keepers",
   "year": "1985",
-  "sort_title": "Finders Keepers",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "finders-keepers-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }
