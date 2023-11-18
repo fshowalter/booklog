@@ -47,11 +47,17 @@ JsonWork = TypedDict(
 )
 
 
-def works_for_author_slug(slug: str) -> list[JsonWork]:
+def works_for_author_slug(
+    slug: str,
+    all_json_works: Optional[list[JsonWork]] = None,
+) -> list[JsonWork]:
+    all_json_works = all_json_works or deserialize_all()
+
     return [
         work
-        for work in deserialize_all()
-        if next(author for author in work["authors"] if author["slug"] == slug)
+        for work in all_json_works
+        for author in work["authors"]
+        if author["slug"] == slug
     ]
 
 
@@ -124,7 +130,7 @@ def deserialize_json_work(json_work: dict[str, Any]) -> JsonWork:
     return JsonWork(
         title=json_work["title"],
         subtitle=json_work["subtitle"],
-        sortTitle=json_work["sort_title"],
+        sortTitle=json_work["sortTitle"],
         year=json_work["year"],
         authors=[
             JsonWorkAuthor(
@@ -134,7 +140,7 @@ def deserialize_json_work(json_work: dict[str, Any]) -> JsonWork:
         ],
         slug=json_work["slug"],
         kind=json_work["kind"],
-        includedWorks=json_work.get("included_works", []),
+        includedWorks=json_work.get("includedWorks", []),
     )
 
 

@@ -1,19 +1,35 @@
 from __future__ import annotations
 
+from typing import Optional
+
 from booklog.data.core import json_authors, json_works, orm
 
 
-def all_works() -> list[orm.Work]:
+def all_works(
+    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
+    all_json_works: Optional[list[json_works.JsonWork]] = None,
+) -> list[orm.Work]:
+    all_json_authors = all_json_authors or json_authors.deserialize_all()
+    all_json_works = all_json_works or json_works.deserialize_all()
+
     return [
-        orm.hydrate_json_work(json_work=json_work)
-        for json_work in json_works.deserialize_all()
+        orm.hydrate_json_work(json_work=json_work, all_json_authors=all_json_authors)
+        for json_work in all_json_works
     ]
 
 
-def all_authors() -> list[orm.AuthorWithWorks]:
+def all_authors(
+    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
+    all_json_works: Optional[list[json_works.JsonWork]] = None,
+) -> list[orm.AuthorWithWorks]:
+    all_json_authors = all_json_authors or json_authors.deserialize_all()
+    all_json_works = all_json_works or json_works.deserialize_all()
+
     return [
-        orm.hydrate_json_author_with_works(json_author=json_author)
-        for json_author in json_authors.deserialize_all()
+        orm.hydrate_json_author_with_works(
+            json_author=json_author, all_json_works=all_json_works
+        )
+        for json_author in all_json_authors
     ]
 
 

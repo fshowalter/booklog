@@ -10,7 +10,6 @@ def prompt() -> None:
         (manage_data.prompt, "<cyan>Manage Data</cyan>"),
         (add_review.prompt, "<cyan>Add Review</cyan>"),
         (export, "<cyan>Export Data</cyan>"),
-        (migrate, "<cyan>Migrate Data</cyan>"),
         (None, "Exit"),
     ]
 
@@ -21,11 +20,6 @@ def prompt() -> None:
     if option_function:
         option_function()
         prompt()
-
-
-def migrate() -> None:
-    for json_work in json_works.deserialize_all():
-        json_works.serialize(json_work)
 
 
 def export() -> None:

@@ -32,11 +32,11 @@ def generate_sort_name(name: str) -> str:
 
 
 def author_for_slug(
-    slug: str, all_authors: Optional[list[JsonAuthor]] = None
+    slug: str, all_json_authors: Optional[list[JsonAuthor]] = None
 ) -> JsonAuthor:
-    all_authors = all_authors or deserialize_all()
+    all_json_authors = all_json_authors or deserialize_all()
 
-    return next(author for author in all_authors if author["slug"] == slug)
+    return next(author for author in all_json_authors if author["slug"] == slug)
 
 
 def create(

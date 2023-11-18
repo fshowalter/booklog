@@ -64,11 +64,14 @@ def create_author(
 
 def hydrate_json_work_authors(
     json_work_authors: list[json_works.JsonWorkAuthor],
+    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
 ) -> list[WorkAuthor]:
     work_authors = []
 
     for work_author in json_work_authors:
-        json_author = json_authors.author_for_slug(slug=work_author["slug"])
+        json_author = json_authors.author_for_slug(
+            slug=work_author["slug"], all_json_authors=all_json_authors
+        )
         work_authors.append(
             WorkAuthor(
                 name=json_author["name"],
@@ -81,13 +84,18 @@ def hydrate_json_work_authors(
     return work_authors
 
 
-def hydrate_json_work(json_work: json_works.JsonWork) -> Work:
+def hydrate_json_work(
+    json_work: json_works.JsonWork,
+    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
+) -> Work:
     return Work(
         title=json_work["title"],
         subtitle=json_work["subtitle"],
         sort_title=json_work["sortTitle"],
         year=json_work["year"],
-        authors=hydrate_json_work_authors(json_work["authors"]),
+        authors=hydrate_json_work_authors(
+            json_work["authors"], all_json_authors=all_json_authors
+        ),
         slug=json_work["slug"],
         kind=json_work["kind"],
         included_work_slugs=json_work["includedWorks"],
@@ -110,6 +118,7 @@ def hydrate_json_author(json_author: json_authors.JsonAuthor) -> Author:
 
 def hydrate_json_author_with_works(
     json_author: json_authors.JsonAuthor,
+    all_json_works: Optional[list[json_works.JsonWork]] = None,
 ) -> AuthorWithWorks:
     return AuthorWithWorks(
         name=json_author["name"],
@@ -117,6 +126,8 @@ def hydrate_json_author_with_works(
         sort_name=json_author["sortName"],
         works=[
             hydrate_json_work(json_work)
-            for json_work in json_works.works_for_author_slug(slug=json_author["slug"])
+            for json_work in json_works.works_for_author_slug(
+                slug=json_author["slug"], all_json_works=all_json_works
+            )
         ],
     )
