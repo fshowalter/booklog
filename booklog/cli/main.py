@@ -1,6 +1,6 @@
 from booklog.cli import add_review, manage_data, radio_list
 from booklog.data import api as data_api
-from booklog.data.core import json_authors
+from booklog.data.core import json_works
 from booklog.logger import logger
 
 
@@ -24,8 +24,8 @@ def prompt() -> None:
 
 
 def migrate() -> None:
-    for json_author in json_authors.deserialize_all():
-        json_authors.serialize(json_author)
+    for json_work in json_works.deserialize_all():
+        json_works.serialize(json_work)
 
 
 def export() -> None:

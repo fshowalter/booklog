@@ -54,7 +54,7 @@ def create(
 def deserialize_json_author(json_author: dict[str, Any]) -> JsonAuthor:
     return JsonAuthor(
         name=json_author["name"],
-        sortName=json_author["sort_name"],
+        sortName=json_author["sortName"],
         slug=json_author["slug"],
     )
 
