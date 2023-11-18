@@ -2,9 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from booklog.bookdata.api import Work, all_works
-from booklog.readings import editions, reading, serializer
-from booklog.utils import sequence_tools
+from booklog.data.core.api import Work, all_works
+from booklog.data.readings import editions, reading, sequence_tools, serializer
 
 TimelineEntry = reading.TimelineEntry
 

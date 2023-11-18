@@ -9,12 +9,12 @@ from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 from prompt_toolkit.validation import Validator
 
-from booklog import api as booklog_api
 from booklog.cli import ask, ask_for_work, radio_list
+from booklog.data import api as data
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
-WorkOption = Tuple[Optional[booklog_api.Work], AnyFormattedText]
+WorkOption = Tuple[Optional[data.Work], AnyFormattedText]
 
 
 def prompt() -> None:
@@ -43,13 +43,13 @@ def prompt() -> None:
     if not grade:
         return
 
-    booklog_api.create_reading(
+    data.create_reading(
         work_slug=work_with_authors.slug,
         edition=edition,
         timeline=timeline,
     )
 
-    booklog_api.create_review(
+    data.create_review(
         work_slug=work_with_authors.slug,
         date=timeline[-1].date,
         grade=grade,
@@ -127,8 +127,8 @@ def ask_for_progress() -> str:
     return ask_for_progress()
 
 
-def ask_for_timeline() -> list[booklog_api.TimelineEntry]:
-    timeline_entries: list[booklog_api.TimelineEntry] = []
+def ask_for_timeline() -> list[data.TimelineEntry]:
+    timeline_entries: list[data.TimelineEntry] = []
     timeline_date = None
 
     while True:
@@ -138,7 +138,7 @@ def ask_for_timeline() -> list[booklog_api.TimelineEntry]:
             progress = ask_for_progress()
 
             timeline_entries.append(
-                booklog_api.TimelineEntry(date=timeline_date, progress=progress)
+                data.TimelineEntry(date=timeline_date, progress=progress)
             )
 
             if progress in {"Finished", "Abandoned"}:
@@ -171,7 +171,7 @@ def ask_for_edition() -> Optional[str]:
 
 
 def build_edition_options() -> List[Option]:
-    editions = booklog_api.all_editions()
+    editions = data.all_editions()
 
     options: list[Option] = []
 

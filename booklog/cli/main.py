@@ -1,6 +1,7 @@
-from booklog import api as booklog_api
 from booklog.cli import add_review, manage_data, radio_list
-from booklog.utils.logging import logger
+from booklog.data import api as data_api
+from booklog.data.core import json_authors
+from booklog.logger import logger
 
 
 @logger.catch
@@ -9,6 +10,7 @@ def prompt() -> None:
         (manage_data.prompt, "<cyan>Manage Data</cyan>"),
         (add_review.prompt, "<cyan>Add Review</cyan>"),
         (export, "<cyan>Export Data</cyan>"),
+        (migrate, "<cyan>Migrate Data</cyan>"),
         (None, "Exit"),
     ]
 
@@ -21,5 +23,10 @@ def prompt() -> None:
         prompt()
 
 
+def migrate() -> None:
+    for json_author in json_authors.deserialize_all():
+        json_authors.serialize(json_author)
+
+
 def export() -> None:
-    booklog_api.export_data()
+    data_api.export_data()

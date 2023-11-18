@@ -6,26 +6,25 @@ from typing import List, Optional, Tuple
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
-from booklog import api as booklog_api
 from booklog.cli import ask, radio_list
+from booklog.data import api as data_api
 
-WorkOption = Tuple[Optional[booklog_api.WorkWithAuthors], AnyFormattedText]
+WorkOption = Tuple[Optional[data_api.Work], AnyFormattedText]
 
 
-def prompt() -> Optional[booklog_api.WorkWithAuthors]:
+def prompt() -> Optional[data_api.Work]:
     title = None
 
     while title is None:
         title = ask.prompt("Title: ")
 
-    works = booklog_api.search_works(title)
+    works = data_api.search_works(title)
 
     options: list[WorkOption] = build_work_options(works)
 
     selected_work = None
 
     while selected_work is None:
-
         selected_work = radio_list.prompt(
             title="Select work:",
             options=options,
@@ -44,7 +43,7 @@ def prompt() -> Optional[booklog_api.WorkWithAuthors]:
 
 
 def build_work_options(
-    works: list[booklog_api.WorkWithAuthors],
+    works: list[data_api.WorkWithAuthors],
 ) -> List[WorkOption]:
     options: list[WorkOption] = []
 

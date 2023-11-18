@@ -1,6 +1,6 @@
 from typing import Sequence
 
-from booklog.readings import serializer
+from booklog.data.readings import serializer
 
 
 def all_editions() -> Sequence[str]:

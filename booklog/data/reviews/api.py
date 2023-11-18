@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 
-from booklog.reviews import review, serializer
+from booklog.data.reviews import review, serializer
 
 Review = review.Review
 

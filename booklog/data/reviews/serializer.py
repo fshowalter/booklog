@@ -8,9 +8,9 @@ from typing import Any, TypedDict, cast
 
 import yaml
 
-from booklog.reviews.review import Review
-from booklog.utils import path_tools
-from booklog.utils.logging import logger
+from booklog.data.reviews.review import Review
+from booklog.data.utils import path_tools
+from booklog.logger import logger
 
 FOLDER_NAME = "reviews"
 

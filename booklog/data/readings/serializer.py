@@ -10,9 +10,9 @@ from typing import Optional, TypedDict, cast
 
 from slugify import slugify
 
-from booklog.readings.reading import Reading, TimelineEntry
-from booklog.utils import path_tools
-from booklog.utils.logging import logger
+from booklog.data.readings.reading import Reading, TimelineEntry
+from booklog.data.utils import path_tools
+from booklog.logger import logger
 
 FOLDER_NAME = "readings"
 

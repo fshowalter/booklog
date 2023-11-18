@@ -1,11 +1,15 @@
-from collections import defaultdict
 from typing import Optional, TypedDict
 
-from booklog.bookdata.api import Author, Work
-from booklog.exports.json_work_author import JsonWorkAuthor, build_json_work_authors
-from booklog.reviews.review import Review
-from booklog.utils import export_tools, list_tools
-from booklog.utils.logging import logger
+from booklog.data.core.api import AuthorWithWorks, Work
+from booklog.data.exports import export_tools, list_tools
+from booklog.data.reviews.review import Review
+from booklog.logger import logger
+
+JsonWorkAuthor = TypedDict(
+    "JsonWorkAuthor",
+    {"name": str, "sortName": str, "slug": str, "notes": Optional[str]},
+)
+
 
 JsonAuthorWork = TypedDict(
     "JsonAuthorWork",
@@ -37,7 +41,8 @@ JsonAuthor = TypedDict(
 
 
 def build_json_author_work(
-    work: Work, works: list[Work], review: Optional[Review], authors: list[Author]
+    work: Work,
+    review: Optional[Review],
 ) -> JsonAuthorWork:
     return JsonAuthorWork(
         title=work.title,
@@ -48,24 +53,25 @@ def build_json_author_work(
         reviewed=bool(review),
         grade=review.grade if review else None,
         gradeValue=review.grade_value if review else None,
-        authors=build_json_work_authors(work_authors=work.authors, authors=authors),
-        includedInSlugs=[
-            other_work.slug
-            for other_work in works
-            if work.slug in other_work.included_works
+        authors=[
+            JsonWorkAuthor(
+                slug=work_author.slug,
+                notes=work_author.notes,
+                name=work_author.name,
+                sortName=work_author.sort_name,
+            )
+            for work_author in work.authors
         ],
+        includedInSlugs=work.included_in_work_slugs,
     )
 
 
 def build_json_author(
-    author: Author,
-    authors: list[Author],
-    author_works: list[Work],
-    works: list[Work],
+    author: AuthorWithWorks,
     reviews_by_slug: dict[str, Review],
 ) -> JsonAuthor:
     reviewed_work_count = len(
-        {author_work.slug for author_work in author_works} & reviews_by_slug.keys()
+        {author_work.slug for author_work in author.works} & reviews_by_slug.keys()
     )
 
     return JsonAuthor(
@@ -75,35 +81,20 @@ def build_json_author(
         works=[
             build_json_author_work(
                 work=work,
-                works=works,
                 review=reviews_by_slug.get(work.slug),
-                authors=authors,
             )
-            for work in author_works
+            for work in author.works
         ],
         reviewedWorkCount=reviewed_work_count,
-        workCount=len(author_works),
+        workCount=len(author.works),
     )
 
 
-def group_works_by_author(works: list[Work]) -> dict[str, list[Work]]:
-    works_by_author = defaultdict(list)
-
-    for work in works:
-        for work_author in work.authors:
-            works_by_author[work_author.slug].append(work)
-
-    return works_by_author
-
-
 def export(
-    authors: list[Author],
-    works: list[Work],
+    authors: list[AuthorWithWorks],
     reviews: list[Review],
 ) -> None:
     logger.log("==== Begin exporting {}...", "authors")
-
-    works_by_author = group_works_by_author(works)
 
     reviews_by_slug = list_tools.list_to_dict_by_key(
         reviews, lambda review: review.work_slug
@@ -113,9 +104,6 @@ def export(
         json_authors = [
             build_json_author(
                 author=author,
-                authors=authors,
-                author_works=works_by_author[author.slug],
-                works=works,
                 reviews_by_slug=reviews_by_slug,
             )
             for author in authors

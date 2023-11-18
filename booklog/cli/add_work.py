@@ -6,10 +6,10 @@ from typing import Optional, Tuple
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
-from booklog import api as booklog_api
 from booklog.cli import ask, ask_for_author, ask_for_work, radio_list
+from booklog.data import api as data_api
 
-AuthorOption = Tuple[Optional[booklog_api.AuthorWithWorks], AnyFormattedText]
+AuthorOption = Tuple[Optional[data_api.AuthorWithWorks], AnyFormattedText]
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
@@ -48,7 +48,7 @@ def prompt() -> None:  # noqa: WPS210, WPS231
             included_works = ask_for_works()
 
         works.append(
-            booklog_api.create_work(
+            data_api.create_work(
                 title=title,
                 authors=work_authors,
                 subtitle=subtitle,
@@ -62,7 +62,7 @@ def prompt() -> None:  # noqa: WPS210, WPS231
             return
 
 
-def ask_to_add_more_works(work_authors: list[booklog_api.WorkAuthor]) -> bool:
+def ask_to_add_more_works(work_authors: list[data_api.WorkAuthor]) -> bool:
     work_author_names = " ".join(author.name() for author in work_authors)
 
     return confirm("Add more works by {0}?".format(work_author_names))
@@ -80,8 +80,8 @@ def ask_for_year() -> Optional[str]:
     return ask_for_year()
 
 
-def ask_for_authors() -> list[booklog_api.WorkAuthor]:
-    work_authors: list[booklog_api.WorkAuthor] = []
+def ask_for_authors() -> list[data_api.WorkAuthor]:
+    work_authors: list[data_api.WorkAuthor] = []
 
     while True:
         author = ask_for_author.prompt()
@@ -93,7 +93,7 @@ def ask_for_authors() -> list[booklog_api.WorkAuthor]:
                 author_notes = None
 
             work_authors.append(
-                booklog_api.WorkAuthor(slug=author.slug, notes=author_notes)
+                data_api.WorkAuthor(slug=author.slug, notes=author_notes)
             )
 
         if not confirm("Add more Authors?"):
@@ -143,7 +143,6 @@ def ask_for_kind() -> Optional[str]:
     selected_kind = None
 
     while selected_kind is None:
-
         selected_kind = radio_list.prompt(
             title="Select kind:",
             options=options,
@@ -156,7 +155,7 @@ def ask_for_kind() -> Optional[str]:
 
 
 def build_kind_options() -> list[Option]:
-    kinds = sorted(booklog_api.WORK_KINDS)
+    kinds = sorted(data_api.WORK_KINDS)
 
     options: list[Option] = []
 

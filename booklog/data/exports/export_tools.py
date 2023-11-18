@@ -3,8 +3,8 @@ import os
 from collections.abc import Iterable
 from typing import Callable, TypeVar
 
-from booklog.utils import format_tools
-from booklog.utils.logging import logger
+from booklog.data.exports import format_tools
+from booklog.logger import logger
 
 DataClassType = TypeVar("DataClassType")
 DictType = TypeVar("DictType")
