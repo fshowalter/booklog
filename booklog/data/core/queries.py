@@ -27,7 +27,9 @@ def all_authors(
 
     return [
         orm.hydrate_json_author_with_works(
-            json_author=json_author, all_json_works=all_json_works
+            json_author=json_author,
+            all_json_works=all_json_works,
+            all_json_authors=all_json_authors,
         )
         for json_author in all_json_authors
     ]

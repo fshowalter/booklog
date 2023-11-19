@@ -87,6 +87,7 @@ def hydrate_json_work_authors(
 def hydrate_json_work(
     json_work: json_works.JsonWork,
     all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
+    all_json_works: Optional[list[json_works.JsonWork]] = None,
 ) -> Work:
     return Work(
         title=json_work["title"],
@@ -102,7 +103,7 @@ def hydrate_json_work(
         included_in_work_slugs=[
             collection_work["slug"]
             for collection_work in json_works.works_including_work_slug(
-                json_work["slug"]
+                json_work["slug"], all_json_works=all_json_works
             )
         ],
     )
@@ -118,6 +119,7 @@ def hydrate_json_author(json_author: json_authors.JsonAuthor) -> Author:
 
 def hydrate_json_author_with_works(
     json_author: json_authors.JsonAuthor,
+    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
     all_json_works: Optional[list[json_works.JsonWork]] = None,
 ) -> AuthorWithWorks:
     return AuthorWithWorks(
@@ -125,7 +127,11 @@ def hydrate_json_author_with_works(
         slug=json_author["slug"],
         sort_name=json_author["sortName"],
         works=[
-            hydrate_json_work(json_work)
+            hydrate_json_work(
+                json_work,
+                all_json_works=all_json_works,
+                all_json_authors=all_json_authors,
+            )
             for json_work in json_works.works_for_author_slug(
                 slug=json_author["slug"], all_json_works=all_json_works
             )

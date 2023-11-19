@@ -62,11 +62,11 @@ def works_for_author_slug(
 
 
 def works_including_work_slug(
-    slug: str, all_works: Optional[list[JsonWork]] = None
+    slug: str, all_json_works: Optional[list[JsonWork]] = None
 ) -> list[JsonWork]:
-    all_works = all_works or deserialize_all()
+    all_json_works = all_json_works or deserialize_all()
 
-    return [work for work in all_works if slug in work["includedWorks"]]
+    return [work for work in all_json_works if slug in work["includedWorks"]]
 
 
 def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
