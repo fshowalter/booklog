@@ -10,28 +10,30 @@ from pytest_mock import MockerFixture
 @pytest.fixture(autouse=True)
 def mock_exports_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "exports")
-    mocker.patch("booklog.utils.export_tools.EXPORT_FOLDER_NAME", tmp_path / "exports")
+    mocker.patch(
+        "booklog.data.exports.export_tools.EXPORT_FOLDER_NAME", tmp_path / "exports"
+    )
 
 
 @pytest.fixture(autouse=True)
 def mock_readings_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "readings")
-    mocker.patch("booklog.readings.serializer.FOLDER_NAME", tmp_path / "readings")
+    mocker.patch("booklog.data.readings.serializer.FOLDER_NAME", tmp_path / "readings")
 
 
 @pytest.fixture(autouse=True)
 def mock_reviews_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "reviews")
-    mocker.patch("booklog.reviews.serializer.FOLDER_NAME", tmp_path / "reviews")
+    mocker.patch("booklog.data.reviews.serializer.FOLDER_NAME", tmp_path / "reviews")
 
 
 @pytest.fixture(autouse=True)
 def mock_works_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "works")
-    mocker.patch("booklog.bookdata.works.FOLDER_NAME", tmp_path / "works")
+    mocker.patch("booklog.data.core.works.FOLDER_NAME", tmp_path / "works")
 
 
 @pytest.fixture(autouse=True)
 def mock_authors_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "authors")
-    mocker.patch("booklog.bookdata.authors.FOLDER_NAME", tmp_path / "authors")
+    mocker.patch("booklog.data.core.authors.FOLDER_NAME", tmp_path / "authors")
