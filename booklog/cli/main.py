@@ -1,6 +1,5 @@
 from booklog.cli import add_review, manage_data, radio_list
 from booklog.data import api as data_api
-from booklog.data.core import json_works
 from booklog.logger import logger
 
 

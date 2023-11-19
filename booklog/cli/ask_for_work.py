@@ -43,7 +43,7 @@ def prompt() -> Optional[data_api.Work]:
 
 
 def build_work_options(
-    works: list[data_api.WorkWithAuthors],
+    works: list[data_api.Work],
 ) -> List[WorkOption]:
     options: list[WorkOption] = []
 
@@ -52,9 +52,7 @@ def build_work_options(
             work,
             "<cyan>{0}</cyan> by {1}".format(
                 html.escape(work.title),
-                ", ".join(
-                    html.escape(author_name) for author_name in work.author_names
-                ),
+                ", ".join(html.escape(author.name) for author in work.authors),
             ),
         )
 
