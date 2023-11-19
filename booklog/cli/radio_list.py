@@ -10,7 +10,13 @@ from prompt_toolkit.formatted_text import (  # noqa: WPS347
 from prompt_toolkit.key_binding.key_bindings import KeyBindings
 from prompt_toolkit.key_binding.key_processor import KeyPressEvent
 from prompt_toolkit.layout import Layout
-from prompt_toolkit.layout.containers import Container, HSplit, Window
+from prompt_toolkit.layout.containers import (
+    Container,
+    Float,
+    FloatContainer,
+    HSplit,
+    Window,
+)
 from prompt_toolkit.layout.controls import FormattedTextControl
 from prompt_toolkit.layout.margins import ScrollbarMargin
 from prompt_toolkit.widgets import Label
@@ -41,6 +47,7 @@ class RadioList(Generic[RadioListType]):  # noqa: WPS214
         # Key bindings.
         kb = KeyBindings()
 
+        kb.add("escape")(self._handle_exit)
         kb.add("up")(self._handle_up)
         kb.add("down")(self._handle_down)
         kb.add("enter")(self._handle_enter)
@@ -124,7 +131,28 @@ def prompt(
     control = RadioList(options_to_html(options))
 
     application: Application[None] = Application(
-        layout=Layout(HSplit([Label(HTML(title)), control])),
+        layout=Layout(
+            HSplit(
+                [
+                    FloatContainer(
+                        HSplit(
+                            [
+                                Label(HTML(title)),
+                                control,
+                            ]
+                        ),
+                        [
+                            Float(
+                                right=0,
+                                top=0,
+                                hide_when_covering_content=True,
+                                content=Label("ESC to go back"),
+                            ),
+                        ],
+                    )
+                ]
+            )
+        ),
         mouse_support=False,
         full_screen=False,
     )

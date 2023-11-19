@@ -13,51 +13,40 @@ AuthorOption = Tuple[Optional[data_api.AuthorWithWorks], AnyFormattedText]
 
 
 def prompt() -> Optional[data_api.AuthorWithWorks]:
-    name = None
-
-    while name is None:
+    while True:
         name = ask.prompt("Author: ")
 
-    authors = data_api.search_authors(name)
+        if not name:
+            return None
 
-    options: list[AuthorOption] = build_author_options(authors)
+        authors = data_api.search_authors(name)
 
-    selected_author = None
+        options: list[AuthorOption] = build_author_options(authors)
 
-    while selected_author is None:
+        selected_author = None
+
         selected_author = radio_list.prompt(
             title="Select author:",
             options=options,
         )
 
-        if selected_author is None:
-            break
-
-    if not selected_author:
-        return None
-
-    if confirm("{0}?".format(selected_author.name)):
-        return selected_author
-
-    return prompt()
+        if selected_author:
+            return selected_author
 
 
 def build_author_options(
     authors: list[data_api.AuthorWithWorks],
 ) -> List[AuthorOption]:
-    options: list[AuthorOption] = []
+    if not authors:
+        return [(None, "Search Again")]
 
-    for author in authors:
-        works = author.works[:3]
-        option = (
+    return [
+        (
             author,
             "<cyan>{0}</cyan> ({1})".format(
                 html.escape(author.sort_name),
-                ", ".join(html.escape(work.title) for work in works),
+                ", ".join(html.escape(work.title) for work in author.works[:3]),
             ),
         )
-        options.append(option)
-
-    options.append((None, "Search again"))
-
-    return options
+        for author in authors
+    ]
