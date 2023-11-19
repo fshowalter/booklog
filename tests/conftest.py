@@ -30,10 +30,10 @@ def mock_reviews_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
 @pytest.fixture(autouse=True)
 def mock_works_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "works")
-    mocker.patch("booklog.data.core.works.FOLDER_NAME", tmp_path / "works")
+    mocker.patch("booklog.data.core.json_works.FOLDER_NAME", tmp_path / "works")
 
 
 @pytest.fixture(autouse=True)
 def mock_authors_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "authors")
-    mocker.patch("booklog.data.core.authors.FOLDER_NAME", tmp_path / "authors")
+    mocker.patch("booklog.data.core.json_authors.FOLDER_NAME", tmp_path / "authors")

@@ -50,11 +50,11 @@ def prompt() -> None:  # noqa: WPS210, WPS231
         works.append(
             data_api.create_work(
                 title=title,
-                authors=work_authors,
+                work_authors=work_authors,
                 subtitle=subtitle,
                 year=year,
                 kind=kind,
-                included_works=included_works,
+                included_work_slugs=included_works,
             )
         )
 
@@ -80,8 +80,8 @@ def ask_for_year() -> Optional[str]:
     return ask_for_year()
 
 
-def ask_for_authors() -> list[data_api.WorkAuthor]:
-    work_authors: list[data_api.WorkAuthor] = []
+def ask_for_authors() -> list[data_api.CreateWorkAuthor]:
+    work_authors: list[data_api.CreateWorkAuthor] = []
 
     while True:
         author = ask_for_author.prompt()
@@ -93,7 +93,7 @@ def ask_for_authors() -> list[data_api.WorkAuthor]:
                 author_notes = None
 
             work_authors.append(
-                data_api.WorkAuthor(slug=author.slug, notes=author_notes)
+                data_api.CreateWorkAuthor(slug=author.slug, notes=author_notes)
             )
 
         if not confirm("Add more Authors?"):
