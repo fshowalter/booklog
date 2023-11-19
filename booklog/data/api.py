@@ -27,14 +27,27 @@ search_works = core_data_api.search_works
 
 create_work = core_data_api.create_work
 
-create_reading = readings_api.create
-
 all_editions = readings_api.all_editions
 
 WORK_KINDS = core_data_api.WORK_KINDS
 
-create_review = reviews_api.create
+export_data = exports_api.export_data
 
 
-def export_data() -> None:
-    exports_api.export_data()
+def create_reading(
+    work_slug: str,
+    edition: str,
+    timeline: list[TimelineEntry],
+    grade: str,
+) -> None:
+    readings_api.create(
+        work_slug=work_slug,
+        edition=edition,
+        timeline=timeline,
+    )
+
+    reviews_api.create_or_update(
+        work_slug=work_slug,
+        date=timeline[-1].date,
+        grade=grade,
+    )

@@ -9,7 +9,7 @@ Review = review.Review
 all_reviews = serializer.deserialize_all
 
 
-def create(
+def create_or_update(
     work_slug: str,
     date: datetime.date,
     grade: str = "Abandoned",

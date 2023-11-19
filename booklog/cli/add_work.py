@@ -7,7 +7,7 @@ from typing import Callable, Literal, Optional, Tuple
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
-from booklog.cli import ask, ask_for_author, ask_for_work, radio_list
+from booklog.cli import ask, radio_list, select_author, select_work
 from booklog.cli.utils.array_to_sentence import array_to_sentence
 from booklog.data import api as data_api
 
@@ -38,7 +38,7 @@ class State(object):
     included_works: list[str] = field(default_factory=list)
 
 
-def prompt() -> None:  # noqa: WPS210, WPS231
+def prompt() -> None:
     state = State()
 
     state_machine: dict[Stages, Callable[[State], State]] = {
@@ -56,21 +56,10 @@ def prompt() -> None:  # noqa: WPS210, WPS231
 
 
 def persist_work(state: State) -> State:
-    if not state.year_published:
-        state.stage = "ask_for_year"
-        return state
-
-    if not state.title:
-        state.stage = "ask_for_title"
-        return state
-
-    if not state.kind:
-        state.stage = "ask_for_kind"
-        return state
-
-    if not state.work_authors:
-        state.stage = "ask_for_authors"
-        return state
+    assert state.year_published
+    assert state.title
+    assert state.kind
+    assert state.work_authors
 
     data_api.create_work(
         title=state.title,
@@ -109,7 +98,7 @@ def ask_for_authors(state: State) -> State:
     state.work_authors = []
 
     while True:
-        author = ask_for_author.prompt()
+        author = select_author.prompt()
 
         if not author:
             state.stage = "end"
@@ -145,7 +134,7 @@ def ask_for_included_works(state: State) -> State:
         return state
 
     while True:
-        work = ask_for_work.prompt()
+        work = select_work.prompt()
 
         if not work and not state.included_works:
             state.stage = "ask_for_year"
@@ -169,7 +158,7 @@ def ask_for_title(state: State) -> State:
         state.stage = "ask_for_kind"
         return state
 
-    if confirm(title):  # noqa: WPS323
+    if confirm(title):
         state.title = title
         state.stage = "ask_for_subtitle"
 
@@ -189,7 +178,7 @@ def ask_for_subtitle(state: State) -> State:
         state.stage = "ask_for_title"
         return state
 
-    if confirm(subtitle):  # noqa: WPS323
+    if confirm(subtitle):
         state.subtitle = subtitle
         state.stage = "ask_for_year"
 

@@ -2,58 +2,88 @@ from __future__ import annotations
 
 import html
 import re
+from dataclasses import dataclass, field
 from datetime import date, datetime
-from typing import List, Optional, Tuple
+from typing import Callable, List, Literal, Optional, Tuple
 
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 from prompt_toolkit.validation import Validator
 
-from booklog.cli import ask, ask_for_work, radio_list
+from booklog.cli import ask, radio_list, select_work
 from booklog.data import api as data_api
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
 WorkOption = Tuple[Optional[data_api.Work], AnyFormattedText]
 
+Stages = Literal[
+    "ask_for_work",
+    "ask_for_timeline",
+    "ask_for_edition",
+    "ask_for_grade",
+    "persist_reading",
+    "end",
+]
+
+
+@dataclass(kw_only=True)
+class State(object):
+    stage: Stages = "ask_for_work"
+    work: Optional[data_api.Work] = None
+    timeline: list[data_api.TimelineEntry] = field(default_factory=list)
+    edition: Optional[str] = None
+    grade: Optional[str] = None
+
 
 def prompt() -> None:
-    work_with_authors = ask_for_work.prompt()
+    state = State()
 
-    if not work_with_authors:
-        return
+    state_machine: dict[Stages, Callable[[State], State]] = {
+        "ask_for_work": ask_for_work,
+        "ask_for_timeline": ask_for_timeline,
+        "ask_for_edition": ask_for_edition,
+        "ask_for_grade": ask_for_grade,
+        "persist_reading": persist_reading,
+    }
 
-    timeline = ask_for_timeline()
+    while state.stage != "end":
+        state_machine[state.stage](state)
 
-    if not timeline:
-        return
 
-    edition = ask_for_edition()
-
-    if not edition:
-        return
-
-    grade = None
-
-    if timeline[-1].progress == "Abandoned":
-        grade = "Abandoned"
-    else:
-        grade = ask_for_grade()
-
-    if not grade:
-        return
+def persist_reading(state: State) -> State:
+    assert state.work
+    assert state.edition
+    assert state.timeline
+    assert state.grade
 
     data_api.create_reading(
-        work_slug=work_with_authors.slug,
-        edition=edition,
-        timeline=timeline,
+        work_slug=state.work.slug,
+        edition=state.edition,
+        timeline=state.timeline,
+        grade=state.grade,
     )
 
-    data_api.create_review(
-        work_slug=work_with_authors.slug,
-        date=timeline[-1].date,
-        grade=grade,
-    )
+    if confirm("Add another reading?"):
+        state.stage = "ask_for_work"
+    else:
+        state.stage = "end"
+
+    return state
+
+
+def ask_for_work(state: State) -> State:
+    state.work = None
+
+    work = select_work.prompt()
+
+    if not work:
+        state.stage = "end"
+        return state
+
+    state.work = work
+    state.stage = "ask_for_timeline"
+    return state
 
 
 def is_date(text: str) -> bool:
@@ -101,7 +131,7 @@ def is_valid_progress(text: str) -> bool:
     return bool(re.match("^[0-9]$|^[1-9][0-9]$|^(100)$", text))
 
 
-def ask_for_progress() -> str:
+def ask_for_progress() -> Optional[str]:
     validator = Validator.from_callable(
         is_valid_progress,
         error_message='Must be a whole number (no % sign), F for "Finished", or A for "Abandoned"',
@@ -124,29 +154,38 @@ def ask_for_progress() -> str:
 
         return "{0}%".format(progress)
 
-    return ask_for_progress()
+    return progress
 
 
-def ask_for_timeline() -> list[data_api.TimelineEntry]:
-    timeline_entries: list[data_api.TimelineEntry] = []
+def ask_for_timeline(state: State) -> State:
+    state.timeline = []
     timeline_date = None
 
     while True:
         timeline_date = ask_for_date(timeline_date)
 
+        if not timeline_date and not state.timeline:
+            state.stage = "ask_for_work"
+            return state
+
         if timeline_date:
             progress = ask_for_progress()
 
-            timeline_entries.append(
+            if not progress:
+                continue
+
+            state.timeline.append(
                 data_api.TimelineEntry(date=timeline_date, progress=progress)
             )
 
             if progress in {"Finished", "Abandoned"}:
-                return timeline_entries
+                state.stage = "ask_for_edition"
+                return state
 
 
-def ask_for_edition() -> Optional[str]:
-    options: List[Option] = build_edition_options()
+def ask_for_edition(state: State) -> State:
+    state.edition = None
+    options = build_edition_options()
 
     selected_edition = None
 
@@ -162,22 +201,22 @@ def ask_for_edition() -> Optional[str]:
             break
 
     if not selected_edition:
-        return None
+        state.stage = "ask_for_timeline"
+        return state
 
     if confirm("{0}?".format(selected_edition)):
-        return selected_edition
+        state.stage = "ask_for_grade"
 
-    return ask_for_edition()
+    return state
 
 
 def build_edition_options() -> List[Option]:
     editions = data_api.all_editions()
 
-    options: list[Option] = []
-
-    for edition in editions:
-        option = (edition, "<cyan>{0}</cyan>".format(html.escape(edition)))
-        options.append(option)
+    options: list[Option] = [
+        (edition, "<cyan>{0}</cyan>".format(html.escape(edition)))
+        for edition in editions
+    ]
 
     options.append((None, "New edition"))
 
@@ -192,7 +231,13 @@ def is_grade(text: str) -> bool:
     return bool(re.match("[a-d|A-D|f|F][+|-]?", text))
 
 
-def ask_for_grade() -> Optional[str]:
+def ask_for_grade(state: State) -> State:
+    state.grade = None
+
+    if state.timeline[-1].progress == "Abandoned":
+        state.grade = "Abandoned"
+        return state
+
     validator = Validator.from_callable(
         is_grade,
         error_message="Must be a valid grade.",
@@ -202,9 +247,10 @@ def ask_for_grade() -> Optional[str]:
     review_grade = ask.prompt("Grade: ", validator=validator, default="")
 
     if not review_grade:
-        return None
+        state.stage = "ask_for_edition"
+        return state
 
     if confirm(review_grade):  # noqa: WPS323
-        return review_grade
+        state.grade = review_grade
 
-    return ask_for_grade()
+    return state
