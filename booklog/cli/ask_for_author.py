@@ -4,7 +4,6 @@ import html
 from typing import List, Optional, Tuple
 
 from prompt_toolkit.formatted_text import AnyFormattedText
-from prompt_toolkit.shortcuts import confirm
 
 from booklog.cli import ask, radio_list
 from booklog.data import api as data_api
@@ -34,6 +33,12 @@ def prompt() -> Optional[data_api.AuthorWithWorks]:
             return selected_author
 
 
+def format_author_works(author: data_api.AuthorWithWorks) -> str:
+    first_three_author_works = author.works[:3]
+
+    return ", ".join(html.escape(work.title) for work in first_three_author_works)
+
+
 def build_author_options(
     authors: list[data_api.AuthorWithWorks],
 ) -> List[AuthorOption]:
@@ -45,7 +50,7 @@ def build_author_options(
             author,
             "<cyan>{0}</cyan> ({1})".format(
                 html.escape(author.sort_name),
-                ", ".join(html.escape(work.title) for work in author.works[:3]),
+                format_author_works(author),
             ),
         )
         for author in authors

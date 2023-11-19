@@ -7,6 +7,7 @@ from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
 from booklog.cli import ask, radio_list
+from booklog.cli.utils.array_to_sentence import array_to_sentence
 from booklog.data import api as data_api
 
 WorkOption = Tuple[Optional[data_api.Work], AnyFormattedText]
@@ -52,7 +53,9 @@ def build_work_options(
             work,
             "<cyan>{0}</cyan> by {1}".format(
                 html.escape(work.title),
-                ", ".join(html.escape(author.name) for author in work.authors),
+                array_to_sentence(
+                    [html.escape(author.name) for author in work.authors]
+                ),
             ),
         )
 

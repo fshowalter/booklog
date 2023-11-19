@@ -8,13 +8,14 @@ from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
 from booklog.cli import ask, ask_for_author, ask_for_work, radio_list
+from booklog.cli.utils.array_to_sentence import array_to_sentence
 from booklog.data import api as data_api
 
 AuthorOption = Tuple[Optional[data_api.AuthorWithWorks], AnyFormattedText]
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
-States = Literal[
+Stages = Literal[
     "ask_for_authors",
     "ask_for_kind",
     "ask_for_title",
@@ -28,7 +29,7 @@ States = Literal[
 
 @dataclass(kw_only=True)
 class State(object):
-    stage: States = "ask_for_authors"
+    stage: Stages = "ask_for_authors"
     kind: Optional[str] = None
     title: Optional[str] = None
     work_authors: list[data_api.WorkAuthor] = field(default_factory=list)
@@ -40,7 +41,7 @@ class State(object):
 def prompt() -> None:  # noqa: WPS210, WPS231
     state = State()
 
-    state_machine: dict[States, Callable[[State], State]] = {
+    state_machine: dict[Stages, Callable[[State], State]] = {
         "ask_for_authors": ask_for_authors,
         "ask_for_kind": ask_for_kind,
         "ask_for_title": ask_for_title,
@@ -80,9 +81,9 @@ def persist_work(state: State) -> State:
         included_work_slugs=state.included_works,
     )
 
-    work_author_names = " and ".join(author.name for author in state.work_authors)
+    author_names = array_to_sentence([author.name for author in state.work_authors])
 
-    if confirm("Add more works by {0}?".format(work_author_names)):
+    if confirm("Add more works by {0}?".format(author_names)):
         state.stage = "ask_for_kind"
     else:
         state.stage = "end"
