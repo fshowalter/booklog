@@ -7,8 +7,6 @@ from booklog.data.reviews import api as reviews_api
 
 AuthorWithWorks = core_data_api.AuthorWithWorks
 
-CreateWorkAuthor = core_data_api.CreateWorkAuthor
-
 Work = core_data_api.Work
 
 Author = core_data_api.Author

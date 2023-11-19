@@ -44,6 +44,7 @@ def test_calls_create_work(mock_input: MockInput, mock_create_work: MagicMock) -
             "y",
             "2000",
             "y",
+            "n",
         ]
     )
 
@@ -86,6 +87,7 @@ def test_can_create_work(
             "1980",
             Enter,
             "y",
+            "n",
         ]
     )
 

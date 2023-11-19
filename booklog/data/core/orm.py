@@ -40,7 +40,7 @@ def create_work(  # noqa: WPS211
     title: str,
     subtitle: Optional[str],
     year: str,
-    work_authors: list[json_works.CreateWorkAuthor],
+    work_authors: list[WorkAuthor],
     kind: str,
     included_work_slugs: Optional[list[str]] = None,
 ) -> Work:
@@ -49,7 +49,12 @@ def create_work(  # noqa: WPS211
             title=title,
             subtitle=subtitle,
             year=year,
-            work_authors=work_authors,
+            work_authors=[
+                json_works.CreateWorkAuthor(
+                    slug=work_author.slug, notes=work_author.notes
+                )
+                for work_author in work_authors
+            ],
             kind=kind,
             included_work_slugs=included_work_slugs,
         )

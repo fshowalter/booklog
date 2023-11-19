@@ -12,8 +12,6 @@ WorkAuthor = orm.WorkAuthor
 
 WORK_KINDS = json_works.KINDS
 
-CreateWorkAuthor = json_works.CreateWorkAuthor
-
 search_authors = queries.search_authors
 
 search_works = queries.search_works
