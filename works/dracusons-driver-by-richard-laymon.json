@@ -1,8 +1,8 @@
 {
   "title": "Dracuson's Driver",
   "subtitle": null,
+  "sortTitle": "Dracuson's Driver",
   "year": "1992",
-  "sort_title": "Dracuson's Driver",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "dracusons-driver-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

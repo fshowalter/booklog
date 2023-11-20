@@ -1,8 +1,8 @@
 {
   "title": "Coffin",
   "subtitle": null,
+  "sortTitle": "Coffin",
   "year": "2017",
-  "sort_title": "Coffin",
   "authors": [
     {
       "slug": "philip-fracassi",
@@ -11,5 +11,5 @@
   ],
   "slug": "coffin-by-philip-fracassi",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

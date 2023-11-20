@@ -1,8 +1,8 @@
 {
   "title": "Total Recall",
   "subtitle": "My Unbelievably True Life Story",
+  "sortTitle": "Total Recall: My Unbelievably True Life Story",
   "year": "2012",
-  "sort_title": "Total Recall: My Unbelievably True Life Story",
   "authors": [
     {
       "slug": "arnold-schwarzenegger",
@@ -11,5 +11,5 @@
   ],
   "slug": "total-recall-by-arnold-schwarzenegger",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

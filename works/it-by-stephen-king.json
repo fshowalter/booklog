@@ -1,8 +1,8 @@
 {
   "title": "It",
   "subtitle": null,
+  "sortTitle": "It",
   "year": "1986",
-  "sort_title": "It",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "it-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

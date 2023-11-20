@@ -1,8 +1,8 @@
 {
   "title": "Midnight's Lair",
   "subtitle": null,
+  "sortTitle": "Midnight's Lair",
   "year": "1988",
-  "sort_title": "Midnight's Lair",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "midnights-lair-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

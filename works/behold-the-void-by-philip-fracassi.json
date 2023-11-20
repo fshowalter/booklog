@@ -1,8 +1,8 @@
 {
   "title": "Behold the Void",
   "subtitle": null,
+  "sortTitle": "Behold the Void",
   "year": "2017",
-  "sort_title": "Behold the Void",
   "authors": [
     {
       "slug": "philip-fracassi",
@@ -11,7 +11,7 @@
   ],
   "slug": "behold-the-void-by-philip-fracassi",
   "kind": "Collection",
-  "included_works": [
+  "includedWorks": [
     "soft-construction-of-a-sunset-by-philip-fracassi",
     "altar-by-philip-fracassi",
     "the-horse-thief-by-philip-fracassi",

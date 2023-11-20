@@ -1,8 +1,8 @@
 {
   "title": "Boo",
   "subtitle": null,
+  "sortTitle": "Boo",
   "year": "2000",
-  "sort_title": "Boo",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "boo-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

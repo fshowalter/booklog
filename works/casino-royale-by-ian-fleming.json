@@ -1,8 +1,8 @@
 {
   "title": "Casino Royale",
   "subtitle": null,
+  "sortTitle": "Casino Royale",
   "year": "1953",
-  "sort_title": "Casino Royale",
   "authors": [
     {
       "slug": "ian-fleming",
@@ -11,5 +11,5 @@
   ],
   "slug": "casino-royale-by-ian-fleming",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

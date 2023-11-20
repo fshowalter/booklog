@@ -1,8 +1,8 @@
 {
   "title": "The Postman Always Rings Twice",
   "subtitle": null,
+  "sortTitle": "Postman Always Rings Twice",
   "year": "1934",
-  "sort_title": "Postman Always Rings Twice",
   "authors": [
     {
       "slug": "james-m-cain",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-postman-always-rings-twice-by-james-m-cain",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "The Job",
   "subtitle": null,
+  "sortTitle": "Job",
   "year": "1998",
-  "sort_title": "Job",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-job-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

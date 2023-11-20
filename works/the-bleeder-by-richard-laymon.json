@@ -1,8 +1,8 @@
 {
   "title": "The Bleeder",
   "subtitle": null,
+  "sortTitle": "Bleeder",
   "year": "1989",
-  "sort_title": "Bleeder",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-bleeder-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

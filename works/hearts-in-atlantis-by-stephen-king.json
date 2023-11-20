@@ -1,8 +1,8 @@
 {
   "title": "Hearts in Atlantis",
   "subtitle": null,
+  "sortTitle": "Hearts in Atlantis",
   "year": "1999",
-  "sort_title": "Hearts in Atlantis",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "hearts-in-atlantis-by-stephen-king",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

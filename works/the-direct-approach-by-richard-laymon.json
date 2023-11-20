@@ -1,8 +1,8 @@
 {
   "title": "The Direct Approach",
   "subtitle": null,
+  "sortTitle": "Direct Approach",
   "year": "1977",
-  "sort_title": "Direct Approach",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-direct-approach-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

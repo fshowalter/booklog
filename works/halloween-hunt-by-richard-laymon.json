@@ -1,8 +1,8 @@
 {
   "title": "Halloween Hunt",
   "subtitle": null,
+  "sortTitle": "Halloween Hunt",
   "year": "1987",
-  "sort_title": "Halloween Hunt",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "halloween-hunt-by-richard-laymon",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

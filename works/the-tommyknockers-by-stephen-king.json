@@ -1,8 +1,8 @@
 {
   "title": "The Tommyknockers",
   "subtitle": null,
+  "sortTitle": "Tommyknockers",
   "year": "1987",
-  "sort_title": "Tommyknockers",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-tommyknockers-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

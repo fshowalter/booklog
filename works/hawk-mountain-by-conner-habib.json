@@ -1,8 +1,8 @@
 {
   "title": "Hawk Mountain",
   "subtitle": null,
+  "sortTitle": "Hawk Mountain",
   "year": "2022",
-  "sort_title": "Hawk Mountain",
   "authors": [
     {
       "slug": "conner-habib",
@@ -11,5 +11,5 @@
   ],
   "slug": "hawk-mountain-by-conner-habib",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

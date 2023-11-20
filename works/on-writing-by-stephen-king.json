@@ -1,8 +1,8 @@
 {
   "title": "On Writing",
   "subtitle": "A Memoir of the Craft",
+  "sortTitle": "On Writing",
   "year": "2000",
-  "sort_title": "On Writing",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "on-writing-by-stephen-king",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "Madman Stan",
   "subtitle": null,
+  "sortTitle": "Madman Stan",
   "year": "1989",
-  "sort_title": "Madman Stan",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "madman-stan-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

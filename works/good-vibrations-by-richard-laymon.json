@@ -1,8 +1,8 @@
 {
   "title": "Good Vibrations",
   "subtitle": null,
+  "sortTitle": "Good Vibrations",
   "year": "1996",
-  "sort_title": "Good Vibrations",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "good-vibrations-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

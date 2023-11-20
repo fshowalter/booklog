@@ -1,8 +1,8 @@
 {
   "title": "Mandala",
   "subtitle": null,
+  "sortTitle": "Mandala",
   "year": "2017",
-  "sort_title": "Mandala",
   "authors": [
     {
       "slug": "philip-fracassi",
@@ -11,5 +11,5 @@
   ],
   "slug": "mandala-by-philip-fracassi",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

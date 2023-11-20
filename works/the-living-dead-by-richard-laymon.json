@@ -1,8 +1,8 @@
 {
   "title": "The Living Dead",
   "subtitle": null,
+  "sortTitle": "Living Dead",
   "year": "2006",
-  "sort_title": "Living Dead",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-living-dead-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

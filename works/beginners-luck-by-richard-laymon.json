@@ -1,8 +1,8 @@
 {
   "title": "Beginner's Luck",
   "subtitle": null,
+  "sortTitle": "Beginner's Luck",
   "year": "1986",
-  "sort_title": "Beginner's Luck",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "beginners-luck-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

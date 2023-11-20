@@ -1,8 +1,8 @@
 {
   "title": "I'm Not a Criminal",
   "subtitle": null,
+  "sortTitle": "I'm Not a Criminal",
   "year": "1993",
-  "sort_title": "I'm Not a Criminal",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "im-not-a-criminal-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "'Salem's Lot",
   "subtitle": null,
+  "sortTitle": "'Salem's Lot",
   "year": "1975",
-  "sort_title": "'Salem's Lot",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "salems-lot-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

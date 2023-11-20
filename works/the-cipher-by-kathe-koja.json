@@ -1,8 +1,8 @@
 {
   "title": "The Cipher",
   "subtitle": null,
+  "sortTitle": "Cipher",
   "year": "1991",
-  "sort_title": "Cipher",
   "authors": [
     {
       "slug": "kathe-koja",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-cipher-by-kathe-koja",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

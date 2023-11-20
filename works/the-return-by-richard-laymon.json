@@ -1,8 +1,8 @@
 {
   "title": "The Return",
   "subtitle": null,
+  "sortTitle": "Return",
   "year": "1986",
-  "sort_title": "Return",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-return-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

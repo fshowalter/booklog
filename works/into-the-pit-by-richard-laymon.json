@@ -1,8 +1,8 @@
 {
   "title": "Into the Pit",
   "subtitle": null,
+  "sortTitle": "Into the Pit",
   "year": "2000",
-  "sort_title": "Into the Pit",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "into-the-pit-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

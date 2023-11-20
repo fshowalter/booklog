@@ -1,8 +1,8 @@
 {
   "title": "Lullaby",
   "subtitle": null,
+  "sortTitle": "Lullaby",
   "year": "2002",
-  "sort_title": "Lullaby",
   "authors": [
     {
       "slug": "chuck-palahniuk",
@@ -11,5 +11,5 @@
   ],
   "slug": "lullaby-by-chuck-palahniuk",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

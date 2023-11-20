@@ -1,8 +1,8 @@
 {
   "title": "The Maiden",
   "subtitle": null,
+  "sortTitle": "Maiden",
   "year": "1995",
-  "sort_title": "Maiden",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-maiden-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

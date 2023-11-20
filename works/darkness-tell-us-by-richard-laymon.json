@@ -1,8 +1,8 @@
 {
   "title": "Darkness, Tell Us",
   "subtitle": null,
+  "sortTitle": "Darkness, Tell Us",
   "year": "1991",
-  "sort_title": "Darkness, Tell Us",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "darkness-tell-us-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

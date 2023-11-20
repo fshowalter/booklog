@@ -1,8 +1,8 @@
 {
   "title": "Barney's Bigfoot Museum",
   "subtitle": null,
+  "sortTitle": "Barney's Bigfoot Museum",
   "year": "1981",
-  "sort_title": "Barney's Bigfoot Museum",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "barneys-bigfoot-museum-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

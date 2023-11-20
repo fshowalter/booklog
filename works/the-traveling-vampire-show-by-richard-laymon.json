@@ -1,8 +1,8 @@
 {
   "title": "The Traveling Vampire Show",
   "subtitle": null,
+  "sortTitle": "Traveling Vampire Show",
   "year": "2000",
-  "sort_title": "Traveling Vampire Show",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-traveling-vampire-show-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

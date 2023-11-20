@@ -1,8 +1,8 @@
 {
   "title": "The Grab",
   "subtitle": null,
+  "sortTitle": "Grab",
   "year": "1982",
-  "sort_title": "Grab",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-grab-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

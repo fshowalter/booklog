@@ -1,8 +1,8 @@
 {
   "title": "The Cabin in the Woods",
   "subtitle": null,
+  "sortTitle": "Cabin in the Woods",
   "year": "2002",
-  "sort_title": "Cabin in the Woods",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-cabin-in-the-woods-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

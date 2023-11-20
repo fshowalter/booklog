@@ -1,8 +1,8 @@
 {
   "title": "A Stranger's Arms",
   "subtitle": null,
+  "sortTitle": "Stranger's Arms",
   "year": "1984",
-  "sort_title": "Stranger's Arms",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "a-strangers-arms-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

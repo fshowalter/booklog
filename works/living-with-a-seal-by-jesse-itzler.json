@@ -1,8 +1,8 @@
 {
   "title": "Living with a SEAL",
   "subtitle": "31 Days Training with the Toughest Man on the Planet",
+  "sortTitle": "Living with a SEAL: 31 Days Training with the Toughest Man on the Planet",
   "year": "2015",
-  "sort_title": "Living with a SEAL: 31 Days Training with the Toughest Man on the Planet",
   "authors": [
     {
       "slug": "jesse-itzler",
@@ -11,5 +11,5 @@
   ],
   "slug": "living-with-a-seal-by-jesse-itzler",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

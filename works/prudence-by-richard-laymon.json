@@ -1,8 +1,8 @@
 {
   "title": "Prudence",
   "subtitle": null,
+  "sortTitle": "Prudence",
   "year": "2000",
-  "sort_title": "Prudence",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "prudence-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

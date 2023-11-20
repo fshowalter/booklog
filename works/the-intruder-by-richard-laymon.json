@@ -1,8 +1,8 @@
 {
   "title": "The Intruder",
   "subtitle": null,
+  "sortTitle": "Intruder",
   "year": "1984",
-  "sort_title": "Intruder",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-intruder-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

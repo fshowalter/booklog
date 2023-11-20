@@ -1,8 +1,8 @@
 {
   "title": "Churchill",
   "subtitle": "Walking with Destiny",
+  "sortTitle": "Churchill: Walking with Destiny",
   "year": "2018",
-  "sort_title": "Churchill: Walking with Destiny",
   "authors": [
     {
       "slug": "andrew-roberts",
@@ -11,5 +11,5 @@
   ],
   "slug": "churchill-by-andrew-roberts",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "The Talisman",
   "subtitle": null,
+  "sortTitle": "Talisman",
   "year": "1984",
-  "sort_title": "Talisman",
   "authors": [
     {
       "slug": "stephen-king",
@@ -15,5 +15,5 @@
   ],
   "slug": "the-talisman-by-stephen-king-peter-straub",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

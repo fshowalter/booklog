@@ -1,8 +1,8 @@
 {
   "title": "Hammerhead",
   "subtitle": null,
+  "sortTitle": "Hammerhead",
   "year": "2001",
-  "sort_title": "Hammerhead",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "hammerhead-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

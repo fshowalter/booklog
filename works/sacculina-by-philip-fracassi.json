@@ -1,8 +1,8 @@
 {
   "title": "Sacculina",
   "subtitle": null,
+  "sortTitle": "Sacculina",
   "year": "2017",
-  "sort_title": "Sacculina",
   "authors": [
     {
       "slug": "philip-fracassi",
@@ -11,5 +11,5 @@
   ],
   "slug": "sacculina-by-philip-fracassi",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

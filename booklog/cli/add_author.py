@@ -5,8 +5,8 @@ from typing import Optional, Tuple
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
-from booklog import api as booklog_api
 from booklog.cli import ask
+from booklog.data import api as data_api
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
@@ -17,7 +17,7 @@ def prompt() -> None:
     if not name:
         return
 
-    booklog_api.create_author(name)
+    data_api.create_author(name)
 
 
 def ask_for_name() -> Optional[str]:

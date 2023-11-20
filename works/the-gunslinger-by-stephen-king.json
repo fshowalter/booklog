@@ -1,8 +1,8 @@
 {
   "title": "The Gunslinger",
   "subtitle": null,
+  "sortTitle": "Gunslinger",
   "year": "1982",
-  "sort_title": "Gunslinger",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-gunslinger-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "Roadside Pickup",
   "subtitle": null,
+  "sortTitle": "Roadside Pickup",
   "year": "1974",
-  "sort_title": "Roadside Pickup",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "roadside-pickup-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

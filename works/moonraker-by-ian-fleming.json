@@ -1,8 +1,8 @@
 {
   "title": "Moonraker",
   "subtitle": null,
+  "sortTitle": "Moonraker",
   "year": "1955",
-  "sort_title": "Moonraker",
   "authors": [
     {
       "slug": "ian-fleming",
@@ -11,5 +11,5 @@
   ],
   "slug": "moonraker-by-ian-fleming",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

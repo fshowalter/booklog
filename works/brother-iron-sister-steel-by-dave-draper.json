@@ -1,14 +1,15 @@
 {
   "title": "Brother Iron, Sister Steel",
   "subtitle": null,
+  "sortTitle": "Brother Iron, Sister Steel",
   "year": "2001",
-  "sort_title": "Brother Iron, Sister Steel",
-  "kind": "Nonfiction",
   "authors": [
     {
       "slug": "dave-draper",
       "notes": null
     }
   ],
-  "slug": "brother-iron-sister-steel-by-dave-draper"
+  "slug": "brother-iron-sister-steel-by-dave-draper",
+  "kind": "Nonfiction",
+  "includedWorks": []
 }

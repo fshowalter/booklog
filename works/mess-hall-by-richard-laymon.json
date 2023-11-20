@@ -1,8 +1,8 @@
 {
   "title": "Mess Hall",
   "subtitle": null,
+  "sortTitle": "Mess Hall",
   "year": "1989",
-  "sort_title": "Mess Hall",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "mess-hall-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

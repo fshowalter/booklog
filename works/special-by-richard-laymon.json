@@ -1,8 +1,8 @@
 {
   "title": "Special",
   "subtitle": null,
+  "sortTitle": "Special",
   "year": "1991",
-  "sort_title": "Special",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "special-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

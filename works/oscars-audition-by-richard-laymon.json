@@ -1,8 +1,8 @@
 {
   "title": "Oscar's Audition",
   "subtitle": null,
+  "sortTitle": "Oscar's Audition",
   "year": "1975",
-  "sort_title": "Oscar's Audition",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "oscars-audition-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

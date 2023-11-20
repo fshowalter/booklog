@@ -1,8 +1,8 @@
 {
   "title": "No Sanctuary",
   "subtitle": null,
+  "sortTitle": "No Sanctuary",
   "year": "2001",
-  "sort_title": "No Sanctuary",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "no-sanctuary-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

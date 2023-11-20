@@ -1,8 +1,8 @@
 {
   "title": "Apt Pupil",
   "subtitle": null,
+  "sortTitle": "Apt Pupil",
   "year": "1982",
-  "sort_title": "Apt Pupil",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "apt-pupil-by-stephen-king",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

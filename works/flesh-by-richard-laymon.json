@@ -1,8 +1,8 @@
 {
   "title": "Flesh",
   "subtitle": null,
+  "sortTitle": "Flesh",
   "year": "1987",
-  "sort_title": "Flesh",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "flesh-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

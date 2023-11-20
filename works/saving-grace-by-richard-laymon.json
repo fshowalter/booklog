@@ -1,8 +1,8 @@
 {
   "title": "Saving Grace",
   "subtitle": null,
+  "sortTitle": "Saving Grace",
   "year": "1991",
-  "sort_title": "Saving Grace",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "saving-grace-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

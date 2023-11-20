@@ -1,8 +1,8 @@
 {
   "title": "The Big Sleep",
   "subtitle": null,
+  "sortTitle": "Big Sleep",
   "year": "1939",
-  "sort_title": "Big Sleep",
   "authors": [
     {
       "slug": "raymond-chandler",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-big-sleep-by-raymond-chandler",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

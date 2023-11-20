@@ -1,8 +1,8 @@
 {
   "title": "The Breathing Method",
   "subtitle": null,
+  "sortTitle": "Breathing Method",
   "year": "1982",
-  "sort_title": "Breathing Method",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-breathing-method-by-stephen-king",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,20 +1,20 @@
-from booklog import api as booklog_api
-from booklog.cli import add_review, manage_data, radio_list
-from booklog.utils.logging import logger
+from booklog.cli import add_author, add_reading, add_work, radio_list
+from booklog.data import api as data_api
+from booklog.logger import logger
 
 
 @logger.catch
 def prompt() -> None:
     options = [
-        (manage_data.prompt, "<cyan>Manage Data</cyan>"),
-        (add_review.prompt, "<cyan>Add Review</cyan>"),
+        (add_author.prompt, "<cyan>Add Author</cyan>"),
+        (add_work.prompt, "<cyan>Add Work</cyan>"),
+        (add_reading.prompt, "<cyan>Add Reading</cyan>"),
         (export, "<cyan>Export Data</cyan>"),
         (None, "Exit"),
     ]
 
     option_function = radio_list.prompt(
-        title="Booklog options:",
-        options=options,
+        title="Booklog options:", options=options, rprompt="ESC to exit"
     )
     if option_function:
         option_function()
@@ -22,4 +22,4 @@ def prompt() -> None:
 
 
 def export() -> None:
-    booklog_api.export_data()
+    data_api.export_data()

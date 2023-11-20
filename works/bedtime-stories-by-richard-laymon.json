@@ -1,8 +1,8 @@
 {
   "title": "Bedtime Stories",
   "subtitle": null,
+  "sortTitle": "Bedtime Stories",
   "year": "2004",
-  "sort_title": "Bedtime Stories",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "bedtime-stories-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

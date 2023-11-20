@@ -1,8 +1,8 @@
 {
   "title": "The Wilds",
   "subtitle": null,
+  "sortTitle": "Wilds",
   "year": "1998",
-  "sort_title": "Wilds",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-wilds-by-richard-laymon",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

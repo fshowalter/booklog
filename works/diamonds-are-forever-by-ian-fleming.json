@@ -1,8 +1,8 @@
 {
   "title": "Diamonds are Forever",
   "subtitle": null,
+  "sortTitle": "Diamonds are Forever",
   "year": "1956",
-  "sort_title": "Diamonds are Forever",
   "authors": [
     {
       "slug": "ian-fleming",
@@ -11,5 +11,5 @@
   ],
   "slug": "diamonds-are-forever-by-ian-fleming",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

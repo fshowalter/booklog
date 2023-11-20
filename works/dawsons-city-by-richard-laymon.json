@@ -1,8 +1,8 @@
 {
   "title": "Dawson's City",
   "subtitle": null,
+  "sortTitle": "Dawson's City",
   "year": "1984",
-  "sort_title": "Dawson's City",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "dawsons-city-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

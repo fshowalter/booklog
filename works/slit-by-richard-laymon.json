@@ -1,8 +1,8 @@
 {
   "title": "Slit",
   "subtitle": null,
+  "sortTitle": "Slit",
   "year": "1993",
-  "sort_title": "Slit",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "slit-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

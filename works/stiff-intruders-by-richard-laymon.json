@@ -1,8 +1,8 @@
 {
   "title": "Stiff Intruders",
   "subtitle": null,
+  "sortTitle": "Stiff Intruders",
   "year": "1980",
-  "sort_title": "Stiff Intruders",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "stiff-intruders-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

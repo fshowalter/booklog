@@ -1,8 +1,8 @@
 {
   "title": "The Mist",
   "subtitle": null,
+  "sortTitle": "Mist",
   "year": "1980",
-  "sort_title": "Mist",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-mist-by-stephen-king",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

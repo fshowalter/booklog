@@ -1,8 +1,8 @@
 {
   "title": "Triage",
   "subtitle": null,
+  "sortTitle": "Triage",
   "year": "2001",
-  "sort_title": "Triage",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "triage-by-richard-laymon",
   "kind": "Novella",
-  "included_works": []
+  "includedWorks": []
 }

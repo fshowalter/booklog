@@ -1,8 +1,8 @@
 {
   "title": "Dinker's Pond",
   "subtitle": null,
+  "sortTitle": "Dinker's Pond",
   "year": "1989",
-  "sort_title": "Dinker's Pond",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "dinkers-pond-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "Blood Games",
   "subtitle": null,
+  "sortTitle": "Blood Games",
   "year": "1992",
-  "sort_title": "Blood Games",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "blood-games-by-richard-laymon",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

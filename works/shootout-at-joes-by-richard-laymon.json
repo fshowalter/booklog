@@ -1,8 +1,8 @@
 {
   "title": "Shootout at Joe's",
   "subtitle": null,
+  "sortTitle": "Shootout at Joe's",
   "year": "1984",
-  "sort_title": "Shootout at Joe's",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "shootout-at-joes-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

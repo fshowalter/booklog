@@ -1,8 +1,8 @@
 {
   "title": "Christine",
   "subtitle": null,
+  "sortTitle": "Christine",
   "year": "1983",
-  "sort_title": "Christine",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "christine-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

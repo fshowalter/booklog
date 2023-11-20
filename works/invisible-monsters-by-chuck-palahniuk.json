@@ -1,8 +1,8 @@
 {
   "title": "Invisible Monsters",
   "subtitle": null,
+  "sortTitle": "Invisible Monsters",
   "year": "1999",
-  "sort_title": "Invisible Monsters",
   "authors": [
     {
       "slug": "chuck-palahniuk",
@@ -11,5 +11,5 @@
   ],
   "slug": "invisible-monsters-by-chuck-palahniuk",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

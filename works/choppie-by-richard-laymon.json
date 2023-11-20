@@ -1,8 +1,8 @@
 {
   "title": "Choppie",
   "subtitle": null,
+  "sortTitle": "Choppie",
   "year": "1999",
-  "sort_title": "Choppie",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "choppie-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

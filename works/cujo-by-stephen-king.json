@@ -1,8 +1,8 @@
 {
   "title": "Cujo",
   "subtitle": null,
+  "sortTitle": "Cujo",
   "year": "1981",
-  "sort_title": "Cujo",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "cujo-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

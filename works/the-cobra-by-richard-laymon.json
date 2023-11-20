@@ -1,8 +1,8 @@
 {
   "title": "The Cobra",
   "subtitle": null,
+  "sortTitle": "Cobra",
   "year": "1985",
-  "sort_title": "Cobra",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-cobra-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

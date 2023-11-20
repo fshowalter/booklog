@@ -1,8 +1,8 @@
 {
   "title": "The Champion",
   "subtitle": null,
+  "sortTitle": "Champion",
   "year": "1978",
-  "sort_title": "Champion",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-champion-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

@@ -1,8 +1,8 @@
 {
   "title": "Cycle of the Werewolf",
   "subtitle": null,
+  "sortTitle": "Cycle of the Werewolf",
   "year": "1985",
-  "sort_title": "Cycle of the Werewolf",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "cycle-of-the-werewolf-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

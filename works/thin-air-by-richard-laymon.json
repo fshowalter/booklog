@@ -1,8 +1,8 @@
 {
   "title": "Thin Air",
   "subtitle": null,
+  "sortTitle": "Thin Air",
   "year": "1986",
-  "sort_title": "Thin Air",
   "authors": [
     {
       "slug": "richard-laymon",
@@ -11,5 +11,5 @@
   ],
   "slug": "thin-air-by-richard-laymon",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

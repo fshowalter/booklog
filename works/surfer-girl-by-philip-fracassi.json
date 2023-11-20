@@ -1,8 +1,8 @@
 {
   "title": "Surfer Girl",
   "subtitle": null,
+  "sortTitle": "Surfer Girl",
   "year": "2017",
-  "sort_title": "Surfer Girl",
   "authors": [
     {
       "slug": "philip-fracassi",
@@ -11,5 +11,5 @@
   ],
   "slug": "surfer-girl-by-philip-fracassi",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }

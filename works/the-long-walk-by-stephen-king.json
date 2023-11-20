@@ -1,8 +1,8 @@
 {
   "title": "The Long Walk",
   "subtitle": null,
+  "sortTitle": "Long Walk",
   "year": "1978",
-  "sort_title": "Long Walk",
   "authors": [
     {
       "slug": "stephen-king",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-long-walk-by-stephen-king",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

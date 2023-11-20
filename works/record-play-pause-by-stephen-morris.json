@@ -1,8 +1,8 @@
 {
   "title": "Record Play Pause",
   "subtitle": null,
+  "sortTitle": "Record Play Pause",
   "year": "2019",
-  "sort_title": "Record Play Pause",
   "authors": [
     {
       "slug": "stephen-morris",
@@ -11,5 +11,5 @@
   ],
   "slug": "record-play-pause-by-stephen-morris",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

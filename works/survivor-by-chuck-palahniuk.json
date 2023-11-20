@@ -1,8 +1,8 @@
 {
   "title": "Survivor",
   "subtitle": null,
+  "sortTitle": "Survivor",
   "year": "1999",
-  "sort_title": "Survivor",
   "authors": [
     {
       "slug": "chuck-palahniuk",
@@ -11,5 +11,5 @@
   ],
   "slug": "survivor-by-chuck-palahniuk",
   "kind": "Novel",
-  "included_works": []
+  "includedWorks": []
 }

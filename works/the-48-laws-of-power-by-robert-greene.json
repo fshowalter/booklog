@@ -1,8 +1,8 @@
 {
   "title": "The 48 Laws of Power",
   "subtitle": null,
+  "sortTitle": "48 Laws of Power",
   "year": "1998",
-  "sort_title": "48 Laws of Power",
   "authors": [
     {
       "slug": "robert-greene",
@@ -11,5 +11,5 @@
   ],
   "slug": "the-48-laws-of-power-by-robert-greene",
   "kind": "Nonfiction",
-  "included_works": []
+  "includedWorks": []
 }

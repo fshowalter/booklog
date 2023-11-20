@@ -1,8 +1,8 @@
 {
   "title": "Fail-Safe",
   "subtitle": null,
+  "sortTitle": "Fail-Safe",
   "year": "2017",
-  "sort_title": "Fail-Safe",
   "authors": [
     {
       "slug": "philip-fracassi",
@@ -11,5 +11,5 @@
   ],
   "slug": "fail-safe-by-philip-fracassi",
   "kind": "Short Story",
-  "included_works": []
+  "includedWorks": []
 }
