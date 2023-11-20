@@ -126,7 +126,9 @@ class RadioList(Generic[RadioListType]):  # noqa: WPS214
 
 
 def prompt(
-    title: str, options: Sequence[Tuple[RadioListType, AnyFormattedText]]
+    title: str,
+    options: Sequence[Tuple[RadioListType, AnyFormattedText]],
+    rprompt: str = None,
 ) -> RadioListType:
     control = RadioList(options_to_html(options))
 
@@ -146,7 +148,7 @@ def prompt(
                                 right=0,
                                 top=0,
                                 hide_when_covering_content=True,
-                                content=Label("ESC to go back"),
+                                content=Label(rprompt or "ESC to go back"),
                             ),
                         ],
                     )
