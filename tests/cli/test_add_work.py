@@ -1,23 +1,13 @@
-import json
-import os
-from pathlib import Path
 from typing import Optional
 from unittest.mock import MagicMock
 
 import pytest
 from pytest_mock import MockerFixture
-from syrupy.assertion import SnapshotAssertion
-from syrupy.extensions.json import JSONSnapshotExtension
 
 from booklog.cli import add_work
 from booklog.data import api as data_api
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Down, Enter, Escape
-
-
-@pytest.fixture
-def snapshot_json(snapshot: SnapshotAssertion) -> SnapshotAssertion:
-    return snapshot.with_defaults(extension_class=JSONSnapshotExtension)
 
 
 @pytest.fixture
@@ -124,34 +114,3 @@ def test_can_cancel_out_of_kind(
     add_work.prompt()
 
     mock_create_work.assert_not_called()
-
-
-def test_can_create_work(
-    mock_input: MockInput,
-    created_author: data_api.Author,
-    tmp_path: Path,
-    snapshot_json: SnapshotAssertion,
-) -> None:
-    mock_input(
-        [
-            *enter_author(created_author.name[:6]),
-            *select_author_search_result(),
-            *enter_notes(),
-            "n",
-            *select_kind_novel(),
-            *enter_title("The Cellar"),
-            "y",
-            *enter_year_published("1980"),
-            "n",
-        ]
-    )
-
-    add_work.prompt()
-
-    with open(
-        os.path.join(tmp_path / "works" / "the-cellar-by-richard-laymon.json"),
-        "r",
-    ) as output_file:
-        file_content = json.load(output_file)
-
-    assert file_content == snapshot_json

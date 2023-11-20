@@ -1,4 +1,4 @@
-from typing import Generic, List, Sequence, Tuple, TypeVar, cast
+from typing import Generic, Optional, Sequence, Tuple, TypeVar, cast
 
 from prompt_toolkit.application import Application
 from prompt_toolkit.formatted_text import (  # noqa: WPS347
@@ -128,7 +128,7 @@ class RadioList(Generic[RadioListType]):  # noqa: WPS214
 def prompt(
     title: str,
     options: Sequence[Tuple[RadioListType, AnyFormattedText]],
-    rprompt: str = None,
+    rprompt: Optional[str] = None,
 ) -> RadioListType:
     control = RadioList(options_to_html(options))
 
@@ -165,7 +165,7 @@ def prompt(
 def options_to_html(
     options: Sequence[Tuple[RadioListType, AnyFormattedText]],
 ) -> Sequence[Tuple[RadioListType, AnyFormattedText]]:
-    formatted_options: List[Tuple[RadioListType, AnyFormattedText]] = []
+    formatted_options: list[Tuple[RadioListType, AnyFormattedText]] = []
 
     for option in options:
         option_text = HTML(cast(str, option[1]))

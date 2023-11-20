@@ -7,24 +7,31 @@ import pytest
 from syrupy.assertion import SnapshotAssertion
 from syrupy.extensions.json import JSONSnapshotExtension
 
-from booklog.bookdata import api as bookdata_api
-from booklog.exports import api
-from booklog.readings import api as readings_api
-from booklog.reviews import api as reviews_api
+from booklog.data.core import api as core_api
+from booklog.data.exports import api as exports_api
+from booklog.data.readings import api as readings_api
+from booklog.data.reviews import api as reviews_api
 
 
 @pytest.fixture(autouse=True)
 def init_data() -> None:
-    author = bookdata_api.create_author("Stephen King")
-    work = bookdata_api.create_work(
+    author = core_api.create_author("Stephen King")
+    work = core_api.create_work(
         title="On Writing",
         subtitle="A Memoir of the Craft",
         year="2000",
-        authors=[bookdata_api.WorkAuthor(slug=author.slug, notes=None)],
+        work_authors=[
+            core_api.WorkAuthor(
+                slug=author.slug,
+                name=author.name,
+                sort_name=author.sort_name,
+                notes=None,
+            )
+        ],
         kind="Nonfiction",
     )
-    readings_api.create(
-        work_slug=work.slug,
+    readings_api.create_reading(
+        work=work,
         edition="Kindle",
         timeline=[
             readings_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
@@ -32,8 +39,8 @@ def init_data() -> None:
             readings_api.TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
         ],
     )
-    reviews_api.create(
-        work_slug=work.slug,
+    reviews_api.create_or_update(
+        work=work,
         grade="A+",
         date=date(2016, 3, 10),
     )
@@ -44,12 +51,14 @@ def snapshot_json(snapshot: SnapshotAssertion) -> SnapshotAssertion:
     return snapshot.with_defaults(extension_class=JSONSnapshotExtension)
 
 
-def test_exports_reviews(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
-    api.export_data()
+def test_exports_reviewed_works(
+    tmp_path: Path, snapshot_json: SnapshotAssertion
+) -> None:
+    exports_api.export_data()
 
     with open(
         os.path.join(
-            tmp_path / "exports" / "reviews", "on-writing-by-stephen-king.json"
+            tmp_path / "exports" / "reviewed_works", "on-writing-by-stephen-king.json"
         ),
         "r",
     ) as output_file:

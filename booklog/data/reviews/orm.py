@@ -46,22 +46,14 @@ def create_or_update(
     date: datetime.date,
     grade: str = "Abandoned",
 ) -> Review:
-    markdown_review = markdown_reviews.review_for_work_slug(
-        work.slug, all_markdown_reviews=markdown_reviews.deserialize_all()
-    )
-
-    if markdown_review:
-        markdown_review.yaml["date"] = datetime.date.isoformat(date)
-        markdown_review.yaml["grade"] = grade
-        markdown_reviews.serialize(markdown_review)
-    else:
-        markdown_review = markdown_reviews.create(
+    return hydrate_markdown_review(
+        markdown_review=markdown_reviews.create_or_update(
             work_slug=work.slug,
             date=datetime.date.isoformat(date),
             grade=grade,
-        )
-
-    return hydrate_markdown_review(markdown_review=markdown_review, work=work)
+        ),
+        work=work,
+    )
 
 
 def hydrate_markdown_review(

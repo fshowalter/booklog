@@ -35,28 +35,31 @@ class ReviewYaml(TypedDict):
     date: str
 
 
-def review_for_work_slug(
-    work_slug: str, all_markdown_reviews: list[MarkdownReview]
-) -> MarkdownReview:
-    return next(
-        markdown_review
-        for markdown_review in all_markdown_reviews
-        if markdown_review.yaml["work_slug"] == work_slug
-    )
-
-
-def create(
+def create_or_update(
     work_slug: str,
     grade: str,
     date: str,
 ) -> MarkdownReview:
-    markdown_review = MarkdownReview(
-        yaml=ReviewYaml(
-            work_slug=work_slug,
-            grade=grade,
-            date=date,
-        )
+    markdown_review = next(
+        (
+            markdown_review
+            for markdown_review in deserialize_all()
+            if markdown_review.yaml["work_slug"] == work_slug
+        ),
+        None,
     )
+
+    if markdown_review:
+        markdown_review.yaml["date"] = date
+        markdown_review.yaml["grade"] = grade
+    else:
+        markdown_review = MarkdownReview(
+            yaml=ReviewYaml(
+                work_slug=work_slug,
+                grade=grade,
+                date=date,
+            )
+        )
 
     serialize(markdown_review)
 

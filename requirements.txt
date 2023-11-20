@@ -15,4 +15,6 @@ types-python-slugify==8.0.0.3
 types-PyYAML==6.0.12.12
 types-setuptools==68.2.0.1
 types-toml==0.10.8.7
+types_colorama==0.4.15.12
+types_Pygments==2.16.0.1
 wemake-python-styleguide==0.18.0

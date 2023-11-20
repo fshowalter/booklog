@@ -11,20 +11,25 @@ from pytest_mock import MockerFixture
 def mock_exports_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "exports")
     mocker.patch(
-        "booklog.data.exports.export_tools.EXPORT_FOLDER_NAME", tmp_path / "exports"
+        "booklog.data.exports.utils.export_tools.EXPORT_FOLDER_NAME",
+        tmp_path / "exports",
     )
 
 
 @pytest.fixture(autouse=True)
 def mock_readings_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "readings")
-    mocker.patch("booklog.data.readings.serializer.FOLDER_NAME", tmp_path / "readings")
+    mocker.patch(
+        "booklog.data.readings.json_readings.FOLDER_NAME", tmp_path / "readings"
+    )
 
 
 @pytest.fixture(autouse=True)
 def mock_reviews_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "reviews")
-    mocker.patch("booklog.data.reviews.serializer.FOLDER_NAME", tmp_path / "reviews")
+    mocker.patch(
+        "booklog.data.reviews.markdown_reviews.FOLDER_NAME", tmp_path / "reviews"
+    )
 
 
 @pytest.fixture(autouse=True)

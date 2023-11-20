@@ -94,7 +94,7 @@ def is_date(text: str) -> bool:
 
 
 def string_to_date(date_string: str) -> date:
-    return datetime.strptime(date_string, "%Y-%m-%d").date()  # noqa: WPS323
+    return datetime.strptime(date_string, "%Y-%m-%d").date()
 
 
 def ask_for_date(default_date: Optional[date] = None) -> Optional[date]:
@@ -116,12 +116,7 @@ def ask_for_date(default_date: Optional[date] = None) -> Optional[date]:
     if not date_string:
         return None
 
-    given_date = string_to_date(date_string)
-
-    if confirm(given_date.strftime("%A, %B, %-d, %Y?")):  # noqa: WPS323
-        return given_date
-
-    return ask_for_date()
+    return string_to_date(date_string)
 
 
 def is_valid_progress(text: str) -> bool:
@@ -157,7 +152,7 @@ def ask_for_progress() -> Optional[str]:
     return progress
 
 
-def ask_for_timeline(state: State) -> State:
+def ask_for_timeline(state: State) -> State:  # noqa: WPS231
     state.timeline = []
     timeline_date = None
 
@@ -195,7 +190,7 @@ def ask_for_edition(state: State) -> State:
             options=options,
         )
 
-        selected_edition = selected_edition or new_edition()
+        selected_edition = selected_edition or ask.prompt("Edition: ")
 
         if selected_edition is None:
             break
@@ -222,10 +217,6 @@ def build_edition_options() -> List[Option]:
     options.append((None, "New edition"))
 
     return options
-
-
-def new_edition() -> Optional[str]:
-    return ask.prompt("Edition: ")
 
 
 def is_grade(text: str) -> bool:

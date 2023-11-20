@@ -113,15 +113,12 @@ def test_calls_add_reading(
             "y",
             *clear_default_date(),
             *enter_date("2016-03-10"),
-            "y",
             *enter_progress("15"),
             *clear_default_date(),
             *enter_date("2016-03-11"),
-            "y",
             *enter_progress("50"),
             *clear_default_date(),
             *enter_date("2016-03-12"),
-            "y",
             *enter_progress("F"),
             *select_edition_kindle(),
             "y",
@@ -134,7 +131,7 @@ def test_calls_add_reading(
     add_reading.prompt()
 
     mock_create_reading.assert_called_once_with(
-        work_slug=created_work.slug,
+        work=created_work,
         edition="Kindle",
         timeline=[
             TimelineEntry(date=date(2016, 3, 10), progress="15%"),
