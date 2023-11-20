@@ -1,10 +1,14 @@
-from typing import TypedDict
+from typing import Optional, TypedDict
 
-from booklog.bookdata.api import Author, Work
-from booklog.exports.json_work_author import JsonWorkAuthor, build_json_work_authors
-from booklog.reviews.review import Review
-from booklog.utils import export_tools
-from booklog.utils.logging import logger
+from booklog.data.core.api import Work
+from booklog.data.exports.utils import export_tools
+from booklog.data.reviews.api import Review
+from booklog.logger import logger
+
+JsonWorkAuthor = TypedDict(
+    "JsonWorkAuthor",
+    {"name": str, "sortName": str, "slug": str, "notes": Optional[str]},
+)
 
 JsonUnreviewedWork = TypedDict(
     "JsonUnreviewedWork",
@@ -21,13 +25,12 @@ JsonUnreviewedWork = TypedDict(
 
 
 def export(
-    authors: list[Author],
     works: list[Work],
     reviews: list[Review],
 ) -> None:
     logger.log("==== Begin exporting {}...", "unreviewed works")
 
-    reviewed_work_slugs = {review.work_slug for review in reviews}
+    reviewed_work_slugs = {review.work.slug for review in reviews}
 
     json_unreviewed_works = [
         JsonUnreviewedWork(
@@ -36,12 +39,16 @@ def export(
             sortTitle=work.sort_title,
             yearPublished=work.year,
             kind=work.kind,
-            authors=build_json_work_authors(work_authors=work.authors, authors=authors),
-            includedInSlugs=[
-                other_work.slug
-                for other_work in works
-                if work.slug in other_work.included_works
+            authors=[
+                JsonWorkAuthor(
+                    name=work_author.name,
+                    sortName=work_author.sort_name,
+                    slug=work_author.slug,
+                    notes=work_author.notes,
+                )
+                for work_author in work.authors
             ],
+            includedInSlugs=work.included_in_work_slugs,
         )
         for work in works
         if work.slug not in reviewed_work_slugs

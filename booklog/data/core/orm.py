@@ -45,7 +45,7 @@ def create_work(  # noqa: WPS211
     included_work_slugs: Optional[list[str]] = None,
 ) -> Work:
     return hydrate_json_work(
-        json_works.create(
+        json_work=json_works.create(
             title=title,
             subtitle=subtitle,
             year=year,
@@ -57,7 +57,9 @@ def create_work(  # noqa: WPS211
             ],
             kind=kind,
             included_work_slugs=included_work_slugs,
-        )
+        ),
+        all_json_works=json_works.deserialize_all(),
+        all_json_authors=json_authors.deserialize_all(),
     )
 
 
@@ -69,7 +71,7 @@ def create_author(
 
 def hydrate_json_work_authors(
     json_work_authors: list[json_works.JsonWorkAuthor],
-    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
+    all_json_authors: list[json_authors.JsonAuthor],
 ) -> list[WorkAuthor]:
     work_authors = []
 
@@ -91,8 +93,8 @@ def hydrate_json_work_authors(
 
 def hydrate_json_work(
     json_work: json_works.JsonWork,
-    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
-    all_json_works: Optional[list[json_works.JsonWork]] = None,
+    all_json_authors: list[json_authors.JsonAuthor],
+    all_json_works: list[json_works.JsonWork],
 ) -> Work:
     return Work(
         title=json_work["title"],
@@ -124,8 +126,8 @@ def hydrate_json_author(json_author: json_authors.JsonAuthor) -> Author:
 
 def hydrate_json_author_with_works(
     json_author: json_authors.JsonAuthor,
-    all_json_authors: Optional[list[json_authors.JsonAuthor]] = None,
-    all_json_works: Optional[list[json_works.JsonWork]] = None,
+    all_json_authors: list[json_authors.JsonAuthor],
+    all_json_works: list[json_works.JsonWork],
 ) -> AuthorWithWorks:
     return AuthorWithWorks(
         name=json_author["name"],

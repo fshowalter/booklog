@@ -58,7 +58,7 @@ def persist_reading(state: State) -> State:
     assert state.grade
 
     data_api.create_reading(
-        work_slug=state.work.slug,
+        work=state.work,
         edition=state.edition,
         timeline=state.timeline,
         grade=state.grade,
@@ -205,6 +205,7 @@ def ask_for_edition(state: State) -> State:
         return state
 
     if confirm("{0}?".format(selected_edition)):
+        state.edition = selected_edition
         state.stage = "ask_for_grade"
 
     return state
@@ -252,5 +253,6 @@ def ask_for_grade(state: State) -> State:
 
     if confirm(review_grade):  # noqa: WPS323
         state.grade = review_grade
+        state.stage = "persist_reading"
 
     return state

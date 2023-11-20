@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import os
 from glob import glob
-from typing import Any, Optional, TypedDict
+from typing import Any, TypedDict
 
 from slugify import slugify
 
@@ -31,11 +31,7 @@ def generate_sort_name(name: str) -> str:
     return "{0}, {1}".format(last_name, " ".join(other_names))
 
 
-def author_for_slug(
-    slug: str, all_json_authors: Optional[list[JsonAuthor]] = None
-) -> JsonAuthor:
-    all_json_authors = all_json_authors or deserialize_all()
-
+def author_for_slug(slug: str, all_json_authors: list[JsonAuthor]) -> JsonAuthor:
     return next(author for author in all_json_authors if author["slug"] == slug)
 
 

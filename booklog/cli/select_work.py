@@ -14,42 +14,36 @@ WorkOption = Tuple[Optional[data_api.Work], AnyFormattedText]
 
 
 def prompt() -> Optional[data_api.Work]:
-    title = None
-
-    while title is None:
+    while True:
         title = ask.prompt("Title: ")
 
-    works = data_api.search_works(title)
+        if title is None:
+            return None
 
-    options: list[WorkOption] = build_work_options(works)
+        works = data_api.search_works(title)
 
-    selected_work = None
+        options = build_work_options(works)
 
-    while selected_work is None:
         selected_work = radio_list.prompt(
             title="Select work:",
             options=options,
         )
 
         if selected_work is None:
-            break
+            continue
 
-    if not selected_work:
-        return None
-
-    if confirm("{0}?".format(selected_work.title)):
-        return selected_work
-
-    return prompt()
+        if confirm("{0}?".format(selected_work.title)):
+            return selected_work
 
 
 def build_work_options(
     works: list[data_api.Work],
 ) -> List[WorkOption]:
-    options: list[WorkOption] = []
+    if not works:
+        return [(None, "Search Again")]
 
-    for work in works:
-        option = (
+    return [
+        (
             work,
             "<cyan>{0}</cyan> by {1}".format(
                 html.escape(work.title),
@@ -58,9 +52,5 @@ def build_work_options(
                 ),
             ),
         )
-
-        options.append(option)
-
-    options.append((None, "Search again"))
-
-    return options
+        for work in works
+    ]

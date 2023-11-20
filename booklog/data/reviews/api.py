@@ -1,25 +1,9 @@
 from __future__ import annotations
 
-import datetime
+from booklog.data.reviews import orm, queries
 
-from booklog.data.reviews import review, serializer
+Review = orm.Review
 
-Review = review.Review
+all_reviews = queries.all_reviews
 
-all_reviews = serializer.deserialize_all
-
-
-def create_or_update(
-    work_slug: str,
-    date: datetime.date,
-    grade: str = "Abandoned",
-) -> Review:
-    new_review = review.Review(
-        work_slug=work_slug,
-        date=date,
-        grade=grade,
-    )
-
-    serializer.serialize(new_review)
-
-    return new_review
+create_or_update = orm.create_or_update

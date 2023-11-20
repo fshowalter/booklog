@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from booklog.reviews.review import Review
+from booklog.data.reviews.api import Review
 
 
 @pytest.mark.parametrize(

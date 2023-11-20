@@ -1,11 +1,10 @@
 import datetime
 from typing import TypedDict
 
-from booklog.bookdata.api import Author, Work, WorkAuthor
-from booklog.readings.reading import Reading, TimelineEntry
-from booklog.reviews.review import Review
-from booklog.utils import export_tools, list_tools
-from booklog.utils.logging import logger
+from booklog.data.exports.utils import export_tools
+from booklog.data.readings.api import Reading, TimelineEntry
+from booklog.data.reviews.api import Review
+from booklog.logger import logger
 
 JsonReadingProgressAuthor = TypedDict(
     "JsonReadingProgressAuthor",
@@ -34,70 +33,43 @@ JsonReadingProgress = TypedDict(
 )
 
 
-def build_json_reading_progress_authors(
-    work_authors: list[WorkAuthor], authors: list[Author]
-) -> list[JsonReadingProgressAuthor]:
-    json_reading_progress_authors = []
-
-    for work_author in work_authors:
-        author = next(author for author in authors if author.slug in work_author.slug)
-
-        json_reading_progress_authors.append(
-            JsonReadingProgressAuthor(
-                name=author.name,
-            )
-        )
-
-    return json_reading_progress_authors
-
-
 def build_json_reading_progress(
     reading: Reading,
     timeline_entry: TimelineEntry,
-    authors: list[Author],
-    work: Work,
     reviewed: bool,
-    included_in_work_slugs: list[str],
 ) -> JsonReadingProgress:
     return JsonReadingProgress(
         sequence="{0}-{1}".format(timeline_entry.date, reading.sequence),
-        slug=reading.work_slug,
+        slug=reading.work.slug,
         edition=reading.edition,
-        kind=work.kind,
+        kind=reading.work.kind,
         date=timeline_entry.date,
         progress=timeline_entry.progress,
         reviewed=reviewed,
-        yearPublished=work.year,
-        title=work.title,
+        yearPublished=reading.work.year,
+        title=reading.work.title,
         readingYear=timeline_entry.date.year,
-        authors=build_json_reading_progress_authors(
-            work_authors=work.authors, authors=authors
-        ),
-        includedInSlugs=included_in_work_slugs,
+        authors=[
+            JsonReadingProgressAuthor(name=work_author.name)
+            for work_author in reading.work.authors
+        ],
+        includedInSlugs=reading.work.included_in_work_slugs,
     )
 
 
 def export(
     readings: list[Reading],
-    authors: list[Author],
-    works: list[Work],
     reviews: list[Review],
 ) -> None:
     logger.log("==== Begin exporting {}...", "reading_progress")
 
-    works_by_slug = list_tools.list_to_dict_by_key(works, lambda work: work.slug)
-    reviewed_work_slugs = {review.work_slug for review in reviews}
+    reviewed_work_slugs = {review.work.slug for review in reviews}
 
     json_progress = [
         build_json_reading_progress(
             reading=reading,
             timeline_entry=timeline_entry,
-            authors=authors,
-            work=works_by_slug[reading.work_slug],
-            reviewed=reading.work_slug in reviewed_work_slugs,
-            included_in_work_slugs=[
-                work.slug for work in works if reading.work_slug in work.included_works
-            ],
+            reviewed=reading.work.slug in reviewed_work_slugs,
         )
         for reading in readings
         for timeline_entry in reading.timeline

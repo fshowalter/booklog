@@ -1,8 +1,8 @@
 from typing import Optional, TypedDict
 
 from booklog.data.core.api import AuthorWithWorks, Work
-from booklog.data.exports import export_tools, list_tools
-from booklog.data.reviews.review import Review
+from booklog.data.exports.utils import export_tools, list_tools
+from booklog.data.reviews.orm import Review
 from booklog.logger import logger
 
 JsonWorkAuthor = TypedDict(
@@ -97,17 +97,16 @@ def export(
     logger.log("==== Begin exporting {}...", "authors")
 
     reviews_by_slug = list_tools.list_to_dict_by_key(
-        reviews, lambda review: review.work_slug
+        reviews, lambda review: review.work.slug
     )
 
-    for author in authors:
-        json_authors = [
-            build_json_author(
-                author=author,
-                reviews_by_slug=reviews_by_slug,
-            )
-            for author in authors
-        ]
+    json_authors = [
+        build_json_author(
+            author=author,
+            reviews_by_slug=reviews_by_slug,
+        )
+        for author in authors
+    ]
 
     export_tools.serialize_dicts_to_folder(
         json_authors,
