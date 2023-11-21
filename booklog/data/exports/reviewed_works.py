@@ -6,12 +6,30 @@ from booklog.data.readings.api import Reading
 from booklog.data.reviews.api import Review
 from booklog.logger import logger
 
-JsonTimelineEntry = TypedDict("JsonTimelineEntry", {})
-
 JsonWorkAuthor = TypedDict(
     "JsonWorkAuthor",
     {"name": str, "sortName": str, "slug": str, "notes": Optional[str]},
 )
+
+JsonTimelineEntry = TypedDict(
+    "JsonTimelineEntry",
+    {"date": datetime.date, "progress": str},
+)
+
+JsonReading = TypedDict(
+    "JsonReading",
+    {
+        "date": datetime.date,
+        "edition": str,
+        "editionNotes": Optional[str],
+        "isAudioBook": bool,
+        "readingTime": int,
+        "abandoned": bool,
+        "sequence": int,
+        "timeline": list[JsonTimelineEntry],
+    },
+)
+
 
 JsonReviewedWork = TypedDict(
     "JsonReviewedWork",
@@ -28,8 +46,35 @@ JsonReviewedWork = TypedDict(
         "kind": str,
         "date": datetime.date,
         "yearReviewed": int,
+        "readings": list[JsonReading],
     },
 )
+
+
+def build_json_reading(reading: Reading) -> JsonReading:
+    first_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date)[0]
+
+    last_timeline_entry = sorted(
+        reading.timeline, key=lambda entry: entry.date, reverse=True
+    )[0]
+
+    reading_time = (last_timeline_entry.date - first_timeline_entry.date).days + 1
+
+    return JsonReading(
+        sequence=reading.sequence,
+        date=last_timeline_entry.date,
+        edition=reading.edition,
+        editionNotes=reading.edition_notes,
+        isAudioBook=reading.edition == "Audible",
+        abandoned=last_timeline_entry.progress == "Abandoned",
+        readingTime=reading_time,
+        timeline=[
+            JsonTimelineEntry(
+                date=timeline_entry.date, progress=timeline_entry.progress
+            )
+            for timeline_entry in reading.timeline
+        ],
+    )
 
 
 def build_json_reviewed_work(
@@ -59,6 +104,7 @@ def build_json_reviewed_work(
             )
             for work_author in review.work.authors
         ],
+        readings=[build_json_reading(reading) for reading in readings],
         includedInSlugs=review.work.included_in_work_slugs,
         yearReviewed=review.date.year,
     )

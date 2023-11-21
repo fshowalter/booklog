@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, cast
 
 from booklog.data.core import api as core_api
 from booklog.data.reviews import markdown_reviews
@@ -62,7 +62,7 @@ def hydrate_markdown_review(
 ) -> Review:
     return Review(
         work=work,
-        date=datetime.datetime.fromisoformat(markdown_review.yaml["date"]),
+        date=cast(datetime.date, markdown_review.yaml["date"]),
         grade=markdown_review.yaml["grade"],
         review_content=markdown_review.review_content,
     )
