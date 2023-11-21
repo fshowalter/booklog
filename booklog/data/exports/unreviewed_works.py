@@ -16,6 +16,7 @@ JsonUnreviewedWork = TypedDict(
         "slug": str,
         "includedInSlugs": list[str],
         "title": str,
+        "subtitle": Optional[str],
         "sortTitle": str,
         "yearPublished": str,
         "authors": list[JsonWorkAuthor],
@@ -36,6 +37,7 @@ def export(
         JsonUnreviewedWork(
             slug=work.slug,
             title=work.title,
+            subtitle=work.subtitle,
             sortTitle=work.sort_title,
             yearPublished=work.year,
             kind=work.kind,
