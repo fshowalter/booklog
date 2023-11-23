@@ -1,6 +1,6 @@
 from booklog.cli import add_author, add_reading, add_work, radio_list
-from booklog.data import api as data_api
-from booklog.logger import logger
+from booklog.exports import api as exports_api
+from booklog.utils.logging import logger
 
 
 @logger.catch
@@ -22,4 +22,4 @@ def prompt() -> None:
 
 
 def export() -> None:
-    data_api.export_data()
+    exports_api.export_data()

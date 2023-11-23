@@ -1,0 +1,47 @@
+{
+  "authors": [
+    {
+      "name": "Stephen King",
+      "notes": null,
+      "slug": "stephen-king",
+      "sortName": "King, Stephen"
+    }
+  ],
+  "date": "2016-03-10",
+  "grade": "A+",
+  "gradeValue": 13,
+  "includedInSlugs": [],
+  "kind": "Nonfiction",
+  "readings": [
+    {
+      "abandoned": false,
+      "date": "2016-03-12",
+      "edition": "Kindle",
+      "editionNotes": null,
+      "isAudioBook": false,
+      "readingTime": 3,
+      "sequence": 1,
+      "timeline": [
+        {
+          "date": "2016-03-10",
+          "progress": "15%"
+        },
+        {
+          "date": "2016-03-11",
+          "progress": "50%"
+        },
+        {
+          "date": "2016-03-12",
+          "progress": "Finished"
+        }
+      ]
+    }
+  ],
+  "sequence": 1,
+  "slug": "on-writing-by-stephen-king",
+  "sortTitle": "On Writing: A Memoir of the Craft",
+  "subtitle": "A Memoir of the Craft",
+  "title": "On Writing",
+  "yearPublished": "2000",
+  "yearReviewed": 2016
+}

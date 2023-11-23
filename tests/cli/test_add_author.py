@@ -10,7 +10,7 @@ from tests.cli.keys import Enter, Escape
 
 @pytest.fixture
 def mock_create_author(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.add_author.data_api.create_author")
+    return mocker.patch("booklog.cli.add_author.repository_api.create_author")
 
 
 def test_calls_create_author(

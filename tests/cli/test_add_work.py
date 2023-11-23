@@ -5,19 +5,19 @@ import pytest
 from pytest_mock import MockerFixture
 
 from booklog.cli import add_work
-from booklog.data import api as data_api
+from booklog.repository import api as repository_api
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Down, Enter, Escape
 
 
 @pytest.fixture
 def mock_create_work(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.add_work.data_api.create_work")
+    return mocker.patch("booklog.cli.add_work.repository_api.create_work")
 
 
 @pytest.fixture(autouse=True)
-def created_author() -> data_api.Author:
-    return data_api.create_author("Richard Laymon")
+def author_fixture() -> repository_api.Author:
+    return repository_api.create_author("Richard Laymon")
 
 
 def enter_author(name: str = "Laymon") -> list[str]:
@@ -53,11 +53,13 @@ def enter_year_published(year: str) -> list[str]:
 
 
 def test_calls_create_work(
-    mock_input: MockInput, created_author: data_api.Author, mock_create_work: MagicMock
+    mock_input: MockInput,
+    author_fixture: repository_api.Author,
+    mock_create_work: MagicMock,
 ) -> None:
     mock_input(
         [
-            *enter_author(created_author.name[:6]),
+            *enter_author(author_fixture.name[:6]),
             *select_author_search_result(),
             *enter_notes(),
             "n",
@@ -75,11 +77,9 @@ def test_calls_create_work(
         title="The Cellar",
         subtitle=None,
         work_authors=[
-            data_api.WorkAuthor(
-                name=created_author.name,
-                sort_name=created_author.sort_name,
+            repository_api.WorkAuthor(
+                author_slug=author_fixture.slug,
                 notes=None,
-                slug=created_author.slug,
             )
         ],
         year="1980",

@@ -11,11 +11,10 @@ from prompt_toolkit.shortcuts import confirm
 from prompt_toolkit.validation import Validator
 
 from booklog.cli import ask, radio_list, select_work
-from booklog.data import api as data_api
+from booklog.repository import api as repository_api
 
 Option = Tuple[Optional[str], AnyFormattedText]
 
-WorkOption = Tuple[Optional[data_api.Work], AnyFormattedText]
 
 Stages = Literal[
     "ask_for_work",
@@ -30,8 +29,8 @@ Stages = Literal[
 @dataclass(kw_only=True)
 class State(object):
     stage: Stages = "ask_for_work"
-    work: Optional[data_api.Work] = None
-    timeline: list[data_api.TimelineEntry] = field(default_factory=list)
+    work: Optional[repository_api.Work] = None
+    timeline: list[repository_api.TimelineEntry] = field(default_factory=list)
     edition: Optional[str] = None
     grade: Optional[str] = None
 
@@ -57,11 +56,14 @@ def persist_reading(state: State) -> State:
     assert state.timeline
     assert state.grade
 
-    data_api.create_reading(
+    repository_api.create_reading(
         work=state.work,
         edition=state.edition,
         timeline=state.timeline,
-        grade=state.grade,
+    )
+
+    repository_api.create_or_update_review(
+        work=state.work, date=state.timeline[-1].date, grade=state.grade
     )
 
     if confirm("Add another reading?"):
@@ -170,7 +172,7 @@ def ask_for_timeline(state: State) -> State:  # noqa: WPS231
                 continue
 
             state.timeline.append(
-                data_api.TimelineEntry(date=timeline_date, progress=progress)
+                repository_api.TimelineEntry(date=timeline_date, progress=progress)
             )
 
             if progress in {"Finished", "Abandoned"}:
@@ -207,7 +209,7 @@ def ask_for_edition(state: State) -> State:
 
 
 def build_edition_options() -> List[Option]:
-    editions = data_api.all_editions()
+    editions = repository_api.reading_editions()
 
     options: list[Option] = [
         (edition, "<cyan>{0}</cyan>".format(html.escape(edition)))

@@ -6,35 +6,39 @@ import pytest
 from pytest_mock import MockerFixture
 
 from booklog.cli import add_reading
-from booklog.data import api as data_api
-from booklog.data.api import TimelineEntry
+from booklog.repository import api as repository_api
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Backspace, Down, Enter
 
 
 @pytest.fixture
 def mock_create_reading(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.add_reading.data_api.create_reading")
+    return mocker.patch("booklog.cli.add_reading.repository_api.create_reading")
+
+
+@pytest.fixture
+def mock_create_review(mocker: MockerFixture) -> MagicMock:
+    return mocker.patch(
+        "booklog.cli.add_reading.repository_api.create_or_update_review"
+    )
 
 
 @pytest.fixture(autouse=True)
-def created_author() -> data_api.Author:
-    return data_api.create_author("Richard Laymon")
+def author_fixture() -> repository_api.Author:
+    return repository_api.create_author("Richard Laymon")
 
 
 @pytest.fixture(autouse=True)
-def created_work(created_author: data_api.Author) -> data_api.Work:
-    return data_api.create_work(
+def work_fixture(author_fixture: repository_api.Author) -> repository_api.Work:
+    return repository_api.create_work(
         title="The Cellar",
         subtitle=None,
         year="1980",
         kind="Novel",
         included_work_slugs=[],
         work_authors=[
-            data_api.WorkAuthor(
-                name=created_author.name,
-                sort_name=created_author.sort_name,
-                slug=created_author.slug,
+            repository_api.WorkAuthor(
+                author_slug=author_fixture.slug,
                 notes=None,
             )
         ],
@@ -50,7 +54,9 @@ def stub_editions(mocker: MockerFixture) -> None:
         "Paperback",
     ]
 
-    mocker.patch("booklog.cli.add_reading.data_api.all_editions", return_value=editions)
+    mocker.patch(
+        "booklog.cli.add_reading.repository_api.reading_editions", return_value=editions
+    )
 
 
 def clear_default_date() -> list[str]:
@@ -103,8 +109,11 @@ def enter_grade(grade: str) -> list[str]:
     return [grade, Enter]
 
 
-def test_calls_add_reading(
-    mock_input: MockInput, mock_create_reading: MagicMock, created_work: data_api.Work
+def test_calls_add_reading_and_add_review(
+    mock_input: MockInput,
+    mock_create_reading: MagicMock,
+    mock_create_review: MagicMock,
+    work_fixture: repository_api.Work,
 ) -> None:
     mock_input(
         [
@@ -131,12 +140,15 @@ def test_calls_add_reading(
     add_reading.prompt()
 
     mock_create_reading.assert_called_once_with(
-        work=created_work,
+        work=work_fixture,
         edition="Kindle",
         timeline=[
-            TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
+            repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
+            repository_api.TimelineEntry(date=date(2016, 3, 11), progress="50%"),
+            repository_api.TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
         ],
-        grade="A+",
+    )
+
+    mock_create_review.assert_called_once_with(
+        work=work_fixture, grade="A+", date=date(2016, 3, 12)
     )

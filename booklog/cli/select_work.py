@@ -1,27 +1,26 @@
 from __future__ import annotations
 
 import html
-from typing import List, Optional, Tuple
+from typing import Iterable, Optional, Tuple
 
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
 from booklog.cli import ask, radio_list
 from booklog.cli.utils.array_to_sentence import array_to_sentence
-from booklog.data import api as data_api
+from booklog.repository import api as repository_api
 
-WorkOption = Tuple[Optional[data_api.Work], AnyFormattedText]
+WorkOption = Tuple[Optional[repository_api.Work], AnyFormattedText]
 
 
-def prompt() -> Optional[data_api.Work]:
+def prompt() -> Optional[repository_api.Work]:
     while True:
         title = ask.prompt("Title: ")
 
         if title is None:
             return None
 
-        works = data_api.search_works(title)
-
+        works = search_works(title)
         options = build_work_options(works)
 
         selected_work = radio_list.prompt(
@@ -36,9 +35,17 @@ def prompt() -> Optional[data_api.Work]:
             return selected_work
 
 
+def search_works(query: str) -> Iterable[repository_api.Work]:
+    return filter(
+        lambda work: query.lower()
+        in "{0}: {1}".format(work.title, work.subtitle).lower(),
+        repository_api.works(),
+    )
+
+
 def build_work_options(
-    works: list[data_api.Work],
-) -> List[WorkOption]:
+    works: Iterable[repository_api.Work],
+) -> list[WorkOption]:
     if not works:
         return [(None, "Search Again")]
 
@@ -48,7 +55,10 @@ def build_work_options(
             "<cyan>{0}</cyan> by {1}".format(
                 html.escape(work.title),
                 array_to_sentence(
-                    [html.escape(author.name) for author in work.authors]
+                    [
+                        html.escape(work_author.author().name)
+                        for work_author in work.work_authors
+                    ]
                 ),
             ),
         )
