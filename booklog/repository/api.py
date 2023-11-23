@@ -8,7 +8,7 @@ from booklog.repository import json_authors, json_readings, json_works, markdown
 
 WORK_KINDS = json_works.KINDS
 
-WORK_KIND_TYPE = json_works.KIND_TYPE
+Kind = json_works.Kind
 
 SequenceError = json_readings.SequenceError
 
@@ -48,7 +48,7 @@ class Work(object):
     year: str
     sort_title: str
     slug: str
-    kind: json_works.KIND_TYPE
+    kind: Kind
     included_work_slugs: list[str]
     work_authors: list[WorkAuthor]
 
@@ -165,7 +165,7 @@ def create_work(  # noqa: WPS211
     subtitle: Optional[str],
     year: str,
     work_authors: list[WorkAuthor],
-    kind: json_works.KIND_TYPE,
+    kind: Kind,
     included_work_slugs: Optional[list[str]] = None,
 ) -> Work:
     return hydrate_json_work(

@@ -1,20 +1,21 @@
 import datetime
-from typing import Iterable, TypedDict
+from typing import TypedDict
 
 from booklog.exports import exporter
-from booklog.repository.api import Reading, TimelineEntry
+from booklog.exports.repository_data import RepositoryData
+from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
-ExportsReadingTimelineEntryAuthor = TypedDict(
-    "ExportsReadingTimelineEntryAuthor",
+JsonTimelineEntryAuthor = TypedDict(
+    "JsonTimelineEntryAuthor",
     {
         "name": str,
     },
 )
 
 
-ExportsReadingTimelineEntry = TypedDict(
-    "ExportsReadingTimelineEntry",
+JsonTimelineEntry = TypedDict(
+    "JsonTimelineEntry",
     {
         "sequence": str,
         "slug": str,
@@ -26,20 +27,21 @@ ExportsReadingTimelineEntry = TypedDict(
         "yearPublished": str,
         "title": str,
         "kind": str,
-        "authors": list[ExportsReadingTimelineEntryAuthor],
+        "authors": list[JsonTimelineEntryAuthor],
         "includedInSlugs": list[str],
     },
 )
 
 
-def build_json_reading_progress(
-    reading: Reading,
-    timeline_entry: TimelineEntry,
-) -> ExportsReadingTimelineEntry:
-    work = reading.work()
-    reviewed = bool(work.review())
+def build_json_timeline_entry(
+    reading: repository_api.Reading,
+    timeline_entry: repository_api.TimelineEntry,
+    repository_data: RepositoryData,
+) -> JsonTimelineEntry:
+    work = reading.work(repository_data.works)
+    reviewed = bool(work.review(repository_data.reviews))
 
-    return ExportsReadingTimelineEntry(
+    return JsonTimelineEntry(
         sequence="{0}-{1}".format(timeline_entry.date, reading.sequence),
         slug=work.slug,
         edition=reading.edition,
@@ -51,30 +53,32 @@ def build_json_reading_progress(
         title=work.title,
         readingYear=timeline_entry.date.year,
         authors=[
-            ExportsReadingTimelineEntryAuthor(name=work_author.author().name)
+            JsonTimelineEntryAuthor(
+                name=work_author.author(repository_data.authors).name
+            )
             for work_author in work.work_authors
         ],
         includedInSlugs=[
-            included_in_work.slug for included_in_work in work.included_in_works()
+            included_in_work.slug
+            for included_in_work in work.included_in_works(repository_data.works)
         ],
     )
 
 
-def export(
-    readings: Iterable[Reading],
-) -> None:
-    logger.log("==== Begin exporting {}...", "reading_timeline_entries")
+def export(repository_data: RepositoryData) -> None:
+    logger.log("==== Begin exporting {}...", "timeline-entries")
 
     json_progress = [
-        build_json_reading_progress(
+        build_json_timeline_entry(
             reading=reading,
             timeline_entry=timeline_entry,
+            repository_data=repository_data,
         )
-        for reading in readings
+        for reading in repository_data.readings
         for timeline_entry in reading.timeline
     ]
 
     exporter.serialize_dicts(
         sorted(json_progress, key=lambda progress: progress["sequence"], reverse=True),
-        "reading-timeline-entries",
+        "timeline-entries",
     )

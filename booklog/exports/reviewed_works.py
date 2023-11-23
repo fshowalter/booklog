@@ -2,6 +2,7 @@ import datetime
 from typing import Optional, TypedDict
 
 from booklog.exports import exporter, json_work_author
+from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
@@ -76,8 +77,7 @@ def build_json_reviewed_work(
     work: repository_api.Work,
     readings_for_work: list[repository_api.Reading],
     review: repository_api.Review,
-    all_authors: list[repository_api.Author],
-    all_works: list[repository_api.Work],
+    repository_data: RepositoryData,
 ) -> JsonReviewedWork:
     most_recent_reading = sorted(
         readings_for_work, key=lambda reading: reading.sequence, reverse=True
@@ -96,32 +96,27 @@ def build_json_reviewed_work(
         date=review.date,
         authors=[
             json_work_author.build_json_work_author(
-                work_author=work_author, all_authors=all_authors
+                work_author=work_author, all_authors=repository_data.authors
             )
             for work_author in work.work_authors
         ],
         readings=[build_json_reading(reading) for reading in readings_for_work],
         includedInSlugs=[
             included_in_work.slug
-            for included_in_work in work.included_in_works(all_works)
+            for included_in_work in work.included_in_works(repository_data.works)
         ],
         yearReviewed=review.date.year,
     )
 
 
-def export(
-    all_reviews: list[repository_api.Review],
-    all_works: list[repository_api.Work],
-    all_authors: list[repository_api.Author],
-    all_readings: list[repository_api.Reading],
-) -> None:
-    logger.log("==== Begin exporting {}...", "reviewed_works")
+def export(repository_data: RepositoryData) -> None:
+    logger.log("==== Begin exporting {}...", "reviewed-works")
 
     json_reviewed_works = []
 
-    for review in all_reviews:
-        work = review.work(all_works)
-        readings_for_work = list(work.readings(all_readings))
+    for review in repository_data.reviews:
+        work = review.work(repository_data.works)
+        readings_for_work = list(work.readings(repository_data.readings))
         if not readings_for_work:
             continue
 
@@ -130,8 +125,7 @@ def export(
                 work=work,
                 readings_for_work=readings_for_work,
                 review=review,
-                all_authors=all_authors,
-                all_works=all_works,
+                repository_data=repository_data,
             )
         )
 

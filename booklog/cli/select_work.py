@@ -35,11 +35,13 @@ def prompt() -> Optional[repository_api.Work]:
             return selected_work
 
 
-def search_works(query: str) -> Iterable[repository_api.Work]:
-    return filter(
-        lambda work: query.lower()
-        in "{0}: {1}".format(work.title, work.subtitle).lower(),
-        repository_api.works(),
+def search_works(query: str) -> list[repository_api.Work]:
+    return list(
+        filter(
+            lambda work: query.lower()
+            in "{0}: {1}".format(work.title, work.subtitle).lower(),
+            repository_api.works(),
+        )
     )
 
 

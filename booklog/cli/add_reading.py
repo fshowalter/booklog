@@ -201,9 +201,8 @@ def ask_for_edition(state: State) -> State:
         state.stage = "ask_for_timeline"
         return state
 
-    if confirm("{0}?".format(selected_edition)):
-        state.edition = selected_edition
-        state.stage = "ask_for_grade"
+    state.edition = selected_edition
+    state.stage = "ask_for_grade"
 
     return state
 
@@ -244,8 +243,7 @@ def ask_for_grade(state: State) -> State:
         state.stage = "ask_for_edition"
         return state
 
-    if confirm(review_grade):  # noqa: WPS323
-        state.grade = review_grade
-        state.stage = "persist_reading"
+    state.grade = review_grade
+    state.stage = "persist_reading"
 
     return state

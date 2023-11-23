@@ -25,7 +25,7 @@ Stages = Literal[
 @dataclass(kw_only=True)
 class State(object):
     stage: Stages = "ask_for_authors"
-    kind: Optional[repository_api.WORK_KIND_TYPE] = None
+    kind: Optional[repository_api.Kind] = None
     title: Optional[str] = None
     work_authors: list[repository_api.WorkAuthor] = field(default_factory=list)
     subtitle: Optional[str] = None

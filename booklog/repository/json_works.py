@@ -13,7 +13,7 @@ from booklog.utils.logging import logger
 
 FOLDER_NAME = "works"
 
-KIND_TYPE = Literal[
+Kind = Literal[
     "Anthology",
     "Collection",
     "Nonfiction",
@@ -21,7 +21,7 @@ KIND_TYPE = Literal[
     "Novella",
     "Short Story",
 ]
-KINDS = get_args(KIND_TYPE)
+KINDS = get_args(Kind)
 
 JsonWorkAuthor = TypedDict(
     "JsonWorkAuthor",
@@ -40,7 +40,7 @@ JsonWork = TypedDict(
         "sortTitle": str,
         "authors": list[JsonWorkAuthor],
         "slug": str,
-        "kind": KIND_TYPE,
+        "kind": Kind,
         "includedWorks": list[str],
     },
 )
@@ -74,7 +74,7 @@ def create(  # noqa: WPS211
     subtitle: Optional[str],
     year: str,
     work_authors: list[CreateWorkAuthor],
-    kind: KIND_TYPE,
+    kind: Kind,
     included_work_slugs: Optional[list[str]] = None,
 ) -> JsonWork:
     slug = slugify(
@@ -104,7 +104,6 @@ def create(  # noqa: WPS211
 
 
 def read_all() -> Iterable[JsonWork]:
-    print("here")
     for file_path in glob(os.path.join(FOLDER_NAME, "*.json")):
         with open(file_path, "r") as json_file:
             yield (cast(JsonWork, json.load(json_file)))

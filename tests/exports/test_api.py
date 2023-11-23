@@ -112,7 +112,7 @@ def test_exports_reading_timeline_entries(
     exports_api.export_data()
 
     with open(
-        os.path.join(tmp_path / "exports", "reading-timeline-entries.json"),
+        os.path.join(tmp_path / "exports", "timeline-entries.json"),
         "r",
     ) as output_file:
         file_content = json.load(output_file)

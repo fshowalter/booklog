@@ -1,6 +1,7 @@
 from typing import Optional, TypedDict
 
 from booklog.exports import exporter, json_work_author
+from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
@@ -36,8 +37,7 @@ JsonAuthor = TypedDict(
 def build_json_author_work(
     work: repository_api.Work,
     review: Optional[repository_api.Review],
-    all_works: list[repository_api.Work],
-    all_authors: list[repository_api.Author],
+    repository_data: RepositoryData,
 ) -> JsonAuthorWork:
     return JsonAuthorWork(
         title=work.title,
@@ -50,23 +50,26 @@ def build_json_author_work(
         gradeValue=review.grade_value if review else None,
         authors=[
             json_work_author.build_json_work_author(
-                work_author=work_author, all_authors=all_authors
+                work_author=work_author, all_authors=repository_data.authors
             )
             for work_author in work.work_authors
         ],
-        includedInSlugs=[work.slug for work in work.included_in_works(all_works)],
+        includedInSlugs=[
+            work.slug for work in work.included_in_works(repository_data.works)
+        ],
     )
 
 
 def build_json_author(
-    author: repository_api.Author,
-    all_works: list[repository_api.Work],
-    all_reviews: list[repository_api.Review],
-    all_authors: list[repository_api.Author],
+    author: repository_api.Author, repository_data: RepositoryData
 ) -> JsonAuthor:
-    author_works = list(author.works(all_works))
+    author_works = list(author.works(repository_data.works))
     reviewed_work_count = len(
-        [author_work for author_work in author_works if author_work.review(all_reviews)]
+        [
+            author_work
+            for author_work in author_works
+            if author_work.review(repository_data.reviews)
+        ]
     )
 
     return JsonAuthor(
@@ -76,9 +79,8 @@ def build_json_author(
         works=[
             build_json_author_work(
                 work=work,
-                review=work.review(all_reviews),
-                all_works=all_works,
-                all_authors=all_authors,
+                review=work.review(repository_data.reviews),
+                repository_data=repository_data,
             )
             for work in author_works
         ],
@@ -87,21 +89,15 @@ def build_json_author(
     )
 
 
-def export(
-    all_authors: list[repository_api.Author],
-    all_works: list[repository_api.Work],
-    all_reviews: list[repository_api.Review],
-) -> None:
+def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "authors")
 
     json_authors = [
         build_json_author(
             author=author,
-            all_works=all_works,
-            all_reviews=all_reviews,
-            all_authors=all_authors,
+            repository_data=repository_data,
         )
-        for author in all_authors
+        for author in repository_data.authors
     ]
 
     exporter.serialize_dicts_to_folder(
