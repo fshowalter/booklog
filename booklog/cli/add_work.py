@@ -2,18 +2,13 @@ from __future__ import annotations
 
 import html
 from dataclasses import dataclass, field
-from typing import Callable, Literal, Optional, Tuple
+from typing import Callable, Literal, Optional
 
-from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
 from booklog.cli import ask, radio_list, select_author, select_work
 from booklog.cli.utils.array_to_sentence import array_to_sentence
-from booklog.data import api as data_api
-
-AuthorOption = Tuple[Optional[data_api.AuthorWithWorks], AnyFormattedText]
-
-Option = Tuple[Optional[str], AnyFormattedText]
+from booklog.repository import api as repository_api
 
 Stages = Literal[
     "ask_for_authors",
@@ -30,9 +25,9 @@ Stages = Literal[
 @dataclass(kw_only=True)
 class State(object):
     stage: Stages = "ask_for_authors"
-    kind: Optional[str] = None
+    kind: Optional[repository_api.Kind] = None
     title: Optional[str] = None
-    work_authors: list[data_api.WorkAuthor] = field(default_factory=list)
+    work_authors: list[repository_api.WorkAuthor] = field(default_factory=list)
     subtitle: Optional[str] = None
     year_published: Optional[str] = None
     included_works: list[str] = field(default_factory=list)
@@ -61,7 +56,7 @@ def persist_work(state: State) -> State:
     assert state.kind
     assert state.work_authors
 
-    data_api.create_work(
+    repository_api.create_work(
         title=state.title,
         work_authors=state.work_authors,
         subtitle=state.subtitle,
@@ -70,7 +65,9 @@ def persist_work(state: State) -> State:
         included_work_slugs=state.included_works,
     )
 
-    author_names = array_to_sentence([author.name for author in state.work_authors])
+    author_names = array_to_sentence(
+        [author.author().name for author in state.work_authors]
+    )
 
     if confirm("Add more works by {0}?".format(author_names)):
         state.stage = "ask_for_kind"
@@ -113,12 +110,7 @@ def ask_for_authors(state: State) -> State:
             author_notes = None
 
             state.work_authors.append(
-                data_api.WorkAuthor(
-                    slug=author.slug,
-                    notes=author_notes,
-                    name=author.name,
-                    sort_name=author.sort_name,
-                )
+                repository_api.WorkAuthor(notes=author_notes, author_slug=author.slug)
             )
 
         if not confirm("Add more Authors?"):
@@ -192,7 +184,7 @@ def ask_for_kind(state: State) -> State:
         title="Select kind:",
         options=[
             (kind, "<cyan>{0}</cyan>".format(html.escape(kind)))
-            for kind in sorted(data_api.WORK_KINDS)
+            for kind in sorted(repository_api.WORK_KINDS)
         ],
     )
 

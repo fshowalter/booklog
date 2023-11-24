@@ -25,7 +25,7 @@ def mock_add_work(mocker: MockerFixture) -> MagicMock:
 
 @pytest.fixture(autouse=True)
 def mock_export_data(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.main.data_api.export_data")
+    return mocker.patch("booklog.cli.main.exports_api.export_data")
 
 
 def test_calls_add_author(mock_input: MockInput, mock_add_author: MagicMock) -> None:

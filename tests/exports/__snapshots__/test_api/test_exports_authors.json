@@ -1,0 +1,47 @@
+{
+  "name": "Stephen King",
+  "reviewedWorkCount": 1,
+  "slug": "stephen-king",
+  "sortName": "King, Stephen",
+  "workCount": 2,
+  "works": [
+    {
+      "authors": [
+        {
+          "name": "Stephen King",
+          "notes": null,
+          "slug": "stephen-king",
+          "sortName": "King, Stephen"
+        }
+      ],
+      "grade": "A+",
+      "gradeValue": 13,
+      "includedInSlugs": [],
+      "kind": "Nonfiction",
+      "reviewed": true,
+      "slug": "on-writing-by-stephen-king",
+      "sortTitle": "On Writing: A Memoir of the Craft",
+      "title": "On Writing",
+      "yearPublished": "2000"
+    },
+    {
+      "authors": [
+        {
+          "name": "Stephen King",
+          "notes": null,
+          "slug": "stephen-king",
+          "sortName": "King, Stephen"
+        }
+      ],
+      "grade": null,
+      "gradeValue": null,
+      "includedInSlugs": [],
+      "kind": "Novel",
+      "reviewed": false,
+      "slug": "the-stand-by-stephen-king",
+      "sortTitle": "Stand",
+      "title": "The Stand",
+      "yearPublished": "1978"
+    }
+  ]
+}
