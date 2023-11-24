@@ -13,10 +13,12 @@ from booklog.repository import api as repository_api
 
 def export_data() -> None:
     repository_data = RepositoryData(
-        authors=list(repository_api.authors()),
-        works=list(repository_api.works()),
-        reviews=list(repository_api.reviews()),
-        readings=list(repository_api.readings()),
+        authors=sorted(repository_api.authors(), key=lambda author: author.sort_name),
+        works=sorted(repository_api.works(), key=lambda work: work.sort_title),
+        reviews=sorted(repository_api.reviews(), key=lambda review: review.work_slug),
+        readings=sorted(
+            repository_api.readings(), key=lambda reading: reading.sequence
+        ),
     )
 
     authors.export(repository_data)
