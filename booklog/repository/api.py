@@ -52,6 +52,13 @@ class Work(object):
     included_work_slugs: list[str]
     work_authors: list[WorkAuthor]
 
+    def included_works(self, cache: Optional[list[Work]] = None) -> Iterable[Work]:
+        works_iterable = cache or works()
+        return filter(
+            lambda work: work.slug in self.included_work_slugs,
+            works_iterable,
+        )
+
     def included_in_works(self, cache: Optional[list[Work]] = None) -> Iterable[Work]:
         works_iterable = cache or works()
         return filter(

@@ -11,8 +11,8 @@ JsonTimelineEntry = TypedDict(
     {"date": datetime.date, "progress": str},
 )
 
-JsonMoreReviewEntryAuthor = TypedDict(
-    "JsonMoreReviewEntryAuthor",
+JsonMoreReviewAuthor = TypedDict(
+    "JsonMoreReviewAuthor",
     {
         "name": str,
     },
@@ -33,21 +33,40 @@ JsonReading = TypedDict(
     },
 )
 
-JsonMoreReviewEntry = TypedDict(
-    "JsonMoreReviewEntry",
+JsonMoreReview = TypedDict(
+    "JsonMoreReview",
     {
         "title": str,
         "yearPublished": str,
         "kind": str,
-        "authors": list[JsonMoreReviewEntryAuthor],
+        "authors": list[JsonMoreReviewAuthor],
         "grade": str,
+        "slug": str,
+        "includedInSlugs": list[str],
+    },
+)
+
+JsonIncludedWorkAuthor = TypedDict(
+    "JsonIncludedWorkAuthor",
+    {
+        "name": str,
         "slug": str,
     },
 )
 
-JsonMoreByAuthorEntry = TypedDict(
-    "JsonMoreByAuthorEntry",
-    {"name": str, "slug": str, "works": list[JsonMoreReviewEntry]},
+JsonIncludedWork = TypedDict(
+    "JsonIncludedWork",
+    {
+        "title": str,
+        "authors": list[JsonIncludedWorkAuthor],
+        "grade": Optional[str],
+        "slug": str,
+    },
+)
+
+JsonMoreByAuthor = TypedDict(
+    "JsonMoreByAuthor",
+    {"name": str, "slug": str, "works": list[JsonMoreReview]},
 )
 
 
@@ -68,8 +87,9 @@ JsonReviewedWork = TypedDict(
         "date": datetime.date,
         "yearReviewed": int,
         "readings": list[JsonReading],
-        "moreReviews": list[JsonMoreReviewEntry],
-        "moreByAuthors": list[JsonMoreByAuthorEntry],
+        "moreReviews": list[JsonMoreReview],
+        "moreByAuthors": list[JsonMoreByAuthor],
+        "includedWorks": list[JsonIncludedWork],
     },
 )
 
@@ -100,21 +120,25 @@ def build_json_reading(reading: repository_api.Reading) -> JsonReading:
     )
 
 
-def build_json_more_review_entry(
+def build_json_more_review(
     work: repository_api.Work, repository_data: RepositoryData
-) -> JsonMoreReviewEntry:
+) -> JsonMoreReview:
     review = work.review(repository_data.reviews)
 
     assert review, "Expected review for {0}".format(work.title)
 
-    return JsonMoreReviewEntry(
+    return JsonMoreReview(
         title=work.title,
         kind=work.kind,
         yearPublished=work.year,
         slug=work.slug,
         grade=review.grade,
+        includedInSlugs=[
+            included_in_work.slug
+            for included_in_work in work.included_in_works(repository_data.works)
+        ],
         authors=[
-            JsonMoreReviewEntryAuthor(
+            JsonMoreReviewAuthor(
                 name=work_author.author(repository_data.authors).name,
             )
             for work_author in work.work_authors
@@ -152,9 +176,9 @@ def slice_collection(  # noqa: WPS210
 
 def build_more_reviews(
     work: repository_api.Work,
-    more_by_author_entries: list[JsonMoreByAuthorEntry],
+    more_by_author_entries: list[JsonMoreByAuthor],
     repository_data: RepositoryData,
-) -> list[JsonMoreReviewEntry]:
+) -> list[JsonMoreReview]:
     slugs_to_exclude = [
         work_entry["slug"]
         for more_by_author_entry in more_by_author_entries
@@ -174,7 +198,7 @@ def build_more_reviews(
     )
 
     return [
-        build_json_more_review_entry(
+        build_json_more_review(
             work=review.work(repository_data.works), repository_data=repository_data
         )
         for review in sliced_reviews
@@ -192,8 +216,8 @@ def build_work_matcher(slug_to_match: str) -> Callable[[repository_api.Work], bo
 
 def build_more_by_authors(
     work: repository_api.Work, repository_data: RepositoryData
-) -> list[JsonMoreByAuthorEntry]:
-    more_by_author_entries: list[JsonMoreByAuthorEntry] = []
+) -> list[JsonMoreByAuthor]:
+    more_by_author_entries: list[JsonMoreByAuthor] = []
 
     for work_author in work.work_authors:
         author = work_author.author(repository_data.authors)
@@ -215,11 +239,11 @@ def build_more_by_authors(
         )
 
         more_by_author_entries.append(
-            JsonMoreByAuthorEntry(
+            JsonMoreByAuthor(
                 name=author.name,
                 slug=author.slug,
                 works=[
-                    build_json_more_review_entry(
+                    build_json_more_review(
                         work=author_work, repository_data=repository_data
                     )
                     for author_work in sliced_works
@@ -229,6 +253,25 @@ def build_more_by_authors(
         )
 
     return more_by_author_entries
+
+
+def build_json_included_work(
+    included_work: repository_api.Work, repository_data: RepositoryData
+) -> JsonIncludedWork:
+    review = included_work.review(repository_data.reviews)
+
+    return JsonIncludedWork(
+        slug=included_work.slug,
+        title=included_work.title,
+        grade=review.grade if review else None,
+        authors=[
+            JsonIncludedWorkAuthor(
+                name=included_work_author.author(repository_data.authors).name,
+                slug=included_work_author.author_slug,
+            )
+            for included_work_author in included_work.work_authors
+        ],
+    )
 
 
 def build_json_reviewed_work(
@@ -273,6 +316,12 @@ def build_json_reviewed_work(
         yearReviewed=review.date.year,
         moreByAuthors=more_by_authors,
         moreReviews=more_reviews,
+        includedWorks=[
+            build_json_included_work(
+                included_work=included_work, repository_data=repository_data
+            )
+            for included_work in work.included_works(repository_data.works)
+        ],
     )
 
 

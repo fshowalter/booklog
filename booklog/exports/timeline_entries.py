@@ -23,7 +23,7 @@ JsonTimelineEntry = TypedDict(
         "date": datetime.date,
         "progress": str,
         "reviewed": bool,
-        "readingYear": int,
+        "readingYear": str,
         "yearPublished": str,
         "title": str,
         "kind": str,
@@ -51,7 +51,7 @@ def build_json_timeline_entry(
         reviewed=reviewed,
         yearPublished=work.year,
         title=work.title,
-        readingYear=timeline_entry.date.year,
+        readingYear=str(timeline_entry.date.year),
         authors=[
             JsonTimelineEntryAuthor(
                 name=work_author.author(repository_data.authors).name
