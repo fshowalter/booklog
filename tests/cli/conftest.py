@@ -13,7 +13,7 @@ MockInput = Callable[[Sequence[str]], None]
 @pytest.fixture(autouse=True, scope="function")
 def mock_input() -> Generator[MockInput, None, None]:
     with create_pipe_input() as pipe_input:
-        with create_app_session(input=pipe_input):
+        with create_app_session(input=pipe_input, output=DummyOutput()):
 
             def factory(input_sequence: Sequence[str]) -> None:  # noqa: WPS 430
                 pipe_input.send_text("".join(input_sequence))
