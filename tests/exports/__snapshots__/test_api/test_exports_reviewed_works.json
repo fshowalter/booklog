@@ -12,13 +12,15 @@
   "gradeValue": 13,
   "includedInSlugs": [],
   "kind": "Nonfiction",
+  "moreByAuthors": [],
+  "moreReviews": [],
   "readings": [
     {
       "abandoned": false,
       "date": "2016-03-12",
       "edition": "Kindle",
       "editionNotes": null,
-      "isAudioBook": false,
+      "isAudiobook": false,
       "readingTime": 3,
       "sequence": 1,
       "timeline": [

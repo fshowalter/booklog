@@ -1,5 +1,5 @@
 import datetime
-from typing import Optional, TypedDict, TypeVar
+from typing import Callable, Optional, TypedDict, TypeVar
 
 from booklog.exports import exporter, json_work_author
 from booklog.exports.repository_data import RepositoryData
@@ -105,7 +105,7 @@ def build_json_more_review_entry(
 ) -> JsonMoreReviewEntry:
     review = work.review(repository_data.reviews)
 
-    assert review
+    assert review, "Expected review for {0}".format(work.title)
 
     return JsonMoreReviewEntry(
         title=work.title,
@@ -125,41 +125,29 @@ def build_json_more_review_entry(
 ListType = TypeVar("ListType")
 
 
-def slice_collection(index: int, collection: list[ListType]) -> list[ListType]:
+def slice_collection(  # noqa: WPS210
+    collection: list[ListType], matcher: Callable[[ListType], bool]
+) -> list[ListType]:
+    midpoint = next(
+        index
+        for index, collection_item in enumerate(collection)
+        if matcher(collection_item)
+    )
+
     collection_length = len(collection)
 
-    if collection_length == 5:
-        return collection
+    start_index = midpoint - 2
+    end_index = midpoint + 3
 
-    start_index = index - 2 if index > 3 else 0
-    end_index = start_index + 5
+    if start_index >= 0 and end_index < collection_length:
+        return collection[start_index:end_index]
 
-    if end_index < collection_length:
-        sliced_collection = collection[start_index:end_index]
-    else:
-        sliced_collection = (
-            collection[start_index:] + collection[: end_index - collection_length]
-        )
+    if start_index < 0:
+        start_index += collection_length
+    if end_index > collection_length:
+        end_index -= collection_length
 
-    assert (
-        len(sliced_collection) == 5
-    ), "sliced_collection should have 5 elements, has {0}. index: {1}, window start: {1}, window end: {2} total: {3}".format(
-        len(sliced_collection), start_index, end_index, collection_length
-    )
-
-    return sliced_collection
-
-
-def find_slice_start_for_works(work_slug: str, works: list[repository_api.Work]) -> int:
-    return next(index for index, work in enumerate(works) if work.slug == work_slug)
-
-
-def find_slice_start_for_reviews(
-    work_slug: str, reviews: list[repository_api.Review]
-) -> int:
-    return next(
-        index for index, review in enumerate(reviews) if review.work_slug == work_slug
-    )
+    return collection[start_index:] + collection[:end_index]
 
 
 def build_more_reviews(
@@ -173,18 +161,16 @@ def build_more_reviews(
         for work_entry in more_by_author_entry["works"]
     ]
 
-    sorted_reviews = sorted(
-        (
-            review
-            for review in repository_data.reviews
-            if review.work_slug not in slugs_to_exclude
-        ),
-        key=lambda review: review.work(repository_data.works).sort_title,
-    )
-
     sliced_reviews = slice_collection(
-        index=find_slice_start_for_reviews(work.slug, sorted_reviews),
-        collection=sorted_reviews,
+        collection=sorted(
+            (
+                review
+                for review in repository_data.reviews
+                if review.work_slug not in slugs_to_exclude
+            ),
+            key=lambda review: review.work(repository_data.works).sort_title,
+        ),
+        matcher=build_review_matcher(work.slug),
     )
 
     return [
@@ -196,6 +182,14 @@ def build_more_reviews(
     ]
 
 
+def build_review_matcher(slug_to_match: str) -> Callable[[repository_api.Review], bool]:
+    return lambda review: review.work_slug == slug_to_match
+
+
+def build_work_matcher(slug_to_match: str) -> Callable[[repository_api.Work], bool]:
+    return lambda work: work.slug == slug_to_match
+
+
 def build_more_by_authors(
     work: repository_api.Work, repository_data: RepositoryData
 ) -> list[JsonMoreByAuthorEntry]:
@@ -204,19 +198,20 @@ def build_more_by_authors(
     for work_author in work.work_authors:
         author = work_author.author(repository_data.authors)
         reviewed_author_works = list(
-            work
-            for work in author.works(repository_data.works)
-            if work.review(repository_data.reviews)
+            author_work
+            for author_work in author.works(repository_data.works)
+            if author_work.review(repository_data.reviews) is not None
         )
 
         if len(reviewed_author_works) < 5:
             continue
 
-        sorted_works = sorted(reviewed_author_works, key=lambda work: work.year)
-
         sliced_works = slice_collection(
-            index=find_slice_start_for_works(work.slug, sorted_works),
-            collection=sorted_works,
+            collection=sorted(
+                reviewed_author_works,
+                key=lambda reviewed_author_work: reviewed_author_work.year,
+            ),
+            matcher=build_work_matcher(work.slug),
         )
 
         more_by_author_entries.append(
