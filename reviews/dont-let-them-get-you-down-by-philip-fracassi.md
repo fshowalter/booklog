@@ -4,12 +4,38 @@ grade: C-
 date: 2023-10-29
 ---
 
-Though published in 2022, Philip Fracassi wrote Don't Let Them Get You Down in Y, early in his career. Though flawed, it hints at Fracassi's burgeoning talent.
+Don't Let Them Get You Down follows Peter, a copy writer for a medical website struggling to hold his life together while battling a spiraling depression triggered by his wife's death due to cancer two years prior.
 
-The story follows X, a Y, who's fallen into a spiraling depression since his wife's death X years prior.
+Though published in 2022, Philip Fracassi wrote the novel in 2007. Early on, the first person narration reminded me of Chuck Palahniuk's Fight Club with lines like:
 
-But this proves the novel's biggest problem. Fracassi tells us everything. X's raw inner-monologue lends his character an empathetic vulnerability, but limits Facassi's ability to propel the narrative through action or dialog. Instead, we have X telling us how he feels.
+> I swivel around and see Jimmy, who is normally sitting two cubicles down, standing in front of me. His job has something to do with the office network.
 
-Fracassi breaks out of this cage for the novel's standout sequence. In a misguided effort to socialize, X agrees to a night out with a coworker, the unstable Z. Consider how Fracassi sets the stage:
+But after a handful of pages, Peter develops a voice all his own. This proves the novel's biggest problem, however, as Fracassi tells us everything. Peter's raw inner-monologue lends his character an empathetic vulnerability, but limits Facassi's ability to propel the narrative through action or dialog. Instead, Peter tells us how he feels.
 
-Naceant here, he'd perfect this kind of mounting dread in his later works.
+> I feel like crying and cursing.
+
+And:
+
+> I feel like I’m being ripped apart
+
+And:
+
+> I feel poked, prodded.
+
+That's just from the first ten pages.
+
+Fracassi breaks out of this cage for the novel's standout sequence. In a misguided effort to socialize, Peter agrees to a night out with a coworker, the unstable Bill. Consider how Fracassi sets the stage:
+
+> Jay is in front with Bill who has taken us all out in his beat-down white Volvo wagon. It smells bad back here, and this Jay guy isn’t helping matters. He’s been sipping off a pint of vodka since we left the last liquor store, which was after the last strip club, which was after the first liquor store, which was after the second bar, which was after the first bar, which was after everyone but me doing cocaine at Bill’s house, which is where this entire evening started.
+
+No "I feels." He shows us everything in a twisty run-on sentence that conveys the evening's chaotic infinity. As the crew head toward the second strip club, where Jay claims to know a bouncer, Fracassi builds on the sense of dread:
+
+> We continue driving steadily eastward, through Los Feliz and beyond, flowing past unfamiliar streets splashed with unsteady light, where the glowing white and yellow shop signs stop using English as their primary language.
+
+Fracassi would perfect this kind of mounting dread in his later works. Here, it proffers a glimpse of his burgeoning talent.
+
+The aforementioned sequence aside, the novel wore on me. Too much telling instead of showing. But at under 200 pages, it's not a slog, and Fracassi proffers another standout sequence set in a pharmacy, where Peter cracks. Again, Fracassi pivots away from the internal monologue, proffering a black comedy sequence that had me chuckling.
+
+> I make my way back to the line, holding two boxes of gauze equaling approximately three hundred feet, the large box of light blue condoms, and what appears to be a sixteen-ounce bottle of lubricant.
+
+I can't recommend Don't Let Them Get You Down. It pales next to Fracassi's later work. But for fans it may prove an interesting example of an author in progress. The theme of losing a loved one to cancer recocurrs throughout Fracassi's work, and this novel's first-person narration lends an intimacy that feels near autobiographical. But said intimacy can't overcome the inert "I feel" writing.
