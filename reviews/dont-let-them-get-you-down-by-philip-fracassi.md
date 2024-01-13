@@ -34,8 +34,8 @@ No "I feels." He shows us everything in a twisty run-on sentence that conveys th
 
 Fracassi would perfect this kind of mounting dread in his later works. Here, it proffers a glimpse of his burgeoning talent.
 
-The aforementioned sequence aside, the novel wore on me. Too much telling instead of showing. But at under 200 pages, it's not a slog, and Fracassi proffers another standout sequence set in a pharmacy, where Peter cracks. Again, Fracassi pivots away from the internal monologue, proffering a black comedy sequence that had me chuckling.
+The aforementioned sequence aside, the novel wore on me. Too much telling instead of showing. I was considering abandoning it when Fracassi proffers another standout sequence set in a pharmacy, where Peter cracks. Again, Fracassi pivots away from the internal monologue, proffering a black comedy sequence that had me chuckling.
 
 > I make my way back to the line, holding two boxes of gauze equaling approximately three hundred feet, the large box of light blue condoms, and what appears to be a sixteen-ounce bottle of lubricant.
 
-I can't recommend Don't Let Them Get You Down. It pales next to Fracassi's later work. But for fans it may prove an interesting example of an author in progress. The theme of losing a loved one to cancer recocurrs throughout Fracassi's work, and this novel's first-person narration lends an intimacy that feels near autobiographical. But said intimacy can't overcome the inert "I feel" writing.
+Don't Let Them Get You Down pales next to Fracassi's later work, but for fans it may prove an interesting example of an author in progress. The theme of losing a loved one to cancer recocurrs throughout Fracassi's work, and this novel's first-person narration lends an intimacy that feels near autobiographical. But said intimacy can't overcome the "I feel" of an author unsure of their talent.
