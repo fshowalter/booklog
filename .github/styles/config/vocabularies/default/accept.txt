@@ -7,6 +7,8 @@ Babin
 Bachman
 backstepped
 Badham
+bandmates
+Beastie
 Beek
 Big's
 bon
@@ -14,6 +16,8 @@ bowtie
 braceleting
 Brylcreem
 carful
+Catura
+cel
 Chandleresque
 Chiffre
 Corcoran
@@ -33,6 +37,7 @@ Fracassi
 Fuck
 furtherer
 Gabino
+Gellert
 Getch
 Gillespie
 Glick
@@ -66,6 +71,7 @@ Lestat
 Lol
 Lovecraftian
 lutely
+Macclesfield
 Malcasa
 Marihuana
 Marr
@@ -114,6 +120,7 @@ Skipp
 Skolnick
 Smyert
 Somerhalder
+Sonoma
 Sossamon
 Spector
 Sperber
@@ -126,6 +133,7 @@ Tartt
 Tennant
 Tolhurst
 Twinkie
+Ulrich
 Uri
 Verhoeven
 von
