@@ -6,7 +6,7 @@ date: 2023-10-22
 
 Rick Rubin, the famed music producer of such disparate acts as the Beastie Boys, Slayer, Tom Petty, and Johnny Cash, proffers a meditation on creativity.
 
-<!-- end-->
+<!-- end -->
 
 Rubin offers insight gained through his years helping creatives realize their visions. Consider this passage:
 
