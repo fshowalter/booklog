@@ -6,6 +6,8 @@ date: 2023-10-22
 
 Rick Rubin, the famed music producer of such disparate acts as the Beastie Boys, Slayer, Tom Petty, and Johnny Cash, proffers a meditation on creativity.
 
+<!-- end-->
+
 Rubin offers insight gained through his years helping creatives realize their visions. Consider this passage:
 
 > A point of view is different from having a point.
