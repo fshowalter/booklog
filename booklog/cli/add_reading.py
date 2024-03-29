@@ -27,7 +27,7 @@ Stages = Literal[
 
 
 @dataclass(kw_only=True)
-class State(object):
+class State:
     stage: Stages = "ask_for_work"
     work: Optional[repository_api.Work] = None
     timeline: list[repository_api.TimelineEntry] = field(default_factory=list)

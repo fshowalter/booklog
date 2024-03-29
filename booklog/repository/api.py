@@ -14,7 +14,7 @@ SequenceError = json_readings.SequenceError
 
 
 @dataclass
-class Author(object):
+class Author:
     name: str
     sort_name: str
     slug: str
@@ -30,7 +30,7 @@ class Author(object):
 
 
 @dataclass
-class WorkAuthor(object):
+class WorkAuthor:
     notes: Optional[str]
     author_slug: str
 
@@ -42,7 +42,7 @@ class WorkAuthor(object):
 
 
 @dataclass
-class Work(object):
+class Work:
     title: str
     subtitle: Optional[str]
     year: str
@@ -82,13 +82,13 @@ class Work(object):
 
 
 @dataclass
-class TimelineEntry(object):
+class TimelineEntry:
     date: datetime.date
     progress: str
 
 
 @dataclass(kw_only=True)
-class Reading(object):
+class Reading:
     sequence: int
     edition: str
     timeline: list[TimelineEntry]
@@ -101,7 +101,7 @@ class Reading(object):
 
 
 @dataclass
-class Review(object):
+class Review:
     work_slug: str
     date: datetime.date
     grade: str
