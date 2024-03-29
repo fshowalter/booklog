@@ -64,7 +64,7 @@ def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
 
 
 @dataclass
-class CreateWorkAuthor(object):
+class CreateWorkAuthor:
     slug: str
     notes: Optional[str]
 

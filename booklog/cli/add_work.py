@@ -23,7 +23,7 @@ Stages = Literal[
 
 
 @dataclass(kw_only=True)
-class State(object):
+class State:
     stage: Stages = "ask_for_authors"
     kind: Optional[repository_api.Kind] = None
     title: Optional[str] = None
