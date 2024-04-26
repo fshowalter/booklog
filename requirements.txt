@@ -1,4 +1,4 @@
-black==24.4.1
+black==24.4.2
 loguru==0.7.2
 mypy==1.10.0
 prompt-toolkit==3.0.43
