@@ -4,13 +4,18 @@ import datetime
 from dataclasses import dataclass
 from typing import Iterable, Optional
 
-from booklog.repository import json_authors, json_readings, json_works, markdown_reviews
+from booklog.repository import (
+    json_authors,
+    json_works,
+    markdown_readings,
+    markdown_reviews,
+)
 
 WORK_KINDS = json_works.KINDS
 
 Kind = json_works.Kind
 
-SequenceError = json_readings.SequenceError
+SequenceError = markdown_readings.SequenceError
 
 
 @dataclass
@@ -148,7 +153,7 @@ def works() -> Iterable[Work]:
 
 
 def readings() -> Iterable[Reading]:
-    for json_reading in json_readings.read_all():
+    for json_reading in markdown_readings.read_all():
         yield hydrate_json_reading(json_reading=json_reading)
 
 
@@ -198,10 +203,10 @@ def create_reading(
     edition: str,
 ) -> Reading:
     return hydrate_json_reading(
-        json_reading=json_readings.create(
+        json_reading=markdown_readings.create(
             work_slug=work.slug,
             timeline=[
-                json_readings.JsonTimelineEntry(
+                markdown_readings.TimelineEntry(
                     date=datetime.date.isoformat(timeline_entry.date),
                     progress=timeline_entry.progress,
                 )
@@ -250,7 +255,7 @@ def hydrate_json_work(json_work: json_works.JsonWork) -> Work:
     )
 
 
-def hydrate_json_reading(json_reading: json_readings.JsonReading) -> Reading:
+def hydrate_json_reading(json_reading: markdown_readings.JsonReading) -> Reading:
     return Reading(
         sequence=json_reading["sequence"],
         timeline=[
