@@ -4,13 +4,18 @@ import datetime
 from dataclasses import dataclass
 from typing import Iterable, Optional
 
-from booklog.repository import json_authors, json_readings, json_works, markdown_reviews
+from booklog.repository import (
+    json_authors,
+    json_works,
+    markdown_readings,
+    markdown_reviews,
+)
 
 WORK_KINDS = json_works.KINDS
 
 Kind = json_works.Kind
 
-SequenceError = json_readings.SequenceError
+SequenceError = markdown_readings.SequenceError
 
 
 @dataclass
@@ -139,22 +144,22 @@ class Review:
 
 def authors() -> Iterable[Author]:
     for json_author in json_authors.read_all():
-        yield hydrate_json_author(json_author=json_author)
+        yield _hydrate_json_author(json_author=json_author)
 
 
 def works() -> Iterable[Work]:
     for json_work in json_works.read_all():
-        yield hydrate_json_work(json_work=json_work)
+        yield _hydrate_json_work(json_work=json_work)
 
 
 def readings() -> Iterable[Reading]:
-    for json_reading in json_readings.read_all():
-        yield hydrate_json_reading(json_reading=json_reading)
+    for markdown_reading in markdown_readings.read_all():
+        yield _hydrate_markdown_reading(markdown_reading=markdown_reading)
 
 
 def reviews() -> Iterable[Review]:
     for markdown_review in markdown_reviews.read_all():
-        yield hydrate_markdown_review(markdown_review=markdown_review)
+        yield _hydrate_markdown_review(markdown_review=markdown_review)
 
 
 def reading_editions() -> set[str]:
@@ -164,7 +169,7 @@ def reading_editions() -> set[str]:
 def create_author(
     name: str,
 ) -> Author:
-    return hydrate_json_author(json_authors.create(name=name))
+    return _hydrate_json_author(json_authors.create(name=name))
 
 
 def create_work(  # noqa: WPS211
@@ -175,7 +180,7 @@ def create_work(  # noqa: WPS211
     kind: Kind,
     included_work_slugs: Optional[list[str]] = None,
 ) -> Work:
-    return hydrate_json_work(
+    return _hydrate_json_work(
         json_work=json_works.create(
             title=title,
             subtitle=subtitle,
@@ -197,11 +202,11 @@ def create_reading(
     timeline: list[TimelineEntry],
     edition: str,
 ) -> Reading:
-    return hydrate_json_reading(
-        json_reading=json_readings.create(
+    return _hydrate_markdown_reading(
+        markdown_reading=markdown_readings.create(
             work_slug=work.slug,
             timeline=[
-                json_readings.JsonTimelineEntry(
+                markdown_readings.TimelineEntry(
                     date=datetime.date.isoformat(timeline_entry.date),
                     progress=timeline_entry.progress,
                 )
@@ -217,7 +222,7 @@ def create_or_update_review(
     date: datetime.date,
     grade: str = "Abandoned",
 ) -> Review:
-    return hydrate_markdown_review(
+    return _hydrate_markdown_review(
         markdown_review=markdown_reviews.create_or_update(
             work_slug=work.slug,
             date=date,
@@ -226,7 +231,7 @@ def create_or_update_review(
     )
 
 
-def hydrate_json_author(json_author: json_authors.JsonAuthor) -> Author:
+def _hydrate_json_author(json_author: json_authors.JsonAuthor) -> Author:
     return Author(
         name=json_author["name"],
         slug=json_author["slug"],
@@ -234,7 +239,7 @@ def hydrate_json_author(json_author: json_authors.JsonAuthor) -> Author:
     )
 
 
-def hydrate_json_work(json_work: json_works.JsonWork) -> Work:
+def _hydrate_json_work(json_work: json_works.JsonWork) -> Work:
     return Work(
         title=json_work["title"],
         subtitle=json_work["subtitle"],
@@ -250,23 +255,27 @@ def hydrate_json_work(json_work: json_works.JsonWork) -> Work:
     )
 
 
-def hydrate_json_reading(json_reading: json_readings.JsonReading) -> Reading:
+def _hydrate_markdown_reading(
+    markdown_reading: markdown_readings.MarkdownReading,
+) -> Reading:
     return Reading(
-        sequence=json_reading["sequence"],
+        sequence=markdown_reading["sequence"],
         timeline=[
             TimelineEntry(
                 date=datetime.date.fromisoformat(json_timeline_entry["date"]),
                 progress=json_timeline_entry["progress"],
             )
-            for json_timeline_entry in json_reading["timeline"]
+            for json_timeline_entry in markdown_reading["timeline"]
         ],
-        edition=json_reading["edition"],
-        edition_notes=json_reading["edition_notes"],
-        work_slug=json_reading["work_slug"],
+        edition=markdown_reading["edition"],
+        edition_notes=markdown_reading["edition_notes"],
+        work_slug=markdown_reading["work_slug"],
     )
 
 
-def hydrate_markdown_review(markdown_review: markdown_reviews.MarkdownReview) -> Review:
+def _hydrate_markdown_review(
+    markdown_review: markdown_reviews.MarkdownReview,
+) -> Review:
     return Review(
         work_slug=markdown_review.yaml["work_slug"],
         date=markdown_review.yaml["date"],

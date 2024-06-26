@@ -19,7 +19,9 @@ def mock_exports_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
 @pytest.fixture(autouse=True)
 def mock_readings_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     os.mkdir(tmp_path / "readings")
-    mocker.patch("booklog.repository.json_readings.FOLDER_NAME", tmp_path / "readings")
+    mocker.patch(
+        "booklog.repository.markdown_readings.FOLDER_NAME", tmp_path / "readings"
+    )
 
 
 @pytest.fixture(autouse=True)
