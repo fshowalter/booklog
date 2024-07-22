@@ -48,7 +48,7 @@ And in a reference that elicited a broad smile from your reviewer, there’s thi
 
 > “Second, to be blunt, it’s sexist. Completely tone-deaf. Describing a woman’s breasts for a paragraph may have flown in the ’80s and ’90s, Mr. Parks, but in today’s society we’ll get crucified for this stuff. I won’t even get into the extreme sexual violence. I mean, there’s a reason Richard Laymon’s novels were exiled to the UK.”
 
-Most of these names drops allow Fracassi to wink at genre tropes while still exploiting them. But the Laymon scene allows him to poke the bear of political correctness and censorship. The only sexual violence in _Gothic_ occurs “off screen” so to speak, but in referencing Laymon, Fracassi imbues his story with the graphic nature of Laymon’s work without being graphic himself. A deft trick. But by having the publisher berate Tyson, Fracassi can lament the idea of “dangerous” books and publishers getting cancelled for publishing fiction, all while proposing—in the narrative context—a book that _is_ dangerous, thus forcing the reader into an interesting moral dilemma.
+Most of these name drops allow Fracassi to wink at genre tropes while still exploiting them. But the Laymon scene allows him to poke the bear of political correctness and censorship. The only sexual violence in _Gothic_ occurs “off screen” so to speak, but in referencing Laymon, Fracassi imbues his story with the graphic nature of Laymon’s work without being graphic himself. A deft trick. But by having the publisher berate Tyson, Fracassi can lament the idea of “dangerous” books and publishers getting cancelled for publishing fiction, all while proposing—in the narrative context—a book that _is_ dangerous, thus forcing the reader into an interesting moral dilemma.
 
 Amidst these myriad author references, Clive Barker’s omission surprised me, as this story’s shifting point-of-views and dark-fantasy elements reminded me most of Barker’s early works.
 
@@ -60,14 +60,16 @@ I love lines like this. Foreshadowing that everything _will not_ be okay raises 
 
 From here things get mean quick. Veteran horror readers may think characters with their own point-of-view and inner monologue are safe. Fracassi proffers several such narrators, including Tyson's girlfriend and college-age daughter, both of whom could have served as protagonists in a Laymon novel given their charisma and agency. But Fracassi also channels Laymon's liberal and abrupt dispatching of his characters. _No one_ is safe.
 
-Indeed, the plot rolls along at such a fast pace it wasn't until after I'd finished the story that I appreciated how Fracassi resisted the temptation to overwrite. The ending surprises. Rather than wrap up every plot thread, Fracassi leaves several to dangle. These provided false hopes for happier ends and rather than draw them out, Fracassi abandons them.
+Indeed, the plot rolls along at such a fast pace it wasn't until after I'd finished the story that I appreciated how Fracassi resisted the temptation to overwrite. The ending surprises with its abruptness. Readers expect the various plot threads to culminate in a dramatic conclusion. Rather than wrap up every thread, Fracassi cuts several short. These provided false hopes for happier ends. Rather than draw them out, Fracassi abandons them.
 
-Granted, part of me yearned for something even darker. While Fracassi delivers a visceral set-piece involving the desk mangling a character's hand, the sequence didn't make me squirm the way I suspect Fracassi intended. He's mastered the ability to manufacture dread, but his graphic violence lacks the uncomfortable punch of a Chuck Palahniuk or a Bret Easton Ellis.
+It's only in hindsight that you realize their futility. If Fracassi wrote his version of <span data-work-slug="the-stand-by-stephen-king">_The Stand_</span>, it would be half as long, Flagg would win, and you'd need a stiff hug of a drink afterwards to get to sleep.
 
-That said, Fracassi's still growing as a talent. As the desk’s influence grows on Tyson, he becomes more cynical, and Fracassi delivers lines like:
+That said, part of me yearned for something even darker in _Gothic_. While Fracassi delivers a visceral set-piece involving the desk mangling a character's hand, the sequence didn't make me squirm the way I suspect Fracassi intended. He's mastered the ability to manufacture dread, but his graphic violence lacks the uncomfortable punch of a Chuck Palahniuk or a Bret Easton Ellis.
+
+Still, Fracassi's still growing as a talent. As the desk’s influence grows on Tyson, he becomes more cynical, and Fracassi delivers lines like:
 
 > He’s nothing but regret in a nice suit, Tyson thinks.
 
-Which make me think he could write a Chandler-esque detective story with aplomb. Indeed, the penultimate line proves a great stinger that had me laughing out loud.
+Which make me think he could write a Dashiell Hammett-esque detective story with aplomb. Indeed, his detective character here intrigues, and Fracassi invites the comparison by having him quote a line from Hammett's <span data-work-slug="the-thin-man-by-dashiell-hammett">_The Thin Man_</span>.
 
-Fracassi is fast becoming a favorite author of mine. I love how all of his works feel part of a shared universe without referencing each other. His brand of horror blends the existential dread of Lovecraft, the brisk narrative of Chandler, and the anxiety of Laymon, resulting in a gripping, dread-filled ride. Splatter-punk fans may lament the lack of explicit gore, but other horror fans should love it as much as I did.
+Fracassi is fast becoming a favorite author of mine. I love how all of his works feel part of a shared universe without referencing each other. His brand of horror blends the existential dread of Lovecraft, the brisk narrative of Hammett, and the anxiety of Laymon, resulting in a gripping, dread-filled ride tinged with bits of black humor (_Gothic_'s penultimate line had me laughing out loud). Recommended for horror fans, with the caveat that splatter-punk fans may lament the lack of explicit gore.
