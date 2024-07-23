@@ -106,7 +106,7 @@ But, lest you think he abandoned his post-punk roots, he also bought a tank.
 
 I wonder what would have happened had Gillian not joined the band. As the New Order ride ended, Morris found himself pushing forty, yet still not an adult. By this point, his generation had moved on, married, had kids, matured. Finding a partner would mean either an age gap or a maturity gap. But, with Gillian having ridden the same merry-go-round, when the ride ended, they weren’t alone. Two kids who found each other, made it big in music, and stayed together. How sweet is that?
 
-In contrast, Bernard and Hooky kept being rock stars. Bernard had Electronic with Johnny Marr, and Hookey formed the apt-named Revenge and then Monaco.
+In contrast, Bernard and Hooky kept being rock stars. Bernard had Electronic with Johnny Marr, and Hooky formed the apt-named Revenge and then Monaco.
 
 This contrast played out when New Order reconvened for 2001’s _Get Ready_.
 
