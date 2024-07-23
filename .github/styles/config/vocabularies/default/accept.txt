@@ -12,6 +12,7 @@ Beastie
 Beek
 Big's
 bon
+Boogey
 bowtie
 braceleting
 Brylcreem
@@ -23,6 +24,7 @@ Chiffre
 Corcoran
 Dal
 Dandrige
+Dashiell
 dentals
 dratty
 Drax
@@ -32,6 +34,7 @@ Eaux
 Ellery
 Elon
 Festina
+Flagg
 floaties
 Fracassi
 Fuck
@@ -42,6 +45,7 @@ Getch
 Gillespie
 Glick
 Goggins
+Gretton
 Habib
 Hackworth 
 Hallorann
@@ -91,6 +95,7 @@ Neala
 negress
 Nighy
 noir
+Oberheim
 ODing
 olds
 outswung
@@ -107,6 +112,7 @@ Ramadi
 reframe
 reframed
 rewatching
+Robie
 Roddy
 Royale
 Sarandon
@@ -115,6 +121,7 @@ Schreck
 se
 Sematary
 Shannyn 
+Shellshock
 Shhhh
 Skipp
 Skolnick
@@ -142,3 +149,5 @@ Whitby
 Wickerman
 Willink
 Wim
+Madchester
+Tilly
