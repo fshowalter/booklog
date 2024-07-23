@@ -88,32 +88,54 @@ Later, during the recording of "State of the Nation,":
 
 This drug use accelrates through the "Madchester" era with Ecstasy sweeping throuogh the dance hall scene. This resulted in huge crowds at the Haçienda, but the only profieers were the drug dealers. The thriving drug scene brought gang violence that proved the scenes undoing.
 
-Everything culiminates with Factory's bankruptcy, and the going on haitus for much of the 90s. Stephen took the break to get sober and indulge in that most traditional of hobbies: buying a tank.
+Everything culiminates with Factory selling itself to London Records to ward of bankruptcy, and the band going on indefinite hiatus.
+
+Here the story takes a poingant turn. Morris had spent much of his teen and all of his adult life in a band. It was his only responsiblity. Recording albums, playing gigs, and touring the world. A kind of arrested development that led to a prolonged adolescense. Now, the band, for all intents and purposes, had broken up.
+
+With New Order out of the way, Morris had no responsibilities. But rather than flounder, he grew up. He married Gillian and got sober. The couple had a daughter, Tilly, and settled into a quiet life on a farm outside Macclesfield.
+
+A good author, and too non-judgemental to come right out and say it, Morris instead communicates his maturity with passages like this:
+
+> For the one thing that parenthood seemed to bring was an even greater acceleration in time passing: a day began to feel like an hour, a week seemed to only last a day, a year was gone before I knew it. Why was that? In the blink of an eye Tilly was running about the house singing and dancing, then the next minute she was off to school.
+
+But lest you think he abanonded his post-punk roots, he also bought a tank.
 
 > Learning how the thing worked was both frustrating and very satisfying, though probably not as satisfying as discovering that its gun had a range of ten miles, making Bernard’s house an easy target. Fortunately, ammunition was quite hard to get hold of. The Army are quite picky about things like that.
 
-He also married Gillian and became a father. When the band reconvened for 2001's _Get Ready_, the pair's second daughter, two-year-old Grace, suffered Transverse myelitis, paralyzing her from the waist down. The hospital visits kept the pair from most of the album's recording and mixing.
+I wonder, what would have happened, had Gillian not joined the band. As the New Order ride ended Morris found himself a kid pushing forty. By this point, his generation had married, had kids and settled into adulthood. Finding a partner would mean either an age gap or a maturity gap. But with Gillian having been on the same ride, they had each other. Two kids who found each other, made it in a band, then faced the rest of their lives together. How sweet is that?
+
+In contrast, Bernard and Hookey kept being rock stars. Bernard had Electronic with Johnny Marr, and Hookey formed the apt-named Revenge and then Monaco.
+
+This contrast played out when New Order reconvened for 2001's _Get Ready_.
+
+Morris and Gilbert's second daughter, two-year-old Grace, suffered Transverse myelitis, paralyzing her from the waist down. The hospital visits kept the pair from most of the album's recording and mixing.
+
+The mature thing to do would be for Bernard and Hookey to rally around their bandmates like family. Put the record on hold, and support Stephen and Gillian. Instead, they cornered Stephen about his and Gillian's absences and:
 
 > I agreed to take a pay cut for the record, as did Gillian, to compensate for our tardiness.
 
-I love that record, but this taints it.
+I love that record, but this taints it. For Bernard and Hookey, the band was still the priority. Reading between the lines, you can feel the resentment towards Stephen and Gillian that they didn't feel the same. Again, ever the good storyteller, Morris doesn't come right out and say it, but comes close:
 
 > Later came a phone call, again from Andy, explaining how Bernard considered the guitar-manship on the new songs to be beyond the capability of our current staffing levels. The combined efforts of Bernard and Gillian and the Akai DR16 hard-disk recorder would no longer be enough. We would need an extra guitarist to do the work justice in a live setting.
 >
 > I may have been getting a little touchy or oversensitive here but it sounded to me very much like he was saying ‘You’re wife’s not good enough on the guitar, is she? We’d be doing her a favour. Saving her the pain and embarrassment.’
 
-This led to Stephen and Gillian deciding she would leave the band. Another blemish on the record.
-
-By the time the band convened for 2005's _Waiting for the Sirens' Call_ Morris found himself questioning if he was too old for it.
+This led to Stephen and Gillian deciding she would leave the band. Without Gillian, when the band convened for 2005's _Waiting for the Sirens' Call_ Stephen's growing perspective had him questioning his commitment.
 
 > Even as a kid my interests had been somehow involved in the business of running away, which continued through the teenage angst of upsetting the grown-up apple cart of respectability and conformist crap. Now here I was, hurtling headlong into my fifties. The party was becoming a job.
 
-Death is inevitable, and as the group grows older, their father-figures fell away. First their manager Rob, then Factory founder Tony Wilson.
+As the volume winds to a close, death claims the group's surrogate father-figures. First their manager Rob, then Factory founder Tony Wilson. Morris, again showing us his growing maturity, reflects:
 
 > Growing old means going to an ever-increasing number of funerals. It’s life’s brutal way of reminding us that we are all running out of road. The gathering of a circle that gets smaller with each passing year, until there is no one left to remember what really happened.
 
-Morris ends the story with Peter Hook's quitting the band, leaving Gillian's return and the band's next albums for a third volume. But the audio book closes with a bonus interview where their daughter Grace (recovered from her illness) interviews her parents. Gillian proves just as great a racountour and the pair make for an engaging listen.
+Morris ends the story with Peter Hook's quitting the band and its seeming dissolution. He teasesGillian's return and the band's next albums for a third volume. But the audio book closes with a bonus interview where their now-adult daughter Grace (recovered from her illness) interviews her parents. Gillian proves just as great a racountour and the pair make for an engaging listen.
 
-This is the rare rock memoior told first hand but with little to no ego to muddy the waters. Neither Morris nor Gilbert wanted to be stars, they just enjoyed music and being in a band. Like the first volume, this proves a better listen than read. Stephen's self-deprecating humor remains a constant throughout the story, but his enunciation and emphasis are lost on the written page, as are his impersonations of Rob.
+Indeed, one gets the sense the pair couldn't have come through it all without each other. That, and their mutual relative lack of egos. Says, Morris:
 
-For New Order fans, it's a must-listen, but I suspect fans of rock memoiors in general will appreciate it.
+> If you could see us working in the studio together, and I hope to God you never have to, you would think that we were on the brink of imminent marital break-up. That plates are about to be thrown, china smashed, followed by a storming out of house and home.
+>
+> It’s not always like that. Everybody rows sometimes, throws their toys out of the pram over some trivial nonsense. It’s being able to laugh at yourself and realise how ridiculous your behaviour actually is that’s the trick.
+
+This is the rare first-hand rock memoior with a detached perspective. Neither Morris nor Gilbert wanted to be stars, they just enjoyed music and being in a band. Like the first volume, this proves a better listen than read. Stephen's self-deprecating humor remains a constant throughout the story, but his enunciation and emphasis are lost on the written page, as are his impersonations of Rob.
+
+For New Order fans, it's a must-listen, but I suspect fans of rock memoiors in general will appreciate it. I first listened to it last year, but never got around to writing a review. Coming back to it, I figured I could review it based on my notes, but I thought I'd re-listen to a few chapters to refresh my memory. I ended up re-listening to the entire book again, loving it just as much the second time around.
