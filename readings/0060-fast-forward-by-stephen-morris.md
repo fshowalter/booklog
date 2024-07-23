@@ -11,5 +11,5 @@ timeline:
     progress: 70%
   - date: "2024-07-01"
     progress: Finished
-edition_notes: null
+edition_notes: Read by Stephen Morris
 ---
