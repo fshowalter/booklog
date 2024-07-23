@@ -48,7 +48,7 @@ As the 80s progressed, the band's musical inspriations changed. Prog and rock ga
 
 > I was listening to these tracks on a hi-fi in a tiny bedroom in a nice house on a suburban street in Macclesfield. The same way I listened to everything. Although this was very satisfying for nearly everything rock, psych, country, punk and prog, it was not the environment that the 12-inch extended dance mix was designed for.
 
-As New Order's music began to reflect this, Morris noticed a shift in band's audience.
+Music had moved out of the bedroom and into the dance club. As New Order's music began to reflect this, Morris noticed a shift in band's audience.
 
 > In the very early days our audience seemed to consist largely of Joy Division fans come to pay their respects. Generally, these adopted the look they thought typified Ian Curtis (this they assumed from photographs of Ian and Joy Division): short hair and grey raincoats. They didn’t smile much. They were mostly men.
 >
@@ -73,3 +73,47 @@ Morris dispells another myth:
 The bands ascention to super-stardom takes its toll. Morris recounts a layover in Thialand which saw him get drunk and pick a spiteful fight with Gillian whose only crime was astonishing the locals with her short skirt and dyed red hair. Meanwhile their drunk manager, Rob Gretton, insisted on buying the suit in the window of a shop, shouting at the propritor, "How much for the suit, mate?" to which the owner, kept replying, "No ticket!" until their roadie, the soberest among them realized what was happening and turned to Rob.
 
 > ‘Rob, we’ve got to go. It’s a fucking cleaners!’
+
+Morris's blow-up was due, in part to the stress of touring, but also to the Haçienda, Factory's ever-hungry money-pit. Determined buck trends, the operators kept the club open seven nights a week. Most nights it went empty.
+
+Another contributor was the band's growing drug use. The worked with producer John Robie on "Shellshock" for the <span data-imdb-id="">_Pretty in Pink_</span> soundtrack.
+
+> It is widely acknowledged that cocaine may kill you, but you’re more likely to bore everyone else to death before it does. It will turn you into a self-obsessed, monstrous, gurning, yakking idiot.
+>
+> Yes, friends, coke was a big influence on some of us at that time. Clean-living Hooky continued his long-observed abstinence. Even so it’s all over ‘Shellshock’. You don’t even have to listen that hard. The hyperactive bass drum is a dead giveaway – another side-effect of this very moreish chemical confection.
+
+Later, during the recording of "State of the Nation,":
+
+> I ended up in the backroom with the local dealer, taking part in some kind of marathon snort-off. The winner of which got to munch on some genuine Colombian coca leaf for dessert. It was an insane gurnathon. Neither I nor the dealer could converse in any meaningful way – he just chomped and gurned while I grinned and twitched.
+
+This drug use accelrates through the "Madchester" era with Ecstasy sweeping throuogh the dance hall scene. This resulted in huge crowds at the Haçienda, but the only profieers were the drug dealers. The thriving drug scene brought gang violence that proved the scenes undoing.
+
+Everything culiminates with Factory's bankruptcy, and the going on haitus for much of the 90s. Stephen took the break to get sober and indulge in that most traditional of hobbies: buying a tank.
+
+> Learning how the thing worked was both frustrating and very satisfying, though probably not as satisfying as discovering that its gun had a range of ten miles, making Bernard’s house an easy target. Fortunately, ammunition was quite hard to get hold of. The Army are quite picky about things like that.
+
+He also married Gillian and became a father. When the band reconvened for 2001's _Get Ready_, the pair's second daughter, two-year-old Grace, suffered Transverse myelitis, paralyzing her from the waist down. The hospital visits kept the pair from most of the album's recording and mixing.
+
+> I agreed to take a pay cut for the record, as did Gillian, to compensate for our tardiness.
+
+I love that record, but this taints it.
+
+> Later came a phone call, again from Andy, explaining how Bernard considered the guitar-manship on the new songs to be beyond the capability of our current staffing levels. The combined efforts of Bernard and Gillian and the Akai DR16 hard-disk recorder would no longer be enough. We would need an extra guitarist to do the work justice in a live setting.
+>
+> I may have been getting a little touchy or oversensitive here but it sounded to me very much like he was saying ‘You’re wife’s not good enough on the guitar, is she? We’d be doing her a favour. Saving her the pain and embarrassment.’
+
+This led to Stephen and Gillian deciding she would leave the band. Another blemish on the record.
+
+By the time the band convened for 2005's _Waiting for the Sirens' Call_ Morris found himself questioning if he was too old for it.
+
+> Even as a kid my interests had been somehow involved in the business of running away, which continued through the teenage angst of upsetting the grown-up apple cart of respectability and conformist crap. Now here I was, hurtling headlong into my fifties. The party was becoming a job.
+
+Death is inevitable, and as the group grows older, their father-figures fell away. First their manager Rob, then Factory founder Tony Wilson.
+
+> Growing old means going to an ever-increasing number of funerals. It’s life’s brutal way of reminding us that we are all running out of road. The gathering of a circle that gets smaller with each passing year, until there is no one left to remember what really happened.
+
+Morris ends the story with Peter Hook's quitting the band, leaving Gillian's return and the band's next albums for a third volume. But the audio book closes with a bonus interview where their daughter Grace (recovered from her illness) interviews her parents. Gillian proves just as great a racountour and the pair make for an engaging listen.
+
+This is the rare rock memoior told first hand but with little to no ego to muddy the waters. Neither Morris nor Gilbert wanted to be stars, they just enjoyed music and being in a band. Like the first volume, this proves a better listen than read. Stephen's self-deprecating humor remains a constant throughout the story, but his enunciation and emphasis are lost on the written page, as are his impersonations of Rob.
+
+For New Order fans, it's a must-listen, but I suspect fans of rock memoiors in general will appreciate it.
