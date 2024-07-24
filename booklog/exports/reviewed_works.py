@@ -6,11 +6,6 @@ from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
-JsonTimelineEntry = TypedDict(
-    "JsonTimelineEntry",
-    {"date": datetime.date, "progress": str},
-)
-
 JsonMoreReviewAuthor = TypedDict(
     "JsonMoreReviewAuthor",
     {
@@ -23,13 +18,10 @@ JsonReading = TypedDict(
     "JsonReading",
     {
         "date": datetime.date,
-        "edition": str,
-        "editionNotes": Optional[str],
         "isAudiobook": bool,
         "readingTime": int,
         "abandoned": bool,
         "sequence": int,
-        "timeline": list[JsonTimelineEntry],
     },
 )
 
@@ -106,17 +98,9 @@ def build_json_reading(reading: repository_api.Reading) -> JsonReading:
     return JsonReading(
         sequence=reading.sequence,
         date=last_timeline_entry.date,
-        edition=reading.edition,
-        editionNotes=reading.edition_notes,
         isAudiobook=reading.edition == "Audible",
         abandoned=last_timeline_entry.progress == "Abandoned",
         readingTime=reading_time,
-        timeline=[
-            JsonTimelineEntry(
-                date=timeline_entry.date, progress=timeline_entry.progress
-            )
-            for timeline_entry in reading.timeline
-        ],
     )
 
 
@@ -345,8 +329,7 @@ def export(repository_data: RepositoryData) -> None:
             )
         )
 
-    exporter.serialize_dicts_to_folder(
+    exporter.serialize_dicts(
         json_reviewed_works,
-        "reviewed_works",
-        filename_key=lambda work: work["slug"],
+        "reviewed-works",
     )
