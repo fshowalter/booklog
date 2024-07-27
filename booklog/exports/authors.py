@@ -29,6 +29,7 @@ JsonAuthor = TypedDict(
         "slug": str,
         "reviewedWorkCount": int,
         "workCount": int,
+        "shelfWorkCount": int,
         "works": list[JsonAuthorWork],
     },
 )
@@ -86,6 +87,7 @@ def build_json_author(
         ],
         reviewedWorkCount=reviewed_work_count,
         workCount=len(author_works),
+        shelfWorkCount=len(author_works) - reviewed_work_count,
     )
 
 
