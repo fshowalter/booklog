@@ -1,6 +1,6 @@
 from collections import defaultdict
 from datetime import date
-from typing import Callable, TypedDict, TypeVar
+from typing import Callable, Iterable, TypedDict, TypeVar
 
 from booklog.exports import exporter, list_tools
 from booklog.exports.repository_data import RepositoryData
@@ -18,6 +18,7 @@ JsonMostReadAuthorReading = TypedDict(
         "title": str,
         "yearPublished": str,
         "includedInSlugs": list[str],
+        "reviewed": bool,
     },
 )
 
@@ -40,15 +41,32 @@ JsonDistribution = TypedDict(
     },
 )
 
+JsonGradeDistribution = TypedDict(
+    "JsonGradeDistribution",
+    {"name": str, "count": int, "sortValue": int},
+)
 
-JsonReadingStats = TypedDict(
-    "JsonReadingStats",
+JsonYearStats = TypedDict(
+    "JsonYearStats",
     {
-        "span": str,
-        "reviews": int,
-        "readWorks": int,
-        "books": int,
-        "gradeDistribution": list[JsonDistribution],
+        "year": str,
+        "workCount": int,
+        "bookCount": int,
+        "kindDistribution": list[JsonDistribution],
+        "editionDistribution": list[JsonDistribution],
+        "decadeDistribution": list[JsonDistribution],
+        "mostReadAuthors": list[JsonMostReadAuthor],
+    },
+)
+
+
+JsonAllTimeStats = TypedDict(
+    "JsonAllTimeStats",
+    {
+        "reviewCount": int,
+        "workCount": int,
+        "bookCount": int,
+        "gradeDistribution": list[JsonGradeDistribution],
         "kindDistribution": list[JsonDistribution],
         "editionDistribution": list[JsonDistribution],
         "decadeDistribution": list[JsonDistribution],
@@ -64,10 +82,33 @@ def build_json_distributions(
 ) -> list[JsonDistribution]:
     distribution = list_tools.group_list_by_key(distribution_items, key)
 
-    return [
+    json_distributions = [
         JsonDistribution(name=key, count=len(distribution_values))
         for key, distribution_values in distribution.items()
     ]
+
+    return sorted(
+        json_distributions,
+        key=lambda json_distribution: json_distribution["name"],
+    )
+
+
+def build_json_grade_distributions(
+    reviews: Iterable[repository_api.Review],
+) -> list[JsonGradeDistribution]:
+    distribution = defaultdict(list)
+
+    for review in reviews:
+        distribution[(review.grade, review.grade_value or 0)].append(review)
+
+    return sorted(
+        [
+            JsonGradeDistribution(name=grade, count=len(reviews), sortValue=grade_value)
+            for (grade, grade_value), reviews in distribution.items()
+        ],
+        key=lambda distribution: distribution["sortValue"],
+        reverse=True,
+    )
 
 
 def date_finished_or_abandoned(reading: repository_api.Reading) -> date:
@@ -95,6 +136,8 @@ def build_json_most_read_author_reading(
 ) -> JsonMostReadAuthorReading:
     work = reading.work(repository_data.works)
 
+    reviewed = bool(work.review(repository_data.reviews))
+
     return JsonMostReadAuthorReading(
         sequence=reading.sequence,
         date=date_finished_or_abandoned(reading=reading),
@@ -107,6 +150,7 @@ def build_json_most_read_author_reading(
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)
         ],
+        reviewed=reviewed,
     )
 
 
@@ -117,7 +161,7 @@ def build_most_read_authors(
         readings=readings, repository_data=repository_data
     )
 
-    return [
+    most_read_authors_list = [
         JsonMostReadAuthor(
             name=next(
                 author.name
@@ -136,6 +180,12 @@ def build_most_read_authors(
         for author_slug, readings in readings_by_author.items()
         if len(readings) > 1
     ]
+
+    return sorted(
+        most_read_authors_list,
+        key=lambda most_read_author: most_read_author["count"],
+        reverse=True,
+    )[:10]
 
 
 def build_grade_distribution(
@@ -168,21 +218,38 @@ def book_count(
     return len([work for work in works if work.kind not in {"Short Story", "Novella"}])
 
 
-def build_json_reading_stats(
-    span: str,
+def build_year_json_stats(
+    year: str,
+    readings: list[repository_api.Reading],
+    most_read_authors: list[JsonMostReadAuthor],
+    repository_data: RepositoryData,
+) -> JsonYearStats:
+    works = [reading.work(repository_data.works) for reading in readings]
+
+    return JsonYearStats(
+        year=year,
+        workCount=len(readings),
+        bookCount=book_count(readings, repository_data=repository_data),
+        kindDistribution=build_kind_distribution(works),
+        editionDistribution=build_edition_distribution(readings),
+        decadeDistribution=build_decade_distribution(works),
+        mostReadAuthors=most_read_authors,
+    )
+
+
+def build_all_time_json_stats(
     readings: list[repository_api.Reading],
     reviews: list[repository_api.Review],
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
-) -> JsonReadingStats:
+) -> JsonAllTimeStats:
     works = [reading.work(repository_data.works) for reading in readings]
 
-    return JsonReadingStats(
-        span=span,
-        reviews=len(reviews),
-        readWorks=len(readings),
-        books=book_count(readings, repository_data=repository_data),
-        gradeDistribution=build_grade_distribution(reviews),
+    return JsonAllTimeStats(
+        reviewCount=len(reviews),
+        workCount=len(readings),
+        bookCount=book_count(readings, repository_data=repository_data),
+        gradeDistribution=build_json_grade_distributions(reviews),
         kindDistribution=build_kind_distribution(works),
         editionDistribution=build_edition_distribution(readings),
         decadeDistribution=build_decade_distribution(works),
@@ -193,21 +260,21 @@ def build_json_reading_stats(
 def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "reading_stats")
 
-    json_reading_stats = [
-        build_json_reading_stats(
-            span="all-time",
-            reviews=repository_data.reviews,
-            readings=repository_data.readings,
-            most_read_authors=build_most_read_authors(
-                readings=repository_data.readings, repository_data=repository_data
-            ),
-            repository_data=repository_data,
-        )
-    ]
-
-    reviews_by_year = list_tools.group_list_by_key(
-        repository_data.reviews, lambda review: str(review.date.year)
+    all_time_stats = build_all_time_json_stats(
+        reviews=repository_data.reviews,
+        readings=repository_data.readings,
+        most_read_authors=build_most_read_authors(
+            readings=repository_data.readings, repository_data=repository_data
+        ),
+        repository_data=repository_data,
     )
+
+    exporter.serialize_dict(
+        all_time_stats,
+        "all-time-stats",
+    )
+
+    year_stats = []
 
     readings_by_year = list_tools.group_list_by_key(
         repository_data.readings,
@@ -215,10 +282,9 @@ def export(repository_data: RepositoryData) -> None:
     )
 
     for year, readings_for_year in readings_by_year.items():
-        json_reading_stats.append(
-            build_json_reading_stats(
-                span=year,
-                reviews=reviews_by_year[year],
+        year_stats.append(
+            build_year_json_stats(
+                year=year,
                 readings=readings_for_year,
                 most_read_authors=build_most_read_authors(
                     readings=readings_for_year, repository_data=repository_data
@@ -228,7 +294,7 @@ def export(repository_data: RepositoryData) -> None:
         )
 
     exporter.serialize_dicts_to_folder(
-        json_reading_stats,
-        "reading_stats",
-        filename_key=lambda stats: stats["span"],
+        year_stats,
+        "year-stats",
+        filename_key=lambda stats: stats["year"],
     )

@@ -45,8 +45,7 @@ def export(repository_data: RepositoryData) -> None:
         if not work.review(repository_data.reviews)
     ]
 
-    exporter.serialize_dicts_to_folder(
+    exporter.serialize_dicts(
         json_unreviewed_works,
-        "unreviewed_works",
-        filename_key=lambda work: work["slug"],
+        "unreviewed-works",
     )
