@@ -80,9 +80,7 @@ def test_exports_reviewed_works(
     exports_api.export_data()
 
     with open(
-        os.path.join(
-            tmp_path / "exports" / "reviewed_works", "on-writing-by-stephen-king.json"
-        ),
+        os.path.join(tmp_path / "exports" / "reviewed-works.json"),
         "r",
     ) as output_file:
         file_content = json.load(output_file)
@@ -96,9 +94,7 @@ def test_exports_unreviewed_works(
     exports_api.export_data()
 
     with open(
-        os.path.join(
-            tmp_path / "exports" / "unreviewed_works", "the-stand-by-stephen-king.json"
-        ),
+        os.path.join(tmp_path / "exports" / "unreviewed-works.json"),
         "r",
     ) as output_file:
         file_content = json.load(output_file)

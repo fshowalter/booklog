@@ -33,7 +33,7 @@ JsonTimelineEntry = TypedDict(
 )
 
 
-def build_json_timeline_entry(
+def _build_json_timeline_entry(
     reading: repository_api.Reading,
     timeline_entry: repository_api.TimelineEntry,
     repository_data: RepositoryData,
@@ -69,7 +69,7 @@ def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "timeline-entries")
 
     json_progress = [
-        build_json_timeline_entry(
+        _build_json_timeline_entry(
             reading=reading,
             timeline_entry=timeline_entry,
             repository_data=repository_data,

@@ -23,7 +23,7 @@ JsonAuthor = TypedDict(
 )
 
 
-def generate_sort_name(name: str) -> str:
+def _generate_sort_name(name: str) -> str:
     split_name = name.split()
     last_name = split_name[-1]
     other_names = split_name[:-1]
@@ -33,10 +33,10 @@ def generate_sort_name(name: str) -> str:
 
 def create(name: str) -> JsonAuthor:
     json_author = JsonAuthor(
-        name=name, sortName=generate_sort_name(name=name), slug=slugify(name)
+        name=name, sortName=_generate_sort_name(name=name), slug=slugify(name)
     )
 
-    serialize(json_author=json_author)
+    _serialize(json_author=json_author)
 
     return json_author
 
@@ -47,7 +47,7 @@ def read_all() -> Iterable[JsonAuthor]:
             yield (cast(JsonAuthor, json.load(json_file)))
 
 
-def serialize(json_author: JsonAuthor) -> str:
+def _serialize(json_author: JsonAuthor) -> str:
     file_path = os.path.join(FOLDER_NAME, "{0}.json".format(json_author["slug"]))
     path_tools.ensure_file_path(file_path)
 

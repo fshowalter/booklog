@@ -1,15 +1,11 @@
 import datetime
+from itertools import count
 from typing import Callable, Optional, TypedDict, TypeVar
 
 from booklog.exports import exporter, json_work_author
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
-
-JsonTimelineEntry = TypedDict(
-    "JsonTimelineEntry",
-    {"date": datetime.date, "progress": str},
-)
 
 JsonMoreReviewAuthor = TypedDict(
     "JsonMoreReviewAuthor",
@@ -23,13 +19,10 @@ JsonReading = TypedDict(
     "JsonReading",
     {
         "date": datetime.date,
-        "edition": str,
-        "editionNotes": Optional[str],
         "isAudiobook": bool,
         "readingTime": int,
         "abandoned": bool,
         "sequence": int,
-        "timeline": list[JsonTimelineEntry],
     },
 )
 
@@ -106,17 +99,9 @@ def build_json_reading(reading: repository_api.Reading) -> JsonReading:
     return JsonReading(
         sequence=reading.sequence,
         date=last_timeline_entry.date,
-        edition=reading.edition,
-        editionNotes=reading.edition_notes,
         isAudiobook=reading.edition == "Audible",
         abandoned=last_timeline_entry.progress == "Abandoned",
         readingTime=reading_time,
-        timeline=[
-            JsonTimelineEntry(
-                date=timeline_entry.date, progress=timeline_entry.progress
-            )
-            for timeline_entry in reading.timeline
-        ],
     )
 
 
@@ -146,32 +131,31 @@ def build_json_more_review(
     )
 
 
-ListType = TypeVar("ListType")
+_ListType = TypeVar("_ListType")
 
 
-def slice_collection(  # noqa: WPS210
-    collection: list[ListType], matcher: Callable[[ListType], bool]
-) -> list[ListType]:
+def _slice_list(  # noqa: WPS210
+    source_list: list[_ListType],
+    matcher: Callable[[_ListType], bool],
+) -> list[_ListType]:
     midpoint = next(
         index
-        for index, collection_item in enumerate(collection)
+        for index, collection_item in zip(count(), source_list)
         if matcher(collection_item)
     )
-
-    collection_length = len(collection)
 
     start_index = midpoint - 2
     end_index = midpoint + 3
 
-    if start_index >= 0 and end_index < collection_length:
-        return collection[start_index:end_index]
+    if start_index >= 0 and end_index < len(source_list):
+        return source_list[start_index:end_index]
 
     if start_index < 0:
-        start_index += collection_length
-    if end_index > collection_length:
-        end_index -= collection_length
+        start_index += len(source_list)
+    if end_index >= len(source_list):
+        end_index -= len(source_list)
 
-    return collection[start_index:] + collection[:end_index]
+    return source_list[start_index:] + source_list[:end_index]
 
 
 def build_more_reviews(
@@ -185,8 +169,8 @@ def build_more_reviews(
         for work_entry in more_by_author_entry["works"]
     ]
 
-    sliced_reviews = slice_collection(
-        collection=sorted(
+    sliced_reviews = _slice_list(
+        source_list=sorted(
             (
                 review
                 for review in repository_data.reviews
@@ -230,8 +214,8 @@ def build_more_by_authors(
         if len(reviewed_author_works) < 5:
             continue
 
-        sliced_works = slice_collection(
-            collection=sorted(
+        sliced_works = _slice_list(
+            source_list=sorted(
                 reviewed_author_works,
                 key=lambda reviewed_author_work: reviewed_author_work.year,
             ),
@@ -345,8 +329,7 @@ def export(repository_data: RepositoryData) -> None:
             )
         )
 
-    exporter.serialize_dicts_to_folder(
+    exporter.serialize_dicts(
         json_reviewed_works,
-        "reviewed_works",
-        filename_key=lambda work: work["slug"],
+        "reviewed-works",
     )

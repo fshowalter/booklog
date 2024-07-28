@@ -207,7 +207,7 @@ def create_reading(
             work_slug=work.slug,
             timeline=[
                 markdown_readings.TimelineEntry(
-                    date=datetime.date.isoformat(timeline_entry.date),
+                    date=timeline_entry.date,
                     progress=timeline_entry.progress,
                 )
                 for timeline_entry in timeline
@@ -262,10 +262,10 @@ def _hydrate_markdown_reading(
         sequence=markdown_reading["sequence"],
         timeline=[
             TimelineEntry(
-                date=datetime.date.fromisoformat(json_timeline_entry["date"]),
-                progress=json_timeline_entry["progress"],
+                date=yaml_timeline_entry["date"],
+                progress=yaml_timeline_entry["progress"],
             )
-            for json_timeline_entry in markdown_reading["timeline"]
+            for yaml_timeline_entry in markdown_reading["timeline"]
         ],
         edition=markdown_reading["edition"],
         edition_notes=markdown_reading["edition_notes"],

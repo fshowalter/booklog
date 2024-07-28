@@ -29,12 +29,13 @@ JsonAuthor = TypedDict(
         "slug": str,
         "reviewedWorkCount": int,
         "workCount": int,
+        "shelfWorkCount": int,
         "works": list[JsonAuthorWork],
     },
 )
 
 
-def build_json_author_work(
+def _build_json_author_work(
     work: repository_api.Work,
     review: Optional[repository_api.Review],
     repository_data: RepositoryData,
@@ -60,7 +61,7 @@ def build_json_author_work(
     )
 
 
-def build_json_author(
+def _build_json_author(
     author: repository_api.Author, repository_data: RepositoryData
 ) -> JsonAuthor:
     author_works = list(author.works(repository_data.works))
@@ -77,7 +78,7 @@ def build_json_author(
         sortName=author.sort_name,
         slug=author.slug,
         works=[
-            build_json_author_work(
+            _build_json_author_work(
                 work=work,
                 review=work.review(repository_data.reviews),
                 repository_data=repository_data,
@@ -86,6 +87,7 @@ def build_json_author(
         ],
         reviewedWorkCount=reviewed_work_count,
         workCount=len(author_works),
+        shelfWorkCount=len(author_works) - reviewed_work_count,
     )
 
 
@@ -93,7 +95,7 @@ def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "authors")
 
     json_authors = [
-        build_json_author(
+        _build_json_author(
             author=author,
             repository_data=repository_data,
         )

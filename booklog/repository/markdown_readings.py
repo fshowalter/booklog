@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import datetime
 import os
 import re
 from glob import glob
@@ -17,7 +18,7 @@ FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
 
 
 class TimelineEntry(TypedDict):
-    date: str
+    date: datetime.date
     progress: str
 
 
