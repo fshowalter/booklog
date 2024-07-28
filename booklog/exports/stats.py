@@ -77,7 +77,7 @@ JsonAllTimeStats = TypedDict(
 ListType = TypeVar("ListType")
 
 
-def build_json_distributions(
+def _build_json_distributions(
     distribution_items: list[ListType], key: Callable[[ListType], str]
 ) -> list[JsonDistribution]:
     distribution = list_tools.group_list_by_key(distribution_items, key)
@@ -93,7 +93,7 @@ def build_json_distributions(
     )
 
 
-def build_json_grade_distributions(
+def _build_json_grade_distributions(
     reviews: Iterable[repository_api.Review],
 ) -> list[JsonGradeDistribution]:
     distribution = defaultdict(list)
@@ -111,7 +111,7 @@ def build_json_grade_distributions(
     )
 
 
-def date_finished_or_abandoned(reading: repository_api.Reading) -> date:
+def _date_finished_or_abandoned(reading: repository_api.Reading) -> date:
     return next(
         timeline_entry.date
         for timeline_entry in reading.timeline
@@ -119,7 +119,7 @@ def date_finished_or_abandoned(reading: repository_api.Reading) -> date:
     )
 
 
-def group_readings_by_author(
+def _group_readings_by_author(
     readings: list[repository_api.Reading], repository_data: RepositoryData
 ) -> dict[str, list[repository_api.Reading]]:
     readings_by_author: dict[str, list[repository_api.Reading]] = defaultdict(list)
@@ -131,7 +131,7 @@ def group_readings_by_author(
     return readings_by_author
 
 
-def build_json_most_read_author_reading(
+def _build_json_most_read_author_reading(
     reading: repository_api.Reading, repository_data: RepositoryData
 ) -> JsonMostReadAuthorReading:
     work = reading.work(repository_data.works)
@@ -140,7 +140,7 @@ def build_json_most_read_author_reading(
 
     return JsonMostReadAuthorReading(
         sequence=reading.sequence,
-        date=date_finished_or_abandoned(reading=reading),
+        date=_date_finished_or_abandoned(reading=reading),
         slug=work.slug,
         edition=reading.edition,
         kind=work.kind,
@@ -154,10 +154,10 @@ def build_json_most_read_author_reading(
     )
 
 
-def build_most_read_authors(
+def _build_most_read_authors(
     readings: list[repository_api.Reading], repository_data: RepositoryData
 ) -> list[JsonMostReadAuthor]:
-    readings_by_author = group_readings_by_author(
+    readings_by_author = _group_readings_by_author(
         readings=readings, repository_data=repository_data
     )
 
@@ -171,7 +171,7 @@ def build_most_read_authors(
             count=len(readings),
             slug=author_slug,
             readings=[
-                build_json_most_read_author_reading(
+                _build_json_most_read_author_reading(
                     reading=reading, repository_data=repository_data
                 )
                 for reading in readings
@@ -188,29 +188,25 @@ def build_most_read_authors(
     )[:10]
 
 
-def build_grade_distribution(
-    reviews: list[repository_api.Review],
-) -> list[JsonDistribution]:
-    return build_json_distributions(reviews, lambda review: review.grade)
-
-
-def build_kind_distribution(works: list[repository_api.Work]) -> list[JsonDistribution]:
-    return build_json_distributions(works, lambda work: work.kind)
-
-
-def build_edition_distribution(
-    readings: list[repository_api.Reading],
-) -> list[JsonDistribution]:
-    return build_json_distributions(readings, lambda reading: reading.edition)
-
-
-def build_decade_distribution(
+def _build_kind_distribution(
     works: list[repository_api.Work],
 ) -> list[JsonDistribution]:
-    return build_json_distributions(works, lambda work: "{0}0s".format(work.year[:3]))
+    return _build_json_distributions(works, lambda work: work.kind)
 
 
-def book_count(
+def _build_edition_distribution(
+    readings: list[repository_api.Reading],
+) -> list[JsonDistribution]:
+    return _build_json_distributions(readings, lambda reading: reading.edition)
+
+
+def _build_decade_distribution(
+    works: list[repository_api.Work],
+) -> list[JsonDistribution]:
+    return _build_json_distributions(works, lambda work: "{0}0s".format(work.year[:3]))
+
+
+def _book_count(
     readings: list[repository_api.Reading], repository_data: RepositoryData
 ) -> int:
     works = [reading.work(repository_data.works) for reading in readings]
@@ -218,7 +214,7 @@ def book_count(
     return len([work for work in works if work.kind not in {"Short Story", "Novella"}])
 
 
-def build_year_json_stats(
+def _build_year_json_stats(
     year: str,
     readings: list[repository_api.Reading],
     most_read_authors: list[JsonMostReadAuthor],
@@ -229,15 +225,15 @@ def build_year_json_stats(
     return JsonYearStats(
         year=year,
         workCount=len(readings),
-        bookCount=book_count(readings, repository_data=repository_data),
-        kindDistribution=build_kind_distribution(works),
-        editionDistribution=build_edition_distribution(readings),
-        decadeDistribution=build_decade_distribution(works),
+        bookCount=_book_count(readings, repository_data=repository_data),
+        kindDistribution=_build_kind_distribution(works),
+        editionDistribution=_build_edition_distribution(readings),
+        decadeDistribution=_build_decade_distribution(works),
         mostReadAuthors=most_read_authors,
     )
 
 
-def build_all_time_json_stats(
+def _build_all_time_json_stats(
     readings: list[repository_api.Reading],
     reviews: list[repository_api.Review],
     most_read_authors: list[JsonMostReadAuthor],
@@ -248,11 +244,11 @@ def build_all_time_json_stats(
     return JsonAllTimeStats(
         reviewCount=len(reviews),
         workCount=len(readings),
-        bookCount=book_count(readings, repository_data=repository_data),
-        gradeDistribution=build_json_grade_distributions(reviews),
-        kindDistribution=build_kind_distribution(works),
-        editionDistribution=build_edition_distribution(readings),
-        decadeDistribution=build_decade_distribution(works),
+        bookCount=_book_count(readings, repository_data=repository_data),
+        gradeDistribution=_build_json_grade_distributions(reviews),
+        kindDistribution=_build_kind_distribution(works),
+        editionDistribution=_build_edition_distribution(readings),
+        decadeDistribution=_build_decade_distribution(works),
         mostReadAuthors=most_read_authors,
     )
 
@@ -260,10 +256,10 @@ def build_all_time_json_stats(
 def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "reading_stats")
 
-    all_time_stats = build_all_time_json_stats(
+    all_time_stats = _build_all_time_json_stats(
         reviews=repository_data.reviews,
         readings=repository_data.readings,
-        most_read_authors=build_most_read_authors(
+        most_read_authors=_build_most_read_authors(
             readings=repository_data.readings, repository_data=repository_data
         ),
         repository_data=repository_data,
@@ -278,15 +274,15 @@ def export(repository_data: RepositoryData) -> None:
 
     readings_by_year = list_tools.group_list_by_key(
         repository_data.readings,
-        lambda reading: str(date_finished_or_abandoned(reading).year),
+        lambda reading: str(_date_finished_or_abandoned(reading).year),
     )
 
     for year, readings_for_year in readings_by_year.items():
         year_stats.append(
-            build_year_json_stats(
+            _build_year_json_stats(
                 year=year,
                 readings=readings_for_year,
-                most_read_authors=build_most_read_authors(
+                most_read_authors=_build_most_read_authors(
                     readings=readings_for_year, repository_data=repository_data
                 ),
                 repository_data=repository_data,
