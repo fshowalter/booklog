@@ -10,9 +10,9 @@ Non-politicians like David Mamet, who've done a hard pivot from one political ex
 
 Mamet's a literate and engaging writer. Lines like, "I have sworn off the news because there is nothing new, and reiteration of the well-known and unfortunate serves no purpose other than as the bad narcotic of despair," work as cynical poetry.
 
-He also packs a mean wit. Consider his musing on the difference between stage and screen: "Edith Evans played Irina Arkadina in The Seagull on the West End in 1936. Her son Konstantin Gavrilovich stages his amateur play before her, his actress-mother. He finishes, and Chekhov indicates: A PAUSE."
+He also packs a mean wit. Consider his musing on the difference between stage and screen: "Edith Evans played Irina Arkadina in _The Seagull_ on the West End in 1936. Her son Konstantin Gavrilovich stages his amateur play before her, his actress-mother. He finishes, and Chekhov indicates: A PAUSE."
 
-"Miss Evans paused, it is reported, for four minutes before she spoke, holding the audience immobile, waiting to see her reaction. One can't do that in a film. (Although the French, it seems, won't leave off trying.)"
+"Miss Evans paused, it is reported, for _four minutes_ before she spoke, holding the audience immobile, waiting to see her reaction. One can't do that in a film. (Although the French, it seems, won't leave off trying.)"
 
 But the book proves a tough read. It comprises a series of essays, written in 2020, amid the pandemic and published in _National Review_. Each runs only a few pages. The subjects vary, but the running theme is "The Left" are ruining the country.
 
@@ -34,7 +34,7 @@ A shame, because he backs into a sound argument that today's climate forces one 
 
 Political leanings aside, his acerbic observations on Hollywood shine. On the subject of TV, he writes, "The content of television shows is essentially undifferentiated. Not only are all the cop shows interchangeable; they are interchangeable with the medical shows. (Swap out the shoot-outs and the ER scenes—the action sequences—and they are all just bad narration about offscreen characters.)"
 
-I'm going to peruse Mamet's bibliography to see if he has an all-Hollywood book, as I suspect that would prove enjoyable. But I cannot recommend _Recessional_. Those who enjoy it are likely just as angry as Mamet, and--I suspect--will remain so for their lives, no matter the country's politics.
+I'm going to peruse Mamet's bibliography to see if he has an all-Hollywood book, as I suspect that would prove enjoyable. But I cannot recommend _Recessional_. Those who enjoy it are likely just as angry as Mamet, and--I suspect--will remain so, no matter the country's politics.
 
 But for those in the middle seeking to understand one side's rage, Mamet's work can prove illuminating. To ignore or dismiss his concerns is as foolhardy as embracing them. He is a man who loves this country and the opportunities it afforded him. He's seeking to preserve and not destroy.
 
