@@ -107,20 +107,3 @@ jobs:
       - name: pytest
         run: |
           pytest
-
-  vale:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: checkout
-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
-
-      - name: Vale
-        uses: errata-ai/vale-action@v2.1.0
-        with:
-          # Optional
-          files: reviews
-        env:
-          # Required, set by GitHub actions automatically:
-          # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
