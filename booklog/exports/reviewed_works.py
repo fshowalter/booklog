@@ -54,6 +54,8 @@ JsonIncludedWork = TypedDict(
         "authors": list[JsonIncludedWorkAuthor],
         "grade": Optional[str],
         "slug": str,
+        "kind": str,
+        "yearPublished": str,
     },
 )
 
@@ -248,6 +250,8 @@ def build_json_included_work(
         slug=included_work.slug,
         title=included_work.title,
         grade=review.grade if review else None,
+        kind=included_work.kind,
+        yearPublished=included_work.year,
         authors=[
             JsonIncludedWorkAuthor(
                 name=included_work_author.author(repository_data.authors).name,
