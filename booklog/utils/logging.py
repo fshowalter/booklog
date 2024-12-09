@@ -1,6 +1,7 @@
 import sys as _sys
-from typing import TYPE_CHECKING, Any, Callable, TypeVar
+from typing import TYPE_CHECKING, Any, Callable, Sequence, Type, TypeVar
 
+from loguru import BasicHandlerConfig
 from loguru import logger as _base_logger
 
 if TYPE_CHECKING:
@@ -9,7 +10,8 @@ if TYPE_CHECKING:
 T = TypeVar("T")  # noqa: WPS111
 Function = Callable[..., T]
 
-logger_handlers = [
+
+logger_handlers: Sequence[BasicHandlerConfig] = [
     {
         "sink": _sys.stdout,
         "format": "<green>{elapsed}</green> | "
@@ -40,7 +42,7 @@ class ExtendedLogger:
             message_with_color, *args, **kwargs
         )  # noqa: WPS221
 
-    def catch(self, exception: Function[None]) -> Function[None]:
+    def catch(self, exception: Type[BaseException]) -> Function[None]:
         return self.logger.catch(exception=exception)
 
 
