@@ -1,5 +1,5 @@
 import sys as _sys
-from typing import TYPE_CHECKING, Any, Callable, Sequence, Type, TypeVar
+from typing import TYPE_CHECKING, Any, Callable, Sequence, TypeVar
 
 from loguru import BasicHandlerConfig
 from loguru import logger as _base_logger
@@ -42,8 +42,8 @@ class ExtendedLogger:
             message_with_color, *args, **kwargs
         )  # noqa: WPS221
 
-    def catch(self, exception: Type[BaseException]) -> Function[None]:
-        return self.logger.catch(exception=exception)
+    def catch(self, function: Function[None]) -> Function[None]:
+        return self.logger.catch(function=function)
 
 
 logger: ExtendedLogger = ExtendedLogger(_base_logger.opt(colors=True))
