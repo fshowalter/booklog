@@ -1,7 +1,7 @@
 import sys as _sys
 from typing import TYPE_CHECKING, Any, Callable, Sequence, TypeVar
 
-from loguru import BasicHandlerConfig
+from loguru import HandlerConfig
 from loguru import logger as _base_logger
 
 if TYPE_CHECKING:
@@ -11,7 +11,7 @@ T = TypeVar("T")  # noqa: WPS111
 Function = Callable[..., T]
 
 
-logger_handlers: Sequence[BasicHandlerConfig] = [
+logger_handlers: Sequence[HandlerConfig] = [
     {
         "sink": _sys.stdout,
         "format": "<green>{elapsed}</green> | "
