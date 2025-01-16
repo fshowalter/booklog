@@ -89,7 +89,7 @@ JsonReviewedWork = TypedDict(
 )
 
 
-def build_json_reading(reading: repository_api.Reading) -> JsonReading:
+def _build_json_reading(reading: repository_api.Reading) -> JsonReading:
     first_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date)[0]
 
     last_timeline_entry = sorted(
@@ -107,7 +107,7 @@ def build_json_reading(reading: repository_api.Reading) -> JsonReading:
     )
 
 
-def build_json_more_review(
+def _build_json_more_review(
     work: repository_api.Work, repository_data: RepositoryData
 ) -> JsonMoreReview:
     review = work.review(repository_data.reviews)
@@ -146,8 +146,8 @@ def _slice_list(  # noqa: WPS210
         if matcher(collection_item)
     )
 
-    start_index = midpoint - 2
-    end_index = midpoint + 3
+    start_index = midpoint - 3
+    end_index = midpoint + 4
 
     if start_index >= 0 and end_index < len(source_list):
         return source_list[start_index:end_index]
@@ -160,7 +160,7 @@ def _slice_list(  # noqa: WPS210
     return source_list[start_index:] + source_list[:end_index]
 
 
-def build_more_reviews(
+def _build_more_reviews(
     work: repository_api.Work,
     more_by_author_entries: list[JsonMoreByAuthor],
     repository_data: RepositoryData,
@@ -180,11 +180,11 @@ def build_more_reviews(
             ),
             key=lambda review: review.work(repository_data.works).sort_title,
         ),
-        matcher=build_review_matcher(work.slug),
+        matcher=_build_review_matcher(work.slug),
     )
 
     return [
-        build_json_more_review(
+        _build_json_more_review(
             work=review.work(repository_data.works), repository_data=repository_data
         )
         for review in sliced_reviews
@@ -192,15 +192,15 @@ def build_more_reviews(
     ]
 
 
-def build_review_matcher(slug_to_match: str) -> Callable[[repository_api.Review], bool]:
+def _build_review_matcher(slug_to_match: str) -> Callable[[repository_api.Review], bool]:
     return lambda review: review.work_slug == slug_to_match
 
 
-def build_work_matcher(slug_to_match: str) -> Callable[[repository_api.Work], bool]:
+def _build_work_matcher(slug_to_match: str) -> Callable[[repository_api.Work], bool]:
     return lambda work: work.slug == slug_to_match
 
 
-def build_more_by_authors(
+def _build_more_by_authors(
     work: repository_api.Work, repository_data: RepositoryData
 ) -> list[JsonMoreByAuthor]:
     more_by_author_entries: list[JsonMoreByAuthor] = []
@@ -221,7 +221,7 @@ def build_more_by_authors(
                 reviewed_author_works,
                 key=lambda reviewed_author_work: reviewed_author_work.year,
             ),
-            matcher=build_work_matcher(work.slug),
+            matcher=_build_work_matcher(work.slug),
         )
 
         more_by_author_entries.append(
@@ -229,7 +229,7 @@ def build_more_by_authors(
                 name=author.name,
                 slug=author.slug,
                 works=[
-                    build_json_more_review(
+                    _build_json_more_review(
                         work=author_work, repository_data=repository_data
                     )
                     for author_work in sliced_works
@@ -241,7 +241,7 @@ def build_more_by_authors(
     return more_by_author_entries
 
 
-def build_json_included_work(
+def _build_json_included_work(
     included_work: repository_api.Work, repository_data: RepositoryData
 ) -> JsonIncludedWork:
     review = included_work.review(repository_data.reviews)
@@ -262,7 +262,7 @@ def build_json_included_work(
     )
 
 
-def build_json_reviewed_work(
+def _build_json_reviewed_work(
     work: repository_api.Work,
     readings_for_work: list[repository_api.Reading],
     review: repository_api.Review,
@@ -272,8 +272,8 @@ def build_json_reviewed_work(
         readings_for_work, key=lambda reading: reading.sequence, reverse=True
     )[0]
 
-    more_by_authors = build_more_by_authors(work=work, repository_data=repository_data)
-    more_reviews = build_more_reviews(
+    more_by_authors = _build_more_by_authors(work=work, repository_data=repository_data)
+    more_reviews = _build_more_reviews(
         work=work,
         more_by_author_entries=more_by_authors,
         repository_data=repository_data,
@@ -296,7 +296,7 @@ def build_json_reviewed_work(
             )
             for work_author in work.work_authors
         ],
-        readings=[build_json_reading(reading) for reading in readings_for_work],
+        readings=[_build_json_reading(reading) for reading in readings_for_work],
         includedInSlugs=[
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)
@@ -305,7 +305,7 @@ def build_json_reviewed_work(
         moreByAuthors=more_by_authors,
         moreReviews=more_reviews,
         includedWorks=[
-            build_json_included_work(
+            _build_json_included_work(
                 included_work=included_work, repository_data=repository_data
             )
             for included_work in work.included_works(repository_data.works)
@@ -325,7 +325,7 @@ def export(repository_data: RepositoryData) -> None:
             continue
 
         json_reviewed_works.append(
-            build_json_reviewed_work(
+            _build_json_reviewed_work(
                 work=work,
                 readings_for_work=readings_for_work,
                 review=review,

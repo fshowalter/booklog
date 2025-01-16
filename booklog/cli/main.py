@@ -10,7 +10,6 @@ def prompt() -> None:
         (add_work.prompt, "<cyan>Add Work</cyan>"),
         (add_reading.prompt, "<cyan>Add Reading</cyan>"),
         (export, "<cyan>Export Data</cyan>"),
-        (None, "Exit"),
     ]
 
     option_function = radio_list.prompt(

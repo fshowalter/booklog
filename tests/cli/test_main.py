@@ -50,7 +50,7 @@ def test_calls_add_reading(mock_input: MockInput, mock_add_reading: MagicMock) -
 
 
 def test_can_export_data(mock_input: MockInput, mock_export_data: MagicMock) -> None:
-    mock_input([Up, Up, Enter, ControlD])
+    mock_input([Up, Enter, ControlD])
     main.prompt()
 
     mock_export_data.assert_called_once()
