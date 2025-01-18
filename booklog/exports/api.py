@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from booklog.exports import (
-    all_works,
     authors,
     reviewed_works,
     stats,
@@ -27,4 +26,3 @@ def export_data() -> None:
     timeline_entries.export(repository_data)
     unreviewed_works.export(repository_data)
     stats.export(repository_data)
-    all_works.export(repository_data)
