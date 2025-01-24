@@ -68,7 +68,7 @@ JsonMoreByAuthor = TypedDict(
 JsonReviewedWork = TypedDict(
     "JsonReviewedWork",
     {
-        "sequence": int,
+        "sequence": str,
         "slug": str,
         "includedInSlugs": list[str],
         "title": str,
@@ -192,7 +192,9 @@ def _build_more_reviews(
     ]
 
 
-def _build_review_matcher(slug_to_match: str) -> Callable[[repository_api.Review], bool]:
+def _build_review_matcher(
+    slug_to_match: str,
+) -> Callable[[repository_api.Review], bool]:
     return lambda review: review.work_slug == slug_to_match
 
 
@@ -280,7 +282,11 @@ def _build_json_reviewed_work(
     )
 
     return JsonReviewedWork(
-        sequence=most_recent_reading.sequence,
+        sequence="{0}-{1}-{2}".format(
+            review.date,
+            most_recent_reading.timeline[0].date,
+            most_recent_reading.sequence,
+        ),
         slug=work.slug,
         title=work.title,
         subtitle=work.subtitle,
