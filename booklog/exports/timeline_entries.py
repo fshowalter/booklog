@@ -42,7 +42,9 @@ def _build_json_timeline_entry(
     reviewed = bool(work.review(repository_data.reviews))
 
     return JsonTimelineEntry(
-        sequence="{0}-{1}".format(timeline_entry.date, reading.sequence),
+        sequence="{0}-{1}-{2}".format(
+            timeline_entry.date, reading.timeline[0].date, reading.sequence
+        ),
         slug=work.slug,
         edition=reading.edition,
         kind=work.kind,
