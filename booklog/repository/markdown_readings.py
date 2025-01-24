@@ -9,7 +9,7 @@ from typing import Any, Iterable, Optional, TypedDict, cast
 import yaml
 from slugify import slugify
 
-from booklog.utils import path_tools
+from booklog.utils import list_tools, path_tools
 from booklog.utils.logging import logger
 
 FOLDER_NAME = "readings"
@@ -26,8 +26,8 @@ class MarkdownReading(TypedDict):
     sequence: int
     work_slug: str
     edition: str
-    timeline: list[TimelineEntry]
     edition_notes: Optional[str]
+    timeline: list[TimelineEntry]
 
 
 def _represent_none(self: Any, _: Any) -> Any:
@@ -38,7 +38,7 @@ def create(
     work_slug: str, timeline: list[TimelineEntry], edition: str
 ) -> MarkdownReading:
     new_reading = MarkdownReading(
-        sequence=_next_sequence(),
+        sequence=_next_sequence_for_date(timeline[0]["date"]),
         work_slug=work_slug,
         edition=edition,
         timeline=timeline,
@@ -55,24 +55,22 @@ class SequenceError(Exception):
         self.message = message
 
 
-def _next_sequence() -> int:
-    existing_instances = sorted(read_all(), key=lambda reading: reading["sequence"])
-    next_sequence_number = len(existing_instances) + 1
-    last_instance: Optional[MarkdownReading] = None
+def _next_sequence_for_date(date: datetime.date) -> int:
+    existing_instances = sorted(
+        read_all(),
+        key=lambda reading: "{0}-{1}".format(
+            reading["timeline"][0]["date"], reading["sequence"]
+        ),
+    )
 
-    if next_sequence_number > 1:
-        last_instance = existing_instances[-1]
+    grouped_readings = list_tools.group_list_by_key(
+        existing_instances, lambda reading: reading["timeline"][0]["date"]
+    )
 
-    if last_instance and (last_instance["sequence"] != (next_sequence_number - 1)):
-        raise SequenceError(
-            "Last item {0} has sequence {1} but next sequence is {2}".format(
-                existing_instances[-1:],
-                last_instance["sequence"],
-                next_sequence_number,
-            ),
-        )
+    if date not in grouped_readings.keys():
+        return 1
 
-    return next_sequence_number
+    return len(grouped_readings[date]) + 1
 
 
 def read_all() -> Iterable[MarkdownReading]:

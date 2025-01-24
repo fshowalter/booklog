@@ -97,9 +97,9 @@ def _serialize(markdown_reading: MarkdownReading) -> str:
 
     frontmatter = Frontmatter(
         sequence=markdown_reading["sequence"],
+        work_slug=markdown_reading["work_slug"],
         edition=markdown_reading["edition"],
         edition_notes=markdown_reading["edition_notes"],
-        work_slug=markdown_reading["work_slug"],
         timeline=markdown_reading["timeline"],
     )
 

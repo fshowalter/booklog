@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 
 import pytest
-import yaml
 from syrupy.assertion import SnapshotAssertion
 from syrupy.extensions.json import JSONSnapshotExtension
 
@@ -103,62 +102,6 @@ def test_can_create_reading(
         file_content = output_file.read()
 
     assert file_content == snapshot_json
-
-
-def test_create_raises_error_if_sequence_out_of_sync(
-    tmp_path: Path, work_fixture: repository_api.Work
-) -> None:
-    existing_reading_data = {
-        "sequence": 3,
-        "work_slug": "on-writing-by-stephen-king",
-        "edition": "Kindle",
-        "timeline": [
-            {
-                "date": "2016-03-10",
-                "progress": "15%",
-            },
-            {
-                "date": "2016-03-11",
-                "progress": "50%",
-            },
-            {
-                "date": "2016-03-12",
-                "progress": "Finished",
-            },
-        ],
-        "edition_notes": None,
-    }
-
-    with open(
-        os.path.join(tmp_path / "readings", "0003-on-writing-by-stephen-king.md"), "w"
-    ) as markdown_file:
-        markdown_file.write("---\n")
-        yaml.dump(
-            existing_reading_data,
-            encoding="utf-8",
-            allow_unicode=True,
-            default_flow_style=False,
-            sort_keys=False,
-            stream=markdown_file,
-        )
-        markdown_file.write("---\n\n")
-
-    with pytest.raises(repository_api.SequenceError):
-        repository_api.create_reading(
-            work=work_fixture,
-            edition="Kindle",
-            timeline=[
-                repository_api.TimelineEntry(
-                    date=datetime.date(2016, 3, 10), progress="15%"
-                ),
-                repository_api.TimelineEntry(
-                    date=datetime.date(2016, 3, 11), progress="50%"
-                ),
-                repository_api.TimelineEntry(
-                    date=datetime.date(2016, 3, 12), progress="Finished"
-                ),
-            ],
-        )
 
 
 def test_can_create_new_review(
