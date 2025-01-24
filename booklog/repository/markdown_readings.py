@@ -7,7 +7,6 @@ from glob import glob
 from typing import Any, Iterable, Optional, TypedDict, cast
 
 import yaml
-from slugify import slugify
 
 from booklog.utils import list_tools, path_tools
 from booklog.utils.logging import logger
@@ -81,8 +80,10 @@ def read_all() -> Iterable[MarkdownReading]:
 
 
 def _generate_file_path(json_reading: MarkdownReading) -> str:
-    file_name = slugify(
-        "{0:04d} {1}".format(json_reading["sequence"], json_reading["work_slug"]),
+    file_name = "{0}-{1:02d}-{2}".format(
+        json_reading["timeline"][0]["date"],
+        json_reading["sequence"],
+        json_reading["work_slug"],
     )
 
     file_path = os.path.join(FOLDER_NAME, "{0}.md".format(file_name))
