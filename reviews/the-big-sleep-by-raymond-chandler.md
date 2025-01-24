@@ -4,7 +4,7 @@ grade: C+
 date: 2022-09-24
 ---
 
-**Raymond Chandler's debut novel.** Los Angeles private investigator Philip Marlowe takes on an aging tycoon's blackmail case that spirals into a labyrinthine series of murders.
+Raymond Chandler's debut novel follows Los Angeles private investigator Philip Marlowe on an aging tycoon's blackmail case that spirals into a labyrinthine series of murders.
 
 <!-- end -->
 
@@ -24,7 +24,7 @@ Not that it matters. The film lifts its best lines straight from the book. Chand
 
 Damn, that’s good.
 
-But, listening to the book again[^2], I struggled with Marlowe's overt homophobia. For example:
+But, revisiting the book, I struggled with Marlowe's overt homophobia. For example:
 
 > “Don’t kid me, son. The fag gave you one. You’ve got a nice clean manly little room in there. He shooed you out and locked it up when he had lady visitors. He was like Caesar, a husband to women and a wife to men. Think I can’t figure people like him and you out?”
 
@@ -53,4 +53,3 @@ It's a good book, with moments of indisputable greatness, but ignoring the homop
 Chandler could do better.
 
 [^1]: Sperber and Lax, _Bogart_, 218.
-[^2]: Scott Brick is a fine narrator but ill-suited for the voice of Marlowe. And the decision to add jazz and orchestral interludes between chapters gave the production a radio-play semblance that also felt awry.
