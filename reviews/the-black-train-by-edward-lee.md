@@ -1,11 +1,7 @@
 ---
-:sequence: 1
-:book_id: the-black-train-by-edward-lee
-:date: 2017-03-04
-:grade: C-
-:cover: https://lh3.googleusercontent.com/8XsfK2Lxzc_DDHA3-INgoranxy_AmxeoAIkHObEj4JHEKiDF9EC6bljujBMj-2jV_OJGmwVcWEzJggiA41D4LPIo1bsh_enIcWlv9g6aokSL03KVau7Uk0eB8rwUFatFjbszMA=w175-l75-rj
-:cover_ratio: 1.6125
-:cover_placeholder:
+work_slug: the-black-train-by-edward-lee
+grade: D+
+date: 2017-02-20
 ---
 
 After devouring all but 40 pages in under a month, Edward Lee's _The Black Train_ sat on my shelf for just over a year. I blame the urine.
