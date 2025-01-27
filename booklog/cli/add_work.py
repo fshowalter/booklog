@@ -166,12 +166,12 @@ def ask_for_subtitle(state: State) -> State:
 
     subtitle = ask.prompt("Sub-title: ")
 
-    if not subtitle:
+    if subtitle is None:
         state.stage = "ask_for_title"
         return state
 
     if confirm(subtitle):
-        state.subtitle = subtitle
+        state.subtitle = subtitle if subtitle else None
         state.stage = "ask_for_year"
 
     return state
