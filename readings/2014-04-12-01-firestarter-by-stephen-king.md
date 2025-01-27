@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: firestarter-by-stephen-king
-edition: Paperback
+edition: Kindle
 timeline:
   - date: 2014-04-12
     progress: 10%
@@ -23,5 +23,5 @@ timeline:
     progress: 85%
   - date: 2014-04-22
     progress: Finished
-edition_notes: New American Library
+edition_notes: null
 ---
