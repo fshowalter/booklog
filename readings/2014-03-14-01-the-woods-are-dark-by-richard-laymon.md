@@ -13,5 +13,5 @@ timeline:
     progress: 66%
   - date: 2014-03-18
     progress: Finished
-edition_notes: null
+edition_notes: "_The Richard Laymon Collection, Volume 2: The Woods Are Dark / Out Are The Lights_, Headline"
 ---
