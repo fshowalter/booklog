@@ -154,6 +154,10 @@ def _build_json_most_read_author_reading(
     )
 
 
+def _reading_sort_key(reading: JsonMostReadAuthorReading) -> str:
+    return "{0}-{1}".format(reading["date"], reading["sequence"])
+
+
 def _build_most_read_authors(
     readings: list[repository_api.Reading], repository_data: RepositoryData
 ) -> list[JsonMostReadAuthor]:
@@ -177,9 +181,7 @@ def _build_most_read_authors(
                     )
                     for reading in readings
                 ],
-                key=lambda reading: "{0}-{1}".format(
-                    reading["date"], reading["sequence"]
-                ),
+                key=_reading_sort_key,
             ),
         )
         for author_slug, readings in readings_by_author.items()
