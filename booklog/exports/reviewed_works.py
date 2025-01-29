@@ -282,9 +282,8 @@ def _build_json_reviewed_work(
     )
 
     return JsonReviewedWork(
-        sequence="{0}-{1}-{2}".format(
+        sequence="{0}-{1}".format(
             review.date,
-            most_recent_reading.timeline[0].date,
             most_recent_reading.sequence,
         ),
         slug=work.slug,
