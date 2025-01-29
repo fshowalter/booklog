@@ -1,5 +1,5 @@
 ---
-sequence: 2
+sequence: 3
 work_slug: the-rise-of-theodore-roosevelt-by-edmund-morris
 edition: Audible
 edition_notes: Read by Mark Deakins

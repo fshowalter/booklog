@@ -1,5 +1,5 @@
 ---
-sequence: 1
+sequence: 2
 work_slug: casino-royale-by-ian-fleming
 edition: Kindle
 edition_notes: Thomas & Mercer, 2012

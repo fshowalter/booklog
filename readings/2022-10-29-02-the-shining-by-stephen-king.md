@@ -1,5 +1,5 @@
 ---
-sequence: 1
+sequence: 2
 work_slug: the-shining-by-stephen-king
 edition: Audible
 edition_notes: Read by Campbell Scott

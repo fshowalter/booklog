@@ -1,5 +1,5 @@
 ---
-sequence: 2
+sequence: 1
 work_slug: out-are-the-lights-by-richard-laymon
 edition: Kindle
 edition_notes: <span data-work-slug="out-are-the-lights-and-other-tales-by-richard-laymon">_Out

@@ -67,7 +67,7 @@ def rename_readings() -> None:
     existing_instances = sorted(read_all(), key=lambda reading: reading["sequence"])
 
     grouped_readings = group_list_by_key(
-        existing_instances, lambda reading: reading["timeline"][0]["date"]
+        existing_instances, lambda reading: reading["timeline"][-1]["date"]
     )
 
     for _, readings in grouped_readings.items():
@@ -78,7 +78,7 @@ def rename_readings() -> None:
 
 def _generate_file_path(markdown_reading: MarkdownReading) -> str:
     file_name = "{0}-{1:02d}-{2}".format(
-        markdown_reading["timeline"][0]["date"],
+        markdown_reading["timeline"][-1]["date"],
         markdown_reading["sequence"],
         markdown_reading["work_slug"],
     )

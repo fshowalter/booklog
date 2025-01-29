@@ -1,5 +1,5 @@
 ---
-sequence: 1
+sequence: 2
 work_slug: fright-night-by-john-skipp-craig-spector
 edition: Kindle
 edition_notes: Crossroad Press, 2019

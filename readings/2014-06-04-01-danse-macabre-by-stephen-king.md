@@ -2,6 +2,7 @@
 sequence: 1
 work_slug: danse-macabre-by-stephen-king
 edition: Kindle
+edition_notes: null
 timeline:
 - date: 2014-05-23
   progress: 7%
@@ -29,6 +30,5 @@ timeline:
   progress: 94%
 - date: 2014-06-04
   progress: Finished
-edition_notes: null
 ---
 
