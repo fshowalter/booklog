@@ -1,5 +1,5 @@
 ---
-sequence: 2
+sequence: 1
 work_slug: the-rules-of-attraction-by-bret-easton-ellis
 edition: Kindle
 edition_notes: Vintage Contemporaries

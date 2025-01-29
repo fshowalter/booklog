@@ -97,7 +97,7 @@ def test_can_create_reading(
 
     with open(
         os.path.join(
-            tmp_path / "readings", "2016-03-10-01-the-cellar-by-richard-laymon.md"
+            tmp_path / "readings", "2016-03-12-01-the-cellar-by-richard-laymon.md"
         ),
         "r",
     ) as output_file:

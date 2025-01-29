@@ -1,5 +1,5 @@
 ---
-sequence: 1
+sequence: 2
 work_slug: the-woods-are-dark-by-richard-laymon
 edition: Audible
 edition_notes: Read by Bob Dunsworth

@@ -40,8 +40,8 @@ def create(
         sequence=_next_sequence_for_date(timeline[0]["date"]),
         work_slug=work_slug,
         edition=edition,
-        timeline=timeline,
         edition_notes=None,
+        timeline=timeline,
     )
 
     _serialize(new_reading)
@@ -58,12 +58,12 @@ def _next_sequence_for_date(date: datetime.date) -> int:
     existing_instances = sorted(
         read_all(),
         key=lambda reading: "{0}-{1}".format(
-            reading["timeline"][0]["date"], reading["sequence"]
+            reading["timeline"][-1]["date"], reading["sequence"]
         ),
     )
 
     grouped_readings = list_tools.group_list_by_key(
-        existing_instances, lambda reading: reading["timeline"][0]["date"]
+        existing_instances, lambda reading: reading["timeline"][-1]["date"]
     )
 
     if date not in grouped_readings.keys():
@@ -81,7 +81,7 @@ def read_all() -> Iterable[MarkdownReading]:
 
 def _generate_file_path(json_reading: MarkdownReading) -> str:
     file_name = "{0}-{1:02d}-{2}".format(
-        json_reading["timeline"][0]["date"],
+        json_reading["timeline"][-1]["date"],
         json_reading["sequence"],
         json_reading["work_slug"],
     )

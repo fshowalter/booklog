@@ -1,5 +1,5 @@
 ---
-sequence: 2
+sequence: 1
 work_slug: fast-forward-by-stephen-morris
 edition: Audible
 edition_notes: Read by Stephen Morris
