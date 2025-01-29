@@ -43,7 +43,7 @@ def _build_json_timeline_entry(
 
     return JsonTimelineEntry(
         sequence="{0}-{1}-{2}".format(
-            timeline_entry.date, reading.timeline[0].date, reading.sequence
+            timeline_entry.date, reading.timeline[-1].date, reading.sequence
         ),
         slug=work.slug,
         edition=reading.edition,
