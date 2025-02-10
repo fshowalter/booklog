@@ -1,15 +1,13 @@
 ---
-:sequence: 27
-:title: The Last Hand
-:slug: the-last-hand-by-richard-laymon
-:authors:
-- Richard Laymon
-:page_count: '28'
-:year_published: '1985'
-:date_started: 2014-07-13
-:date_finished: 2014-07-13
-:grade: D
+sequence: 1
+work_slug: the-last-hand-by-richard-laymon
+edition: Paperback
+edition_notes: null
+timeline:
+  - date: 2014-07-13
+    progress: Finished
 ---
+
 Brad Conroy is a secret agent coming off a botched assignment in New York City. His mission now is to deliver a black case in San Francisco. It's his second chance. He knows there won't be a third. But en route to meeting his contact, Brad spies a woman in trouble on the side of the road.
 
 _The Last Hand_ is another of Laymon’s entries in the FastBack series of books. The books were small–about the size of a passport–and just under 30 pages. With a focus on action and a low vocabulary, the series strove to foster an interest in reading for pleasure in young adults.
