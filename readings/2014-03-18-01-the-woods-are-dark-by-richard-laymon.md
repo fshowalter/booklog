@@ -2,7 +2,9 @@
 sequence: 1
 work_slug: the-woods-are-dark-by-richard-laymon
 edition: Paperback
-edition_notes: Leisure Books, 2008"
+edition_notes:
+  "_The Richard Laymon Collection, Volume 2: The Woods Are Dark / Out
+  Are The Lights_, Headline, 2006"
 timeline:
   - date: 2014-03-14
     progress: 9%
