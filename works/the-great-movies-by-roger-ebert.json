@@ -1,0 +1,15 @@
+{
+  "title": "The Great Movies",
+  "subtitle": null,
+  "sortTitle": "Great Movies",
+  "year": "2002",
+  "authors": [
+    {
+      "slug": "roger-ebert",
+      "notes": null
+    }
+  ],
+  "slug": "the-great-movies-by-roger-ebert",
+  "kind": "Nonfiction",
+  "includedWorks": []
+}
