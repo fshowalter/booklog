@@ -5,10 +5,10 @@ description = "Console application for managing my booklog, including reviews, a
 readme = "README.md"
 requires-python = "==3.13.2"
 dependencies = [
-    "loguru==0.7.3",
-    "prompt-toolkit==3.0.50",
-    "python-slugify==8.0.4",
-    "pyyaml==6.0.2",
+  "loguru==0.7.3",
+  "prompt-toolkit==3.0.50",
+  "python-slugify==8.0.4",
+  "pyyaml==6.0.2",
 ]
 
 [tool.uv]
@@ -19,22 +19,22 @@ booklog = "booklog.cli.main:prompt"
 
 [dependency-groups]
 dev = [
-    "wemake-python-styleguide==1.0.0",
-    "syrupy==4.8.1",
-    "ruff==0.9.6",
-    "mypy==1.15.0",
-    "pytest==8.3.4",
-    "pytest-cov==6.0.0",
-    "pytest-mock==3.14.0",
-    "pytest-randomly==3.16.0",
-    "types-mock==5.1.0.20240425",
-    "types-python-slugify==8.0.2.20240310",
-    "types-pyyaml==6.0.12.20241230",
+  "wemake-python-styleguide==1.0.0",
+  "syrupy==4.8.1",
+  "ruff==0.9.6",
+  "mypy==1.15.0",
+  "pytest==8.3.4",
+  "pytest-cov==6.0.0",
+  "pytest-mock==3.14.0",
+  "pytest-randomly==3.16.0",
+  "types-mock==5.1.0.20240425",
+  "types-python-slugify==8.0.2.20240310",
+  "types-pyyaml==6.0.12.20241230",
 ]
 
 [tool.ruff]
 # Ruff config: https://docs.astral.sh/ruff/settings
-target-version = "py310"
+target-version = "py313"
 line-length = 100
 extend-exclude = [
   # Intentionally bad code:
@@ -103,39 +103,42 @@ ignore = [
   "PLR2004", # do not report magic numbers
   "PLR6301", # do not require classmethod / staticmethod when self not used
   "TRY003",  # long exception messages from `tryceratops`
-  "S101", # asserts
+  "S101",    # asserts
 ]
-external = [ "WPS" ]
-
+external = ["WPS"]
 
 # Plugin configs:
-flake8-import-conventions.banned-from = [ "ast" ]
+flake8-import-conventions.banned-from = ["ast"]
 flake8-quotes.inline-quotes = "double"
 mccabe.max-complexity = 6
 pydocstyle.convention = "google"
 
 [tool.mypy]
-python_version = 3.10
+python_version = "3.13"
 strict = true
 mypy_path = "booklog/stubs"
 
 [tool.pytest.ini_options]
 # py.test configuration: http://doc.pytest.org/en/latest/customize.html
-norecursedirs = [ "tests/fixtures", "*.egg", ".eggs", "dist", "build",  "docs", ".tox", ".git", "__pycache__", ".venv", ".direnv" ]
-junit_family="xunit1"
+norecursedirs = [
+  "tests/fixtures",
+  "*.egg",
+  ".eggs",
+  "dist",
+  "build",
+  "docs",
+  ".tox",
+  ".git",
+  "__pycache__",
+  ".venv",
+  ".direnv",
+]
+junit_family = "xunit1"
 
-addopts ="--strict-markers --cov=. --cov-branch --cov-report html -s --show-capture stdout"
+addopts = "--strict-markers --cov=. --cov-branch --cov-report html -s --show-capture stdout"
 
 [tool.coverage.run]
-omit =[
-  "**/__init__.py",
-  ".venv/**",
-  "setup.py",
-  "**/.direnv/**" 
-]
+omit = ["**/__init__.py", ".venv/**", "setup.py", "**/.direnv/**"]
 
 [tool.coverage.report]
-exclude_lines = [
-    "pragma: no cover",
-    "if TYPE_CHECKING:"
-]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]

@@ -37,6 +37,9 @@ Consider how she can turn her victims into revenants. Not spirits but corporeal 
 All that said, _Ghost Story_ remains an ambitious effort that shines more often than it stumbles. That it's perhaps too ambitious proves its biggest fault, though fans of early King should feel right at home in the small-town world.
 
 [^1]: King, Stephen. Danse Macabre (Chicago: Pocket Books, 2010), 294, Kindle.
+
 [^2]: Fred Astaire played Ricky in the 1981 movie. A reasonable choice.
+
 [^3]: King, Danse Macabre, 294.
+
 [^4]: King, Danse Macabre, 294.
