@@ -11,7 +11,7 @@ MockInput = Callable[[Sequence[str]], None]
 
 
 @pytest.fixture(autouse=True)
-def mock_input() -> Generator[MockInput, None, None]:
+def mock_input() -> Generator[MockInput]:
     with (
         create_pipe_input() as pipe_input,
         create_app_session(input=pipe_input, output=DummyOutput()),
