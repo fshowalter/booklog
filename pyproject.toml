@@ -12,7 +12,8 @@ dependencies = [
 ]
 
 [tool.uv]
-required-version = "==0.5.30"
+required-version = ">=0.5.31"
+package = true
 
 [project.scripts]
 booklog = "booklog.cli.main:prompt"
@@ -105,13 +106,12 @@ ignore = [
   "TRY003",  # long exception messages from `tryceratops`
   "S101",    # asserts
 ]
-external = ["WPS"]
 
 # Plugin configs:
 flake8-import-conventions.banned-from = ["ast"]
 flake8-quotes.inline-quotes = "double"
-mccabe.max-complexity = 6
 pydocstyle.convention = "google"
+pylint.max-args = 6
 
 [tool.mypy]
 python_version = "3.13"
@@ -138,7 +138,10 @@ junit_family = "xunit1"
 addopts = "--strict-markers --cov=. --cov-branch --cov-report html -s --show-capture stdout"
 
 [tool.coverage.run]
-omit = ["**/__init__.py", ".venv/**", "setup.py", "**/.direnv/**"]
+omit = ["**/__init__.py", ".venv/**"]
 
 [tool.coverage.report]
 exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
+
+[tool.setuptools]
+packages = ["booklog", "booklog.cli"]

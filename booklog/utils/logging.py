@@ -9,7 +9,7 @@ from loguru import logger as _base_logger
 if TYPE_CHECKING:
     import loguru
 
-T = TypeVar("T")  # noqa: WPS111
+T = TypeVar("T")
 Function = Callable[..., T]
 
 
@@ -40,9 +40,7 @@ class ExtendedLogger:
         else:
             message_with_color = message.replace("{}", "<green>{}</green>")
 
-        self.logger.opt(colors=True, depth=1).info(
-            message_with_color, *args, **kwargs
-        )  # noqa: WPS221
+        self.logger.opt(colors=True, depth=1).info(message_with_color, *args, **kwargs)
 
     def catch(self, function: Function[None]) -> Function[None]:
         return self.logger.catch(function)

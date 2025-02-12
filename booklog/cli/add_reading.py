@@ -112,7 +112,7 @@ def ask_for_date(default_date: date | None = None) -> date | None:
         "Date: ",
         rprompt="YYYY-MM-DD format.",
         validator=validator,
-        default=default_date.strftime("%Y-%m-%d"),  # noqa: WPS323
+        default=default_date.strftime("%Y-%m-%d"),
     )
 
     if not date_string:
@@ -154,7 +154,7 @@ def ask_for_progress() -> str | None:
     return progress
 
 
-def ask_for_timeline(state: State) -> State:  # noqa: WPS231
+def ask_for_timeline(state: State) -> State:
     state.timeline = []
     timeline_date = None
 
