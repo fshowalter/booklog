@@ -22,8 +22,8 @@ jobs:
       - name: "Set up Python"
         uses: actions/setup-python@v5
 
-      - name: ruff format && ruff check && flake8 --select=WPS .
-        run: ruff format && ruff check && flake8 --select=WPS .
+      - name: uv run ruff format && ruff check && flake8 --select=WPS .
+        run: uv run ruff format && ruff check && flake8 --select=WPS .
 
   mypy:
     runs-on: ubuntu-latest
