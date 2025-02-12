@@ -78,9 +78,7 @@ def read_all() -> Iterable[MarkdownReview]:
 
 
 def generate_file_path(markdown_review: MarkdownReview) -> str:
-    file_path = os.path.join(
-        FOLDER_NAME, "{0}.md".format(markdown_review.yaml["work_slug"])
-    )
+    file_path = os.path.join(FOLDER_NAME, "{0}.md".format(markdown_review.yaml["work_slug"]))
 
     path_tools.ensure_file_path(file_path)
 

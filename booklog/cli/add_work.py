@@ -65,9 +65,7 @@ def persist_work(state: State) -> State:
         included_work_slugs=state.included_works,
     )
 
-    author_names = array_to_sentence(
-        [author.author().name for author in state.work_authors]
-    )
+    author_names = array_to_sentence([author.author().name for author in state.work_authors])
 
     if confirm("Add more works by {0}?".format(author_names)):
         state.stage = "ask_for_kind"

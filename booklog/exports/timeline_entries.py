@@ -55,9 +55,7 @@ def _build_json_timeline_entry(
         title=work.title,
         readingYear=str(timeline_entry.date.year),
         authors=[
-            JsonTimelineEntryAuthor(
-                name=work_author.author(repository_data.authors).name
-            )
+            JsonTimelineEntryAuthor(name=work_author.author(repository_data.authors).name)
             for work_author in work.work_authors
         ],
         includedInSlugs=[

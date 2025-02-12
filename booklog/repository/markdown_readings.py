@@ -33,9 +33,7 @@ def _represent_none(self: Any, _: Any) -> Any:
     return self.represent_scalar("tag:yaml.org,2002:null", "null")
 
 
-def create(
-    work_slug: str, timeline: list[TimelineEntry], edition: str
-) -> MarkdownReading:
+def create(work_slug: str, timeline: list[TimelineEntry], edition: str) -> MarkdownReading:
     new_reading = MarkdownReading(
         sequence=_next_sequence_for_date(timeline[0]["date"]),
         work_slug=work_slug,
@@ -57,9 +55,7 @@ class SequenceError(Exception):
 def _next_sequence_for_date(date: datetime.date) -> int:
     existing_instances = sorted(
         read_all(),
-        key=lambda reading: "{0}-{1}".format(
-            reading["timeline"][-1]["date"], reading["sequence"]
-        ),
+        key=lambda reading: "{0}-{1}".format(reading["timeline"][-1]["date"], reading["sequence"]),
     )
 
     grouped_readings = list_tools.group_list_by_key(

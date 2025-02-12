@@ -41,9 +41,7 @@ class WorkAuthor:
 
     def author(self, cache: Optional[list[Author]] = None) -> Author:
         author_iterable = cache or authors()
-        return next(
-            author for author in author_iterable if author.slug == self.author_slug
-        )
+        return next(author for author in author_iterable if author.slug == self.author_slug)
 
 
 @dataclass
@@ -186,9 +184,7 @@ def create_work(  # noqa: WPS211
             subtitle=subtitle,
             year=year,
             work_authors=[
-                json_works.CreateWorkAuthor(
-                    slug=work_author.author_slug, notes=work_author.notes
-                )
+                json_works.CreateWorkAuthor(slug=work_author.author_slug, notes=work_author.notes)
                 for work_author in work_authors
             ],
             kind=kind,

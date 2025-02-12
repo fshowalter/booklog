@@ -32,9 +32,7 @@ def _generate_sort_name(name: str) -> str:
 
 
 def create(name: str) -> JsonAuthor:
-    json_author = JsonAuthor(
-        name=name, sortName=_generate_sort_name(name=name), slug=slugify(name)
-    )
+    json_author = JsonAuthor(name=name, sortName=_generate_sort_name(name=name), slug=slugify(name))
 
     _serialize(json_author=json_author)
 

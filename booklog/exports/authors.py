@@ -55,9 +55,7 @@ def _build_json_author_work(
             )
             for work_author in work.work_authors
         ],
-        includedInSlugs=[
-            work.slug for work in work.included_in_works(repository_data.works)
-        ],
+        includedInSlugs=[work.slug for work in work.included_in_works(repository_data.works)],
     )
 
 
@@ -66,11 +64,7 @@ def _build_json_author(
 ) -> JsonAuthor:
     author_works = list(author.works(repository_data.works))
     reviewed_work_count = len(
-        [
-            author_work
-            for author_work in author_works
-            if author_work.review(repository_data.reviews)
-        ]
+        [author_work for author_work in author_works if author_work.review(repository_data.reviews)]
     )
 
     return JsonAuthor(

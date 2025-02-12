@@ -83,22 +83,14 @@ def test_can_create_reading(
         work=work_fixture,
         edition="Kindle",
         timeline=[
-            repository_api.TimelineEntry(
-                date=datetime.date(2016, 3, 10), progress="15%"
-            ),
-            repository_api.TimelineEntry(
-                date=datetime.date(2016, 3, 11), progress="50%"
-            ),
-            repository_api.TimelineEntry(
-                date=datetime.date(2016, 3, 12), progress="Finished"
-            ),
+            repository_api.TimelineEntry(date=datetime.date(2016, 3, 10), progress="15%"),
+            repository_api.TimelineEntry(date=datetime.date(2016, 3, 11), progress="50%"),
+            repository_api.TimelineEntry(date=datetime.date(2016, 3, 12), progress="Finished"),
         ],
     )
 
     with open(
-        os.path.join(
-            tmp_path / "readings", "2016-03-12-01-the-cellar-by-richard-laymon.md"
-        ),
+        os.path.join(tmp_path / "readings", "2016-03-12-01-the-cellar-by-richard-laymon.md"),
         "r",
     ) as output_file:
         file_content = output_file.read()

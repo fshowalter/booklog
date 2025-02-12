@@ -168,9 +168,7 @@ def _build_most_read_authors(
     most_read_authors_list = [
         JsonMostReadAuthor(
             name=next(
-                author.name
-                for author in repository_data.authors
-                if author.slug == author_slug
+                author.name for author in repository_data.authors if author.slug == author_slug
             ),
             count=len(readings),
             slug=author_slug,
@@ -213,9 +211,7 @@ def _build_decade_distribution(
     return _build_json_distributions(works, lambda work: "{0}0s".format(work.year[:3]))
 
 
-def _book_count(
-    readings: list[repository_api.Reading], repository_data: RepositoryData
-) -> int:
+def _book_count(readings: list[repository_api.Reading], repository_data: RepositoryData) -> int:
     works = [reading.work(repository_data.works) for reading in readings]
 
     return len([work for work in works if work.kind not in {"Short Story", "Novella"}])

@@ -37,9 +37,7 @@ class RadioList(Generic[RadioListType]):  # noqa: WPS214
     selected_style = "class:radio-selected"
     checked_style = "class:radio-checked"
 
-    def __init__(
-        self, options: Sequence[Tuple[RadioListType, AnyFormattedText]]
-    ) -> None:
+    def __init__(self, options: Sequence[Tuple[RadioListType, AnyFormattedText]]) -> None:
         self.options = options
         self.current_option: RadioListType = options[0][0]
         self._selected_index = 0

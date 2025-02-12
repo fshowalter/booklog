@@ -92,9 +92,7 @@ JsonReviewedWork = TypedDict(
 def _build_json_reading(reading: repository_api.Reading) -> JsonReading:
     first_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date)[0]
 
-    last_timeline_entry = sorted(
-        reading.timeline, key=lambda entry: entry.date, reverse=True
-    )[0]
+    last_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date, reverse=True)[0]
 
     reading_time = (last_timeline_entry.date - first_timeline_entry.date).days + 1
 
@@ -141,9 +139,7 @@ def _slice_list(  # noqa: WPS210
     matcher: Callable[[_ListType], bool],
 ) -> list[_ListType]:
     midpoint = next(
-        index
-        for index, collection_item in zip(count(), source_list)
-        if matcher(collection_item)
+        index for index, collection_item in zip(count(), source_list) if matcher(collection_item)
     )
 
     start_index = midpoint - 3
@@ -231,9 +227,7 @@ def _build_more_by_authors(
                 name=author.name,
                 slug=author.slug,
                 works=[
-                    _build_json_more_review(
-                        work=author_work, repository_data=repository_data
-                    )
+                    _build_json_more_review(work=author_work, repository_data=repository_data)
                     for author_work in sliced_works
                     if author_work.slug != work.slug
                 ],
@@ -310,9 +304,7 @@ def _build_json_reviewed_work(
         moreByAuthors=more_by_authors,
         moreReviews=more_reviews,
         includedWorks=[
-            _build_json_included_work(
-                included_work=included_work, repository_data=repository_data
-            )
+            _build_json_included_work(included_work=included_work, repository_data=repository_data)
             for included_work in work.included_works(repository_data.works)
         ],
     )

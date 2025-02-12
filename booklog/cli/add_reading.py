@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import html
 import re
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import date, datetime
-from typing import Callable, List, Literal, Optional, Tuple
+from typing import Literal
 
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
@@ -13,8 +14,7 @@ from prompt_toolkit.validation import Validator
 from booklog.cli import ask, radio_list, select_work
 from booklog.repository import api as repository_api
 
-Option = Tuple[Optional[str], AnyFormattedText]
-
+Option = tuple[None | str, AnyFormattedText]
 
 Stages = Literal[
     "ask_for_work",
@@ -29,10 +29,10 @@ Stages = Literal[
 @dataclass(kw_only=True)
 class State:
     stage: Stages = "ask_for_work"
-    work: Optional[repository_api.Work] = None
+    work: repository_api.Work | None = None
     timeline: list[repository_api.TimelineEntry] = field(default_factory=list)
-    edition: Optional[str] = None
-    grade: Optional[str] = None
+    edition: str | None = None
+    grade: str | None = None
 
 
 def prompt() -> None:
@@ -99,7 +99,7 @@ def string_to_date(date_string: str) -> date:
     return datetime.strptime(date_string, "%Y-%m-%d").date()
 
 
-def ask_for_date(default_date: Optional[date] = None) -> Optional[date]:
+def ask_for_date(default_date: date | None = None) -> date | None:
     default_date = default_date or date.today()
 
     validator = Validator.from_callable(
@@ -128,7 +128,7 @@ def is_valid_progress(text: str) -> bool:
     return bool(re.match("^[0-9]$|^[1-9][0-9]$|^(100)$", text))
 
 
-def ask_for_progress() -> Optional[str]:
+def ask_for_progress() -> str | None:
     validator = Validator.from_callable(
         is_valid_progress,
         error_message='Must be a whole number (no % sign), F for "Finished", or A for "Abandoned"',
@@ -149,7 +149,7 @@ def ask_for_progress() -> Optional[str]:
         if progress == "A":
             return "Abandoned"
 
-        return "{0}%".format(progress)
+        return f"{progress}%"
 
     return progress
 
@@ -207,12 +207,11 @@ def ask_for_edition(state: State) -> State:
     return state
 
 
-def build_edition_options() -> List[Option]:
+def build_edition_options() -> list[Option]:
     editions = repository_api.reading_editions()
 
     options: list[Option] = [
-        (edition, "<cyan>{0}</cyan>".format(html.escape(edition)))
-        for edition in editions
+        (edition, f"<cyan>{html.escape(edition)}</cyan>") for edition in editions
     ]
 
     options.append((None, "New edition"))

@@ -74,9 +74,7 @@ def test_exports_authors(tmp_path: Path, snapshot_json: SnapshotAssertion) -> No
     assert file_content == snapshot_json
 
 
-def test_exports_reviewed_works(
-    tmp_path: Path, snapshot_json: SnapshotAssertion
-) -> None:
+def test_exports_reviewed_works(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
     exports_api.export_data()
 
     with open(
@@ -88,9 +86,7 @@ def test_exports_reviewed_works(
     assert file_content == snapshot_json
 
 
-def test_exports_unreviewed_works(
-    tmp_path: Path, snapshot_json: SnapshotAssertion
-) -> None:
+def test_exports_unreviewed_works(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
     exports_api.export_data()
 
     with open(
@@ -102,9 +98,7 @@ def test_exports_unreviewed_works(
     assert file_content == snapshot_json
 
 
-def test_exports_reading_timeline_entries(
-    tmp_path: Path, snapshot_json: SnapshotAssertion
-) -> None:
+def test_exports_reading_timeline_entries(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
     exports_api.export_data()
 
     with open(

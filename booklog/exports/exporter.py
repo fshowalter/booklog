@@ -50,9 +50,7 @@ def serialize_dicts_to_folder(
     os.makedirs(folder_path, exist_ok=True)
 
     for dict_to_serialize in dicts:
-        file_name = os.path.join(
-            folder_path, "{0}.json".format(filename_key(dict_to_serialize))
-        )
+        file_name = os.path.join(folder_path, "{0}.json".format(filename_key(dict_to_serialize)))
         with open(file_name, "w") as output_file:
             output_file.write(json.dumps(dict_to_serialize, default=str, indent=2))
         logger.log(

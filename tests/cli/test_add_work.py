@@ -148,9 +148,7 @@ def test_calls_create_work_for_collection(
     )
 
 
-def test_can_cancel_out_of_author_name(
-    mock_input: MockInput, mock_create_work: MagicMock
-) -> None:
+def test_can_cancel_out_of_author_name(mock_input: MockInput, mock_create_work: MagicMock) -> None:
     mock_input(
         [
             Escape,
@@ -162,9 +160,7 @@ def test_can_cancel_out_of_author_name(
     mock_create_work.assert_not_called()
 
 
-def test_can_cancel_out_of_kind(
-    mock_input: MockInput, mock_create_work: MagicMock
-) -> None:
+def test_can_cancel_out_of_kind(mock_input: MockInput, mock_create_work: MagicMock) -> None:
     mock_input(
         [
             Escape,
