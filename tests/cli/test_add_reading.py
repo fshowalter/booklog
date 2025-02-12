@@ -1,5 +1,4 @@
 from datetime import date
-from typing import Optional
 from unittest.mock import MagicMock
 
 import pytest
@@ -72,7 +71,7 @@ def select_search_again() -> list[str]:
     return select_option(1)
 
 
-def enter_notes(notes: Optional[str] = None) -> list[str]:
+def enter_notes(notes: str | None = None) -> list[str]:
     return enter_text(notes)
 
 

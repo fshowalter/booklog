@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
-import os
-from glob import glob
-from typing import Iterable, TypedDict, cast
+from collections.abc import Iterable
+from pathlib import Path
+from typing import TypedDict, cast
 
 from slugify import slugify
 
@@ -13,14 +13,10 @@ from booklog.utils.logging import logger
 FOLDER_NAME = "authors"
 
 
-JsonAuthor = TypedDict(
-    "JsonAuthor",
-    {
-        "slug": str,
-        "name": str,
-        "sortName": str,
-    },
-)
+class JsonAuthor(TypedDict):
+    slug: str
+    name: str
+    sortName: str  # noqa: WPS115
 
 
 def _generate_sort_name(name: str) -> str:
@@ -28,7 +24,7 @@ def _generate_sort_name(name: str) -> str:
     last_name = split_name[-1]
     other_names = split_name[:-1]
 
-    return "{0}, {1}".format(last_name, " ".join(other_names))
+    return "{}, {}".format(last_name, " ".join(other_names))
 
 
 def create(name: str) -> JsonAuthor:
@@ -42,16 +38,16 @@ def create(name: str) -> JsonAuthor:
 
 
 def read_all() -> Iterable[JsonAuthor]:
-    for file_path in glob(os.path.join(FOLDER_NAME, "*.json")):
-        with open(file_path, "r") as json_file:
+    for file_path in Path(FOLDER_NAME).glob("*.json"):
+        with Path.open(file_path) as json_file:
             yield (cast(JsonAuthor, json.load(json_file)))
 
 
-def _serialize(json_author: JsonAuthor) -> str:
-    file_path = os.path.join(FOLDER_NAME, "{0}.json".format(json_author["slug"]))
+def _serialize(json_author: JsonAuthor) -> Path:
+    file_path = Path(FOLDER_NAME) / f"{json_author["slug"]}.json"
     path_tools.ensure_file_path(file_path)
 
-    with open(file_path, "w") as output_file:
+    with Path.open(file_path, "w") as output_file:
         output_file.write(json.dumps(json_author, default=str, indent=2))
 
     logger.log(

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import html
-from typing import Iterable, Optional, Tuple
+from collections.abc import Iterable
 
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
@@ -10,10 +10,10 @@ from booklog.cli import ask, radio_list
 from booklog.cli.utils.array_to_sentence import array_to_sentence
 from booklog.repository import api as repository_api
 
-WorkOption = Tuple[Optional[repository_api.Work], AnyFormattedText]
+WorkOption = tuple[repository_api.Work | None, AnyFormattedText]
 
 
-def prompt() -> Optional[repository_api.Work]:
+def prompt() -> repository_api.Work | None:
     while True:
         title = ask.prompt("Title: ")
 
@@ -31,7 +31,7 @@ def prompt() -> Optional[repository_api.Work]:
         if selected_work is None:
             continue
 
-        if confirm("{0}?".format(selected_work.title)):
+        if confirm(f"{selected_work.title}?"):
             return selected_work
 
 
@@ -39,7 +39,7 @@ def search_works(query: str) -> list[repository_api.Work]:
     return list(
         filter(
             lambda work: query.lower()
-            in "{0}: {1}".format(work.title, work.subtitle).lower(),
+            in f"{work.title}: {work.subtitle}".lower(),  # noqa: WPS221
             repository_api.works(),
         )
     )
@@ -54,7 +54,7 @@ def build_work_options(
     return [
         (
             work,
-            "<cyan>{0}</cyan> by {1}".format(
+            "<cyan>{}</cyan> by {}".format(
                 html.escape(work.title),
                 array_to_sentence(
                     [

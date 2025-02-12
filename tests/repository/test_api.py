@@ -1,6 +1,5 @@
 import datetime
 import json
-import os
 from pathlib import Path
 
 import pytest
@@ -40,8 +39,8 @@ def work_fixture(author_fixture: repository_api.Author) -> repository_api.Work:
 def test_create_author(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
     repository_api.create_author(name="Stephen King")
 
-    with open(
-        os.path.join(tmp_path / "authors", "stephen-king.json"),
+    with Path.open(
+        Path(tmp_path) / "authors" / "stephen-king.json",
         "r",
     ) as output_file:
         file_content = json.load(output_file)
@@ -67,8 +66,8 @@ def test_create_create_work(
         kind="Novel",
     )
 
-    with open(
-        os.path.join(tmp_path / "works", "the-cellar-by-richard-laymon.json"),
+    with Path.open(
+        Path(tmp_path) / "works" / "the-cellar-by-richard-laymon.json",
         "r",
     ) as output_file:
         file_content = json.load(output_file)
@@ -95,10 +94,8 @@ def test_can_create_reading(
         ],
     )
 
-    with open(
-        os.path.join(
-            tmp_path / "readings", "2016-03-12-01-the-cellar-by-richard-laymon.md"
-        ),
+    with Path.open(
+        Path(tmp_path) / "readings" / "2016-03-12-01-the-cellar-by-richard-laymon.md",
         "r",
     ) as output_file:
         file_content = output_file.read()
@@ -115,8 +112,8 @@ def test_can_create_new_review(
         date=datetime.date(2016, 3, 10),
     )
 
-    with open(
-        os.path.join(tmp_path / "reviews", "the-cellar-by-richard-laymon.md"), "r"
+    with Path.open(
+        Path(tmp_path) / "reviews" / "the-cellar-by-richard-laymon.md", "r"
     ) as output_file:
         file_content = output_file.read()
 
@@ -126,10 +123,10 @@ def test_can_create_new_review(
 def test_can_update_existing_review(
     tmp_path: Path, work_fixture: repository_api.Work, snapshot: SnapshotAssertion
 ) -> None:
-    existing_review = "---\nwork_slug: the-cellar-by-richard-laymon\ngrade: A+\ndate: 2016-03-10\n---\n\nSome review content we want to preserve between updates."  # noqa: 501
+    existing_review = "---\nwork_slug: the-cellar-by-richard-laymon\ngrade: A+\ndate: 2016-03-10\n---\n\nSome review content we want to preserve between updates."  # noqa: E501
 
-    with open(
-        os.path.join(tmp_path / "reviews", "the-cellar-by-richard-laymon.md"),
+    with Path.open(
+        Path(tmp_path) / "reviews" / "the-cellar-by-richard-laymon.md",
         "w",
     ) as first_output_file:
         first_output_file.write(existing_review)
@@ -140,8 +137,8 @@ def test_can_update_existing_review(
         date=datetime.date(2017, 3, 12),
     )
 
-    with open(
-        os.path.join(tmp_path / "reviews", "the-cellar-by-richard-laymon.md"), "r"
+    with Path.open(
+        Path(tmp_path) / "reviews" / "the-cellar-by-richard-laymon.md", "r"
     ) as output_file:
         file_content = output_file.read()
 

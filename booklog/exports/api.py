@@ -16,9 +16,7 @@ def export_data() -> None:
         authors=sorted(repository_api.authors(), key=lambda author: author.sort_name),
         works=sorted(repository_api.works(), key=lambda work: work.sort_title),
         reviews=sorted(repository_api.reviews(), key=lambda review: review.work_slug),
-        readings=sorted(
-            repository_api.readings(), key=lambda reading: reading.sequence
-        ),
+        readings=sorted(repository_api.readings(), key=lambda reading: reading.sequence),
     )
 
     authors.export(repository_data)

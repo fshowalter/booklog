@@ -1,92 +1,74 @@
 import datetime
+from collections.abc import Callable
 from itertools import count
-from typing import Callable, Optional, TypedDict, TypeVar
+from typing import TypedDict, TypeVar
 
 from booklog.exports import exporter, json_work_author
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
-JsonMoreReviewAuthor = TypedDict(
-    "JsonMoreReviewAuthor",
-    {
-        "name": str,
-    },
-)
+
+class JsonMoreReviewAuthor(TypedDict):
+    name: str
 
 
-JsonReading = TypedDict(
-    "JsonReading",
-    {
-        "date": datetime.date,
-        "isAudiobook": bool,
-        "readingTime": int,
-        "abandoned": bool,
-        "sequence": int,
-    },
-)
-
-JsonMoreReview = TypedDict(
-    "JsonMoreReview",
-    {
-        "title": str,
-        "yearPublished": str,
-        "kind": str,
-        "authors": list[JsonMoreReviewAuthor],
-        "grade": str,
-        "slug": str,
-        "includedInSlugs": list[str],
-    },
-)
-
-JsonIncludedWorkAuthor = TypedDict(
-    "JsonIncludedWorkAuthor",
-    {
-        "name": str,
-        "slug": str,
-    },
-)
-
-JsonIncludedWork = TypedDict(
-    "JsonIncludedWork",
-    {
-        "title": str,
-        "authors": list[JsonIncludedWorkAuthor],
-        "grade": Optional[str],
-        "slug": str,
-        "kind": str,
-        "yearPublished": str,
-    },
-)
-
-JsonMoreByAuthor = TypedDict(
-    "JsonMoreByAuthor",
-    {"name": str, "slug": str, "works": list[JsonMoreReview]},
-)
+class JsonReading(TypedDict):
+    date: datetime.date
+    isAudiobook: bool
+    readingTime: int
+    abandoned: bool
+    sequence: int
 
 
-JsonReviewedWork = TypedDict(
-    "JsonReviewedWork",
-    {
-        "sequence": str,
-        "slug": str,
-        "includedInSlugs": list[str],
-        "title": str,
-        "subtitle": Optional[str],
-        "sortTitle": str,
-        "yearPublished": str,
-        "authors": list[json_work_author.JsonWorkAuthor],
-        "grade": str,
-        "gradeValue": int,
-        "kind": str,
-        "date": datetime.date,
-        "yearReviewed": int,
-        "readings": list[JsonReading],
-        "moreReviews": list[JsonMoreReview],
-        "moreByAuthors": list[JsonMoreByAuthor],
-        "includedWorks": list[JsonIncludedWork],
-    },
-)
+class JsonMoreReview(TypedDict):
+    title: str
+    yearPublished: str
+    kind: str
+    authors: list[JsonMoreReviewAuthor]
+    grade: str
+    slug: str
+    includedInSlugs: list[str]
+
+
+class JsonIncludedWorkAuthor(TypedDict):
+    name: str
+    slug: str
+
+
+class JsonIncludedWork(TypedDict):
+    title: str
+    authors: list[JsonIncludedWorkAuthor]
+    grade: str | None
+    slug: str
+    kind: str
+    yearPublished: str
+
+
+class JsonMoreByAuthor(TypedDict):
+    name: str
+    slug: str
+    works: list[JsonMoreReview]
+
+
+class JsonReviewedWork(TypedDict):
+    sequence: str
+    slug: str
+    includedInSlugs: list[str]
+    title: str
+    subtitle: str | None
+    sortTitle: str
+    yearPublished: str
+    authors: list[json_work_author.JsonWorkAuthor]
+    grade: str
+    gradeValue: int
+    kind: str
+    date: datetime.date
+    yearReviewed: int
+    readings: list[JsonReading]
+    moreReviews: list[JsonMoreReview]
+    moreByAuthors: list[JsonMoreByAuthor]
+    includedWorks: list[JsonIncludedWork]
 
 
 def _build_json_reading(reading: repository_api.Reading) -> JsonReading:
@@ -112,7 +94,7 @@ def _build_json_more_review(
 ) -> JsonMoreReview:
     review = work.review(repository_data.reviews)
 
-    assert review, "Expected review for {0}".format(work.title)
+    assert review, f"Expected review for {work.title}"
 
     return JsonMoreReview(
         title=work.title,
@@ -209,11 +191,11 @@ def _build_more_by_authors(
 
     for work_author in work.work_authors:
         author = work_author.author(repository_data.authors)
-        reviewed_author_works = list(
+        reviewed_author_works = [
             author_work
             for author_work in author.works(repository_data.works)
             if author_work.review(repository_data.reviews) is not None
-        )
+        ]
 
         if len(reviewed_author_works) < 5:
             continue
@@ -282,10 +264,7 @@ def _build_json_reviewed_work(
     )
 
     return JsonReviewedWork(
-        sequence="{0}-{1}".format(
-            review.date,
-            most_recent_reading.sequence,
-        ),
+        sequence=f"{review.date}-{most_recent_reading.sequence}",
         slug=work.slug,
         title=work.title,
         subtitle=work.subtitle,

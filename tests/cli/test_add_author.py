@@ -14,9 +14,7 @@ def mock_create_author(mocker: MockerFixture) -> MagicMock:
     return mocker.patch("booklog.cli.add_author.repository_api.create_author")
 
 
-def test_calls_create_author(
-    mock_input: MockInput, mock_create_author: MagicMock
-) -> None:
+def test_calls_create_author(mock_input: MockInput, mock_create_author: MagicMock) -> None:
     mock_input(enter_text("Stephen King", confirm="y"))
 
     add_author.prompt()
@@ -36,9 +34,7 @@ def test_can_cancel_out(mock_input: MockInput, mock_create_author: MagicMock) ->
     mock_create_author.assert_not_called()
 
 
-def test_does_not_add_blank_author(
-    mock_input: MockInput, mock_create_author: MagicMock
-) -> None:
+def test_does_not_add_blank_author(mock_input: MockInput, mock_create_author: MagicMock) -> None:
     mock_input(
         [
             Enter,
@@ -50,9 +46,7 @@ def test_does_not_add_blank_author(
     mock_create_author.assert_not_called()
 
 
-def test_can_correct_input(
-    mock_input: MockInput, mock_create_author: MagicMock
-) -> None:
+def test_can_correct_input(mock_input: MockInput, mock_create_author: MagicMock) -> None:
     mock_input(
         [
             *enter_text("Steven Kang", confirm="n"),

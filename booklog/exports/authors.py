@@ -1,43 +1,36 @@
-from typing import Optional, TypedDict
+from typing import TypedDict
 
 from booklog.exports import exporter, json_work_author
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
-JsonAuthorWork = TypedDict(
-    "JsonAuthorWork",
-    {
-        "title": str,
-        "yearPublished": str,
-        "kind": str,
-        "slug": str,
-        "sortTitle": str,
-        "grade": Optional[str],
-        "gradeValue": Optional[int],
-        "authors": list[json_work_author.JsonWorkAuthor],
-        "reviewed": bool,
-        "includedInSlugs": list[str],
-    },
-)
 
-JsonAuthor = TypedDict(
-    "JsonAuthor",
-    {
-        "name": str,
-        "sortName": str,
-        "slug": str,
-        "reviewedWorkCount": int,
-        "workCount": int,
-        "shelfWorkCount": int,
-        "works": list[JsonAuthorWork],
-    },
-)
+class JsonAuthorWork(TypedDict):
+    title: str
+    yearPublished: str
+    kind: str
+    slug: str
+    sortTitle: str
+    grade: str | None
+    gradeValue: int | None
+    authors: list[json_work_author.JsonWorkAuthor]
+    reviewed: bool
+    includedInSlugs: list[str]
+
+class JsonAuthor(TypedDict):
+    name: str
+    sortName: str
+    slug: str
+    reviewedWorkCount: int
+    workCount: int
+    shelfWorkCount: int
+    works: list[JsonAuthorWork]
 
 
 def _build_json_author_work(
     work: repository_api.Work,
-    review: Optional[repository_api.Review],
+    review: repository_api.Review | None,
     repository_data: RepositoryData,
 ) -> JsonAuthorWork:
     return JsonAuthorWork(
@@ -55,9 +48,7 @@ def _build_json_author_work(
             )
             for work_author in work.work_authors
         ],
-        includedInSlugs=[
-            work.slug for work in work.included_in_works(repository_data.works)
-        ],
+        includedInSlugs=[work.slug for work in work.included_in_works(repository_data.works)],
     )
 
 
@@ -66,11 +57,7 @@ def _build_json_author(
 ) -> JsonAuthor:
     author_works = list(author.works(repository_data.works))
     reviewed_work_count = len(
-        [
-            author_work
-            for author_work in author_works
-            if author_work.review(repository_data.reviews)
-        ]
+        [author_work for author_work in author_works if author_work.review(repository_data.reviews)]
     )
 
     return JsonAuthor(

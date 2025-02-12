@@ -2,17 +2,17 @@ from __future__ import annotations
 
 import html
 import itertools
-from typing import Iterable, Optional, Tuple
+from collections.abc import Iterable
 
 from prompt_toolkit.formatted_text import AnyFormattedText
 
 from booklog.cli import ask, radio_list
 from booklog.repository import api as repository_api
 
-AuthorOption = Tuple[Optional[repository_api.Author], AnyFormattedText]
+AuthorOption = tuple[repository_api.Author | None, AnyFormattedText]
 
 
-def prompt() -> Optional[repository_api.Author]:
+def prompt() -> repository_api.Author | None:
     while True:
         name = ask.prompt("Author: ")
 
@@ -56,10 +56,7 @@ def build_author_options(
     return [
         (
             author,
-            "<cyan>{0}</cyan> ({1})".format(
-                html.escape(author.sort_name),
-                format_author_works(author),
-            ),
+            f"<cyan>{html.escape(author.sort_name)}</cyan> ({format_author_works(author)})",
         )
         for author in authors
     ]

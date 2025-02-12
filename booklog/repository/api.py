@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import datetime
+from collections.abc import Iterable
 from dataclasses import dataclass
-from typing import Iterable, Optional
 
 from booklog.repository import (
     json_authors,
@@ -24,7 +24,7 @@ class Author:
     sort_name: str
     slug: str
 
-    def works(self, cache: Optional[list[Work]] = None) -> Iterable[Work]:
+    def works(self, cache: list[Work] | None = None) -> Iterable[Work]:
         works_iterable = cache or works()
 
         return filter(
@@ -36,10 +36,10 @@ class Author:
 
 @dataclass
 class WorkAuthor:
-    notes: Optional[str]
+    notes: str | None
     author_slug: str
 
-    def author(self, cache: Optional[list[Author]] = None) -> Author:
+    def author(self, cache: list[Author] | None = None) -> Author:
         author_iterable = cache or authors()
         return next(
             author for author in author_iterable if author.slug == self.author_slug
@@ -49,7 +49,7 @@ class WorkAuthor:
 @dataclass
 class Work:
     title: str
-    subtitle: Optional[str]
+    subtitle: str | None
     year: str
     sort_title: str
     slug: str
@@ -57,28 +57,28 @@ class Work:
     included_work_slugs: list[str]
     work_authors: list[WorkAuthor]
 
-    def included_works(self, cache: Optional[list[Work]] = None) -> Iterable[Work]:
+    def included_works(self, cache: list[Work] | None = None) -> Iterable[Work]:
         works_iterable = cache or works()
         return filter(
             lambda work: work.slug in self.included_work_slugs,
             works_iterable,
         )
 
-    def included_in_works(self, cache: Optional[list[Work]] = None) -> Iterable[Work]:
+    def included_in_works(self, cache: list[Work] | None = None) -> Iterable[Work]:
         works_iterable = cache or works()
         return filter(
             lambda work: self.slug in work.included_work_slugs,
             works_iterable,
         )
 
-    def readings(self, cache: Optional[list[Reading]] = None) -> Iterable[Reading]:
+    def readings(self, cache: list[Reading] | None = None) -> Iterable[Reading]:
         readings_iterable = cache or readings()
 
         for reading in readings_iterable:
             if reading.work_slug == self.slug:
                 yield reading
 
-    def review(self, cache: Optional[list[Review]] = None) -> Optional[Review]:
+    def review(self, cache: list[Review] | None = None) -> Review | None:
         reviews_iterable = cache or reviews()
         return next(
             (review for review in reviews_iterable if review.work_slug == self.slug),
@@ -97,10 +97,10 @@ class Reading:
     sequence: int
     edition: str
     timeline: list[TimelineEntry]
-    edition_notes: Optional[str] = None
+    edition_notes: str | None = None
     work_slug: str
 
-    def work(self, cache: Optional[list[Work]] = None) -> Work:
+    def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
         return next(work for work in works_iterable if work.slug == self.work_slug)
 
@@ -110,9 +110,9 @@ class Review:
     work_slug: str
     date: datetime.date
     grade: str
-    review_content: Optional[str] = None
+    review_content: str | None = None
 
-    def work(self, cache: Optional[list[Work]] = None) -> Work:
+    def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
         return next(work for work in works_iterable if work.slug == self.work_slug)
 
@@ -163,7 +163,7 @@ def reviews() -> Iterable[Review]:
 
 
 def reading_editions() -> set[str]:
-    return set([reading.edition for reading in readings()])
+    return {reading.edition for reading in readings()}
 
 
 def create_author(
@@ -174,11 +174,11 @@ def create_author(
 
 def create_work(  # noqa: WPS211
     title: str,
-    subtitle: Optional[str],
+    subtitle: str | None,
     year: str,
     work_authors: list[WorkAuthor],
     kind: Kind,
-    included_work_slugs: Optional[list[str]] = None,
+    included_work_slugs: list[str] | None = None,
 ) -> Work:
     return _hydrate_json_work(
         json_work=json_works.create(

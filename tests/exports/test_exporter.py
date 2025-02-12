@@ -4,7 +4,7 @@ from booklog.exports import exporter
 
 
 @pytest.mark.parametrize(
-    "test_input, expected",
+    ("test_input", "expected"),
     [
         (1.678, "1.7B"),
         (106, "106.0B"),

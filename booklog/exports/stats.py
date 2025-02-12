@@ -1,78 +1,64 @@
 from collections import defaultdict
+from collections.abc import Callable, Iterable
 from datetime import date
-from typing import Callable, Iterable, TypedDict, TypeVar
+from typing import TypedDict, TypeVar
 
 from booklog.exports import exporter, list_tools
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
-JsonMostReadAuthorReading = TypedDict(
-    "JsonMostReadAuthorReading",
-    {
-        "sequence": int,
-        "date": date,
-        "slug": str,
-        "edition": str,
-        "kind": str,
-        "title": str,
-        "yearPublished": str,
-        "includedInSlugs": list[str],
-        "reviewed": bool,
-    },
-)
+
+class JsonMostReadAuthorReading(TypedDict):
+    sequence: int
+    date: date
+    slug: str
+    edition: str
+    kind: str
+    title: str
+    yearPublished: str
+    includedInSlugs: list[str]
+    reviewed: bool
 
 
-JsonMostReadAuthor = TypedDict(
-    "JsonMostReadAuthor",
-    {
-        "name": str,
-        "count": int,
-        "slug": str,
-        "readings": list[JsonMostReadAuthorReading],
-    },
-)
-
-JsonDistribution = TypedDict(
-    "JsonDistribution",
-    {
-        "name": str,
-        "count": int,
-    },
-)
-
-JsonGradeDistribution = TypedDict(
-    "JsonGradeDistribution",
-    {"name": str, "count": int, "sortValue": int},
-)
-
-JsonYearStats = TypedDict(
-    "JsonYearStats",
-    {
-        "year": str,
-        "workCount": int,
-        "bookCount": int,
-        "kindDistribution": list[JsonDistribution],
-        "editionDistribution": list[JsonDistribution],
-        "decadeDistribution": list[JsonDistribution],
-        "mostReadAuthors": list[JsonMostReadAuthor],
-    },
-)
+class JsonMostReadAuthor(TypedDict):
+    name: str
+    count: int
+    slug: str
+    readings: list[JsonMostReadAuthorReading]
 
 
-JsonAllTimeStats = TypedDict(
-    "JsonAllTimeStats",
-    {
-        "reviewCount": int,
-        "workCount": int,
-        "bookCount": int,
-        "gradeDistribution": list[JsonGradeDistribution],
-        "kindDistribution": list[JsonDistribution],
-        "editionDistribution": list[JsonDistribution],
-        "decadeDistribution": list[JsonDistribution],
-        "mostReadAuthors": list[JsonMostReadAuthor],
-    },
-)
+class JsonDistribution(TypedDict):
+    name: str
+    count: int
+
+
+class JsonGradeDistribution(TypedDict):
+    name: str
+    count: int
+    sortValue: int  # noqa: WPS115
+
+
+class JsonYearStats(TypedDict):
+    year: str
+    workCount: int
+    bookCount: int
+    kindDistribution: list[JsonDistribution]
+    editionDistribution: list[JsonDistribution]
+    decadeDistribution: list[JsonDistribution]
+    mostReadAuthors: list[JsonMostReadAuthor]
+
+
+class JsonAllTimeStats(TypedDict):
+    reviewCount: int
+    workCount: int
+    bookCount: int
+    gradeDistribution: list[JsonGradeDistribution]
+    kindDistribution: list[JsonDistribution]
+    editionDistribution: list[JsonDistribution]
+    decadeDistribution: list[JsonDistribution]
+    mostReadAuthors: list[JsonMostReadAuthor]
+
 
 ListType = TypeVar("ListType")
 
@@ -155,7 +141,7 @@ def _build_json_most_read_author_reading(
 
 
 def _reading_sort_key(reading: JsonMostReadAuthorReading) -> str:
-    return "{0}-{1}".format(reading["date"], reading["sequence"])
+    return "{}-{}".format(reading["date"], reading["sequence"])
 
 
 def _build_most_read_authors(
@@ -210,7 +196,9 @@ def _build_edition_distribution(
 def _build_decade_distribution(
     works: list[repository_api.Work],
 ) -> list[JsonDistribution]:
-    return _build_json_distributions(works, lambda work: "{0}0s".format(work.year[:3]))
+    return _build_json_distributions(
+        works, lambda work: f"{work.year[:3]}0s"  # noqa: WPS237
+    )
 
 
 def _book_count(

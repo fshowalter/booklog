@@ -1,12 +1,12 @@
 import itertools
-from typing import Literal, Optional
+from typing import Literal
 
 from tests.cli.keys import Down, Enter
 
 ConfirmType = Literal["y", "n"]
 
 
-def enter_text(text: Optional[str], confirm: Optional[ConfirmType] = None) -> list[str]:
+def enter_text(text: str | None, confirm: ConfirmType | None = None) -> list[str]:
     input_stream = [Enter]
 
     if text:
@@ -19,7 +19,7 @@ def enter_text(text: Optional[str], confirm: Optional[ConfirmType] = None) -> li
 
 
 def select_option(
-    option_number: int, confirm: Optional[Literal[ConfirmType]] = None
+    option_number: int, confirm: Literal[ConfirmType] | None = None
 ) -> list[str]:
     input_stream = []
 
