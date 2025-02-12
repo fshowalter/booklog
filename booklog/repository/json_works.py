@@ -33,11 +33,11 @@ class JsonWork(TypedDict):
     title: str
     subtitle: str | None
     year: str
-    sortTitle: str  # noqa: WPS115
+    sortTitle: str
     authors: list[JsonWorkAuthor]
     slug: str
     kind: Kind
-    includedWorks: list[str]  # noqa: WPS115
+    includedWorks: list[str]
 
 
 def generate_sort_title(title: str, subtitle: str | None) -> str:
@@ -63,7 +63,7 @@ class CreateWorkAuthor:
     notes: str | None
 
 
-def create(  # noqa: WPS211
+def create(
     title: str,
     subtitle: str | None,
     year: str,
@@ -104,7 +104,7 @@ def read_all() -> Iterable[JsonWork]:
 
 
 def serialize(json_work: JsonWork) -> None:
-    file_path = Path(FOLDER_NAME) / f"{json_work["slug"]}.json"
+    file_path = Path(FOLDER_NAME) / f"{json_work['slug']}.json"
     path_tools.ensure_file_path(file_path)
 
     with Path.open(file_path, "w") as output_file:

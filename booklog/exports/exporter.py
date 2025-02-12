@@ -62,7 +62,7 @@ def serialize_dicts_to_folder(
 
 def pretty_file_size(num: float, suffix: str = "B") -> str:
     for unit in ("", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei", "Zi"):
-        if abs(num) < 1024.0:  # noqa: WPS459
+        if abs(num) < 1024.0:
             return f"{num:.1f}{unit}{suffix}"
         num /= 1024.0
     return "{:.1f}{}{}".format(num, "Yi", suffix)

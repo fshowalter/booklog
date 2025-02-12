@@ -4,12 +4,7 @@ import datetime
 from collections.abc import Iterable
 from dataclasses import dataclass
 
-from booklog.repository import (
-    json_authors,
-    json_works,
-    markdown_readings,
-    markdown_reviews,
-)
+from booklog.repository import json_authors, json_works, markdown_readings, markdown_reviews
 
 WORK_KINDS = json_works.KINDS
 
@@ -41,9 +36,7 @@ class WorkAuthor:
 
     def author(self, cache: list[Author] | None = None) -> Author:
         author_iterable = cache or authors()
-        return next(
-            author for author in author_iterable if author.slug == self.author_slug
-        )
+        return next(author for author in author_iterable if author.slug == self.author_slug)
 
 
 @dataclass
@@ -172,7 +165,7 @@ def create_author(
     return _hydrate_json_author(json_authors.create(name=name))
 
 
-def create_work(  # noqa: WPS211
+def create_work(
     title: str,
     subtitle: str | None,
     year: str,
@@ -186,9 +179,7 @@ def create_work(  # noqa: WPS211
             subtitle=subtitle,
             year=year,
             work_authors=[
-                json_works.CreateWorkAuthor(
-                    slug=work_author.author_slug, notes=work_author.notes
-                )
+                json_works.CreateWorkAuthor(slug=work_author.author_slug, notes=work_author.notes)
                 for work_author in work_authors
             ],
             kind=kind,

@@ -16,7 +16,7 @@ FOLDER_NAME = "authors"
 class JsonAuthor(TypedDict):
     slug: str
     name: str
-    sortName: str  # noqa: WPS115
+    sortName: str
 
 
 def _generate_sort_name(name: str) -> str:
@@ -28,9 +28,7 @@ def _generate_sort_name(name: str) -> str:
 
 
 def create(name: str) -> JsonAuthor:
-    json_author = JsonAuthor(
-        name=name, sortName=_generate_sort_name(name=name), slug=slugify(name)
-    )
+    json_author = JsonAuthor(name=name, sortName=_generate_sort_name(name=name), slug=slugify(name))
 
     _serialize(json_author=json_author)
 
@@ -44,7 +42,7 @@ def read_all() -> Iterable[JsonAuthor]:
 
 
 def _serialize(json_author: JsonAuthor) -> Path:
-    file_path = Path(FOLDER_NAME) / f"{json_author["slug"]}.json"
+    file_path = Path(FOLDER_NAME) / f"{json_author['slug']}.json"
     path_tools.ensure_file_path(file_path)
 
     with Path.open(file_path, "w") as output_file:

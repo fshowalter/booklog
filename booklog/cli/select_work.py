@@ -38,8 +38,7 @@ def prompt() -> repository_api.Work | None:
 def search_works(query: str) -> list[repository_api.Work]:
     return list(
         filter(
-            lambda work: query.lower()
-            in f"{work.title}: {work.subtitle}".lower(),  # noqa: WPS221
+            lambda work: query.lower() in f"{work.title}: {work.subtitle}".lower(),
             repository_api.works(),
         )
     )
@@ -57,10 +56,7 @@ def build_work_options(
             "<cyan>{}</cyan> by {}".format(
                 html.escape(work.title),
                 array_to_sentence(
-                    [
-                        html.escape(work_author.author().name)
-                        for work_author in work.work_authors
-                    ]
+                    [html.escape(work_author.author().name) for work_author in work.work_authors]
                 ),
             ),
         )

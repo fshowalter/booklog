@@ -2,7 +2,7 @@ from collections.abc import Sequence
 from typing import Generic, TypeVar, cast
 
 from prompt_toolkit.application import Application
-from prompt_toolkit.formatted_text import (  # noqa: WPS347
+from prompt_toolkit.formatted_text import (
     HTML,
     AnyFormattedText,
     StyleAndTextTuples,
@@ -11,13 +11,7 @@ from prompt_toolkit.formatted_text import (  # noqa: WPS347
 from prompt_toolkit.key_binding.key_bindings import KeyBindings
 from prompt_toolkit.key_binding.key_processor import KeyPressEvent
 from prompt_toolkit.layout import Layout
-from prompt_toolkit.layout.containers import (
-    Container,
-    Float,
-    FloatContainer,
-    HSplit,
-    Window,
-)
+from prompt_toolkit.layout.containers import Container, Float, FloatContainer, HSplit, Window
 from prompt_toolkit.layout.controls import FormattedTextControl
 from prompt_toolkit.layout.margins import ScrollbarMargin
 from prompt_toolkit.widgets import Label
@@ -25,7 +19,7 @@ from prompt_toolkit.widgets import Label
 RadioListType = TypeVar("RadioListType")
 
 
-class RadioList(Generic[RadioListType]):  # noqa: WPS214
+class RadioList(Generic[RadioListType]):
     """
     List of radio buttons. Only one can be checked at the same time.
     :param values: List of (value, label) tuples.

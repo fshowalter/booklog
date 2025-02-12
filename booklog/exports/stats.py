@@ -36,7 +36,7 @@ class JsonDistribution(TypedDict):
 class JsonGradeDistribution(TypedDict):
     name: str
     count: int
-    sortValue: int  # noqa: WPS115
+    sortValue: int
 
 
 class JsonYearStats(TypedDict):
@@ -154,9 +154,7 @@ def _build_most_read_authors(
     most_read_authors_list = [
         JsonMostReadAuthor(
             name=next(
-                author.name
-                for author in repository_data.authors
-                if author.slug == author_slug
+                author.name for author in repository_data.authors if author.slug == author_slug
             ),
             count=len(readings),
             slug=author_slug,
@@ -196,14 +194,10 @@ def _build_edition_distribution(
 def _build_decade_distribution(
     works: list[repository_api.Work],
 ) -> list[JsonDistribution]:
-    return _build_json_distributions(
-        works, lambda work: f"{work.year[:3]}0s"  # noqa: WPS237
-    )
+    return _build_json_distributions(works, lambda work: f"{work.year[:3]}0s")
 
 
-def _book_count(
-    readings: list[repository_api.Reading], repository_data: RepositoryData
-) -> int:
+def _book_count(readings: list[repository_api.Reading], repository_data: RepositoryData) -> int:
     works = [reading.work(repository_data.works) for reading in readings]
 
     return len([work for work in works if work.kind not in {"Short Story", "Novella"}])
