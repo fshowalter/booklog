@@ -38,25 +38,25 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "loguru", specifier = ">=0.7.3" },
-    { name = "prompt-toolkit", specifier = ">=3.0.50" },
-    { name = "python-slugify", specifier = ">=8.0.4" },
-    { name = "pyyaml", specifier = ">=6.0.2" },
+    { name = "loguru", specifier = "==0.7.3" },
+    { name = "prompt-toolkit", specifier = "==3.0.50" },
+    { name = "python-slugify", specifier = "==8.0.4" },
+    { name = "pyyaml", specifier = "==6.0.2" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "mypy", specifier = ">=1.15.0" },
-    { name = "pytest", specifier = ">=8.3.4" },
-    { name = "pytest-cov", specifier = ">=6.0.0" },
-    { name = "pytest-mock", specifier = ">=3.14.0" },
-    { name = "pytest-randomly", specifier = ">=3.16.0" },
-    { name = "ruff", specifier = ">=0.9.6" },
-    { name = "syrupy", specifier = ">=4.8.1" },
-    { name = "types-mock", specifier = ">=5.1.0.20240425" },
-    { name = "types-python-slugify", specifier = ">=8.0.2.20240310" },
-    { name = "types-pyyaml", specifier = ">=6.0.12.20241230" },
-    { name = "wemake-python-styleguide", specifier = ">=1.0.0" },
+    { name = "mypy", specifier = "==1.15.0" },
+    { name = "pytest", specifier = "==8.3.4" },
+    { name = "pytest-cov", specifier = "==6.0.0" },
+    { name = "pytest-mock", specifier = "==3.14.0" },
+    { name = "pytest-randomly", specifier = "==3.16.0" },
+    { name = "ruff", specifier = "==0.9.6" },
+    { name = "syrupy", specifier = "==4.8.1" },
+    { name = "types-mock", specifier = "==5.1.0.20240425" },
+    { name = "types-python-slugify", specifier = "==8.0.2.20240310" },
+    { name = "types-pyyaml", specifier = "==6.0.12.20241230" },
+    { name = "wemake-python-styleguide", specifier = "==1.0.0" },
 ]
 
 [[package]]

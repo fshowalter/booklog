@@ -5,10 +5,10 @@ description = "Console application for managing my booklog, including reviews, a
 readme = "README.md"
 requires-python = "==3.13.2"
 dependencies = [
-    "loguru>=0.7.3",
-    "prompt-toolkit>=3.0.50",
-    "python-slugify>=8.0.4",
-    "pyyaml>=6.0.2",
+    "loguru==0.7.3",
+    "prompt-toolkit==3.0.50",
+    "python-slugify==8.0.4",
+    "pyyaml==6.0.2",
 ]
 
 [tool.uv]
@@ -19,17 +19,17 @@ booklog = "booklog.cli.main:prompt"
 
 [dependency-groups]
 dev = [
-    "wemake-python-styleguide>=1.0.0",
-    "syrupy>=4.8.1",
-    "ruff>=0.9.6",
-    "mypy>=1.15.0",
-    "pytest>=8.3.4",
-    "pytest-cov>=6.0.0",
-    "pytest-mock>=3.14.0",
-    "pytest-randomly>=3.16.0",
-    "types-mock>=5.1.0.20240425",
-    "types-python-slugify>=8.0.2.20240310",
-    "types-pyyaml>=6.0.12.20241230",
+    "wemake-python-styleguide==1.0.0",
+    "syrupy==4.8.1",
+    "ruff==0.9.6",
+    "mypy==1.15.0",
+    "pytest==8.3.4",
+    "pytest-cov==6.0.0",
+    "pytest-mock==3.14.0",
+    "pytest-randomly==3.16.0",
+    "types-mock==5.1.0.20240425",
+    "types-python-slugify==8.0.2.20240310",
+    "types-pyyaml==6.0.12.20241230",
 ]
 
 [tool.ruff]
