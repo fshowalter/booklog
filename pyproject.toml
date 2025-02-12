@@ -119,3 +119,23 @@ python_version = 3.10
 strict = true
 mypy_path = "booklog/stubs"
 
+[tool.pytest.ini_options]
+# py.test configuration: http://doc.pytest.org/en/latest/customize.html
+norecursedirs = [ "tests/fixtures", "*.egg", ".eggs", "dist", "build",  "docs", ".tox", ".git", "__pycache__", ".venv", ".direnv" ]
+junit_family="xunit1"
+
+addopts ="--strict-markers --cov=. --cov-branch --cov-report html -s --show-capture stdout"
+
+[tool.coverage.run]
+omit =[
+  "**/__init__.py",
+  ".venv/**",
+  "setup.py",
+  "**/.direnv/**" 
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:"
+]
