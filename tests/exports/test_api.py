@@ -1,5 +1,4 @@
 import json
-import os
 from datetime import date
 from pathlib import Path
 
@@ -65,8 +64,8 @@ def snapshot_json(snapshot: SnapshotAssertion) -> SnapshotAssertion:
 def test_exports_authors(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
     exports_api.export_data()
 
-    with open(
-        os.path.join(tmp_path / "exports" / "authors", "stephen-king.json"),
+    with Path.open(
+        Path(tmp_path) / "exports" / "authors" / "stephen-king.json",
         "r",
     ) as output_file:
         file_content = json.load(output_file)
@@ -74,11 +73,13 @@ def test_exports_authors(tmp_path: Path, snapshot_json: SnapshotAssertion) -> No
     assert file_content == snapshot_json
 
 
-def test_exports_reviewed_works(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
+def test_exports_reviewed_works(
+    tmp_path: Path, snapshot_json: SnapshotAssertion
+) -> None:
     exports_api.export_data()
 
-    with open(
-        os.path.join(tmp_path / "exports" / "reviewed-works.json"),
+    with Path.open(
+        Path(tmp_path) / "exports" / "reviewed-works.json",
         "r",
     ) as output_file:
         file_content = json.load(output_file)
@@ -86,11 +87,13 @@ def test_exports_reviewed_works(tmp_path: Path, snapshot_json: SnapshotAssertion
     assert file_content == snapshot_json
 
 
-def test_exports_unreviewed_works(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
+def test_exports_unreviewed_works(
+    tmp_path: Path, snapshot_json: SnapshotAssertion
+) -> None:
     exports_api.export_data()
 
-    with open(
-        os.path.join(tmp_path / "exports" / "unreviewed-works.json"),
+    with Path.open(
+        Path(tmp_path) / "exports" / "unreviewed-works.json",
         "r",
     ) as output_file:
         file_content = json.load(output_file)
@@ -98,11 +101,13 @@ def test_exports_unreviewed_works(tmp_path: Path, snapshot_json: SnapshotAsserti
     assert file_content == snapshot_json
 
 
-def test_exports_reading_timeline_entries(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
+def test_exports_reading_timeline_entries(
+    tmp_path: Path, snapshot_json: SnapshotAssertion
+) -> None:
     exports_api.export_data()
 
-    with open(
-        os.path.join(tmp_path / "exports", "timeline-entries.json"),
+    with Path.open(
+        Path(tmp_path) / "exports" / "timeline-entries.json",
         "r",
     ) as output_file:
         file_content = json.load(output_file)

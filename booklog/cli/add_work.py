@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import html
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Callable, Literal, Optional
+from typing import Literal
 
 from prompt_toolkit.shortcuts import confirm
 
@@ -25,11 +26,11 @@ Stages = Literal[
 @dataclass(kw_only=True)
 class State:
     stage: Stages = "ask_for_authors"
-    kind: Optional[repository_api.Kind] = None
-    title: Optional[str] = None
+    kind: repository_api.Kind | None = None
+    title: str | None = None
     work_authors: list[repository_api.WorkAuthor] = field(default_factory=list)
-    subtitle: Optional[str] = None
-    year_published: Optional[str] = None
+    subtitle: str | None = None
+    year_published: str | None = None
     included_works: list[str] = field(default_factory=list)
 
 
@@ -67,7 +68,7 @@ def persist_work(state: State) -> State:
 
     author_names = array_to_sentence([author.author().name for author in state.work_authors])
 
-    if confirm("Add more works by {0}?".format(author_names)):
+    if confirm(f"Add more works by {author_names}?"):
         state.stage = "ask_for_kind"
     else:
         state.stage = "end"
@@ -181,7 +182,7 @@ def ask_for_kind(state: State) -> State:
     kind = radio_list.prompt(
         title="Select kind:",
         options=[
-            (kind, "<cyan>{0}</cyan>".format(html.escape(kind)))
+            (kind, f"<cyan>{html.escape(kind)}</cyan>")
             for kind in sorted(repository_api.WORK_KINDS)
         ],
     )

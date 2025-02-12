@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import json
-import os
+from collections.abc import Iterable
 from dataclasses import dataclass
-from glob import glob
-from typing import Iterable, Literal, Optional, TypedDict, cast, get_args
+from pathlib import Path
+from typing import Literal, TypedDict, cast, get_args
 
 from slugify import slugify
 
@@ -23,42 +23,36 @@ Kind = Literal[
 ]
 KINDS = get_args(Kind)
 
-JsonWorkAuthor = TypedDict(
-    "JsonWorkAuthor",
-    {
-        "slug": str,
-        "notes": Optional[str],
-    },
-)
 
-JsonWork = TypedDict(
-    "JsonWork",
-    {
-        "title": str,
-        "subtitle": Optional[str],
-        "year": str,
-        "sortTitle": str,
-        "authors": list[JsonWorkAuthor],
-        "slug": str,
-        "kind": Kind,
-        "includedWorks": list[str],
-    },
-)
+class JsonWorkAuthor(TypedDict):
+    slug: str
+    notes: str | None
 
 
-def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
+class JsonWork(TypedDict):
+    title: str
+    subtitle: str | None
+    year: str
+    sortTitle: str  # noqa: WPS115
+    authors: list[JsonWorkAuthor]
+    slug: str
+    kind: Kind
+    includedWorks: list[str]  # noqa: WPS115
+
+
+def generate_sort_title(title: str, subtitle: str | None) -> str:
     title_with_subtitle = title
 
     if subtitle:
-        title_with_subtitle = "{0}: {1}".format(title, subtitle)
+        title_with_subtitle = f"{title}: {subtitle}"
 
     title_lower = title_with_subtitle.lower()
     title_words = title_with_subtitle.split(" ")
     lower_words = title_lower.split(" ")
-    articles = set(["a", "an", "the"])
+    articles = {"a", "an", "the"}
 
     if (len(title_words) > 1) and (lower_words[0] in articles):
-        return "{0}".format(" ".join(title_words[1 : len(title_words)]))
+        return "{}".format(" ".join(title_words[1 : len(title_words)]))
 
     return title_with_subtitle
 
@@ -66,19 +60,19 @@ def generate_sort_title(title: str, subtitle: Optional[str]) -> str:
 @dataclass
 class CreateWorkAuthor:
     slug: str
-    notes: Optional[str]
+    notes: str | None
 
 
 def create(  # noqa: WPS211
     title: str,
-    subtitle: Optional[str],
+    subtitle: str | None,
     year: str,
     work_authors: list[CreateWorkAuthor],
     kind: Kind,
-    included_work_slugs: Optional[list[str]] = None,
+    included_work_slugs: list[str] | None = None,
 ) -> JsonWork:
     slug = slugify(
-        "{0}-by-{1}".format(
+        "{}-by-{}".format(
             title.replace("'", ""),
             ", ".join(work_author.slug for work_author in work_authors),
         )
@@ -104,16 +98,16 @@ def create(  # noqa: WPS211
 
 
 def read_all() -> Iterable[JsonWork]:
-    for file_path in glob(os.path.join(FOLDER_NAME, "*.json")):
-        with open(file_path, "r") as json_file:
+    for file_path in Path(FOLDER_NAME).glob("*.json"):
+        with Path.open(file_path) as json_file:
             yield (cast(JsonWork, json.load(json_file)))
 
 
 def serialize(json_work: JsonWork) -> None:
-    file_path = os.path.join(FOLDER_NAME, "{0}.json".format(json_work["slug"]))
+    file_path = Path(FOLDER_NAME) / f"{json_work["slug"]}.json"
     path_tools.ensure_file_path(file_path)
 
-    with open(file_path, "w") as output_file:
+    with Path.open(file_path, "w") as output_file:
         output_file.write(json.dumps(json_work, default=str, indent=2))
 
     logger.log(

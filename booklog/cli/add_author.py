@@ -1,14 +1,12 @@
 from __future__ import annotations
 
-from typing import Optional, Tuple
-
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 
 from booklog.cli import ask
 from booklog.repository import api as repository_api
 
-Option = Tuple[Optional[str], AnyFormattedText]
+Option = tuple[str | None, AnyFormattedText]
 
 
 def prompt() -> None:
@@ -20,7 +18,7 @@ def prompt() -> None:
     repository_api.create_author(name)
 
 
-def ask_for_name() -> Optional[str]:
+def ask_for_name() -> str | None:
     name = ask.prompt("Name: ")
 
     if not name:

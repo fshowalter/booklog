@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import sys as _sys
-from typing import TYPE_CHECKING, Any, Callable, Sequence, TypeVar
+from collections.abc import Callable, Sequence
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from loguru import logger as _base_logger
 
@@ -25,7 +26,7 @@ _base_logger.configure(handlers=logger_handlers)
 
 
 class ExtendedLogger:
-    def __init__(self, _logger: "loguru.Logger"):
+    def __init__(self, _logger: loguru.Logger):
         self.logger = _logger
 
     def log(self, message: str, *args: Any, **kwargs: Any) -> None:
@@ -39,7 +40,9 @@ class ExtendedLogger:
         else:
             message_with_color = message.replace("{}", "<green>{}</green>")
 
-        self.logger.opt(colors=True, depth=1).info(message_with_color, *args, **kwargs)  # noqa: WPS221
+        self.logger.opt(colors=True, depth=1).info(
+            message_with_color, *args, **kwargs
+        )  # noqa: WPS221
 
     def catch(self, function: Function[None]) -> Function[None]:
         return self.logger.catch(function)

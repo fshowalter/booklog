@@ -6,31 +6,24 @@ from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
-JsonTimelineEntryAuthor = TypedDict(
-    "JsonTimelineEntryAuthor",
-    {
-        "name": str,
-    },
-)
+
+class JsonTimelineEntryAuthor(TypedDict):
+    name: str
 
 
-JsonTimelineEntry = TypedDict(
-    "JsonTimelineEntry",
-    {
-        "sequence": str,
-        "slug": str,
-        "edition": str,
-        "date": datetime.date,
-        "progress": str,
-        "reviewed": bool,
-        "readingYear": str,
-        "yearPublished": str,
-        "title": str,
-        "kind": str,
-        "authors": list[JsonTimelineEntryAuthor],
-        "includedInSlugs": list[str],
-    },
-)
+class JsonTimelineEntry(TypedDict):
+    sequence: str
+    slug: str
+    edition: str
+    date: datetime.date
+    progress: str
+    reviewed: bool
+    readingYear: str
+    yearPublished: str
+    title: str
+    kind: str
+    authors: list[JsonTimelineEntryAuthor]
+    includedInSlugs: list[str]
 
 
 def _build_json_timeline_entry(
@@ -42,7 +35,7 @@ def _build_json_timeline_entry(
     reviewed = bool(work.review(repository_data.reviews))
 
     return JsonTimelineEntry(
-        sequence="{0}-{1}-{2}".format(
+        sequence="{}-{}-{}".format(  # noqa: UP032,
             timeline_entry.date, reading.timeline[-1].date, reading.sequence
         ),
         slug=work.slug,
@@ -55,7 +48,9 @@ def _build_json_timeline_entry(
         title=work.title,
         readingYear=str(timeline_entry.date.year),
         authors=[
-            JsonTimelineEntryAuthor(name=work_author.author(repository_data.authors).name)
+            JsonTimelineEntryAuthor(
+                name=work_author.author(repository_data.authors).name
+            )
             for work_author in work.work_authors
         ],
         includedInSlugs=[

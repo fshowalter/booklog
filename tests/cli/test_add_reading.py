@@ -1,5 +1,4 @@
 from datetime import date
-from typing import Optional
 from unittest.mock import MagicMock
 
 import pytest
@@ -19,7 +18,9 @@ def mock_create_reading(mocker: MockerFixture) -> MagicMock:
 
 @pytest.fixture
 def mock_create_review(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.add_reading.repository_api.create_or_update_review")
+    return mocker.patch(
+        "booklog.cli.add_reading.repository_api.create_or_update_review"
+    )
 
 
 @pytest.fixture(autouse=True)
@@ -53,7 +54,9 @@ def stub_editions(mocker: MockerFixture) -> None:
         "Paperback",
     ]
 
-    mocker.patch("booklog.cli.add_reading.repository_api.reading_editions", return_value=editions)
+    mocker.patch(
+        "booklog.cli.add_reading.repository_api.reading_editions", return_value=editions
+    )
 
 
 def enter_title(title: str) -> list[str]:
@@ -68,7 +71,7 @@ def select_search_again() -> list[str]:
     return select_option(1)
 
 
-def enter_notes(notes: Optional[str] = None) -> list[str]:
+def enter_notes(notes: str | None = None) -> list[str]:
     return enter_text(notes)
 
 

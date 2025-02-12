@@ -1,9 +1,9 @@
 import datetime
-import os
 import re
 from collections import defaultdict
-from glob import glob
-from typing import Any, Callable, Iterable, Optional, TypedDict, TypeVar, cast
+from collections.abc import Callable, Iterable
+from pathlib import Path
+from typing import Any, TypedDict, TypeVar, cast
 
 import yaml
 
@@ -38,8 +38,8 @@ class MarkdownReading(TypedDict):
     work_slug: str
     edition: str
     timeline: list[TimelineEntry]
-    edition_notes: Optional[str]
-    notes: Optional[str]
+    edition_notes: str | None
+    notes: str | None
 
 
 class Frontmatter(TypedDict):
@@ -47,7 +47,7 @@ class Frontmatter(TypedDict):
     work_slug: str
     edition: str
     timeline: list[TimelineEntry]
-    edition_notes: Optional[str]
+    edition_notes: str | None
 
 
 def _represent_none(self: Any, _: Any) -> Any:
@@ -55,8 +55,8 @@ def _represent_none(self: Any, _: Any) -> Any:
 
 
 def read_all() -> Iterable[MarkdownReading]:
-    for file_path in glob(os.path.join("readings", "*.md")):
-        with open(file_path, "r") as viewing_file:
+    for file_path in Path("readings").glob("*.md"):
+        with Path.open(file_path, "r") as viewing_file:
             _, frontmatter, notes = FM_REGEX.split(viewing_file.read(), 2)
             reading = cast(MarkdownReading, yaml.safe_load(frontmatter))
             reading["notes"] = notes
@@ -70,27 +70,27 @@ def rename_readings() -> None:
         existing_instances, lambda reading: reading["timeline"][-1]["date"]
     )
 
-    for _, readings in grouped_readings.items():
+    for readings in grouped_readings.values():
         for index, reading in enumerate(readings):
             reading["sequence"] = index + 1
             _serialize(reading)
 
 
-def _generate_file_path(markdown_reading: MarkdownReading) -> str:
-    file_name = "{0}-{1:02d}-{2}".format(
+def _generate_file_path(markdown_reading: MarkdownReading) -> Path:
+    file_name = "{}-{:02d}-{}".format(
         markdown_reading["timeline"][-1]["date"],
         markdown_reading["sequence"],
         markdown_reading["work_slug"],
     )
 
-    file_path = os.path.join(FOLDER_NAME, "{0}.md".format(file_name))
+    file_path = Path(FOLDER_NAME) / f"{file_name}.md"
 
     path_tools.ensure_file_path(file_path)
 
     return file_path
 
 
-def _serialize(markdown_reading: MarkdownReading) -> str:
+def _serialize(markdown_reading: MarkdownReading) -> Path:
     yaml.add_representer(type(None), _represent_none)
 
     file_path = _generate_file_path(markdown_reading)
@@ -103,7 +103,7 @@ def _serialize(markdown_reading: MarkdownReading) -> str:
         timeline=markdown_reading["timeline"],
     )
 
-    with open(file_path, "w") as markdown_file:
+    with Path.open(file_path, "w") as markdown_file:
         markdown_file.write("---\n")
         yaml.dump(
             frontmatter,
@@ -123,4 +123,5 @@ def _serialize(markdown_reading: MarkdownReading) -> str:
 
 
 if __name__ == "__main__":
+    rename_readings()
     rename_readings()

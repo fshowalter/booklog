@@ -1,4 +1,3 @@
-from typing import Optional
 from unittest.mock import MagicMock
 
 import pytest
@@ -46,7 +45,7 @@ def select_author_search_result() -> list[str]:
     return select_option(1)
 
 
-def enter_notes(notes: Optional[str] = None) -> list[str]:
+def enter_notes(notes: str | None = None) -> list[str]:
     return enter_text(notes)
 
 
@@ -148,7 +147,9 @@ def test_calls_create_work_for_collection(
     )
 
 
-def test_can_cancel_out_of_author_name(mock_input: MockInput, mock_create_work: MagicMock) -> None:
+def test_can_cancel_out_of_author_name(
+    mock_input: MockInput, mock_create_work: MagicMock
+) -> None:
     mock_input(
         [
             Escape,
@@ -160,7 +161,9 @@ def test_can_cancel_out_of_author_name(mock_input: MockInput, mock_create_work: 
     mock_create_work.assert_not_called()
 
 
-def test_can_cancel_out_of_kind(mock_input: MockInput, mock_create_work: MagicMock) -> None:
+def test_can_cancel_out_of_kind(
+    mock_input: MockInput, mock_create_work: MagicMock
+) -> None:
     mock_input(
         [
             Escape,

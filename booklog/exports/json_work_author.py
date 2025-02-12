@@ -1,11 +1,13 @@
-from typing import Optional, TypedDict
+from typing import TypedDict
 
 from booklog.repository import api as repository_api
 
-JsonWorkAuthor = TypedDict(
-    "JsonWorkAuthor",
-    {"name": str, "sortName": str, "slug": str, "notes": Optional[str]},
-)
+
+class JsonWorkAuthor(TypedDict):
+    name: str
+    sortName: str
+    slug: str
+    notes: str | None
 
 
 def build_json_work_author(

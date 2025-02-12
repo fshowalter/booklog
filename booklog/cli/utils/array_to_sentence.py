@@ -9,8 +9,8 @@ def array_to_sentence(words: list[str]) -> str:
         case 1:
             return words[0]
         case 2:
-            return "{0}{1}{2}".format(words[0], two_words_connector, words[1])
+            return f"{words[0]}{two_words_connector}{words[1]}"
         case _:
-            return "{0}{1}{2}".format(
-                words_connector.join(words[:-1]), last_word_connector, words[-1]
-            )
+            all_words_but_last = words[:-1]
+            last_word = words[-1]
+            return f"{words_connector.join(all_words_but_last)}{last_word_connector}{last_word}"

@@ -107,6 +107,7 @@ ignore = [
 ]
 external = [ "WPS" ]
 
+
 # Plugin configs:
 flake8-import-conventions.banned-from = [ "ast" ]
 flake8-quotes.inline-quotes = "double"

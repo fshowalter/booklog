@@ -1,22 +1,19 @@
-from typing import Optional, TypedDict
+from typing import TypedDict
 
 from booklog.exports import exporter, json_work_author
 from booklog.exports.repository_data import RepositoryData
 from booklog.utils.logging import logger
 
-JsonUnreviewedWork = TypedDict(
-    "JsonUnreviewedWork",
-    {
-        "slug": str,
-        "includedInSlugs": list[str],
-        "title": str,
-        "subtitle": Optional[str],
-        "sortTitle": str,
-        "yearPublished": str,
-        "authors": list[json_work_author.JsonWorkAuthor],
-        "kind": str,
-    },
-)
+
+class JsonUnreviewedWork(TypedDict):
+    slug: str
+    includedInSlugs: list[str]
+    title: str
+    subtitle: str | None
+    sortTitle: str
+    yearPublished: str
+    authors: list[json_work_author.JsonWorkAuthor]
+    kind: str
 
 
 def export(repository_data: RepositoryData) -> None:
