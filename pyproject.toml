@@ -20,7 +20,6 @@ booklog = "booklog.cli.main:prompt"
 
 [dependency-groups]
 dev = [
-  "wemake-python-styleguide==1.0.0",
   "syrupy==4.8.1",
   "ruff==0.9.6",
   "mypy==1.15.0",
