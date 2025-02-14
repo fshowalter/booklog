@@ -135,5 +135,3 @@ export/
 
 # ruff
 .ruff_cache/
-
-node_modules/
