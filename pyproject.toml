@@ -1,7 +1,7 @@
 [project]
 name = "booklog"
 version = "1.0.0"
-description = "Console application for managing my booklog, including reviews, and my to-read list."
+description = "Console application for managing my booklog, including reviews, and my reading history."
 readme = "README.md"
 requires-python = "==3.13.2"
 dependencies = [
