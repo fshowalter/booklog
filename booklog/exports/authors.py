@@ -6,7 +6,7 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
-class JsonAuthorWork(TypedDict):
+class JsonAuthorReviewedWork(TypedDict):
     title: str
     yearPublished: str
     kind: str
@@ -15,33 +15,29 @@ class JsonAuthorWork(TypedDict):
     grade: str | None
     gradeValue: int | None
     authors: list[json_work_author.JsonWorkAuthor]
-    reviewed: bool
     includedInSlugs: list[str]
+
 
 class JsonAuthor(TypedDict):
     name: str
     sortName: str
     slug: str
-    reviewedWorkCount: int
-    workCount: int
-    shelfWorkCount: int
-    works: list[JsonAuthorWork]
+    reviewedWorks: list[JsonAuthorReviewedWork]
 
 
-def _build_json_author_work(
+def _build_json_author_reviewed_work(
     work: repository_api.Work,
-    review: repository_api.Review | None,
+    review: repository_api.Review,
     repository_data: RepositoryData,
-) -> JsonAuthorWork:
-    return JsonAuthorWork(
+) -> JsonAuthorReviewedWork:
+    return JsonAuthorReviewedWork(
         title=work.title,
         yearPublished=work.year,
         kind=work.kind,
         slug=work.slug,
         sortTitle=work.sort_title,
-        reviewed=bool(review),
-        grade=review.grade if review else None,
-        gradeValue=review.grade_value if review else None,
+        grade=review.grade,
+        gradeValue=review.grade_value,
         authors=[
             json_work_author.build_json_work_author(
                 work_author=work_author, all_authors=repository_data.authors
@@ -56,25 +52,23 @@ def _build_json_author(
     author: repository_api.Author, repository_data: RepositoryData
 ) -> JsonAuthor:
     author_works = list(author.works(repository_data.works))
-    reviewed_work_count = len(
-        [author_work for author_work in author_works if author_work.review(repository_data.reviews)]
-    )
+
+    reviewed_works = []
+
+    for work in author_works:
+        review = work.review(repository_data.reviews)
+        if review:
+            reviewed_works.append(
+                _build_json_author_reviewed_work(
+                    work=work, review=review, repository_data=repository_data
+                )
+            )
 
     return JsonAuthor(
         name=author.name,
         sortName=author.sort_name,
         slug=author.slug,
-        works=[
-            _build_json_author_work(
-                work=work,
-                review=work.review(repository_data.reviews),
-                repository_data=repository_data,
-            )
-            for work in author_works
-        ],
-        reviewedWorkCount=reviewed_work_count,
-        workCount=len(author_works),
-        shelfWorkCount=len(author_works) - reviewed_work_count,
+        reviewedWorks=reviewed_works,
     )
 
 
@@ -90,7 +84,7 @@ def export(repository_data: RepositoryData) -> None:
     ]
 
     exporter.serialize_dicts_to_folder(
-        json_authors,
+        [json_author for json_author in json_authors if len(json_author["reviewedWorks"]) > 0],
         "authors",
         filename_key=lambda json_author: json_author["slug"],
     )
