@@ -1,0 +1,20 @@
+{
+  "title": "Different Seasons",
+  "subtitle": null,
+  "sortTitle": "Different Seasons",
+  "year": "1982",
+  "authors": [
+    {
+      "slug": "stephen-king",
+      "notes": null
+    }
+  ],
+  "slug": "different-seasons-by-stephen-king",
+  "kind": "Collection",
+  "includedWorks": [
+    "rita-hayworth-and-shawshank-redemption-by-stephen-king",
+    "apt-pupil-by-stephen-king",
+    "the-body-by-stephen-king",
+    "the-breathing-method-by-stephen-king"
+  ]
+}
