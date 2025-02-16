@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: life-the-rat-pack-by-james-kaplan
-edition: Paperback
+edition: Hardcover
 edition_notes: null
 timeline:
   - date: 2015-12-31
