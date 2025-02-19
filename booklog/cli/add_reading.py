@@ -228,6 +228,7 @@ def ask_for_grade(state: State) -> State:
 
     if state.timeline[-1].progress == "Abandoned":
         state.grade = "Abandoned"
+        state.stage = "persist_reading"
         return state
 
     validator = Validator.from_callable(
