@@ -24,7 +24,7 @@ class JsonMostReadAuthorReading(TypedDict):
 class JsonMostReadAuthor(TypedDict):
     name: str
     count: int
-    slug: str
+    slug: str | None
     readings: list[JsonMostReadAuthorReading]
 
 
@@ -151,13 +151,14 @@ def _build_most_read_authors(
         readings=readings, repository_data=repository_data
     )
 
+
     most_read_authors_list = [
         JsonMostReadAuthor(
             name=next(
                 author.name for author in repository_data.authors if author.slug == author_slug
             ),
             count=len(readings),
-            slug=author_slug,
+            slug=author_slug if author_slug in repository_data.authors_with_reviews else None,
             readings=sorted(
                 [
                     _build_json_most_read_author_reading(
