@@ -108,9 +108,9 @@ def ask_for_authors(state: State) -> State:
         if author_notes == "":
             author_notes = None
 
-            state.work_authors.append(
-                repository_api.WorkAuthor(notes=author_notes, author_slug=author.slug)
-            )
+        state.work_authors.append(
+            repository_api.WorkAuthor(notes=author_notes, author_slug=author.slug)
+        )
 
         if not confirm("Add more Authors?"):
             state.stage = "ask_for_kind"
