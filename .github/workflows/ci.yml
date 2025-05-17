@@ -51,7 +51,7 @@ jobs:
         run: npm ci
 
       - name: prettier --write
-        run: npm run format
+        run: npm run format:fix
 
       - name: create pull request
         id: cpr
