@@ -53,6 +53,9 @@ jobs:
       - name: prettier
         run: npm run format
 
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+
   mypy:
     runs-on: ubuntu-latest
 
