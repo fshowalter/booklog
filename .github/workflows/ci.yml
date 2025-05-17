@@ -53,11 +53,11 @@ jobs:
       - name: prettier --write
         run: npm run format
 
-      - name: Create Pull Request
+      - name: create pull request
         uses: peter-evans/create-pull-request@v7
         assignees: fshowalter
 
-      - name: Auto-merge PR
+      - name: auto-merge pr
         if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
@@ -65,10 +65,9 @@ jobs:
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
 
-      - name: Fail if PR
+      - name: fail if pr
         if: steps.cpr.outputs.pull-request-operation == 'created'
         run: |
-          echo "This step will fail"
           exit 1
 
   mypy:
