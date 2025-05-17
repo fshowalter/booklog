@@ -50,7 +50,7 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: prettier
+      - name: prettier --check
         run: npm run format
 
   mypy:
