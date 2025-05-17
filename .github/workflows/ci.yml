@@ -50,11 +50,26 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: prettier
+      - name: prettier --write
         run: npm run format
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
+        assignees: fshowalter
+
+      - name: Auto-merge PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.PAT }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
+
+      - name: Fail if PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        run: |
+          echo "This step will fail"
+          exit 1
 
   mypy:
     runs-on: ubuntu-latest
