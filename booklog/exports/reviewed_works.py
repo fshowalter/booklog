@@ -11,6 +11,7 @@ from booklog.utils.logging import logger
 
 class JsonMoreReviewAuthor(TypedDict):
     name: str
+    notes: str | None
 
 
 class JsonReading(TypedDict):
@@ -106,7 +107,7 @@ def _build_json_more_review(
         ],
         authors=[
             JsonMoreReviewAuthor(
-                name=work_author.author(repository_data.authors).name,
+                name=work_author.author(repository_data.authors).name, notes=work_author.notes
             )
             for work_author in work.work_authors
         ],
