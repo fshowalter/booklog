@@ -23,7 +23,7 @@ dev = [
   "syrupy==4.9.1",
   "ruff==0.11.13",
   "mypy==1.16.1",
-  "pytest==8.4.0",
+  "pytest==8.4.1",
   "pytest-cov==6.2.1",
   "pytest-mock==3.14.1",
   "pytest-randomly==3.16.0",
