@@ -1,17 +1,13 @@
 import json
 from collections.abc import Callable, Iterable
 from pathlib import Path
-from typing import TypeVar
 
 from booklog.utils.logging import logger
-
-DataClassType = TypeVar("DataClassType")
-DictType = TypeVar("DictType")
 
 EXPORT_FOLDER_NAME = "export"
 
 
-def serialize_dict(dict_to_export: DictType, file_name: str) -> None:
+def serialize_dict[T](dict_to_export: T, file_name: str) -> None:
     folder_path = Path(EXPORT_FOLDER_NAME)
     folder_path.mkdir(parents=True, exist_ok=True)
 
@@ -26,7 +22,7 @@ def serialize_dict(dict_to_export: DictType, file_name: str) -> None:
     )
 
 
-def serialize_dicts(dicts: Iterable[DictType], file_name: str) -> None:
+def serialize_dicts[T](dicts: Iterable[T], file_name: str) -> None:
     folder_path = Path(EXPORT_FOLDER_NAME)
     folder_path.mkdir(parents=True, exist_ok=True)
 
@@ -41,10 +37,10 @@ def serialize_dicts(dicts: Iterable[DictType], file_name: str) -> None:
     )
 
 
-def serialize_dicts_to_folder(
-    dicts: Iterable[DictType],
+def serialize_dicts_to_folder[T](
+    dicts: Iterable[T],
     folder_name: str,
-    filename_key: Callable[[DictType], str],
+    filename_key: Callable[[T], str],
 ) -> None:
     folder_path = Path(EXPORT_FOLDER_NAME) / folder_name
     folder_path.mkdir(parents=True, exist_ok=True)
