@@ -1,0 +1,44 @@
+{
+  "title": "Hotter Blood",
+  "subtitle": null,
+  "sortTitle": "Hotter Blood",
+  "year": "1991",
+  "authors": [
+    {
+      "slug": "jeff-gelb",
+      "notes": "Editor"
+    },
+    {
+      "slug": "michael-garrett",
+      "notes": "Editor"
+    }
+  ],
+  "slug": "hotter-blood-by-jeff-gelb-michael-garrett",
+  "kind": "Anthology",
+  "includedWorks": [
+    "nocturne-by-john-byrne",
+    "the-tub-by-richard-laymon",
+    "the-picture-of-health-by-ray-garton",
+    "change-of-life-by-chet-williamson",
+    "demonlover-by-nancy-a-collins",
+    "confession-by-kurt-busiek",
+    "wolf-in-the-memory-by-stephen-gresham",
+    "to-have-and-to-hold-by-gary-brandner",
+    "cruising-by-lisa-w-cantrell",
+    "dream-on-me-by-mick-garris",
+    "device-by-stephen-gallagher",
+    "the-best-by-paul-dale-anderson",
+    "something-extra-by-j-n-williamson-james-kisner",
+    "juice-by-kiel-stuart",
+    "surprise-by-rex-miller",
+    "rococo-by-graham-masterton",
+    "dear-diary-by-elsa-rutherford",
+    "the-splicer-by-don-d-ammassa",
+    "a-hard-man-is-good-to-find-by-r-patrick-gates",
+    "bedroom-eyes-by-michael-newton",
+    "atrocities-by-lucy-taylor",    
+    "pearldoll-by-john-shirley",
+    "the-kind-men-like-by-karl-edward-wagner",
+    "the-braille-encyclopaedia-by-grant-morrison"
+  ]
+}
