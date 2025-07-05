@@ -1,7 +1,7 @@
 ---
 sequence: 4
 work_slug: cujo-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2014-06-09

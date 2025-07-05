@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: dont-let-them-get-you-down-by-philip-fracassi
-edition: Kindle
+edition: Ebook
 edition_notes: Altar Publishing, 2023
 timeline:
   - date: 2023-10-11

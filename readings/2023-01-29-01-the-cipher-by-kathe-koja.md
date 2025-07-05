@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-cipher-by-kathe-koja
-edition: Kindle
+edition: Ebook
 edition_notes: Roadswell Editions, 2012
 timeline:
   - date: 2023-01-22

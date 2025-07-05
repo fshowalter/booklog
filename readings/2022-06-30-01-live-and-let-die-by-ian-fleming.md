@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: live-and-let-die-by-ian-fleming
-edition: Kindle
+edition: Ebook
 edition_notes: Thomas & Mercer, 2012
 timeline:
   - date: 2022-06-17

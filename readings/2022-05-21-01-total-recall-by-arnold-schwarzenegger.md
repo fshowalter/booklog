@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: total-recall-by-arnold-schwarzenegger
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Stephen Lang and Arnold Schwarzenegger
 timeline:
   - date: 2022-05-07

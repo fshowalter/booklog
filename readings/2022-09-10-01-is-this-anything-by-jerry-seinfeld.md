@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: is-this-anything-by-jerry-seinfeld
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Jerry Seinfeld
 timeline:
   - date: 2022-09-06

@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: casino-royale-by-ian-fleming
-edition: Kindle
+edition: Ebook
 edition_notes: Thomas & Mercer, 2012
 timeline:
   - date: 2022-06-08

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: hot-blood-by-jeff-gelb-lonn-m-friend
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-11-25

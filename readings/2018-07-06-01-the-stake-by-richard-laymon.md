@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-stake-by-richard-laymon
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-06-06

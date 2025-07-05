@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: baal-by-robert-mccammon
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-10-22

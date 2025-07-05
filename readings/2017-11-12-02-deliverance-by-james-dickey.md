@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: deliverance-by-james-dickey
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-11-08

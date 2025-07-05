@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: the-chocolate-war-by-robert-cormier
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-05-29

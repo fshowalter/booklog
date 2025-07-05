@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-psychopath-test-by-jon-ronson
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-12-19

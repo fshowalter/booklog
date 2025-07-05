@@ -1,7 +1,7 @@
 ---
 sequence: 3
 work_slug: the-rise-of-theodore-roosevelt-by-edmund-morris
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Mark Deakins
 timeline:
   - date: 2022-03-19

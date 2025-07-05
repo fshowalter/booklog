@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: resurrection-dreams-by-richard-laymon
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-02-25

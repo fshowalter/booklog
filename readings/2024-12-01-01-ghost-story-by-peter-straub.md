@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: ghost-story-by-peter-straub
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2024-11-10

@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: interview-with-the-vampire-by-anne-rice
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-11-12

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: liars-poker-by-michael-lewis
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-02-11

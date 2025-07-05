@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: muscle-by-samuel-wilson-fussell
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-04-03

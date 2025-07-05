@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: life-itself-by-roger-ebert
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-10-26

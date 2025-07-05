@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: behold-the-void-by-philip-fracassi
-edition: Kindle
+edition: Ebook
 edition_notes: Lovecraft eZine Press, 2018
 timeline:
   - date: 2022-04-17

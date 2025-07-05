@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-postman-always-rings-twice-by-james-m-cain
-edition: Kindle
+edition: Ebook
 edition_notes: Vintage Crime / Black Lizard, 2010
 timeline:
   - date: 2022-07-18

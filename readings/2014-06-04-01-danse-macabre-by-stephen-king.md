@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: danse-macabre-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2014-05-23
