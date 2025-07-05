@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: on-writing-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: Scribner
 timeline:
   - date: 2022-03-19

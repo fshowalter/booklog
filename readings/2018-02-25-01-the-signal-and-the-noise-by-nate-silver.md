@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-signal-and-the-noise-by-nate-silver
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-01-18

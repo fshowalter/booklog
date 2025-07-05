@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-skeptics-guide-to-the-universe-by-steven-novella
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Steven Novella
 timeline:
   - date: 2022-10-22

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: recessional-by-david-mamet
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2024-08-02

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: less-than-zero-by-bret-easton-ellis
-edition: Kindle
+edition: Ebook
 edition_notes: Vintage Contemporaries
 timeline:
   - date: 2022-03-22

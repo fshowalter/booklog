@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: carrie-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: Anchor, 2008
 timeline:
   - date: 2022-09-09

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-gunslinger-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2019-03-03

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: moonraker-by-ian-fleming
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Bill Nighy
 timeline:
   - date: 2022-10-15

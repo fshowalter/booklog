@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: out-are-the-lights-by-richard-laymon
-edition: Kindle
+edition: Ebook
 edition_notes:
   <span data-work-slug="out-are-the-lights-and-other-tales-by-richard-laymon">_Out
   Are the Lights and Other Tales_</span>, Headline, 1993

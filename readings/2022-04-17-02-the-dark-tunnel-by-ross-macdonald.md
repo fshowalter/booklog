@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: the-dark-tunnel-by-ross-macdonald
-edition: Kindle
+edition: Ebook
 edition_notes: MysteriousPress.com / Open Road, 2013
 timeline:
   - date: 2022-04-03

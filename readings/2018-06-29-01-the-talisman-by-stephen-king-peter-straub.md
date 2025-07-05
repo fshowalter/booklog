@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-talisman-by-stephen-king-peter-straub
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-06-10

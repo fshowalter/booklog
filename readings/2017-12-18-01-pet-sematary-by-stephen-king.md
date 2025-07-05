@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: pet-sematary-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-12-01

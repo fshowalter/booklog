@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: cured-by-lol-tolhurst
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Lol Tolhurst
 timeline:
   - date: 2022-07-16

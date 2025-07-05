@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: hotter-blood-by-jeff-gelb-michael-garrett
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-01-17

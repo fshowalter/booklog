@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: firestarter-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2014-04-12

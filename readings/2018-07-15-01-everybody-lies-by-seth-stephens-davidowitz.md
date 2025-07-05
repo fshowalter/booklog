@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: everybody-lies-by-seth-stephens-davidowitz
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-07-07

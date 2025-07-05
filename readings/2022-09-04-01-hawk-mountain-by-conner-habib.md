@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: hawk-mountain-by-conner-habib
-edition: Kindle
+edition: Ebook
 edition_notes: W. W. Norton & Company
 timeline:
   - date: 2022-07-24

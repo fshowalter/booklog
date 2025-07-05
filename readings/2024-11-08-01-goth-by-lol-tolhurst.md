@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: goth-by-lol-tolhurst
-edition: Audible
+edition: Audiobook
 edition_notes: null
 timeline:
   - date: 2024-10-25

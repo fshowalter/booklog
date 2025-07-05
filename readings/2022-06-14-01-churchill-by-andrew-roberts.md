@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: churchill-by-andrew-roberts
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Stephen Thorne
 timeline:
   - date: 2022-05-21

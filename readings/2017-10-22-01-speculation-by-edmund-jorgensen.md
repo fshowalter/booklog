@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: speculation-by-edmund-jorgensen
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2017-10-15

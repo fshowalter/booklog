@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: record-play-pause-by-stephen-morris
-edition: Audible
+edition: Audiobook
 edition_notes: Read by Stephen Morris
 timeline:
   - date: 2023-11-06

@@ -1,7 +1,7 @@
 ---
 sequence: 2
 work_slug: astrophysics-for-people-in-a-hurry-by-neil-degrasse-tyson
-edition: Kindle
+edition: Ebook
 edition_notes: null
 timeline:
   - date: 2018-05-20

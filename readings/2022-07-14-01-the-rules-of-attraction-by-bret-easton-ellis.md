@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-rules-of-attraction-by-bret-easton-ellis
-edition: Kindle
+edition: Ebook
 edition_notes: Vintage Contemporaries
 timeline:
   - date: 2022-07-02

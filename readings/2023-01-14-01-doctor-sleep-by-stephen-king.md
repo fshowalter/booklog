@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: doctor-sleep-by-stephen-king
-edition: Kindle
+edition: Ebook
 edition_notes: Scribner, 2013
 timeline:
   - date: 2022-10-30

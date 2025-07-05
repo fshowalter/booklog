@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: the-max-muscle-plan-by-brad-schoenfeld
-edition: Kindle
+edition: Ebook
 edition_notes: Human Kinetics, 2013
 timeline:
   - date: 2022-03-17

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 work_slug: roadside-pickup-by-richard-laymon
-edition: Kindle
+edition: Ebook
 edition_notes:
   '<span data-work-slug="short-stories-volume-one-by-richard-laymon">_Short
   Stories: Volume One: The Mystery and Men''s Magazines_</span>, Laymusings, 2014'
