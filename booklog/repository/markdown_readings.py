@@ -16,6 +16,11 @@ FOLDER_NAME = "readings"
 FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
 
 
+class BlockCollectionIndentDumper(yaml.Dumper):
+    def increase_indent(self, flow: bool = False, indentless: bool = False) -> None:
+        return super().increase_indent(flow, indentless=False)
+
+
 class TimelineEntry(TypedDict):
     date: datetime.date
     progress: str
@@ -33,9 +38,7 @@ def _represent_none(self: Any, _: Any) -> Any:
     return self.represent_scalar("tag:yaml.org,2002:null", "null")
 
 
-def create(
-    work_slug: str, timeline: list[TimelineEntry], edition: str
-) -> MarkdownReading:
+def create(work_slug: str, timeline: list[TimelineEntry], edition: str) -> MarkdownReading:
     new_reading = MarkdownReading(
         sequence=_next_sequence_for_date(timeline[0]["date"]),
         work_slug=work_slug,
@@ -57,9 +60,7 @@ class SequenceError(Exception):
 def _next_sequence_for_date(date: datetime.date) -> int:
     existing_instances = sorted(
         read_all(),
-        key=lambda reading: "{}-{}".format(
-            reading["timeline"][-1]["date"], reading["sequence"]
-        ),
+        key=lambda reading: "{}-{}".format(reading["timeline"][-1]["date"], reading["sequence"]),
     )
 
     grouped_readings = list_tools.group_list_by_key(
@@ -106,7 +107,9 @@ def _serialize(markdown_reading: MarkdownReading) -> Path:
             allow_unicode=True,
             default_flow_style=False,
             sort_keys=False,
+            indent=2,
             stream=markdown_file,
+            Dumper=BlockCollectionIndentDumper,
         )
         markdown_file.write("---\n\n")
 
