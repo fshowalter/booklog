@@ -17,7 +17,7 @@ FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
 
 
 class BlockCollectionIndentDumper(yaml.Dumper):
-    def increase_indent(self, flow: bool = False, indentless: bool = False) -> None:
+    def increase_indent(self, flow: bool = False, indentless: bool = False) -> None:  # noqa: FBT001 FBT002
         return super().increase_indent(flow, indentless=False)
 
 
