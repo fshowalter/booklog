@@ -12,7 +12,7 @@ Fracassi has absorbed King's best lessons about small-town storytelling but jett
 
 The writing crackles with menace. His description of the junkyard--crawling with "cockroaches, snakes, spiders, flies and their unborn larvae...thick enough to fill a community pool"--makes your skin crawl in the best possible way. This is campfire horror that earns its shivers.
 
-But Fracassi's secret weapon isn't just atmosphere. His ear for authentic adolescent voices shines. When one kid realizes that kids "hadn't quite grasped how to be sly," it rings true and it feeds perfectly into the story's themes about deception as learned behavior and the loss of innocence.
+But Fracassi's secret weapon isn't just atmosphere. His ear for authentic adolescent voices shines. When one kid realizes that kids "hadn't quite grasped how to be sly," it rings true and feeds perfectly into the story's themes about deception as learned behavior and the loss of innocence.
 
 The pacing is surgical. Fracassi knows exactly when to twist the knife and when to let dread simmer. Consider this line as the kids head out on their bikes and our nominal protagonist realizes he's not afraid of the adventure ahead: "No, he wasn't afraid. Not yet. But he would be. They'd all be afraid in the end."
 
