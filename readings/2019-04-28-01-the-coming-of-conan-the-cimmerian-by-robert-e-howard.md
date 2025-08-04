@@ -27,5 +27,5 @@ timeline:
   - date: 2019-04-27
     progress: 70%
   - date: 2019-04-28
-    progress: Abandoned
+    progress: Finished
 ---
