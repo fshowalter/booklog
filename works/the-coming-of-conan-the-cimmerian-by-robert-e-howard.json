@@ -1,0 +1,30 @@
+{
+  "title": "The Coming of Conan the Cimmerian",
+  "subtitle": null,
+  "sortTitle": "Coming of Conan the Cimmerian",
+  "year": "2002",
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "the-coming-of-conan-the-cimmerian-by-robert-e-howard",
+  "kind": "Collection",
+  "includedWorks": [
+    "cimmeria-by-robert-e-howard",
+    "the-phoenix-on-the-sword-by-robert-e-howard",
+    "the-frost-giants-daughter-by-robert-e-howard",
+    "the-god-in-the-bowl-by-robert-e-howard",
+    "the-tower-of-the-elephant-by-robert-e-howard",
+    "the-scarlet-citadel-by-robert-e-howard",
+    "queen-of-the-black-coast-by-robert-e-howard",
+    "black-colossus-by-robert-e-howard",
+    "iron-shadows-in-the-moon-by-robert-e-howard",
+    "xuthal-of-the-dusk-by-robert-e-howard",
+    "the-pool-of-the-black-one-by-robert-e-howard",
+    "rogues-in-the-house-by-robert-e-howard",
+    "the-vale-of-lost-women-by-robert-e-howard",
+    "the-devil-in-iron-by-robert-e-howard"
+  ]
+}

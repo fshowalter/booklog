@@ -1,0 +1,23 @@
+{
+  "title": "I Have No Mouth and I Must Scream",
+  "subtitle": null,
+  "sortTitle": "I Have No Mouth and I Must Scream",
+  "year": "1967",
+  "authors": [
+    {
+      "slug": "harlan-ellison",
+      "notes": null
+    }
+  ],
+  "slug": "i-have-no-mouth-and-i-must-scream-by-harlan-ellison",
+  "kind": "Collection",
+  "includedWorks": [
+    "i-have-no-mouth-and-i-must-scream-story-by-harlan-ellison",
+    "big-sam-was-my-friend-by-harlan-ellison",
+    "eyes-of-dust-by-harlan-ellison",
+    "world-of-the-myth-by-harlan-ellison",
+    "lonelyache-by-harlan-ellison",
+    "delusion-for-dragonslayer-by-harlan-ellison",
+    "pretty-maggie-moneyeyes-by-harlan-ellison"
+  ]
+}
