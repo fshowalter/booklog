@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "The Mirrors of Tuzun Thune",
+  "subtitle": null,
+  "sortTitle": "Mirrors of Tuzun Thune",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "the-mirrors-of-tuzun-thune-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }

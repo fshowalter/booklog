@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "Swords of the Purple Kingdom",
+  "subtitle": null,
+  "sortTitle": "Swords of the Purple Kingdom",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "swords-of-the-purple-kingdom-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }

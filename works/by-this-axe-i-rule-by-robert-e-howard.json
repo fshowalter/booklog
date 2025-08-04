@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "By This Axe I Rule!",
+  "subtitle": null,
+  "sortTitle": "By This Axe I Rule!",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "by-this-axe-i-rule-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }

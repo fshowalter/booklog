@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "The Striking of the Gong",
+  "subtitle": null,
+  "sortTitle": "Striking of the Gong",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "the-striking-of-the-gong-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }

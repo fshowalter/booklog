@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "The Shadow Kingdom",
+  "subtitle": null,
+  "sortTitle": "Shadow Kingdom",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "the-shadow-kingdom-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }
