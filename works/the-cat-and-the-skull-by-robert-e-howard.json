@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "The Cat and the Skull",
+  "subtitle": null,
+  "sortTitle": "Cat and the Skull",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "the-cat-and-the-skull-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }

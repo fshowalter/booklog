@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "Kings of the Night",
+  "subtitle": null,
+  "sortTitle": "Kings of the Night",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "kings-of-the-night-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }

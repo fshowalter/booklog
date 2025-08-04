@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "The Altar and the Scorpion",
+  "subtitle": null,
+  "sortTitle": "Altar and the Scorpion",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "the-altar-and-the-scorpion-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }

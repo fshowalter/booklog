@@ -1,6 +1,15 @@
 {
-  "kind": "Short Story",
-  "author": "robert-e-howard",
+  "title": "The Black City",
+  "subtitle": null,
+  "sortTitle": "Black City",
   "year": "1967",
-  "includedWorks": null
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "the-black-city-by-robert-e-howard",
+  "kind": "Short Story",
+  "includedWorks": []
 }
