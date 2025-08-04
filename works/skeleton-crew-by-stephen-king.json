@@ -1,0 +1,36 @@
+{
+  "title": "Skeleton Crew",
+  "subtitle": null,
+  "sortTitle": "Skeleton Crew",
+  "year": "1985",
+  "authors": [
+    {
+      "slug": "stephen-king",
+      "notes": null
+    }
+  ],
+  "slug": "skeleton-crew-by-stephen-king",
+  "kind": "Collection",
+  "includedWorks": [
+    "the-mist-by-stephen-king",
+    "here-there-be-tygers-by-stephen-king",
+    "the-monkey-by-stephen-king",
+    "cain-rose-up-by-stephen-king",
+    "mrs-todds-shortcut-by-stephen-king",
+    "the-jaunt-by-stephen-king",
+    "the-wedding-gig-by-stephen-king",
+    "the-raft-by-stephen-king",
+    "word-processor-of-the-gods-by-stephen-king",
+    "the-man-who-would-not-shake-hands-by-stephen-king",
+    "beachworld-by-stephen-king",
+    "the-reapers-image-by-stephen-king",
+    "nona-by-stephen-king",
+    "survivor-type-by-stephen-king",
+    "uncle-ottos-truck-by-stephen-king",
+    "morning-deliveries-by-stephen-king",
+    "big-wheels-by-stephen-king",
+    "gramma-by-stephen-king",
+    "the-ballad-of-the-flexible-bullet-by-stephen-king",
+    "the-reach-by-stephen-king"
+  ]
+}

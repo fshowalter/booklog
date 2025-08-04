@@ -1,0 +1,26 @@
+{
+  "title": "Black Canaan",
+  "subtitle": null,
+  "sortTitle": "Black Canaan",
+  "year": "1978",
+  "authors": [
+    {
+      "slug": "robert-e-howard",
+      "notes": null
+    }
+  ],
+  "slug": "black-canaan-by-robert-e-howard",
+  "kind": "Collection",
+  "includedWorks": [
+    "black-canaan-story-by-robert-e-howard",
+    "delenda-est-by-robert-e-howard",
+    "the-haunter-of-the-ring-by-robert-e-howard",
+    "the-house-in-the-oaks-by-august-derleth-robert-e-howard",
+    "the-cobra-in-the-dream-by-robert-e-howard",
+    "dermods-bane-by-robert-e-howard",
+    "people-of-the-black-coast-by-robert-e-howard",
+    "the-dwellers-under-the-tombs-by-robert-e-howard",
+    "the-noseless-horror-by-robert-e-howard",
+    "moon-of-zambebwei-by-robert-e-howard"
+  ]
+}
