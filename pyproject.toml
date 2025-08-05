@@ -112,6 +112,17 @@ flake8-quotes.inline-quotes = "double"
 pydocstyle.convention = "google"
 pylint.max-args = 6
 
+[tool.ruff.lint.per-file-ignores]
+"booklog/exports/json_*.py" = ["N815"] # Allow camelCase in JSON TypedDicts
+"booklog/exports/authors.py" = ["N815"] # Allow camelCase in JSON TypedDicts
+"booklog/exports/reviewed_works.py" = [
+  "N815",
+] # Allow camelCase in JSON TypedDicts
+"booklog/exports/stats.py" = ["N815"] # Allow camelCase in JSON TypedDicts
+"booklog/exports/timeline_entries.py" = [
+  "N815",
+] # Allow camelCase in JSON TypedDicts
+
 [tool.mypy]
 python_version = "3.13"
 strict = true

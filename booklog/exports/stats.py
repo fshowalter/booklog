@@ -10,7 +10,7 @@ from booklog.utils.logging import logger
 
 
 class JsonMostReadAuthorReading(TypedDict):
-    sequence: int
+    readingSequence: int
     date: date
     slug: str
     edition: str
@@ -125,7 +125,7 @@ def _build_json_most_read_author_reading(
     reviewed = bool(work.review(repository_data.reviews))
 
     return JsonMostReadAuthorReading(
-        sequence=reading.sequence,
+        readingSequence=reading.sequence,
         date=_date_finished_or_abandoned(reading=reading),
         slug=work.slug,
         edition=reading.edition,
@@ -141,7 +141,7 @@ def _build_json_most_read_author_reading(
 
 
 def _reading_sort_key(reading: JsonMostReadAuthorReading) -> str:
-    return "{}-{}".format(reading["date"], reading["sequence"])
+    return "{}-{}".format(reading["date"], reading["readingSequence"])
 
 
 def _build_most_read_authors(

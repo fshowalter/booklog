@@ -2,36 +2,36 @@ import datetime
 from typing import TypedDict
 
 from booklog.exports import exporter
+from booklog.exports.json_author import JsonAuthor
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
-class JsonTimelineEntryAuthor(TypedDict):
-    name: str
-
-
 class JsonTimelineEntry(TypedDict):
-    sequence: str
+    timelineSequence: str
     slug: str
     edition: str
-    date: datetime.date
+    timelineDate: datetime.date
     progress: str
     reviewed: bool
-    readingYear: str
     yearPublished: str
     title: str
     kind: str
-    authors: list[JsonTimelineEntryAuthor]
+    authors: list[JsonAuthor]
     includedInSlugs: list[str]
 
 
 def _build_json_timeline_entry_author(
     work_author: repository_api.WorkAuthor,
     authors: list[repository_api.Author]
-) -> JsonTimelineEntryAuthor:
+) -> JsonAuthor:
     author = work_author.author(authors)
-    return JsonTimelineEntryAuthor(name=author.name)
+    return JsonAuthor(
+        name=author.name,
+        sortName=author.sort_name,
+        slug=author.slug
+    )
 
 
 def _build_json_timeline_entry(
@@ -43,18 +43,17 @@ def _build_json_timeline_entry(
     reviewed = bool(work.review(repository_data.reviews))
 
     return JsonTimelineEntry(
-        sequence="{}-{}-{}".format(  # noqa: UP032,
+        timelineSequence="{}-{}-{}".format(  # noqa: UP032,
             timeline_entry.date, reading.timeline[-1].date, reading.sequence
         ),
         slug=work.slug,
         edition=reading.edition,
         kind=work.kind,
-        date=timeline_entry.date,
+        timelineDate=timeline_entry.date,
         progress=timeline_entry.progress,
         reviewed=reviewed,
         yearPublished=work.year,
         title=work.title,
-        readingYear=str(timeline_entry.date.year),
         authors=[
             _build_json_timeline_entry_author(work_author, repository_data.authors)
             for work_author in work.work_authors
@@ -80,6 +79,6 @@ def export(repository_data: RepositoryData) -> None:
     ]
 
     exporter.serialize_dicts(
-        sorted(json_progress, key=lambda progress: progress["sequence"], reverse=True),
+        sorted(json_progress, key=lambda progress: progress["timelineSequence"], reverse=True),
         "timeline-entries",
     )
