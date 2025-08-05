@@ -56,14 +56,7 @@ def build_work_options(
             "<cyan>{}</cyan> by {}".format(
                 html.escape(work.title),
                 array_to_sentence(
-                    [
-                        html.escape(
-                            found_author.name
-                            if (found_author := work_author.author())
-                            else work_author.author_slug
-                        )
-                        for work_author in work.work_authors
-                    ]
+                    [html.escape(work_author.author().name) for work_author in work.work_authors]
                 ),
             ),
         )

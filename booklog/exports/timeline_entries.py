@@ -31,7 +31,6 @@ def _build_json_timeline_entry_author(
     authors: list[repository_api.Author]
 ) -> JsonTimelineEntryAuthor:
     author = work_author.author(authors)
-    assert author, f"Author not found for slug: {work_author.author_slug}"
     return JsonTimelineEntryAuthor(name=author.name)
 
 
@@ -41,7 +40,6 @@ def _build_json_timeline_entry(
     repository_data: RepositoryData,
 ) -> JsonTimelineEntry:
     work = reading.work(repository_data.works)
-    assert work, f"Work not found for reading with work_slug: {reading.work_slug}"
     reviewed = bool(work.review(repository_data.reviews))
 
     return JsonTimelineEntry(

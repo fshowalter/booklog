@@ -67,8 +67,7 @@ def persist_work(state: State) -> State:
     )
 
     author_names = array_to_sentence([
-        found_author.name if (found_author := author.author()) else author.author_slug
-        for author in state.work_authors
+        author.author().name for author in state.work_authors
     ])
 
     if confirm(f"Add more works by {author_names}?"):

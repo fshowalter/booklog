@@ -112,7 +112,6 @@ def _group_readings_by_author(
 
     for reading in readings:
         work = reading.work(repository_data.works)
-        assert work, f"Work not found for reading with work_slug: {reading.work_slug}"
         for work_author in work.work_authors:
             readings_by_author[work_author.author_slug].append(reading)
 
@@ -123,8 +122,6 @@ def _build_json_most_read_author_reading(
     reading: repository_api.Reading, repository_data: RepositoryData
 ) -> JsonMostReadAuthorReading:
     work = reading.work(repository_data.works)
-    assert work, f"Work not found for reading with work_slug: {reading.work_slug}"
-
     reviewed = bool(work.review(repository_data.reviews))
 
     return JsonMostReadAuthorReading(
@@ -202,12 +199,7 @@ def _build_decade_distribution(
 
 
 def _book_count(readings: list[repository_api.Reading], repository_data: RepositoryData) -> int:
-    works = []
-    for reading in readings:
-        work = reading.work(repository_data.works)
-        assert work, f"Work not found for reading with work_slug: {reading.work_slug}"
-        works.append(work)
-
+    works = [reading.work(repository_data.works) for reading in readings]
     return len([work for work in works if work.kind not in {"Short Story", "Novella"}])
 
 
@@ -217,11 +209,7 @@ def _build_year_json_stats(
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
 ) -> JsonYearStats:
-    works = []
-    for reading in readings:
-        work = reading.work(repository_data.works)
-        assert work, f"Work not found for reading with work_slug: {reading.work_slug}"
-        works.append(work)
+    works = [reading.work(repository_data.works) for reading in readings]
 
     return JsonYearStats(
         year=year,
@@ -240,11 +228,7 @@ def _build_all_time_json_stats(
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
 ) -> JsonAllTimeStats:
-    works = []
-    for reading in readings:
-        work = reading.work(repository_data.works)
-        assert work, f"Work not found for reading with work_slug: {reading.work_slug}"
-        works.append(work)
+    works = [reading.work(repository_data.works) for reading in readings]
 
     return JsonAllTimeStats(
         reviewCount=len(reviews),

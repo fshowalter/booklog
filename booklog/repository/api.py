@@ -34,12 +34,15 @@ class WorkAuthor:
     notes: str | None
     author_slug: str
 
-    def author(self, cache: list[Author] | None = None) -> Author | None:
+    def author(self, cache: list[Author] | None = None) -> Author:
         author_iterable = cache or authors()
-        return next(
+        author = next(
             (author for author in author_iterable if author.slug == self.author_slug),
             None
         )
+        if not author:
+            raise ValueError(f"Author with slug '{self.author_slug}' not found")
+        return author
 
 
 @dataclass
@@ -96,12 +99,15 @@ class Reading:
     edition_notes: str | None = None
     work_slug: str
 
-    def work(self, cache: list[Work] | None = None) -> Work | None:
+    def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        return next(
+        work = next(
             (work for work in works_iterable if work.slug == self.work_slug),
             None
         )
+        if not work:
+            raise ValueError(f"Work with slug '{self.work_slug}' not found")
+        return work
 
 
 @dataclass
@@ -111,12 +117,15 @@ class Review:
     grade: str
     review_content: str | None = None
 
-    def work(self, cache: list[Work] | None = None) -> Work | None:
+    def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        return next(
+        work = next(
             (work for work in works_iterable if work.slug == self.work_slug),
             None
         )
+        if not work:
+            raise ValueError(f"Work with slug '{self.work_slug}' not found")
+        return work
 
     @property
     def grade_value(self) -> int:

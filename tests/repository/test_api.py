@@ -145,18 +145,19 @@ def test_can_update_existing_review(
     assert file_content == snapshot
 
 
-def test_work_author_with_invalid_slug_returns_none() -> None:
-    """Test that WorkAuthor.author() returns None for invalid slug."""
+def test_work_author_with_invalid_slug_raises_error() -> None:
+    """Test that WorkAuthor.author() raises ValueError for invalid slug."""
     work_author = repository_api.WorkAuthor(
         author_slug="non-existent-author",
         notes=None
     )
 
-    assert work_author.author() is None
+    with pytest.raises(ValueError, match="Author with slug 'non-existent-author' not found"):
+        work_author.author()
 
 
-def test_reading_with_invalid_work_slug_returns_none() -> None:
-    """Test that Reading.work() returns None for invalid slug."""
+def test_reading_with_invalid_work_slug_raises_error() -> None:
+    """Test that Reading.work() raises ValueError for invalid slug."""
     reading = repository_api.Reading(
         sequence=1,
         edition="Kindle",
@@ -164,15 +165,17 @@ def test_reading_with_invalid_work_slug_returns_none() -> None:
         work_slug="non-existent-work"
     )
 
-    assert reading.work() is None
+    with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):
+        reading.work()
 
 
-def test_review_with_invalid_work_slug_returns_none() -> None:
-    """Test that Review.work() returns None for invalid slug."""
+def test_review_with_invalid_work_slug_raises_error() -> None:
+    """Test that Review.work() raises ValueError for invalid slug."""
     review = repository_api.Review(
         work_slug="non-existent-work",
         date=datetime.date(2024, 1, 1),
         grade="A+"
     )
 
-    assert review.work() is None
+    with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):
+        review.work()
