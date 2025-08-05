@@ -26,12 +26,22 @@ class JsonTimelineEntry(TypedDict):
     includedInSlugs: list[str]
 
 
+def _build_json_timeline_entry_author(
+    work_author: repository_api.WorkAuthor,
+    authors: list[repository_api.Author]
+) -> JsonTimelineEntryAuthor:
+    author = work_author.author(authors)
+    assert author, f"Author not found for slug: {work_author.author_slug}"
+    return JsonTimelineEntryAuthor(name=author.name)
+
+
 def _build_json_timeline_entry(
     reading: repository_api.Reading,
     timeline_entry: repository_api.TimelineEntry,
     repository_data: RepositoryData,
 ) -> JsonTimelineEntry:
     work = reading.work(repository_data.works)
+    assert work, f"Work not found for reading with work_slug: {reading.work_slug}"
     reviewed = bool(work.review(repository_data.reviews))
 
     return JsonTimelineEntry(
@@ -48,9 +58,7 @@ def _build_json_timeline_entry(
         title=work.title,
         readingYear=str(timeline_entry.date.year),
         authors=[
-            JsonTimelineEntryAuthor(
-                name=work_author.author(repository_data.authors).name
-            )
+            _build_json_timeline_entry_author(work_author, repository_data.authors)
             for work_author in work.work_authors
         ],
         includedInSlugs=[

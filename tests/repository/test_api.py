@@ -143,3 +143,36 @@ def test_can_update_existing_review(
         file_content = output_file.read()
 
     assert file_content == snapshot
+
+
+def test_work_author_with_invalid_slug_returns_none() -> None:
+    """Test that WorkAuthor.author() returns None for invalid slug."""
+    work_author = repository_api.WorkAuthor(
+        author_slug="non-existent-author",
+        notes=None
+    )
+
+    assert work_author.author() is None
+
+
+def test_reading_with_invalid_work_slug_returns_none() -> None:
+    """Test that Reading.work() returns None for invalid slug."""
+    reading = repository_api.Reading(
+        sequence=1,
+        edition="Kindle",
+        timeline=[],
+        work_slug="non-existent-work"
+    )
+
+    assert reading.work() is None
+
+
+def test_review_with_invalid_work_slug_returns_none() -> None:
+    """Test that Review.work() returns None for invalid slug."""
+    review = repository_api.Review(
+        work_slug="non-existent-work",
+        date=datetime.date(2024, 1, 1),
+        grade="A+"
+    )
+
+    assert review.work() is None

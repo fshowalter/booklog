@@ -88,6 +88,15 @@ def _build_json_reading(reading: repository_api.Reading) -> JsonReading:
     )
 
 
+def _get_author_name(
+    work_author: repository_api.WorkAuthor,
+    authors: list[repository_api.Author]
+) -> str:
+    author = work_author.author(authors)
+    assert author, f"Author not found for slug: {work_author.author_slug}"
+    return author.name
+
+
 def _build_json_more_review(
     work: repository_api.Work, repository_data: RepositoryData
 ) -> JsonMoreReview:
@@ -107,7 +116,8 @@ def _build_json_more_review(
         ],
         authors=[
             JsonMoreReviewAuthor(
-                name=work_author.author(repository_data.authors).name, notes=work_author.notes
+                name=_get_author_name(work_author, repository_data.authors),
+                notes=work_author.notes
             )
             for work_author in work.work_authors
         ],
@@ -157,18 +167,24 @@ def _build_more_reviews(
                 for review in repository_data.reviews
                 if review.work_slug not in slugs_to_exclude
             ),
-            key=lambda review: review.work(repository_data.works).sort_title,
+            key=lambda review: (
+                work.sort_title
+                if (work := review.work(repository_data.works))
+                else review.work_slug
+            ),
         ),
         matcher=_build_review_matcher(work.slug),
     )
 
-    return [
-        _build_json_more_review(
-            work=review.work(repository_data.works), repository_data=repository_data
-        )
-        for review in sliced_reviews
-        if review.work_slug != work.slug
-    ]
+    more_reviews = []
+    for review in sliced_reviews:
+        if review.work_slug != work.slug:
+            review_work = review.work(repository_data.works)
+            assert review_work, f"Work not found for review with work_slug: {review.work_slug}"
+            more_reviews.append(
+                _build_json_more_review(work=review_work, repository_data=repository_data)
+            )
+    return more_reviews
 
 
 def _build_review_matcher(
@@ -188,6 +204,7 @@ def _build_more_by_authors(
 
     for work_author in work.work_authors:
         author = work_author.author(repository_data.authors)
+        assert author, f"Author not found for slug: {work_author.author_slug}"
         reviewed_author_works = [
             author_work
             for author_work in author.works(repository_data.works)
@@ -233,7 +250,7 @@ def _build_json_included_work(
         yearPublished=included_work.year,
         authors=[
             JsonIncludedWorkAuthor(
-                name=included_work_author.author(repository_data.authors).name,
+                name=_get_author_name(included_work_author, repository_data.authors),
                 slug=included_work_author.author_slug,
             )
             for included_work_author in included_work.work_authors
@@ -297,6 +314,7 @@ def export(repository_data: RepositoryData) -> None:
 
     for review in repository_data.reviews:
         work = review.work(repository_data.works)
+        assert work, f"Work not found for review with work_slug: {review.work_slug}"
         readings_for_work = list(work.readings(repository_data.readings))
         if not readings_for_work:
             continue

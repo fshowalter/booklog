@@ -14,6 +14,7 @@ def build_json_work_author(
     work_author: repository_api.WorkAuthor, all_authors: list[repository_api.Author]
 ) -> JsonWorkAuthor:
     author = work_author.author(all_authors)
+    assert author, f"Author not found for slug: {work_author.author_slug}"
 
     return JsonWorkAuthor(
         slug=author.slug,
