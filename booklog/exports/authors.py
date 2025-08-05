@@ -1,43 +1,31 @@
-from typing import TypedDict
 
-from booklog.exports import exporter, json_work_author
+from booklog.exports import exporter, json_work_author, utils
+from booklog.exports.json_author_with_reviewed_works import JsonAuthorWithReviewedWorks
+from booklog.exports.json_reviewed_work import JsonReviewedWork
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
-
-
-class JsonAuthorReviewedWork(TypedDict):
-    title: str
-    yearPublished: str
-    kind: str
-    slug: str
-    sortTitle: str
-    grade: str | None
-    gradeValue: int | None
-    authors: list[json_work_author.JsonWorkAuthor]
-    includedInSlugs: list[str]
-
-
-class JsonAuthor(TypedDict):
-    name: str
-    sortName: str
-    slug: str
-    reviewedWorks: list[JsonAuthorReviewedWork]
 
 
 def _build_json_author_reviewed_work(
     work: repository_api.Work,
     review: repository_api.Review,
     repository_data: RepositoryData,
-) -> JsonAuthorReviewedWork:
-    return JsonAuthorReviewedWork(
+) -> JsonReviewedWork:
+    review_sequence = utils.build_review_sequence(review, repository_data)
+
+    return JsonReviewedWork(
+        reviewSequence=review_sequence,
         title=work.title,
+        subtitle=work.subtitle,
         yearPublished=work.year,
         kind=work.kind,
         slug=work.slug,
         sortTitle=work.sort_title,
         grade=review.grade,
         gradeValue=review.grade_value,
+        reviewDate=review.date,
+        yearReviewed=review.date.year,
         authors=[
             json_work_author.build_json_work_author(
                 work_author=work_author, all_authors=repository_data.authors
@@ -50,7 +38,7 @@ def _build_json_author_reviewed_work(
 
 def _build_json_author(
     author: repository_api.Author, repository_data: RepositoryData
-) -> JsonAuthor:
+) -> JsonAuthorWithReviewedWorks:
     author_works = list(author.works(repository_data.works))
 
     reviewed_works = []
@@ -64,7 +52,7 @@ def _build_json_author(
                 )
             )
 
-    return JsonAuthor(
+    return JsonAuthorWithReviewedWorks(
         name=author.name,
         sortName=author.sort_name,
         slug=author.slug,

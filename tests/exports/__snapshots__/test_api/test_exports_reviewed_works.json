@@ -8,7 +8,6 @@
         "sortName": "King, Stephen"
       }
     ],
-    "date": "2016-03-10",
     "grade": "A+",
     "gradeValue": 13,
     "includedInSlugs": [],
@@ -21,11 +20,12 @@
         "abandoned": false,
         "date": "2016-03-12",
         "isAudiobook": false,
-        "readingTime": 3,
-        "sequence": 1
+        "readingSequence": 1,
+        "readingTime": 3
       }
     ],
-    "sequence": "2016-03-10-1",
+    "reviewDate": "2016-03-10",
+    "reviewSequence": "2016-03-10-1",
     "slug": "on-writing-by-stephen-king",
     "sortTitle": "On Writing: A Memoir of the Craft",
     "subtitle": "A Memoir of the Craft",

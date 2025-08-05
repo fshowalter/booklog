@@ -2,54 +2,57 @@
   {
     "authors": [
       {
-        "name": "Stephen King"
+        "name": "Stephen King",
+        "slug": "stephen-king",
+        "sortName": "King, Stephen"
       }
     ],
-    "date": "2016-03-12",
     "edition": "Kindle",
     "includedInSlugs": [],
     "kind": "Nonfiction",
     "progress": "Finished",
-    "readingYear": "2016",
     "reviewed": true,
-    "sequence": "2016-03-12-2016-03-12-1",
     "slug": "on-writing-by-stephen-king",
+    "timelineDate": "2016-03-12",
+    "timelineSequence": "2016-03-12-2016-03-12-1",
     "title": "On Writing",
     "yearPublished": "2000"
   },
   {
     "authors": [
       {
-        "name": "Stephen King"
+        "name": "Stephen King",
+        "slug": "stephen-king",
+        "sortName": "King, Stephen"
       }
     ],
-    "date": "2016-03-11",
     "edition": "Kindle",
     "includedInSlugs": [],
     "kind": "Nonfiction",
     "progress": "50%",
-    "readingYear": "2016",
     "reviewed": true,
-    "sequence": "2016-03-11-2016-03-12-1",
     "slug": "on-writing-by-stephen-king",
+    "timelineDate": "2016-03-11",
+    "timelineSequence": "2016-03-11-2016-03-12-1",
     "title": "On Writing",
     "yearPublished": "2000"
   },
   {
     "authors": [
       {
-        "name": "Stephen King"
+        "name": "Stephen King",
+        "slug": "stephen-king",
+        "sortName": "King, Stephen"
       }
     ],
-    "date": "2016-03-10",
     "edition": "Kindle",
     "includedInSlugs": [],
     "kind": "Nonfiction",
     "progress": "15%",
-    "readingYear": "2016",
     "reviewed": true,
-    "sequence": "2016-03-10-2016-03-12-1",
     "slug": "on-writing-by-stephen-king",
+    "timelineDate": "2016-03-10",
+    "timelineSequence": "2016-03-10-2016-03-12-1",
     "title": "On Writing",
     "yearPublished": "2000"
   }

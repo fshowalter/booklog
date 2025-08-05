@@ -1,12 +1,8 @@
-from typing import TypedDict
-
+from booklog.exports.json_author import JsonAuthor
 from booklog.repository import api as repository_api
 
 
-class JsonWorkAuthor(TypedDict):
-    name: str
-    sortName: str
-    slug: str
+class JsonWorkAuthor(JsonAuthor):
     notes: str | None
 
 

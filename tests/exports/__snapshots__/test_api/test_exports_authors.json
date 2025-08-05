@@ -14,10 +14,14 @@
       "gradeValue": 13,
       "includedInSlugs": [],
       "kind": "Nonfiction",
+      "reviewDate": "2016-03-10",
+      "reviewSequence": "2016-03-10-1",
       "slug": "on-writing-by-stephen-king",
       "sortTitle": "On Writing: A Memoir of the Craft",
+      "subtitle": "A Memoir of the Craft",
       "title": "On Writing",
-      "yearPublished": "2000"
+      "yearPublished": "2000",
+      "yearReviewed": 2016
     }
   ],
   "slug": "stephen-king",
