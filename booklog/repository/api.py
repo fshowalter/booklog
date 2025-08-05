@@ -3,6 +3,7 @@ from __future__ import annotations
 import datetime
 from collections.abc import Iterable
 from dataclasses import dataclass
+from typing import Literal, cast
 
 from booklog.repository import json_authors, json_works, markdown_readings, markdown_reviews
 
@@ -11,6 +12,15 @@ WORK_KINDS = json_works.KINDS
 Kind = json_works.Kind
 
 SequenceError = markdown_readings.SequenceError
+
+Grade = Literal[
+    "A+", "A", "A-",
+    "B+", "B", "B-",
+    "C+", "C", "C-",
+    "D+", "D", "D-",
+    "F+", "F", "F-",
+    "Abandoned"
+]
 
 
 @dataclass
@@ -114,7 +124,7 @@ class Reading:
 class Review:
     work_slug: str
     date: datetime.date
-    grade: str
+    grade: Grade
     review_content: str | None = None
 
     def work(self, cache: list[Work] | None = None) -> Work:
@@ -229,7 +239,7 @@ def create_reading(
 def create_or_update_review(
     work: Work,
     date: datetime.date,
-    grade: str = "Abandoned",
+    grade: Grade = "Abandoned",
 ) -> Review:
     return _hydrate_markdown_review(
         markdown_review=markdown_reviews.create_or_update(
@@ -288,6 +298,6 @@ def _hydrate_markdown_review(
     return Review(
         work_slug=markdown_review.yaml["work_slug"],
         date=markdown_review.yaml["date"],
-        grade=markdown_review.yaml["grade"],
+        grade=cast(Grade, markdown_review.yaml["grade"]),
         review_content=markdown_review.review_content,
     )

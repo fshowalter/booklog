@@ -5,7 +5,7 @@ import re
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import date, datetime
-from typing import Literal
+from typing import Literal, cast
 
 from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
@@ -32,7 +32,7 @@ class State:
     work: repository_api.Work | None = None
     timeline: list[repository_api.TimelineEntry] = field(default_factory=list)
     edition: str | None = None
-    grade: str | None = None
+    grade: repository_api.Grade | None = None
 
 
 def prompt() -> None:
@@ -243,7 +243,7 @@ def ask_for_grade(state: State) -> State:
         state.stage = "ask_for_edition"
         return state
 
-    state.grade = review_grade
+    state.grade = cast(repository_api.Grade, review_grade)
     state.stage = "persist_reading"
 
     return state
