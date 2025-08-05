@@ -220,7 +220,7 @@ def build_edition_options() -> list[Option]:
 
 
 def is_grade(text: str) -> bool:
-    return bool(re.match("[a-d|A-D|f|F][+|-]?", text))
+    return bool(re.match(r"[a-dA-DfF][+\-]?", text))
 
 
 def ask_for_grade(state: State) -> State:
