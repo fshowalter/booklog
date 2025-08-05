@@ -1,14 +1,12 @@
 from __future__ import annotations
 
-from collections import defaultdict
-
 from booklog.exports import authors, reviewed_works, stats, timeline_entries
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 
 
 def export_data() -> None:
-    authors_with_reviews: dict[str, list[repository_api.Author]] =  defaultdict(list)
+    authors_with_reviews: set[str] = set()
 
     works = list(repository_api.works())
     reviews = list(repository_api.reviews())
@@ -16,7 +14,7 @@ def export_data() -> None:
 
     for author in all_authors:
         if any(work.review(reviews) for work in author.works(works)):
-            authors_with_reviews[author.slug].append(author)
+            authors_with_reviews.add(author.slug)
 
 
     repository_data = RepositoryData(
