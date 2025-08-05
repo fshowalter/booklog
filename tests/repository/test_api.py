@@ -143,3 +143,39 @@ def test_can_update_existing_review(
         file_content = output_file.read()
 
     assert file_content == snapshot
+
+
+def test_work_author_with_invalid_slug_raises_error() -> None:
+    """Test that WorkAuthor.author() raises ValueError for invalid slug."""
+    work_author = repository_api.WorkAuthor(
+        author_slug="non-existent-author",
+        notes=None
+    )
+
+    with pytest.raises(ValueError, match="Author with slug 'non-existent-author' not found"):
+        work_author.author()
+
+
+def test_reading_with_invalid_work_slug_raises_error() -> None:
+    """Test that Reading.work() raises ValueError for invalid slug."""
+    reading = repository_api.Reading(
+        sequence=1,
+        edition="Kindle",
+        timeline=[],
+        work_slug="non-existent-work"
+    )
+
+    with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):
+        reading.work()
+
+
+def test_review_with_invalid_work_slug_raises_error() -> None:
+    """Test that Review.work() raises ValueError for invalid slug."""
+    review = repository_api.Review(
+        work_slug="non-existent-work",
+        date=datetime.date(2024, 1, 1),
+        grade="A+"
+    )
+
+    with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):
+        review.work()

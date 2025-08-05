@@ -88,6 +88,14 @@ def _build_json_reading(reading: repository_api.Reading) -> JsonReading:
     )
 
 
+def _get_author_name(
+    work_author: repository_api.WorkAuthor,
+    authors: list[repository_api.Author]
+) -> str:
+    author = work_author.author(authors)
+    return author.name
+
+
 def _build_json_more_review(
     work: repository_api.Work, repository_data: RepositoryData
 ) -> JsonMoreReview:
@@ -107,7 +115,8 @@ def _build_json_more_review(
         ],
         authors=[
             JsonMoreReviewAuthor(
-                name=work_author.author(repository_data.authors).name, notes=work_author.notes
+                name=_get_author_name(work_author, repository_data.authors),
+                notes=work_author.notes
             )
             for work_author in work.work_authors
         ],
@@ -233,7 +242,7 @@ def _build_json_included_work(
         yearPublished=included_work.year,
         authors=[
             JsonIncludedWorkAuthor(
-                name=included_work_author.author(repository_data.authors).name,
+                name=_get_author_name(included_work_author, repository_data.authors),
                 slug=included_work_author.author_slug,
             )
             for included_work_author in included_work.work_authors
