@@ -58,7 +58,7 @@ I loved Billy.
 
 But about the True Knot. The notion of innocuous, middle-aged psychic vampires roaming the highways in a motorhome procession proved imaginative, but never ventured into disturbing or terrifying. More like the witch in _The Wizard of Oz_ than _The Witch_.
 
-Further, King’s’ pop-culture references feel incongruous coming from the mouths of beings hundreds of years old. For example, they seem affronted by the name “Abra”, saying:
+Further, King's pop-culture references feel incongruous coming from the mouths of beings hundreds of years old. For example, they seem affronted by the name “Abra”, saying:
 
 > “Yeah, they name em anything these days. Remember when Jane and Mabel used to be good enough for the rubes? I read somewhere that Sly Stallone named his kid Sage Moonblood, how fucked up is that?”
 
