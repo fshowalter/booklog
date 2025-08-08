@@ -78,7 +78,7 @@ The band’s ascension to super-stardom takes its toll. Morris recounts a layove
 
 Morris’s blow-up was due, in part, to the stress of touring, but also to the Haçienda, Factory’s ever-hungry money-pit. Determined buck trends, the operators kept the club open seven nights a week. Most nights, it went empty.
 
-Another contributor was the band’s growing drug use. They worked with producer John Robie on “Shellshock” for the <span data-imdb-id="">_Pretty in Pink_</span> soundtrack.
+Another contributor was the band's growing drug use. They worked with producer John Robie on "Shellshock" for the <span data-imdb-id="tt0091790">_Pretty in Pink_</span> soundtrack.
 
 > It is widely acknowledged that cocaine may kill you, but you’re more likely to bore everyone else to death before it does. It will turn you into a self-obsessed, monstrous, gurning, yakking idiot.
 >
