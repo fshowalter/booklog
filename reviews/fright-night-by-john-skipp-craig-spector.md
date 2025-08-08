@@ -69,6 +69,6 @@ But his characterization lacks any warmth or vulnerability. He’s painted as bo
 
 But the most disappointing aspect of the novelization was its failure to address the Billy Cole mystery. Cole, Jerry's Renfield-like assistant, is something more than human in both the book and movie, but neither offers further explanation, though in the book we learn he'd been with Jerry for 113 years.
 
-That said, given the book's weak attempts at original backstory, perhaps it's best the author's didn't try.
+That said, given the book's weak attempts at original backstory, perhaps it's best the authors didn't try.
 
 Curiosity drove me to this book. To those with a similar urge, contemplating whether the novelization is worth their time, let me recommend caution. If you're looking for more insight into the film, the _You're So Cool, Brewster! The Story of Fright Night_ documentary proves more illuminating. If you're looking to re-experience the fun mix of 80s teen comedy and Hammer-style horror, rewatching the film will prove more satisfying. But if, like me, you're determined to plumb every corner of the _Fright Night_ mythos, then I can only say I warned you.
