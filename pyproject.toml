@@ -3,7 +3,7 @@ name = "booklog"
 version = "1.0.0"
 description = "Console application for managing my booklog, including reviews, and my reading history."
 readme = "README.md"
-requires-python = "==3.13.5"
+requires-python = "==3.13.6"
 dependencies = [
   "loguru==0.7.3",
   "prompt-toolkit==3.0.51",
@@ -21,7 +21,7 @@ booklog = "booklog.cli.main:prompt"
 [dependency-groups]
 dev = [
   "syrupy==4.9.1",
-  "ruff==0.12.7",
+  "ruff==0.12.8",
   "mypy==1.17.1",
   "pytest==8.4.1",
   "pytest-cov==6.2.1",
