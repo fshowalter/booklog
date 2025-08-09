@@ -29,7 +29,7 @@ dev = [
   "pytest-randomly==3.16.0",
   "types-mock==5.2.0.20250809",
   "types-python-slugify==8.0.2.20240310",
-  "types-pyyaml==6.0.12.20250516",
+  "types-pyyaml==6.0.12.20250809",
 ]
 
 [tool.ruff]
