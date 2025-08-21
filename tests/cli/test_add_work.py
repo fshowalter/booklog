@@ -5,6 +5,7 @@ from pytest_mock import MockerFixture
 
 from booklog.cli import add_work
 from booklog.repository import api as repository_api
+from booklog.repository.types import NonEmptyList
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Escape
 from tests.cli.prompt_utils import ConfirmType, enter_text, select_option
@@ -28,12 +29,12 @@ def work_fixture(author_fixture: repository_api.Author) -> repository_api.Work:
         year="1980",
         kind="Novel",
         included_work_slugs=[],
-        work_authors=[
+        work_authors=NonEmptyList(
             repository_api.WorkAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
-        ],
+        ),
     )
 
 
@@ -96,12 +97,12 @@ def test_calls_create_work(
     mock_create_work.assert_called_once_with(
         title="The Cellar",
         subtitle=None,
-        work_authors=[
+        work_authors=NonEmptyList(
             repository_api.WorkAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
-        ],
+        ),
         year="1980",
         kind="Novel",
         included_work_slugs=[],
@@ -135,12 +136,12 @@ def test_calls_create_work_for_collection(
     mock_create_work.assert_called_once_with(
         title="The Richard Laymon Collection Volume 1",
         subtitle=None,
-        work_authors=[
+        work_authors=NonEmptyList(
             repository_api.WorkAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
-        ],
+        ),
         year="2006",
         kind="Collection",
         included_work_slugs=[work_fixture.slug],

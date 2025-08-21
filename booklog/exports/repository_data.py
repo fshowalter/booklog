@@ -32,10 +32,8 @@ class RepositoryData:
         """
 
         def get_sort_key(work: repository_api.Work) -> str:
-            first_author_sort_name = ""
-            if work.work_authors:
-                first_author = work.work_authors[0].author(self.authors)
-                first_author_sort_name = first_author.sort_name
+            first_author = work.work_authors[0].author(self.authors)
+            first_author_sort_name = first_author.sort_name
             return f"{work.year}-{first_author_sort_name}-{work.sort_title}"
 
         sorted_works = sorted(self.works, key=get_sort_key)
@@ -49,10 +47,8 @@ class RepositoryData:
         """
 
         def get_sort_key(work: repository_api.Work) -> str:
-            first_author_sort_name = ""
-            if work.work_authors:
-                first_author = work.work_authors[0].author(self.authors)
-                first_author_sort_name = first_author.sort_name
+            first_author = work.work_authors[0].author(self.authors)
+            first_author_sort_name = first_author.sort_name
             return f"{first_author_sort_name}-{work.year}-{work.sort_title}"
 
         sorted_works = sorted(self.works, key=get_sort_key)
@@ -66,10 +62,8 @@ class RepositoryData:
         """
 
         def get_sort_key(work: repository_api.Work) -> str:
-            first_author_sort_name = ""
-            if work.work_authors:
-                first_author = work.work_authors[0].author(self.authors)
-                first_author_sort_name = first_author.sort_name
+            first_author = work.work_authors[0].author(self.authors)
+            first_author_sort_name = first_author.sort_name
             return f"{work.sort_title}-{first_author_sort_name}-{work.year}"
 
         sorted_works = sorted(self.works, key=get_sort_key)

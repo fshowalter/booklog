@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from typing import Literal, cast
 
 from booklog.repository import json_authors, json_works, markdown_readings, markdown_reviews
+from booklog.repository.types import NonEmptyList
 
 WORK_KINDS = json_works.KINDS
 
@@ -64,7 +65,7 @@ class Work:
     slug: str
     kind: Kind
     included_work_slugs: list[str]
-    work_authors: list[WorkAuthor]
+    work_authors: NonEmptyList[WorkAuthor]
 
     def included_works(self, cache: list[Work] | None = None) -> Iterable[Work]:
         works_iterable = cache or works()
@@ -197,7 +198,7 @@ def create_work(
     title: str,
     subtitle: str | None,
     year: str,
-    work_authors: list[WorkAuthor],
+    work_authors: NonEmptyList[WorkAuthor],
     kind: Kind,
     included_work_slugs: list[str] | None = None,
 ) -> Work:
@@ -267,10 +268,10 @@ def _hydrate_json_work(json_work: json_works.JsonWork) -> Work:
         year=json_work["year"],
         kind=json_work["kind"],
         included_work_slugs=json_work["includedWorks"],
-        work_authors=[
+        work_authors=NonEmptyList.from_sequence([
             WorkAuthor(author_slug=work_author["slug"], notes=work_author["notes"])
             for work_author in json_work["authors"]
-        ],
+        ]),
     )
 
 
