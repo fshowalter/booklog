@@ -57,6 +57,7 @@ def _build_json_author_reviewed_work(
         sortTitle=work.sort_title,
         grade=review.grade,
         gradeValue=review.grade_value,
+        gradeSequence=f"{review.grade_value}-{review_sequence}",
         reviewDate=review.date,
         yearReviewed=review.date.year,
         authors=[

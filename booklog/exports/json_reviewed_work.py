@@ -7,5 +7,6 @@ class JsonReviewedWork(JsonWork):
     reviewSequence: str
     grade: str
     gradeValue: int
+    gradeSequence: str
     reviewDate: datetime.date
     yearReviewed: int

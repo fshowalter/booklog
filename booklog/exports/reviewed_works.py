@@ -96,6 +96,7 @@ def _build_json_more_review(
         slug=work.slug,
         grade=review.grade,
         gradeValue=review.grade_value,
+        gradeSequence=f"{review.grade_value}-{review_sequence}",
         reviewDate=review.date,
         yearReviewed=review.date.year,
         includedInSlugs=[
@@ -262,8 +263,9 @@ def _build_json_reviewed_work(
         repository_data=repository_data,
     )
 
+    review_sequence = utils.build_review_sequence(review, repository_data)
     return JsonReviewedWorkWithDetails(
-        reviewSequence=utils.build_review_sequence(review, repository_data),
+        reviewSequence=review_sequence,
         slug=work.slug,
         title=work.title,
         subtitle=work.subtitle,
@@ -274,6 +276,7 @@ def _build_json_reviewed_work(
         titleSequence=_build_title_sequence(work, repository_data),
         grade=review.grade,
         gradeValue=review.grade_value,
+        gradeSequence=f"{review.grade_value}-{review_sequence}",
         kind=work.kind,
         reviewDate=review.date,
         authors=[
