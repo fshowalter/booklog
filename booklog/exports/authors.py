@@ -7,6 +7,36 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
+def _build_work_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{work.year}-{first_author_sort_name}-{work.sort_title}"
+
+
+def _build_author_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{first_author_sort_name}-{work.year}-{work.sort_title}"
+
+
+def _build_title_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{work.sort_title}-{first_author_sort_name}-{work.year}"
+
+
 def _build_json_author_reviewed_work(
     work: repository_api.Work,
     review: repository_api.Review,
@@ -18,7 +48,10 @@ def _build_json_author_reviewed_work(
         reviewSequence=review_sequence,
         title=work.title,
         subtitle=work.subtitle,
-        yearPublished=work.year,
+        workYear=work.year,
+        workYearSequence=_build_work_sequence(work, repository_data),
+        authorSequence=_build_author_sequence(work, repository_data),
+        titleSequence=_build_title_sequence(work, repository_data),
         kind=work.kind,
         slug=work.slug,
         sortTitle=work.sort_title,

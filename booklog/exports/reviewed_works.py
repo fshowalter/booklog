@@ -12,6 +12,36 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
+def _build_work_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{work.year}-{first_author_sort_name}-{work.sort_title}"
+
+
+def _build_author_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{first_author_sort_name}-{work.year}-{work.sort_title}"
+
+
+def _build_title_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{work.sort_title}-{first_author_sort_name}-{work.year}"
+
+
 class JsonReading(TypedDict):
     date: datetime.date
     isAudiobook: bool
@@ -59,7 +89,10 @@ def _build_json_more_review(
         subtitle=work.subtitle,
         sortTitle=work.sort_title,
         kind=work.kind,
-        yearPublished=work.year,
+        workYear=work.year,
+        workYearSequence=_build_work_sequence(work, repository_data),
+        authorSequence=_build_author_sequence(work, repository_data),
+        titleSequence=_build_title_sequence(work, repository_data),
         slug=work.slug,
         grade=review.grade,
         gradeValue=review.grade_value,
@@ -200,7 +233,10 @@ def _build_json_included_work(
         reviewDate=review.date if review else None,
         yearReviewed=review.date.year if review else None,
         kind=included_work.kind,
-        yearPublished=included_work.year,
+        workYear=included_work.year,
+        workYearSequence=_build_work_sequence(included_work, repository_data),
+        authorSequence=_build_author_sequence(included_work, repository_data),
+        titleSequence=_build_title_sequence(included_work, repository_data),
         authors=[
             json_work_author.build_json_work_author(
                 work_author=included_work_author, all_authors=repository_data.authors
@@ -232,7 +268,10 @@ def _build_json_reviewed_work(
         title=work.title,
         subtitle=work.subtitle,
         sortTitle=work.sort_title,
-        yearPublished=work.year,
+        workYear=work.year,
+        workYearSequence=_build_work_sequence(work, repository_data),
+        authorSequence=_build_author_sequence(work, repository_data),
+        titleSequence=_build_title_sequence(work, repository_data),
         grade=review.grade,
         gradeValue=review.grade_value,
         kind=work.kind,

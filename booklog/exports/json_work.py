@@ -7,7 +7,10 @@ class JsonWork(TypedDict):
     title: str
     subtitle: str | None
     sortTitle: str
-    yearPublished: str
+    workYear: str
+    workYearSequence: str
+    authorSequence: str
+    titleSequence: str
     authors: list[JsonWorkAuthor]
     kind: str
     slug: str

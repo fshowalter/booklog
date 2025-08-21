@@ -8,6 +8,36 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
+def _build_work_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{work.year}-{first_author_sort_name}-{work.sort_title}"
+
+
+def _build_author_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{first_author_sort_name}-{work.year}-{work.sort_title}"
+
+
+def _build_title_sequence(
+    work: repository_api.Work, repository_data: RepositoryData
+) -> str:
+    first_author_sort_name = ""
+    if work.work_authors:
+        first_author = work.work_authors[0].author(repository_data.authors)
+        first_author_sort_name = first_author.sort_name
+    return f"{work.sort_title}-{first_author_sort_name}-{work.year}"
+
+
 class JsonTimelineEntry(TypedDict):
     timelineSequence: str
     slug: str
@@ -15,7 +45,10 @@ class JsonTimelineEntry(TypedDict):
     timelineDate: datetime.date
     progress: str
     reviewed: bool
-    yearPublished: str
+    workYear: str
+    workYearSequence: str
+    authorSequence: str
+    titleSequence: str
     title: str
     kind: str
     authors: list[JsonAuthor]
@@ -52,7 +85,10 @@ def _build_json_timeline_entry(
         timelineDate=timeline_entry.date,
         progress=timeline_entry.progress,
         reviewed=reviewed,
-        yearPublished=work.year,
+        workYear=work.year,
+        workYearSequence=_build_work_sequence(work, repository_data),
+        authorSequence=_build_author_sequence(work, repository_data),
+        titleSequence=_build_title_sequence(work, repository_data),
         title=work.title,
         authors=[
             _build_json_timeline_entry_author(work_author, repository_data.authors)
