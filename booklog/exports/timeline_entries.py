@@ -8,36 +8,6 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
-def _build_work_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{work.year}-{first_author_sort_name}-{work.sort_title}"
-
-
-def _build_author_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{first_author_sort_name}-{work.year}-{work.sort_title}"
-
-
-def _build_title_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{work.sort_title}-{first_author_sort_name}-{work.year}"
-
-
 class JsonTimelineEntry(TypedDict):
     timelineSequence: str
     slug: str
@@ -46,9 +16,9 @@ class JsonTimelineEntry(TypedDict):
     progress: str
     reviewed: bool
     workYear: str
-    workYearSequence: str
-    authorSequence: str
-    titleSequence: str
+    workYearSequence: int
+    authorSequence: int
+    titleSequence: int
     title: str
     kind: str
     authors: list[JsonAuthor]
@@ -56,15 +26,10 @@ class JsonTimelineEntry(TypedDict):
 
 
 def _build_json_timeline_entry_author(
-    work_author: repository_api.WorkAuthor,
-    authors: list[repository_api.Author]
+    work_author: repository_api.WorkAuthor, authors: list[repository_api.Author]
 ) -> JsonAuthor:
     author = work_author.author(authors)
-    return JsonAuthor(
-        name=author.name,
-        sortName=author.sort_name,
-        slug=author.slug
-    )
+    return JsonAuthor(name=author.name, sortName=author.sort_name, slug=author.slug)
 
 
 def _build_json_timeline_entry(
@@ -86,9 +51,9 @@ def _build_json_timeline_entry(
         progress=timeline_entry.progress,
         reviewed=reviewed,
         workYear=work.year,
-        workYearSequence=_build_work_sequence(work, repository_data),
-        authorSequence=_build_author_sequence(work, repository_data),
-        titleSequence=_build_title_sequence(work, repository_data),
+        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
+        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
+        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         title=work.title,
         authors=[
             _build_json_timeline_entry_author(work_author, repository_data.authors)

@@ -4,9 +4,9 @@ from booklog.exports.json_work import JsonWork
 
 
 class JsonReviewedWork(JsonWork):
-    reviewSequence: str
+    reviewSequence: int
     grade: str
     gradeValue: int
-    gradeSequence: str
+    gradeSequence: int
     reviewDate: datetime.date
     yearReviewed: int

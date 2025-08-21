@@ -1,6 +1,6 @@
 [
   {
-    "authorSequence": "King, Stephen-2000-On Writing: A Memoir of the Craft",
+    "authorSequence": 2,
     "authors": [
       {
         "name": "Stephen King",
@@ -17,12 +17,12 @@
     "timelineDate": "2016-03-12",
     "timelineSequence": "2016-03-12-2016-03-12-1",
     "title": "On Writing",
-    "titleSequence": "On Writing: A Memoir of the Craft-King, Stephen-2000",
+    "titleSequence": 1,
     "workYear": "2000",
-    "workYearSequence": "2000-King, Stephen-On Writing: A Memoir of the Craft"
+    "workYearSequence": 2
   },
   {
-    "authorSequence": "King, Stephen-2000-On Writing: A Memoir of the Craft",
+    "authorSequence": 2,
     "authors": [
       {
         "name": "Stephen King",
@@ -39,12 +39,12 @@
     "timelineDate": "2016-03-11",
     "timelineSequence": "2016-03-11-2016-03-12-1",
     "title": "On Writing",
-    "titleSequence": "On Writing: A Memoir of the Craft-King, Stephen-2000",
+    "titleSequence": 1,
     "workYear": "2000",
-    "workYearSequence": "2000-King, Stephen-On Writing: A Memoir of the Craft"
+    "workYearSequence": 2
   },
   {
-    "authorSequence": "King, Stephen-2000-On Writing: A Memoir of the Craft",
+    "authorSequence": 2,
     "authors": [
       {
         "name": "Stephen King",
@@ -61,8 +61,8 @@
     "timelineDate": "2016-03-10",
     "timelineSequence": "2016-03-10-2016-03-12-1",
     "title": "On Writing",
-    "titleSequence": "On Writing: A Memoir of the Craft-King, Stephen-2000",
+    "titleSequence": 1,
     "workYear": "2000",
-    "workYearSequence": "2000-King, Stephen-On Writing: A Memoir of the Craft"
+    "workYearSequence": 2
   }
 ]

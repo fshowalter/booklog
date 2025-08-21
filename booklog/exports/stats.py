@@ -9,36 +9,6 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
-def _build_work_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{work.year}-{first_author_sort_name}-{work.sort_title}"
-
-
-def _build_author_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{first_author_sort_name}-{work.year}-{work.sort_title}"
-
-
-def _build_title_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{work.sort_title}-{first_author_sort_name}-{work.year}"
-
-
 class JsonMostReadAuthorReading(TypedDict):
     readingSequence: int
     date: date
@@ -47,9 +17,9 @@ class JsonMostReadAuthorReading(TypedDict):
     kind: str
     title: str
     workYear: str
-    workYearSequence: str
-    authorSequence: str
-    titleSequence: str
+    workYearSequence: int
+    authorSequence: int
+    titleSequence: int
     includedInSlugs: list[str]
     reviewed: bool
 
@@ -152,7 +122,8 @@ def _group_readings_by_author(
 
 
 def _build_json_most_read_author_reading(
-    reading: repository_api.Reading, repository_data: RepositoryData
+    reading: repository_api.Reading,
+    repository_data: RepositoryData,
 ) -> JsonMostReadAuthorReading:
     work = reading.work(repository_data.works)
     reviewed = bool(work.review(repository_data.reviews))
@@ -165,9 +136,9 @@ def _build_json_most_read_author_reading(
         kind=work.kind,
         title=work.title,
         workYear=work.year,
-        workYearSequence=_build_work_sequence(work, repository_data),
-        authorSequence=_build_author_sequence(work, repository_data),
-        titleSequence=_build_title_sequence(work, repository_data),
+        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
+        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
+        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         includedInSlugs=[
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)
@@ -181,12 +152,12 @@ def _reading_sort_key(reading: JsonMostReadAuthorReading) -> str:
 
 
 def _build_most_read_authors(
-    readings: list[repository_api.Reading], repository_data: RepositoryData
+    readings: list[repository_api.Reading],
+    repository_data: RepositoryData,
 ) -> list[JsonMostReadAuthor]:
     readings_by_author = _group_readings_by_author(
         readings=readings, repository_data=repository_data
     )
-
 
     most_read_authors_list = [
         JsonMostReadAuthor(
@@ -198,7 +169,8 @@ def _build_most_read_authors(
             readings=sorted(
                 [
                     _build_json_most_read_author_reading(
-                        reading=reading, repository_data=repository_data
+                        reading=reading,
+                        repository_data=repository_data,
                     )
                     for reading in readings
                 ],
@@ -285,7 +257,8 @@ def export(repository_data: RepositoryData) -> None:
         reviews=repository_data.reviews,
         readings=repository_data.readings,
         most_read_authors=_build_most_read_authors(
-            readings=repository_data.readings, repository_data=repository_data
+            readings=repository_data.readings,
+            repository_data=repository_data,
         ),
         repository_data=repository_data,
     )
@@ -308,7 +281,8 @@ def export(repository_data: RepositoryData) -> None:
                 year=year,
                 readings=readings_for_year,
                 most_read_authors=_build_most_read_authors(
-                    readings=readings_for_year, repository_data=repository_data
+                    readings=readings_for_year,
+                    repository_data=repository_data,
                 ),
                 repository_data=repository_data,
             )

@@ -1,5 +1,4 @@
-
-from booklog.exports import exporter, json_work_author, utils
+from booklog.exports import exporter, json_work_author
 from booklog.exports.json_author_with_reviewed_works import JsonAuthorWithReviewedWorks
 from booklog.exports.json_reviewed_work import JsonReviewedWork
 from booklog.exports.repository_data import RepositoryData
@@ -7,57 +6,25 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
-def _build_work_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{work.year}-{first_author_sort_name}-{work.sort_title}"
-
-
-def _build_author_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{first_author_sort_name}-{work.year}-{work.sort_title}"
-
-
-def _build_title_sequence(
-    work: repository_api.Work, repository_data: RepositoryData
-) -> str:
-    first_author_sort_name = ""
-    if work.work_authors:
-        first_author = work.work_authors[0].author(repository_data.authors)
-        first_author_sort_name = first_author.sort_name
-    return f"{work.sort_title}-{first_author_sort_name}-{work.year}"
-
-
 def _build_json_author_reviewed_work(
     work: repository_api.Work,
     review: repository_api.Review,
     repository_data: RepositoryData,
 ) -> JsonReviewedWork:
-    review_sequence = utils.build_review_sequence(review, repository_data)
-
     return JsonReviewedWork(
-        reviewSequence=review_sequence,
+        reviewSequence=repository_data.review_sequence_map.get(work.slug, 0),
         title=work.title,
         subtitle=work.subtitle,
         workYear=work.year,
-        workYearSequence=_build_work_sequence(work, repository_data),
-        authorSequence=_build_author_sequence(work, repository_data),
-        titleSequence=_build_title_sequence(work, repository_data),
+        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
+        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
+        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         kind=work.kind,
         slug=work.slug,
         sortTitle=work.sort_title,
         grade=review.grade,
         gradeValue=review.grade_value,
-        gradeSequence=f"{review.grade_value}-{review_sequence}",
+        gradeSequence=repository_data.grade_sequence_map.get(work.slug, 0),
         reviewDate=review.date,
         yearReviewed=review.date.year,
         authors=[
@@ -71,7 +38,8 @@ def _build_json_author_reviewed_work(
 
 
 def _build_json_author(
-    author: repository_api.Author, repository_data: RepositoryData
+    author: repository_api.Author,
+    repository_data: RepositoryData,
 ) -> JsonAuthorWithReviewedWorks:
     author_works = list(author.works(repository_data.works))
 
@@ -82,7 +50,9 @@ def _build_json_author(
         if review:
             reviewed_works.append(
                 _build_json_author_reviewed_work(
-                    work=work, review=review, repository_data=repository_data
+                    work=work,
+                    review=review,
+                    repository_data=repository_data,
                 )
             )
 
