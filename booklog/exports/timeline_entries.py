@@ -15,7 +15,10 @@ class JsonTimelineEntry(TypedDict):
     timelineDate: datetime.date
     progress: str
     reviewed: bool
-    yearPublished: str
+    workYear: str
+    workYearSequence: int
+    authorSequence: int
+    titleSequence: int
     title: str
     kind: str
     authors: list[JsonAuthor]
@@ -23,15 +26,10 @@ class JsonTimelineEntry(TypedDict):
 
 
 def _build_json_timeline_entry_author(
-    work_author: repository_api.WorkAuthor,
-    authors: list[repository_api.Author]
+    work_author: repository_api.WorkAuthor, authors: list[repository_api.Author]
 ) -> JsonAuthor:
     author = work_author.author(authors)
-    return JsonAuthor(
-        name=author.name,
-        sortName=author.sort_name,
-        slug=author.slug
-    )
+    return JsonAuthor(name=author.name, sortName=author.sort_name, slug=author.slug)
 
 
 def _build_json_timeline_entry(
@@ -52,7 +50,10 @@ def _build_json_timeline_entry(
         timelineDate=timeline_entry.date,
         progress=timeline_entry.progress,
         reviewed=reviewed,
-        yearPublished=work.year,
+        workYear=work.year,
+        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
+        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
+        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         title=work.title,
         authors=[
             _build_json_timeline_entry_author(work_author, repository_data.authors)

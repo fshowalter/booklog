@@ -1,5 +1,4 @@
-
-from booklog.exports import exporter, json_work_author, utils
+from booklog.exports import exporter, json_work_author
 from booklog.exports.json_author_with_reviewed_works import JsonAuthorWithReviewedWorks
 from booklog.exports.json_reviewed_work import JsonReviewedWork
 from booklog.exports.repository_data import RepositoryData
@@ -12,18 +11,20 @@ def _build_json_author_reviewed_work(
     review: repository_api.Review,
     repository_data: RepositoryData,
 ) -> JsonReviewedWork:
-    review_sequence = utils.build_review_sequence(review, repository_data)
-
     return JsonReviewedWork(
-        reviewSequence=review_sequence,
+        reviewSequence=repository_data.review_sequence_map.get(work.slug, 0),
         title=work.title,
         subtitle=work.subtitle,
-        yearPublished=work.year,
+        workYear=work.year,
+        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
+        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
+        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         kind=work.kind,
         slug=work.slug,
         sortTitle=work.sort_title,
         grade=review.grade,
         gradeValue=review.grade_value,
+        gradeSequence=repository_data.grade_sequence_map.get(work.slug, 0),
         reviewDate=review.date,
         yearReviewed=review.date.year,
         authors=[
@@ -37,7 +38,8 @@ def _build_json_author_reviewed_work(
 
 
 def _build_json_author(
-    author: repository_api.Author, repository_data: RepositoryData
+    author: repository_api.Author,
+    repository_data: RepositoryData,
 ) -> JsonAuthorWithReviewedWorks:
     author_works = list(author.works(repository_data.works))
 
@@ -48,7 +50,9 @@ def _build_json_author(
         if review:
             reviewed_works.append(
                 _build_json_author_reviewed_work(
-                    work=work, review=review, repository_data=repository_data
+                    work=work,
+                    review=review,
+                    repository_data=repository_data,
                 )
             )
 

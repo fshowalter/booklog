@@ -138,3 +138,6 @@ export/
 
 # node
 node_modules/
+
+# cache
+.claude/
