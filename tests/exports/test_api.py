@@ -8,6 +8,7 @@ from syrupy.extensions.json import JSONSnapshotExtension
 
 from booklog.exports import api as exports_api
 from booklog.repository import api as repository_api
+from booklog.repository.types import NonEmptyList
 
 
 @pytest.fixture(autouse=True)
@@ -18,12 +19,12 @@ def init_data() -> None:
         title="On Writing",
         subtitle="A Memoir of the Craft",
         year="2000",
-        work_authors=[
+        work_authors=NonEmptyList(
             repository_api.WorkAuthor(
                 author_slug=author.slug,
                 notes=None,
             )
-        ],
+        ),
         kind="Nonfiction",
     )
 
@@ -31,12 +32,12 @@ def init_data() -> None:
         title="The Stand",
         subtitle=None,
         year="1978",
-        work_authors=[
+        work_authors=NonEmptyList(
             repository_api.WorkAuthor(
                 author_slug=author.slug,
                 notes=None,
             )
-        ],
+        ),
         kind="Novel",
     )
 

@@ -10,6 +10,7 @@ from prompt_toolkit.shortcuts import confirm
 from booklog.cli import ask, radio_list, select_author, select_work
 from booklog.cli.utils.array_to_sentence import array_to_sentence
 from booklog.repository import api as repository_api
+from booklog.repository.types import NonEmptyList
 
 Stages = Literal[
     "ask_for_authors",
@@ -59,7 +60,7 @@ def persist_work(state: State) -> State:
 
     repository_api.create_work(
         title=state.title,
-        work_authors=state.work_authors,
+        work_authors=NonEmptyList.from_sequence(state.work_authors),
         subtitle=state.subtitle,
         year=state.year_published,
         kind=state.kind,

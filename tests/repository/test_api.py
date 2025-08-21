@@ -7,6 +7,7 @@ from syrupy.assertion import SnapshotAssertion
 from syrupy.extensions.json import JSONSnapshotExtension
 
 from booklog.repository import api as repository_api
+from booklog.repository.types import NonEmptyList
 
 
 @pytest.fixture
@@ -27,12 +28,12 @@ def work_fixture(author_fixture: repository_api.Author) -> repository_api.Work:
         year="1980",
         kind="Novel",
         included_work_slugs=[],
-        work_authors=[
+        work_authors=NonEmptyList(
             repository_api.WorkAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
-        ],
+        ),
     )
 
 
@@ -57,12 +58,12 @@ def test_create_create_work(
         title="The Cellar",
         subtitle=None,
         year="1980",
-        work_authors=[
+        work_authors=NonEmptyList(
             repository_api.WorkAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
-        ],
+        ),
         kind="Novel",
     )
 
