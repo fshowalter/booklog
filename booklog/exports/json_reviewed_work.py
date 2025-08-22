@@ -9,4 +9,4 @@ class JsonReviewedWork(JsonWork):
     gradeValue: int
     gradeSequence: int
     reviewDate: datetime.date
-    reviewYear: int
+    reviewYear: str
