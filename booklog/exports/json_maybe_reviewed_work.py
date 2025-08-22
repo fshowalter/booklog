@@ -7,4 +7,4 @@ class JsonMaybeReviewedWork(JsonWork):
     grade: str | None
     gradeValue: int | None
     reviewDate: datetime.date | None
-    yearReviewed: int | None
+    reviewYear: int | None
