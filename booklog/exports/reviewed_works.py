@@ -66,7 +66,7 @@ def _build_json_more_review(
         gradeValue=review.grade_value,
         gradeSequence=repository_data.grade_sequence_map.get(work.slug, 0),
         reviewDate=review.date,
-        yearReviewed=review.date.year,
+        reviewYear=review.date.year,
         includedInSlugs=[
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)
@@ -206,7 +206,7 @@ def _build_json_included_work(
         grade=review.grade if review else None,
         gradeValue=review.grade_value if review else None,
         reviewDate=review.date if review else None,
-        yearReviewed=review.date.year if review else None,
+        reviewYear=review.date.year if review else None,
         kind=included_work.kind,
         workYear=included_work.year,
         workYearSequence=repository_data.work_year_sequence_map.get(included_work.slug, 0),
@@ -263,7 +263,7 @@ def _build_json_reviewed_work(
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)
         ],
-        yearReviewed=review.date.year,
+        reviewYear=review.date.year,
         moreByAuthors=more_by_authors,
         moreReviews=more_reviews,
         includedWorks=[
