@@ -26,7 +26,7 @@ def _build_json_author_reviewed_work(
         gradeValue=review.grade_value,
         gradeSequence=repository_data.grade_sequence_map.get(work.slug, 0),
         reviewDate=review.date,
-        reviewYear=review.date.year,
+        reviewYear=str(review.date.year),
         authors=[
             json_work_author.build_json_work_author(
                 work_author=work_author, all_authors=repository_data.authors
