@@ -27,15 +27,21 @@ class JsonReviewedWorkWithDetails(JsonReviewedWork):
     includedWorks: list[JsonMaybeReviewedWork]
 
 
-def _build_json_reading(reading: repository_api.Reading) -> JsonReading:
+def _build_json_reading(
+    reading: repository_api.Reading, repository_data: RepositoryData
+) -> JsonReading:
     first_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date)[0]
 
     last_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date, reverse=True)[0]
 
     reading_time = (last_timeline_entry.date - first_timeline_entry.date).days + 1
 
+    # Look up the reading sequence from the map using last timeline date and sequence
+    reading_key = (str(last_timeline_entry.date), reading.sequence)
+    reading_sequence = repository_data.reading_sequence_map.get(reading_key, 0)
+
     return JsonReading(
-        readingSequence=reading.sequence,
+        readingSequence=reading_sequence,
         date=last_timeline_entry.date,
         isAudiobook=reading.edition == "Audible",
         abandoned=last_timeline_entry.progress == "Abandoned",
@@ -261,7 +267,9 @@ def _build_json_reviewed_work(
             )
             for work_author in work.work_authors
         ],
-        readings=[_build_json_reading(reading) for reading in readings_for_work],
+        readings=[
+            _build_json_reading(reading, repository_data) for reading in readings_for_work
+        ],
         includedInSlugs=[
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)

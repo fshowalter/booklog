@@ -1,5 +1,5 @@
 ---
-sequence: 1
+sequence: 2
 work_slug: the-happiest-toddler-on-the-block-by-harvey-karp
 edition: Paperback
 edition_notes: Bantam, 2008

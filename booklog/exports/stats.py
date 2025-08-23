@@ -129,9 +129,14 @@ def _build_json_most_read_author_reading(
     work = reading.work(repository_data.works)
     reviewed = bool(work.review(repository_data.reviews))
 
+    # Get last timeline date for the reading sequence lookup
+    last_timeline_date = _date_finished_or_abandoned(reading=reading)
+    reading_key = (str(last_timeline_date), reading.sequence)
+    reading_sequence = repository_data.reading_sequence_map.get(reading_key, 0)
+
     return JsonMostReadAuthorReading(
-        readingSequence=reading.sequence,
-        date=_date_finished_or_abandoned(reading=reading),
+        readingSequence=reading_sequence,
+        date=last_timeline_date,
         slug=work.slug,
         edition=reading.edition,
         kind=work.kind,
