@@ -135,6 +135,6 @@ class RepositoryData:
                 sort_key = f"{timeline_entry.date}-{reading.timeline[-1].date}-{reading.sequence}"
                 timeline_entries.append((key, sort_key))
 
-        # Sort by the sort_key in reverse order (matching the original reverse=True sorting)
-        sorted_entries = sorted(timeline_entries, key=lambda x: x[1], reverse=True)
+        # Sort by the sort_key in chronological order
+        sorted_entries = sorted(timeline_entries, key=lambda x: x[1])
         return {key: idx + 1 for idx, (key, _) in enumerate(sorted_entries)}

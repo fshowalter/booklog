@@ -81,6 +81,6 @@ def export(repository_data: RepositoryData) -> None:
     ]
 
     exporter.serialize_dicts(
-        sorted(json_progress, key=lambda progress: progress["timelineSequence"]),
+        sorted(json_progress, key=lambda progress: progress["timelineSequence"], reverse=True),
         "timeline-entries",
     )
