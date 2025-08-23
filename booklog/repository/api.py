@@ -15,12 +15,7 @@ Kind = json_works.Kind
 SequenceError = markdown_readings.SequenceError
 
 Grade = Literal[
-    "A+", "A", "A-",
-    "B+", "B", "B-",
-    "C+", "C", "C-",
-    "D+", "D", "D-",
-    "F+", "F", "F-",
-    "Abandoned"
+    "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F+", "F", "F-", "Abandoned"
 ]
 
 
@@ -48,8 +43,7 @@ class WorkAuthor:
     def author(self, cache: list[Author] | None = None) -> Author:
         author_iterable = cache or authors()
         author = next(
-            (author for author in author_iterable if author.slug == self.author_slug),
-            None
+            (author for author in author_iterable if author.slug == self.author_slug), None
         )
         if not author:
             raise ValueError(f"Author with slug '{self.author_slug}' not found")
@@ -112,10 +106,7 @@ class Reading:
 
     def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        work = next(
-            (work for work in works_iterable if work.slug == self.work_slug),
-            None
-        )
+        work = next((work for work in works_iterable if work.slug == self.work_slug), None)
         if not work:
             raise ValueError(f"Work with slug '{self.work_slug}' not found")
         return work
@@ -130,10 +121,7 @@ class Review:
 
     def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        work = next(
-            (work for work in works_iterable if work.slug == self.work_slug),
-            None
-        )
+        work = next((work for work in works_iterable if work.slug == self.work_slug), None)
         if not work:
             raise ValueError(f"Work with slug '{self.work_slug}' not found")
         return work
@@ -268,10 +256,12 @@ def _hydrate_json_work(json_work: json_works.JsonWork) -> Work:
         year=json_work["year"],
         kind=json_work["kind"],
         included_work_slugs=json_work["includedWorks"],
-        work_authors=NonEmptyList.from_sequence([
-            WorkAuthor(author_slug=work_author["slug"], notes=work_author["notes"])
-            for work_author in json_work["authors"]
-        ]),
+        work_authors=NonEmptyList.from_sequence(
+            [
+                WorkAuthor(author_slug=work_author["slug"], notes=work_author["notes"])
+                for work_author in json_work["authors"]
+            ]
+        ),
     )
 
 

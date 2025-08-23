@@ -9,7 +9,7 @@ from booklog.utils.logging import logger
 
 
 class JsonTimelineEntry(TypedDict):
-    timelineSequence: str
+    timelineSequence: int
     slug: str
     edition: str
     timelineDate: datetime.date
@@ -40,10 +40,11 @@ def _build_json_timeline_entry(
     work = reading.work(repository_data.works)
     reviewed = bool(work.review(repository_data.reviews))
 
+    # Create the key tuple for looking up the sequence number
+    timeline_key = (str(timeline_entry.date), str(reading.timeline[-1].date), str(reading.sequence))
+
     return JsonTimelineEntry(
-        timelineSequence="{}-{}-{}".format(  # noqa: UP032,
-            timeline_entry.date, reading.timeline[-1].date, reading.sequence
-        ),
+        timelineSequence=repository_data.timeline_sequence_map.get(timeline_key, 0),
         slug=work.slug,
         edition=reading.edition,
         kind=work.kind,
