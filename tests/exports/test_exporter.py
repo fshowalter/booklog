@@ -18,7 +18,5 @@ from booklog.exports import exporter
         (325877892548668857899255685872.0, "269559.9YiB"),
     ],
 )
-def test_pretty_file_size_returns_humanized_sizes(
-    test_input: float, expected: str
-) -> None:
+def test_pretty_file_size_returns_humanized_sizes(test_input: float, expected: str) -> None:
     assert exporter.pretty_file_size(test_input) == expected

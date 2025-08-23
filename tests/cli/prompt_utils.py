@@ -18,9 +18,7 @@ def enter_text(text: str | None, confirm: ConfirmType | None = None) -> list[str
     return input_stream
 
 
-def select_option(
-    option_number: int, confirm: Literal[ConfirmType] | None = None
-) -> list[str]:
+def select_option(option_number: int, confirm: Literal[ConfirmType] | None = None) -> list[str]:
     input_stream = []
 
     if option_number > 1:

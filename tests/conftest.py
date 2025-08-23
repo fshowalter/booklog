@@ -18,17 +18,13 @@ def mock_exports_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
 @pytest.fixture(autouse=True)
 def mock_readings_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     Path.mkdir(tmp_path / "readings")
-    mocker.patch(
-        "booklog.repository.markdown_readings.FOLDER_NAME", tmp_path / "readings"
-    )
+    mocker.patch("booklog.repository.markdown_readings.FOLDER_NAME", tmp_path / "readings")
 
 
 @pytest.fixture(autouse=True)
 def mock_reviews_folder_name(mocker: MockerFixture, tmp_path: Path) -> None:
     Path.mkdir(tmp_path / "reviews")
-    mocker.patch(
-        "booklog.repository.markdown_reviews.FOLDER_NAME", tmp_path / "reviews"
-    )
+    mocker.patch("booklog.repository.markdown_reviews.FOLDER_NAME", tmp_path / "reviews")
 
 
 @pytest.fixture(autouse=True)

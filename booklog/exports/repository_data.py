@@ -15,6 +15,7 @@ class RepositoryData:
     title_sequence_map: dict[str, int] = field(default_factory=dict, init=False)
     review_sequence_map: dict[str, int] = field(default_factory=dict, init=False)
     grade_sequence_map: dict[str, int] = field(default_factory=dict, init=False)
+    timeline_sequence_map: dict[tuple[str, str, str], int] = field(default_factory=dict, init=False)
 
     def __post_init__(self) -> None:
         """Calculate sequence maps after initialization."""
@@ -23,6 +24,7 @@ class RepositoryData:
         self.title_sequence_map = self._build_title_sequence_map()
         self.review_sequence_map = self._build_review_sequence_map()
         self.grade_sequence_map = self._build_grade_sequence_map()
+        self.timeline_sequence_map = self._build_timeline_sequence_map()
 
     def _build_work_year_sequence_map(self) -> dict[str, int]:
         """Build a mapping of work slugs to their numeric position based on year-author-title sort.
@@ -111,3 +113,28 @@ class RepositoryData:
         # Sort by the sort_key and create mapping
         sorted_sequences = sorted(grade_sequences, key=lambda x: x[1])
         return {work_slug: idx + 1 for idx, (work_slug, _) in enumerate(sorted_sequences)}
+
+    def _build_timeline_sequence_map(self) -> dict[tuple[str, str, str], int]:
+        """Build a mapping of timeline entries to their sequence number.
+
+        Returns a dictionary where keys are tuples of
+        (timeline_date, last_timeline_date, reading_sequence)
+        and values are their 1-based position in the sorted order.
+        """
+        timeline_entries: list[tuple[tuple[str, str, str], str]] = []
+
+        for reading in self.readings:
+            for timeline_entry in reading.timeline:
+                # Key is a tuple for unique identification
+                key = (
+                    str(timeline_entry.date),
+                    str(reading.timeline[-1].date),
+                    str(reading.sequence),
+                )
+                # Sort key matches the original string format for ordering
+                sort_key = f"{timeline_entry.date}-{reading.timeline[-1].date}-{reading.sequence}"
+                timeline_entries.append((key, sort_key))
+
+        # Sort by the sort_key in reverse order (matching the original reverse=True sorting)
+        sorted_entries = sorted(timeline_entries, key=lambda x: x[1], reverse=True)
+        return {key: idx + 1 for idx, (key, _) in enumerate(sorted_entries)}

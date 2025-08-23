@@ -19,9 +19,7 @@ def mock_create_reading(mocker: MockerFixture) -> MagicMock:
 
 @pytest.fixture
 def mock_create_review(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch(
-        "booklog.cli.add_reading.repository_api.create_or_update_review"
-    )
+    return mocker.patch("booklog.cli.add_reading.repository_api.create_or_update_review")
 
 
 @pytest.fixture(autouse=True)
@@ -55,9 +53,7 @@ def stub_editions(mocker: MockerFixture) -> None:
         "Paperback",
     ]
 
-    mocker.patch(
-        "booklog.cli.add_reading.repository_api.reading_editions", return_value=editions
-    )
+    mocker.patch("booklog.cli.add_reading.repository_api.reading_editions", return_value=editions)
 
 
 def enter_title(title: str) -> list[str]:
