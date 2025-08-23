@@ -8,3 +8,4 @@ class JsonMaybeReviewedWork(JsonWork):
     gradeValue: int | None
     reviewDate: datetime.date | None
     reviewYear: str | None
+    reviewed: bool
