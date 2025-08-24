@@ -14,6 +14,7 @@ def _build_json_author_reviewed_work(
     return JsonReviewedWork(
         reviewSequence=repository_data.review_sequence_map.get(work.slug, 0),
         title=work.title,
+        reviewed=True,
         subtitle=work.subtitle,
         workYear=work.year,
         workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),

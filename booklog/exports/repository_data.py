@@ -16,6 +16,7 @@ class RepositoryData:
     review_sequence_map: dict[str, int] = field(default_factory=dict, init=False)
     grade_sequence_map: dict[str, int] = field(default_factory=dict, init=False)
     timeline_sequence_map: dict[tuple[str, str, str], int] = field(default_factory=dict, init=False)
+    reading_sequence_map: dict[tuple[str, int], int] = field(default_factory=dict, init=False)
 
     def __post_init__(self) -> None:
         """Calculate sequence maps after initialization."""
@@ -25,6 +26,7 @@ class RepositoryData:
         self.review_sequence_map = self._build_review_sequence_map()
         self.grade_sequence_map = self._build_grade_sequence_map()
         self.timeline_sequence_map = self._build_timeline_sequence_map()
+        self.reading_sequence_map = self._build_reading_sequence_map()
 
     def _build_work_year_sequence_map(self) -> dict[str, int]:
         """Build a mapping of work slugs to their numeric position based on year-author-title sort.
@@ -137,4 +139,26 @@ class RepositoryData:
 
         # Sort by the sort_key in chronological order
         sorted_entries = sorted(timeline_entries, key=lambda x: x[1])
+        return {key: idx + 1 for idx, (key, _) in enumerate(sorted_entries)}
+
+    def _build_reading_sequence_map(self) -> dict[tuple[str, int], int]:
+        """Build a mapping of reading (last_timeline_date, sequence) to their sort position.
+
+        Returns a dictionary where keys are tuples of (last_timeline_date, sequence)
+        and values are their 1-based position in the sorted order of
+        "{last_timeline_date}-{sequence}".
+        """
+        reading_entries: list[tuple[tuple[str, int], str]] = []
+
+        for reading in self.readings:
+            if reading.timeline:
+                last_timeline_date = str(reading.timeline[-1].date)
+                # Key is a tuple for unique identification
+                key = (last_timeline_date, reading.sequence)
+                # Sort key for ordering
+                sort_key = f"{last_timeline_date}-{reading.sequence}"
+                reading_entries.append((key, sort_key))
+
+        # Sort by the sort_key
+        sorted_entries = sorted(reading_entries, key=lambda x: x[1])
         return {key: idx + 1 for idx, (key, _) in enumerate(sorted_entries)}

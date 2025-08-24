@@ -27,15 +27,21 @@ class JsonReviewedWorkWithDetails(JsonReviewedWork):
     includedWorks: list[JsonMaybeReviewedWork]
 
 
-def _build_json_reading(reading: repository_api.Reading) -> JsonReading:
+def _build_json_reading(
+    reading: repository_api.Reading, repository_data: RepositoryData
+) -> JsonReading:
     first_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date)[0]
 
     last_timeline_entry = sorted(reading.timeline, key=lambda entry: entry.date, reverse=True)[0]
 
     reading_time = (last_timeline_entry.date - first_timeline_entry.date).days + 1
 
+    # Look up the reading sequence from the map using last timeline date and sequence
+    reading_key = (str(last_timeline_entry.date), reading.sequence)
+    reading_sequence = repository_data.reading_sequence_map.get(reading_key, 0)
+
     return JsonReading(
-        readingSequence=reading.sequence,
+        readingSequence=reading_sequence,
         date=last_timeline_entry.date,
         isAudiobook=reading.edition == "Audible",
         abandoned=last_timeline_entry.progress == "Abandoned",
@@ -58,6 +64,7 @@ def _build_json_more_review(
         sortTitle=work.sort_title,
         kind=work.kind,
         workYear=work.year,
+        reviewed=True,
         workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
         authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
         titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
@@ -207,6 +214,7 @@ def _build_json_included_work(
         gradeValue=review.grade_value if review else None,
         reviewDate=review.date if review else None,
         reviewYear=str(review.date.year) if review else None,
+        reviewed=bool(review),
         kind=included_work.kind,
         workYear=included_work.year,
         workYearSequence=repository_data.work_year_sequence_map.get(included_work.slug, 0),
@@ -244,6 +252,7 @@ def _build_json_reviewed_work(
         subtitle=work.subtitle,
         sortTitle=work.sort_title,
         workYear=work.year,
+        reviewed=True,
         workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
         authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
         titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
@@ -258,7 +267,9 @@ def _build_json_reviewed_work(
             )
             for work_author in work.work_authors
         ],
-        readings=[_build_json_reading(reading) for reading in readings_for_work],
+        readings=[
+            _build_json_reading(reading, repository_data) for reading in readings_for_work
+        ],
         includedInSlugs=[
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)
