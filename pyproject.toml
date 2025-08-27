@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = "==3.13.7"
 dependencies = [
   "loguru==0.7.3",
-  "prompt-toolkit==3.0.51",
+  "prompt-toolkit==3.0.52",
   "python-slugify==8.0.4",
   "pyyaml==6.0.2",
 ]
