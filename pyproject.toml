@@ -25,7 +25,7 @@ dev = [
   "mypy==1.17.1",
   "pytest==8.4.2",
   "pytest-cov==6.3.0",
-  "pytest-mock==3.14.1",
+  "pytest-mock==3.15.0",
   "pytest-randomly==3.16.0",
   "types-mock==5.2.0.20250809",
   "types-python-slugify==8.0.2.20240310",
