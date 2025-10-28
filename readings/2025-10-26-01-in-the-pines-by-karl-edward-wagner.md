@@ -9,4 +9,3 @@ timeline:
   - date: 2025-10-26
     progress: Finished
 ---
-
