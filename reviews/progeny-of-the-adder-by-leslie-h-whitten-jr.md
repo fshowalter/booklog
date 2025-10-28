@@ -2,6 +2,7 @@
 work_slug: progeny-of-the-adder-by-leslie-h-whitten-jr
 grade: B-
 date: 2025-07-11
+synopsis: A D.C. detective's case involving blonde women turning up dead in the Potomac drained of blood leads to a mysterious suspect with supernatural implications.
 ---
 
 Leslie H. Whitten's _Progeny of the Adder_ arrived in 1965 with little fanfare and even less commercial success. What a shame. This forgotten gem deserves recognition as the first modern vampire novel--a gritty police procedural that trades Gothic castles for the muddy banks of the Potomac.
