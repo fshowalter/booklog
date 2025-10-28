@@ -2,6 +2,7 @@
 work_slug: shiloh-by-philip-fracassi
 grade: B
 date: 2025-07-11
+synopsis: During the brutal Civil War battle, as artillery shreds trees and flesh alike and soldiers become scavengers among the corpses, a Confederate veteran encounters something supernatural stalking the battlefield.
 ---
 
 Philip Fracassi knows how to paint hell on earth. His Civil War novella _Shiloh_ throws us into the blood-soaked mud alongside Henry, a Confederate soldier whose soul has already been claimed by war's brutality. As Henry tells us, "You don't wash with another man's blood and expect to get clean."

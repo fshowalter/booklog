@@ -2,6 +2,7 @@
 work_slug: king-mob-by-philip-fracassi
 grade: C+
 date: 2025-07-12
+synopsis: In 1780 London, William Blake finds himself swept into the Gordon Riots, only to discover the rioters' enigmatic leader harbors a dark secret.
 ---
 
 Philip Fracassi knows his way around a nightmare. In "King Mob," he follows a young William Blake--yes, that Blake--headfirst into the Gordon Riots of 1780. What starts as historical fiction quickly turns diabolic.

@@ -2,6 +2,7 @@
 work_slug: commodore-by-philip-fracassi
 grade: A
 date: 2025-07-11
+synopsis: Five thirteen-year-old boys go hunting for a mysterious black Commodore in the local junkyard but discover the car--and their town--harbor darker secrets than they could have imagined.
 ---
 
 Philip Fracassi doesn't waste time. His novella _Commodore_ grabs you from the first paragraph and never lets go.
