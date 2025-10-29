@@ -1,6 +1,5 @@
 [
   {
-    "authorSequence": 2,
     "authors": [
       {
         "name": "Stephen King",
@@ -12,17 +11,14 @@
     "includedInSlugs": [],
     "kind": "Nonfiction",
     "progress": "Finished",
+    "readingEntryDate": "2016-03-12",
+    "readingEntrySequence": 3,
     "reviewed": true,
     "slug": "on-writing-by-stephen-king",
-    "timelineDate": "2016-03-12",
-    "timelineSequence": 3,
     "title": "On Writing",
-    "titleSequence": 1,
-    "workYear": "2000",
-    "workYearSequence": 2
+    "workYear": "2000"
   },
   {
-    "authorSequence": 2,
     "authors": [
       {
         "name": "Stephen King",
@@ -34,17 +30,14 @@
     "includedInSlugs": [],
     "kind": "Nonfiction",
     "progress": "50%",
+    "readingEntryDate": "2016-03-11",
+    "readingEntrySequence": 2,
     "reviewed": true,
     "slug": "on-writing-by-stephen-king",
-    "timelineDate": "2016-03-11",
-    "timelineSequence": 2,
     "title": "On Writing",
-    "titleSequence": 1,
-    "workYear": "2000",
-    "workYearSequence": 2
+    "workYear": "2000"
   },
   {
-    "authorSequence": 2,
     "authors": [
       {
         "name": "Stephen King",
@@ -56,13 +49,11 @@
     "includedInSlugs": [],
     "kind": "Nonfiction",
     "progress": "15%",
+    "readingEntryDate": "2016-03-10",
+    "readingEntrySequence": 1,
     "reviewed": true,
     "slug": "on-writing-by-stephen-king",
-    "timelineDate": "2016-03-10",
-    "timelineSequence": 1,
     "title": "On Writing",
-    "titleSequence": 1,
-    "workYear": "2000",
-    "workYearSequence": 2
+    "workYear": "2000"
   }
 ]

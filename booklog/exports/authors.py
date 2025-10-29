@@ -12,20 +12,16 @@ def _build_json_author_reviewed_work(
     repository_data: RepositoryData,
 ) -> JsonReviewedWork:
     return JsonReviewedWork(
-        reviewSequence=repository_data.review_sequence_map.get(work.slug, 0),
+        reviewSequence=repository_data.review_sequence_map.get(work.slug, review.date.isoformat()),
         title=work.title,
         reviewed=True,
         subtitle=work.subtitle,
         workYear=work.year,
-        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
-        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
-        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         kind=work.kind,
         slug=work.slug,
         sortTitle=work.sort_title,
         grade=review.grade,
         gradeValue=review.grade_value,
-        gradeSequence=repository_data.grade_sequence_map.get(work.slug, 0),
         reviewDate=review.date,
         reviewYear=str(review.date.year),
         authors=[
