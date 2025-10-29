@@ -2,7 +2,6 @@
   "name": "Stephen King",
   "reviewedWorks": [
     {
-      "authorSequence": 2,
       "authors": [
         {
           "name": "Stephen King",
@@ -12,21 +11,18 @@
         }
       ],
       "grade": "A+",
-      "gradeSequence": 1,
       "gradeValue": 13,
       "includedInSlugs": [],
       "kind": "Nonfiction",
       "reviewDate": "2016-03-10",
-      "reviewSequence": 1,
+      "reviewSequence": "2016-03-10-01",
       "reviewYear": "2016",
       "reviewed": true,
       "slug": "on-writing-by-stephen-king",
       "sortTitle": "On Writing: A Memoir of the Craft",
       "subtitle": "A Memoir of the Craft",
       "title": "On Writing",
-      "titleSequence": 1,
-      "workYear": "2000",
-      "workYearSequence": 2
+      "workYear": "2000"
     }
   ],
   "slug": "stephen-king",
