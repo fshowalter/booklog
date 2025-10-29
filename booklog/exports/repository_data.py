@@ -11,13 +11,15 @@ class RepositoryData:
     readings: list[repository_api.Reading]
     reviews: list[repository_api.Review]
     review_sequence_map: dict[str, str] = field(default_factory=dict, init=False)
-    timeline_sequence_map: dict[tuple[str, str, str], int] = field(default_factory=dict, init=False)
+    reading_entry_sequence_map: dict[tuple[str, str, str], int] = field(
+        default_factory=dict, init=False
+    )
     reading_sequence_map: dict[tuple[str, int], int] = field(default_factory=dict, init=False)
 
     def __post_init__(self) -> None:
         """Calculate sequence maps after initialization."""
         self.review_sequence_map = self._build_review_sequence_map()
-        self.timeline_sequence_map = self._build_timeline_sequence_map()
+        self.reading_entry_sequence_map = self._build_reading_entry_sequence_map()
         self.reading_sequence_map = self._build_reading_sequence_map()
 
     def _build_review_sequence_map(self) -> dict[str, str]:
@@ -39,7 +41,7 @@ class RepositoryData:
 
         return review_sequences
 
-    def _build_timeline_sequence_map(self) -> dict[tuple[str, str, str], int]:
+    def _build_reading_entry_sequence_map(self) -> dict[tuple[str, str, str], int]:
         """Build a mapping of timeline entries to their sequence number.
 
         Returns a dictionary where keys are tuples of
