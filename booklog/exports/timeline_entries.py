@@ -16,9 +16,6 @@ class JsonTimelineEntry(TypedDict):
     progress: str
     reviewed: bool
     workYear: str
-    workYearSequence: int
-    authorSequence: int
-    titleSequence: int
     title: str
     kind: str
     authors: list[JsonAuthor]
@@ -52,9 +49,6 @@ def _build_json_timeline_entry(
         progress=timeline_entry.progress,
         reviewed=reviewed,
         workYear=work.year,
-        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
-        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
-        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         title=work.title,
         authors=[
             _build_json_timeline_entry_author(work_author, repository_data.authors)

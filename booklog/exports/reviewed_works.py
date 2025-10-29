@@ -58,20 +58,16 @@ def _build_json_more_review(
     assert review, f"Expected review for {work.title}"
 
     return JsonReviewedWork(
-        reviewSequence=repository_data.review_sequence_map.get(work.slug, 0),
+        reviewSequence=repository_data.review_sequence_map.get(work.slug, review.date.isoformat()),
         title=work.title,
         subtitle=work.subtitle,
         sortTitle=work.sort_title,
         kind=work.kind,
         workYear=work.year,
         reviewed=True,
-        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
-        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
-        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         slug=work.slug,
         grade=review.grade,
         gradeValue=review.grade_value,
-        gradeSequence=repository_data.grade_sequence_map.get(work.slug, 0),
         reviewDate=review.date,
         reviewYear=str(review.date.year),
         includedInSlugs=[
@@ -217,9 +213,6 @@ def _build_json_included_work(
         reviewed=bool(review),
         kind=included_work.kind,
         workYear=included_work.year,
-        workYearSequence=repository_data.work_year_sequence_map.get(included_work.slug, 0),
-        authorSequence=repository_data.author_sequence_map.get(included_work.slug, 0),
-        titleSequence=repository_data.title_sequence_map.get(included_work.slug, 0),
         authors=[
             json_work_author.build_json_work_author(
                 work_author=included_work_author, all_authors=repository_data.authors
@@ -246,19 +239,15 @@ def _build_json_reviewed_work(
     )
 
     return JsonReviewedWorkWithDetails(
-        reviewSequence=repository_data.review_sequence_map.get(work.slug, 0),
+        reviewSequence=repository_data.review_sequence_map.get(work.slug, review.date.isoformat()),
         slug=work.slug,
         title=work.title,
         subtitle=work.subtitle,
         sortTitle=work.sort_title,
         workYear=work.year,
         reviewed=True,
-        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
-        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
-        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         grade=review.grade,
         gradeValue=review.grade_value,
-        gradeSequence=repository_data.grade_sequence_map.get(work.slug, 0),
         kind=work.kind,
         reviewDate=review.date,
         authors=[
@@ -267,9 +256,7 @@ def _build_json_reviewed_work(
             )
             for work_author in work.work_authors
         ],
-        readings=[
-            _build_json_reading(reading, repository_data) for reading in readings_for_work
-        ],
+        readings=[_build_json_reading(reading, repository_data) for reading in readings_for_work],
         includedInSlugs=[
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)

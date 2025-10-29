@@ -17,9 +17,6 @@ class JsonMostReadAuthorReading(TypedDict):
     kind: str
     title: str
     workYear: str
-    workYearSequence: int
-    authorSequence: int
-    titleSequence: int
     includedInSlugs: list[str]
     reviewed: bool
 
@@ -142,9 +139,6 @@ def _build_json_most_read_author_reading(
         kind=work.kind,
         title=work.title,
         workYear=work.year,
-        workYearSequence=repository_data.work_year_sequence_map.get(work.slug, 0),
-        authorSequence=repository_data.author_sequence_map.get(work.slug, 0),
-        titleSequence=repository_data.title_sequence_map.get(work.slug, 0),
         includedInSlugs=[
             included_in_work.slug
             for included_in_work in work.included_in_works(repository_data.works)
