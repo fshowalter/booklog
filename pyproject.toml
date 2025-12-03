@@ -3,7 +3,7 @@ name = "booklog"
 version = "1.0.0"
 description = "Console application for managing my booklog, including reviews, and my reading history."
 readme = "README.md"
-requires-python = "==3.14.0"
+requires-python = "==3.14.1"
 dependencies = [
   "loguru==0.7.3",
   "prompt-toolkit==3.0.52",
