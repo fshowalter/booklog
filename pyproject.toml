@@ -21,7 +21,7 @@ booklog = "booklog.cli.main:prompt"
 [dependency-groups]
 dev = [
   "syrupy==5.0.0",
-  "ruff==0.14.8",
+  "ruff==0.14.9",
   "mypy==1.19.0",
   "pytest==9.0.2",
   "pytest-cov==7.0.0",
