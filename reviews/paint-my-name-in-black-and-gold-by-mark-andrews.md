@@ -26,4 +26,3 @@ Only Eldrich could write that story. He won't. The persona won't permit the intr
 What a shame. What a read that would be.
 
 Still, _Paint My Name in Black and Gold_ is valuable for what it captures--the machinery of mythmaking, the cost of transformation. Andrews has written half a great book. The first act is there, stuffed with too many characters but ultimately compelling. The rest remains untold.
-
