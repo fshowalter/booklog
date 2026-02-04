@@ -171,7 +171,7 @@ def ask_for_subtitle(state: State) -> State:
         return state
 
     if confirm(subtitle):
-        state.subtitle = subtitle if subtitle else None
+        state.subtitle = subtitle or None
         state.stage = "ask_for_year"
 
     return state
