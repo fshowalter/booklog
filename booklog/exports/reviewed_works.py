@@ -1,7 +1,7 @@
 import datetime
 from collections.abc import Callable
 from itertools import count
-from typing import TypedDict, TypeVar
+from typing import TypedDict
 
 from booklog.exports import exporter, json_work_author
 from booklog.exports.json_author_with_reviewed_works import JsonAuthorWithReviewedWorks
@@ -83,13 +83,10 @@ def _build_json_more_review(
     )
 
 
-_ListType = TypeVar("_ListType")
-
-
-def _slice_list(
-    source_list: list[_ListType],
-    matcher: Callable[[_ListType], bool],
-) -> list[_ListType]:
+def _slice_list[ListType](
+    source_list: list[ListType],
+    matcher: Callable[[ListType], bool],
+) -> list[ListType]:
     midpoint = next(
         index for index, collection_item in zip(count(), source_list) if matcher(collection_item)
     )

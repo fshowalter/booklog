@@ -1,7 +1,7 @@
 from collections import defaultdict
 from collections.abc import Callable, Iterable
 from datetime import date
-from typing import TypedDict, TypeVar
+from typing import TypedDict
 
 from booklog.exports import exporter, list_tools
 from booklog.exports.repository_data import RepositoryData
@@ -61,10 +61,7 @@ class JsonAllTimeStats(TypedDict):
     mostReadAuthors: list[JsonMostReadAuthor]
 
 
-ListType = TypeVar("ListType")
-
-
-def _build_json_distributions(
+def _build_json_distributions[ListType](
     distribution_items: list[ListType], key: Callable[[ListType], str]
 ) -> list[JsonDistribution]:
     distribution = list_tools.group_list_by_key(distribution_items, key)

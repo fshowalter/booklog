@@ -29,8 +29,9 @@ class Author:
         works_iterable = cache or works()
 
         return filter(
-            lambda work: self.slug
-            in {work_author.author_slug for work_author in work.work_authors},
+            lambda work: (
+                self.slug in {work_author.author_slug for work_author in work.work_authors}
+            ),
             works_iterable,
         )
 

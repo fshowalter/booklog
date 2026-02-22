@@ -3,7 +3,7 @@ import re
 from collections import defaultdict
 from collections.abc import Callable, Iterable
 from pathlib import Path
-from typing import Any, TypedDict, TypeVar, cast
+from typing import Any, TypedDict, cast
 
 import yaml
 
@@ -13,11 +13,8 @@ from booklog.utils.logging import logger
 FOLDER_NAME = "readings-new"
 FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
 
-ListType = TypeVar("ListType")
-KeyType = TypeVar("KeyType")
 
-
-def group_list_by_key(
+def group_list_by_key[ListType, KeyType](
     iterable: Iterable[ListType], key: Callable[[ListType], KeyType]
 ) -> dict[KeyType, list[ListType]]:
     items_by_key = defaultdict(list)
