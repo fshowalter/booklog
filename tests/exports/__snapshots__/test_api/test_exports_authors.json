@@ -1,8 +1,6 @@
 {
   "name": "Stephen King",
-  "reviewedWorks": [
-    "on-writing-by-stephen-king"
-  ],
+  "reviewedWorks": ["on-writing-by-stephen-king"],
   "slug": "stephen-king",
   "sortName": "King, Stephen"
 }
