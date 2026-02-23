@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-high-window-by-raymond-chandler
+slug: 2019-03-23-01-the-high-window-by-raymond-chandler
+workSlug: the-high-window-by-raymond-chandler
+date: 2019-03-23
 edition: Ebook
 editionNotes: null
 timeline:

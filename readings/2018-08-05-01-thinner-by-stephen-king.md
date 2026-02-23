@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: thinner-by-stephen-king
+slug: 2018-08-05-01-thinner-by-stephen-king
+workSlug: thinner-by-stephen-king
+date: 2018-08-05
 edition: Ebook
 editionNotes: null
 timeline:

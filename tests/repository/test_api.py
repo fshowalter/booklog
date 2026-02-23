@@ -151,7 +151,12 @@ def test_work_author_with_invalid_slug_raises_error() -> None:
 def test_reading_with_invalid_work_slug_raises_error() -> None:
     """Test that Reading.work() raises ValueError for invalid slug."""
     reading = repository_api.Reading(
-        sequence=1, edition="Kindle", timeline=[], slug="non-existent-work"
+        sequence=1,
+        edition="Kindle",
+        timeline=[],
+        slug="2024-01-01-01-non-existent-work",
+        workSlug="non-existent-work",
+        date=datetime.date(2024, 1, 1),
     )
 
     with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):

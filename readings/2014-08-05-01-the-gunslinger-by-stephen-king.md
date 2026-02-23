@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-gunslinger-by-stephen-king
+slug: 2014-08-05-01-the-gunslinger-by-stephen-king
+workSlug: the-gunslinger-by-stephen-king
+date: 2014-08-05
 edition: Paperback
 editionNotes: Signet, 1989
 timeline:

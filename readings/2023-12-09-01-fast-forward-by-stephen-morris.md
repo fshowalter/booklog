@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: fast-forward-by-stephen-morris
+slug: 2023-12-09-01-fast-forward-by-stephen-morris
+workSlug: fast-forward-by-stephen-morris
+date: 2023-12-09
 edition: Audiobook
 editionNotes: Read by Stephen Morris
 timeline:

@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: my-dead-body-by-charlie-huston
+slug: 2019-01-30-01-my-dead-body-by-charlie-huston
+workSlug: my-dead-body-by-charlie-huston
+date: 2019-01-30
 edition: Ebook
 editionNotes: null
 timeline:

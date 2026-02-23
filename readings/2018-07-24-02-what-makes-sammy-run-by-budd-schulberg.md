@@ -1,6 +1,8 @@
 ---
 sequence: 2
-slug: what-makes-sammy-run-by-budd-schulberg
+slug: 2018-07-24-02-what-makes-sammy-run-by-budd-schulberg
+workSlug: what-makes-sammy-run-by-budd-schulberg
+date: 2018-07-24
 edition: Ebook
 editionNotes: null
 timeline:

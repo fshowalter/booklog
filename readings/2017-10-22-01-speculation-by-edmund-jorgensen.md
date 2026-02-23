@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: speculation-by-edmund-jorgensen
+slug: 2017-10-22-01-speculation-by-edmund-jorgensen
+workSlug: speculation-by-edmund-jorgensen
+date: 2017-10-22
 edition: Ebook
 editionNotes: null
 timeline:

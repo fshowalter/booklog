@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-eyes-of-the-dragon-by-stephen-king
+slug: 2019-02-03-01-the-eyes-of-the-dragon-by-stephen-king
+workSlug: the-eyes-of-the-dragon-by-stephen-king
+date: 2019-02-03
 edition: Ebook
 editionNotes: null
 timeline:

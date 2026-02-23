@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: muscle-by-samuel-wilson-fussell
+slug: 2018-04-07-01-muscle-by-samuel-wilson-fussell
+workSlug: muscle-by-samuel-wilson-fussell
+date: 2018-04-07
 edition: Ebook
 editionNotes: null
 timeline:

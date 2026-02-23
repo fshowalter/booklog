@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: darkness-tell-us-by-richard-laymon
+slug: 2019-02-10-01-darkness-tell-us-by-richard-laymon
+workSlug: darkness-tell-us-by-richard-laymon
+date: 2019-02-10
 edition: Ebook
 editionNotes: null
 timeline:

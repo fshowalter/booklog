@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: what-doesnt-kill-us-by-scott-carney
+slug: 2022-10-04-01-what-doesnt-kill-us-by-scott-carney
+workSlug: what-doesnt-kill-us-by-scott-carney
+date: 2022-10-04
 edition: Audiobook
 editionNotes: Read by Scott Carney
 timeline:

@@ -1,6 +1,8 @@
 ---
 sequence: 2
-slug: resurrection-dreams-by-richard-laymon
+slug: 2018-03-12-02-resurrection-dreams-by-richard-laymon
+workSlug: resurrection-dreams-by-richard-laymon
+date: 2018-03-12
 edition: Ebook
 editionNotes: null
 timeline:

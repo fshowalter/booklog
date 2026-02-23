@@ -1,6 +1,8 @@
 ---
 sequence: 2
-slug: hotter-blood-by-jeff-gelb-michael-garrett
+slug: 2018-07-17-02-hotter-blood-by-jeff-gelb-michael-garrett
+workSlug: hotter-blood-by-jeff-gelb-michael-garrett
+date: 2018-07-17
 edition: Ebook
 editionNotes: null
 timeline:

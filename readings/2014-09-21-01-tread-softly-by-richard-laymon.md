@@ -1,8 +1,11 @@
 ---
 sequence: 1
-slug: tread-softly-by-richard-laymon
+slug: 2014-09-21-01-tread-softly-by-richard-laymon
+workSlug: tread-softly-by-richard-laymon
+date: 2014-09-21
 edition: Paperback
-editionNotes: "_The Richard Laymon Collection, Volume 4: Beware! / Dark Mountain_, Headline, 2006"
+editionNotes: '_The Richard Laymon Collection, Volume 4: Beware! / Dark Mountain_,
+  Headline, 2006'
 timeline:
   - date: 2014-08-26
     progress: 6%

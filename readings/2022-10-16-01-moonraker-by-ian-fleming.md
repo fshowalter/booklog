@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: moonraker-by-ian-fleming
+slug: 2022-10-16-01-moonraker-by-ian-fleming
+workSlug: moonraker-by-ian-fleming
+date: 2022-10-16
 edition: Audiobook
 editionNotes: Read by Bill Nighy
 timeline:

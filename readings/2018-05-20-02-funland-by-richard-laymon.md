@@ -1,6 +1,8 @@
 ---
 sequence: 2
-slug: funland-by-richard-laymon
+slug: 2018-05-20-02-funland-by-richard-laymon
+workSlug: funland-by-richard-laymon
+date: 2018-05-20
 edition: Ebook
 editionNotes: null
 timeline:

@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-dark-half-by-stephen-king
+slug: 2019-06-20-01-the-dark-half-by-stephen-king
+workSlug: the-dark-half-by-stephen-king
+date: 2019-06-20
 edition: Ebook
 editionNotes: null
 timeline:

@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: less-than-zero-by-bret-easton-ellis
+slug: 2022-04-02-01-less-than-zero-by-bret-easton-ellis
+workSlug: less-than-zero-by-bret-easton-ellis
+date: 2022-04-02
 edition: Ebook
 editionNotes: Vintage Contemporaries
 timeline:

@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: different-seasons-by-stephen-king
+slug: 2014-10-27-01-different-seasons-by-stephen-king
+workSlug: different-seasons-by-stephen-king
+date: 2014-10-27
 edition: Paperback
 editionNotes: Signet, 1995
 timeline:

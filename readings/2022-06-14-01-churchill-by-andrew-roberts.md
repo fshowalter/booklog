@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: churchill-by-andrew-roberts
+slug: 2022-06-14-01-churchill-by-andrew-roberts
+workSlug: churchill-by-andrew-roberts
+date: 2022-06-14
 edition: Audiobook
 editionNotes: Read by Stephen Thorne
 timeline:

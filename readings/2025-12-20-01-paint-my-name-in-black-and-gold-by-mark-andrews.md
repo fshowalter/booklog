@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: paint-my-name-in-black-and-gold-by-mark-andrews
+slug: 2025-12-20-01-paint-my-name-in-black-and-gold-by-mark-andrews
+workSlug: paint-my-name-in-black-and-gold-by-mark-andrews
+date: 2025-12-20
 edition: Ebook
 editionNotes: null
 timeline:

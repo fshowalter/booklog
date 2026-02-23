@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: where-the-summer-ends-by-karl-edward-wagner
+slug: 2025-11-09-01-where-the-summer-ends-by-karl-edward-wagner
+workSlug: where-the-summer-ends-by-karl-edward-wagner
+date: 2025-11-09
 edition: Ebook
 editionNotes: _In a Lonely Place_, Valancourt Books, 2023
 timeline:

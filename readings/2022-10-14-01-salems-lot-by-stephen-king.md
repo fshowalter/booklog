@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: salems-lot-by-stephen-king
+slug: 2022-10-14-01-salems-lot-by-stephen-king
+workSlug: salems-lot-by-stephen-king
+date: 2022-10-14
 edition: Audiobook
 editionNotes: Read by Ron McLarty
 timeline:

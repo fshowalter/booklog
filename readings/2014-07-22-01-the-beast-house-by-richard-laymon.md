@@ -1,9 +1,11 @@
 ---
 sequence: 1
-slug: the-beast-house-by-richard-laymon
+slug: 2014-07-22-01-the-beast-house-by-richard-laymon
+workSlug: the-beast-house-by-richard-laymon
+date: 2014-07-22
 edition: Paperback
-editionNotes: "_The Richard Laymon Collection Volume 1: The Beast House Trilogy:
-  The Cellar - The Beast House - The Midnight Tour_, Headline, 2006"
+editionNotes: '_The Richard Laymon Collection Volume 1: The Beast House Trilogy: The
+  Cellar - The Beast House - The Midnight Tour_, Headline, 2006'
 timeline:
   - date: 2014-07-14
     progress: 11%

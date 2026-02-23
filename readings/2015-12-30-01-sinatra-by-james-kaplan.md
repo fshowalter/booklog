@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: sinatra-by-james-kaplan
+slug: 2015-12-30-01-sinatra-by-james-kaplan
+workSlug: sinatra-by-james-kaplan
+date: 2015-12-30
 edition: Hardcover
 editionNotes: Doubleday, 2015
 timeline:

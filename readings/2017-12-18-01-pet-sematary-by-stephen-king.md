@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: pet-sematary-by-stephen-king
+slug: 2017-12-18-01-pet-sematary-by-stephen-king
+workSlug: pet-sematary-by-stephen-king
+date: 2017-12-18
 edition: Ebook
 editionNotes: null
 timeline:

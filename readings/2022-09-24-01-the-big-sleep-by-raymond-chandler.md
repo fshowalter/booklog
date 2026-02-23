@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-big-sleep-by-raymond-chandler
+slug: 2022-09-24-01-the-big-sleep-by-raymond-chandler
+workSlug: the-big-sleep-by-raymond-chandler
+date: 2022-09-24
 edition: Audiobook
 editionNotes: Read by Scott Brick
 timeline:

@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: i-have-no-mouth-and-i-must-scream-by-harlan-ellison
+slug: 2019-01-06-01-i-have-no-mouth-and-i-must-scream-by-harlan-ellison
+workSlug: i-have-no-mouth-and-i-must-scream-by-harlan-ellison
+date: 2019-01-06
 edition: Ebook
 editionNotes: null
 timeline:

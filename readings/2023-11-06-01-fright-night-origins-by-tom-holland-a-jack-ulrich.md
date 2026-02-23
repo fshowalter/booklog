@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: fright-night-origins-by-tom-holland-a-jack-ulrich
+slug: 2023-11-06-01-fright-night-origins-by-tom-holland-a-jack-ulrich
+workSlug: fright-night-origins-by-tom-holland-a-jack-ulrich
+date: 2023-11-06
 edition: Audiobook
 editionNotes: Read by Chris Sarandon
 timeline:

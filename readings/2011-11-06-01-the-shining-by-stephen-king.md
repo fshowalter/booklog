@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-shining-by-stephen-king
+slug: 2011-11-06-01-the-shining-by-stephen-king
+workSlug: the-shining-by-stephen-king
+date: 2011-11-06
 edition: Paperback
 editionNotes: New American Library, 1986
 timeline:

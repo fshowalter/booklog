@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-psychopath-test-by-jon-ronson
+slug: 2017-12-23-01-the-psychopath-test-by-jon-ronson
+workSlug: the-psychopath-test-by-jon-ronson
+date: 2017-12-23
 edition: Ebook
 editionNotes: null
 timeline:

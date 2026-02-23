@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: already-dead-by-charlie-huston
+slug: 2019-01-14-01-already-dead-by-charlie-huston
+workSlug: already-dead-by-charlie-huston
+date: 2019-01-14
 edition: Ebook
 editionNotes: null
 timeline:

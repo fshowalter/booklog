@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-rules-of-attraction-by-bret-easton-ellis
+slug: 2022-07-14-01-the-rules-of-attraction-by-bret-easton-ellis
+workSlug: the-rules-of-attraction-by-bret-easton-ellis
+date: 2022-07-14
 edition: Ebook
 editionNotes: Vintage Contemporaries
 timeline:

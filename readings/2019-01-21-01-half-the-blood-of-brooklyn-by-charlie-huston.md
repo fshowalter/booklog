@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: half-the-blood-of-brooklyn-by-charlie-huston
+slug: 2019-01-21-01-half-the-blood-of-brooklyn-by-charlie-huston
+workSlug: half-the-blood-of-brooklyn-by-charlie-huston
+date: 2019-01-21
 edition: Ebook
 editionNotes: null
 timeline:

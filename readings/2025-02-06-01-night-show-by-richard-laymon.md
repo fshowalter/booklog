@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: night-show-by-richard-laymon
+slug: 2025-02-06-01-night-show-by-richard-laymon
+workSlug: night-show-by-richard-laymon
+date: 2025-02-06
 edition: Ebook
 editionNotes: null
 timeline:

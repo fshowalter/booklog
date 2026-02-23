@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: hot-blood-by-jeff-gelb-lonn-m-friend
+slug: 2018-01-05-01-hot-blood-by-jeff-gelb-lonn-m-friend
+workSlug: hot-blood-by-jeff-gelb-lonn-m-friend
+date: 2018-01-05
 edition: Ebook
 editionNotes: null
 timeline:

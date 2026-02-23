@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: minion-by-l-a-banks
+slug: 2018-12-21-01-minion-by-l-a-banks
+workSlug: minion-by-l-a-banks
+date: 2018-12-21
 edition: Ebook
 editionNotes: null
 timeline:

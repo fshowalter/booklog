@@ -1,6 +1,8 @@
 ---
 sequence: 2
-slug: baal-by-robert-mccammon
+slug: 2017-11-03-02-baal-by-robert-mccammon
+workSlug: baal-by-robert-mccammon
+date: 2017-11-03
 edition: Ebook
 editionNotes: null
 timeline:

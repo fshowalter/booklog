@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-stand-by-stephen-king
+slug: 2014-03-02-01-the-stand-by-stephen-king
+workSlug: the-stand-by-stephen-king
+date: 2014-03-02
 edition: Paperback
 editionNotes: New American Library, 1980
 timeline:

@@ -80,7 +80,7 @@ class Work:
         readings_iterable = cache or readings()
 
         for reading in readings_iterable:
-            if reading.slug == self.slug:
+            if reading.workSlug == self.slug:
                 yield reading
 
     def review(self, cache: list[Review] | None = None) -> Review | None:
@@ -104,12 +104,14 @@ class Reading:
     timeline: list[TimelineEntry]
     editionNotes: str | None = None  # noqa: N815
     slug: str
+    workSlug: str  # noqa: N815
+    date: datetime.date
 
     def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        work = next((work for work in works_iterable if work.slug == self.slug), None)
+        work = next((work for work in works_iterable if work.slug == self.workSlug), None)
         if not work:
-            raise ValueError(f"Work with slug '{self.slug}' not found")
+            raise ValueError(f"Work with slug '{self.workSlug}' not found")
         return work
 
 
@@ -281,6 +283,8 @@ def _hydrate_markdown_reading(
         edition=markdown_reading["edition"],
         editionNotes=markdown_reading["editionNotes"],
         slug=markdown_reading["slug"],
+        workSlug=markdown_reading["workSlug"],
+        date=markdown_reading["date"],
     )
 
 

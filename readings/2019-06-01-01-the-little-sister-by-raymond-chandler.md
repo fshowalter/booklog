@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-little-sister-by-raymond-chandler
+slug: 2019-06-01-01-the-little-sister-by-raymond-chandler
+workSlug: the-little-sister-by-raymond-chandler
+date: 2019-06-01
 edition: Ebook
 editionNotes: null
 timeline:

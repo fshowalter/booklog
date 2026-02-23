@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: midnights-lair-by-richard-laymon
+slug: 2018-01-11-01-midnights-lair-by-richard-laymon
+workSlug: midnights-lair-by-richard-laymon
+date: 2018-01-11
 edition: Ebook
 editionNotes: null
 timeline:

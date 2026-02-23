@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: hawk-mountain-by-conner-habib
+slug: 2022-09-04-01-hawk-mountain-by-conner-habib
+workSlug: hawk-mountain-by-conner-habib
+date: 2022-09-04
 edition: Ebook
 editionNotes: W. W. Norton & Company
 timeline:

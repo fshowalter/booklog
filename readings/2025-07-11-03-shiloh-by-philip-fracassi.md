@@ -1,6 +1,8 @@
 ---
 sequence: 3
-slug: shiloh-by-philip-fracassi
+slug: 2025-07-11-03-shiloh-by-philip-fracassi
+workSlug: shiloh-by-philip-fracassi
+date: 2025-07-11
 edition: Ebook
 editionNotes: Independent Legions Publishing, 2020
 timeline:

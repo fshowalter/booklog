@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: goth-by-lol-tolhurst
+slug: 2024-11-08-01-goth-by-lol-tolhurst
+workSlug: goth-by-lol-tolhurst
+date: 2024-11-08
 edition: Audiobook
 editionNotes: null
 timeline:

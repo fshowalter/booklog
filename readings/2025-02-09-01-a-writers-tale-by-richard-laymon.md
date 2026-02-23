@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: a-writers-tale-by-richard-laymon
+slug: 2025-02-09-01-a-writers-tale-by-richard-laymon
+workSlug: a-writers-tale-by-richard-laymon
+date: 2025-02-09
 edition: Ebook
 editionNotes: null
 timeline:

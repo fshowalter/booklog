@@ -1,6 +1,8 @@
 ---
 sequence: 2
-slug: the-big-sleep-by-raymond-chandler
+slug: 2016-02-12-02-the-big-sleep-by-raymond-chandler
+workSlug: the-big-sleep-by-raymond-chandler
+date: 2016-02-12
 edition: Paperback
 editionNotes: Penguin, 1995
 timeline:

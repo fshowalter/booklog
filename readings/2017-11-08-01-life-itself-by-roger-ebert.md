@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: life-itself-by-roger-ebert
+slug: 2017-11-08-01-life-itself-by-roger-ebert
+workSlug: life-itself-by-roger-ebert
+date: 2017-11-08
 edition: Ebook
 editionNotes: null
 timeline:

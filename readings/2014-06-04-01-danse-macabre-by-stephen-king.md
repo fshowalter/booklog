@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: danse-macabre-by-stephen-king
+slug: 2014-06-04-01-danse-macabre-by-stephen-king
+workSlug: danse-macabre-by-stephen-king
+date: 2014-06-04
 edition: Ebook
 editionNotes: null
 timeline:

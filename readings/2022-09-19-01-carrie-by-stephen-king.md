@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: carrie-by-stephen-king
+slug: 2022-09-19-01-carrie-by-stephen-king
+workSlug: carrie-by-stephen-king
+date: 2022-09-19
 edition: Ebook
 editionNotes: Anchor, 2008
 timeline:

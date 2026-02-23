@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-devils-of-d-day-by-graham-masterton
+slug: 2016-01-26-01-the-devils-of-d-day-by-graham-masterton
+workSlug: the-devils-of-d-day-by-graham-masterton
+date: 2016-01-26
 edition: Paperback
 editionNotes: Pinnacle Books, 1978
 timeline:

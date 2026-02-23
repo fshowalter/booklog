@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: on-writing-well-by-william-zinsser
+slug: 2016-04-10-01-on-writing-well-by-william-zinsser
+workSlug: on-writing-well-by-william-zinsser
+date: 2016-04-10
 edition: Paperback
 editionNotes: Harper Perennial, 2006
 timeline:

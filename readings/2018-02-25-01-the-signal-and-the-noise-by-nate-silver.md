@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: the-signal-and-the-noise-by-nate-silver
+slug: 2018-02-25-01-the-signal-and-the-noise-by-nate-silver
+workSlug: the-signal-and-the-noise-by-nate-silver
+date: 2018-02-25
 edition: Ebook
 editionNotes: null
 timeline:

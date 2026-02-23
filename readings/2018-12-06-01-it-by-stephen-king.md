@@ -1,6 +1,8 @@
 ---
 sequence: 1
-slug: it-by-stephen-king
+slug: 2018-12-06-01-it-by-stephen-king
+workSlug: it-by-stephen-king
+date: 2018-12-06
 edition: Ebook
 editionNotes: null
 timeline:
