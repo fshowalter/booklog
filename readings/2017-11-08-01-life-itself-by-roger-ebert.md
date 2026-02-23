@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: life-itself-by-roger-ebert
+slug: life-itself-by-roger-ebert
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-10-26
     progress: 2%

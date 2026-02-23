@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: the-chocolate-war-by-robert-cormier
+slug: the-chocolate-war-by-robert-cormier
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-05-29
     progress: 10%

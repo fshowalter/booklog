@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: sinatra-by-james-kaplan
+slug: sinatra-by-james-kaplan
 edition: Hardcover
-edition_notes: Doubleday, 2015
+editionNotes: Doubleday, 2015
 timeline:
   - date: 2015-10-29
     progress: 4%

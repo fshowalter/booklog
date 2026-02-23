@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: fright-night-by-john-skipp-craig-spector
+slug: fright-night-by-john-skipp-craig-spector
 edition: Ebook
-edition_notes: Crossroad Press, 2019
+editionNotes: Crossroad Press, 2019
 timeline:
   - date: 2023-01-15
     progress: 13%

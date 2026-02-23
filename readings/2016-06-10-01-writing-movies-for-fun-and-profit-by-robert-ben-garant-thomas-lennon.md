@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: writing-movies-for-fun-and-profit-by-robert-ben-garant-thomas-lennon
+slug: writing-movies-for-fun-and-profit-by-robert-ben-garant-thomas-lennon
 edition: Hardcover
-edition_notes: Touchstone, 2011
+editionNotes: Touchstone, 2011
 timeline:
   - date: 2016-05-31
     progress: 4%

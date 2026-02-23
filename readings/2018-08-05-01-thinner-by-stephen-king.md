@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: thinner-by-stephen-king
+slug: thinner-by-stephen-king
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-07-28
     progress: 23%

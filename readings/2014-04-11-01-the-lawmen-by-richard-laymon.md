@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-lawmen-by-richard-laymon
+slug: the-lawmen-by-richard-laymon
 edition: Paperback
-edition_notes: Dell Publishing, 1983
+editionNotes: Dell Publishing, 1983
 timeline:
   - date: 2014-04-06
     progress: 25%

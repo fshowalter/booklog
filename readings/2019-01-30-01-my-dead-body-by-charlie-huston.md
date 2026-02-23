@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: my-dead-body-by-charlie-huston
+slug: my-dead-body-by-charlie-huston
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-01-27
     progress: 44%

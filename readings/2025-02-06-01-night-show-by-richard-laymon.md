@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: night-show-by-richard-laymon
+slug: night-show-by-richard-laymon
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2024-08-03
     progress: 11%

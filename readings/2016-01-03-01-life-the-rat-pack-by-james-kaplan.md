@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: life-the-rat-pack-by-james-kaplan
+slug: life-the-rat-pack-by-james-kaplan
 edition: Hardcover
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2015-12-31
     progress: 19%

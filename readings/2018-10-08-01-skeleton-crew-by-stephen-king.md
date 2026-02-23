@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: skeleton-crew-by-stephen-king
+slug: skeleton-crew-by-stephen-king
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-09-03
     progress: 0%

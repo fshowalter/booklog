@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: goth-by-lol-tolhurst
+slug: goth-by-lol-tolhurst
 edition: Audiobook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2024-10-25
     progress: 14%

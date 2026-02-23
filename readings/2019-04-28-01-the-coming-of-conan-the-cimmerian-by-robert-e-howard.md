@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-coming-of-conan-the-cimmerian-by-robert-e-howard
+slug: the-coming-of-conan-the-cimmerian-by-robert-e-howard
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-04-14
     progress: 4%

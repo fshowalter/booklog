@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: paint-my-name-in-black-and-gold-by-mark-andrews
+slug: paint-my-name-in-black-and-gold-by-mark-andrews
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2025-10-04
     progress: 5%

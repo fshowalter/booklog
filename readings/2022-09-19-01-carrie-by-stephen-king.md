@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: carrie-by-stephen-king
+slug: carrie-by-stephen-king
 edition: Ebook
-edition_notes: Anchor, 2008
+editionNotes: Anchor, 2008
 timeline:
   - date: 2022-09-09
     progress: 8%

@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: extreme-ownership-by-jocko-willink-leif-babin
+slug: extreme-ownership-by-jocko-willink-leif-babin
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-09-22
     progress: 8%

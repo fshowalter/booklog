@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: live-and-let-die-by-ian-fleming
+slug: live-and-let-die-by-ian-fleming
 edition: Ebook
-edition_notes: Thomas & Mercer, 2012
+editionNotes: Thomas & Mercer, 2012
 timeline:
   - date: 2022-06-17
     progress: 15%

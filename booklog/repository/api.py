@@ -80,7 +80,7 @@ class Work:
         readings_iterable = cache or readings()
 
         for reading in readings_iterable:
-            if reading.work_slug == self.slug:
+            if reading.slug == self.slug:
                 yield reading
 
     def review(self, cache: list[Review] | None = None) -> Review | None:
@@ -102,14 +102,14 @@ class Reading:
     sequence: int
     edition: str
     timeline: list[TimelineEntry]
-    edition_notes: str | None = None
-    work_slug: str
+    editionNotes: str | None = None
+    slug: str
 
     def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        work = next((work for work in works_iterable if work.slug == self.work_slug), None)
+        work = next((work for work in works_iterable if work.slug == self.slug), None)
         if not work:
-            raise ValueError(f"Work with slug '{self.work_slug}' not found")
+            raise ValueError(f"Work with slug '{self.slug}' not found")
         return work
 
 
@@ -279,8 +279,8 @@ def _hydrate_markdown_reading(
             for yaml_timeline_entry in markdown_reading["timeline"]
         ],
         edition=markdown_reading["edition"],
-        edition_notes=markdown_reading["edition_notes"],
-        work_slug=markdown_reading["work_slug"],
+        editionNotes=markdown_reading["editionNotes"],
+        slug=markdown_reading["slug"],
     )
 
 

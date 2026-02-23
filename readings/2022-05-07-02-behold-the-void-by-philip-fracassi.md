@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: behold-the-void-by-philip-fracassi
+slug: behold-the-void-by-philip-fracassi
 edition: Ebook
-edition_notes: Lovecraft eZine Press, 2018
+editionNotes: Lovecraft eZine Press, 2018
 timeline:
   - date: 2022-04-17
     progress: 9%

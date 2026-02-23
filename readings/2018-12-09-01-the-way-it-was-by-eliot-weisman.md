@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-way-it-was-by-eliot-weisman
+slug: the-way-it-was-by-eliot-weisman
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-12-06
     progress: 8%

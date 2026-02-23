@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-dark-half-by-stephen-king
+slug: the-dark-half-by-stephen-king
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-06-07
     progress: 3%

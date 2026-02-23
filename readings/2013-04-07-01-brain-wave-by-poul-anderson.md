@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: brain-wave-by-poul-anderson
+slug: brain-wave-by-poul-anderson
 edition: Paperback
-edition_notes: Ballantine, 1966
+editionNotes: Ballantine, 1966
 timeline:
   - date: 2013-02-20
     progress: 5%

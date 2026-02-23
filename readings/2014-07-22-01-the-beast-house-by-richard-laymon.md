@@ -1,6 +1,6 @@
 ---
 sequence: 1
-work_slug: the-beast-house-by-richard-laymon
+slug: the-beast-house-by-richard-laymon
 edition: Paperback
 edition_notes:
   "_The Richard Laymon Collection Volume 1: The Beast House Trilogy:

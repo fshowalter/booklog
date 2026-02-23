@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: true-myths-by-nigel-andrews
+slug: true-myths-by-nigel-andrews
 edition: Hardcover
-edition_notes: Birch Lane Pr, 1996
+editionNotes: Birch Lane Pr, 1996
 timeline:
   - date: 2013-04-07
     progress: 10%

@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: on-writing-well-by-william-zinsser
+slug: on-writing-well-by-william-zinsser
 edition: Paperback
-edition_notes: Harper Perennial, 2006
+editionNotes: Harper Perennial, 2006
 timeline:
   - date: 2016-03-21
     progress: 7%

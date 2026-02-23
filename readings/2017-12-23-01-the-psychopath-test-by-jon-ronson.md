@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-psychopath-test-by-jon-ronson
+slug: the-psychopath-test-by-jon-ronson
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-12-19
     progress: 24%

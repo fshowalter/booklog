@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: baal-by-robert-mccammon
+slug: baal-by-robert-mccammon
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-10-22
     progress: 15%

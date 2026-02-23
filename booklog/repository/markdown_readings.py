@@ -28,9 +28,9 @@ class TimelineEntry(TypedDict):
 
 class MarkdownReading(TypedDict):
     sequence: int
-    work_slug: str
+    slug: str
     edition: str
-    edition_notes: str | None
+    editionNotes: str | None
     timeline: list[TimelineEntry]
 
 
@@ -41,9 +41,9 @@ def _represent_none(self: Any, _: Any) -> Any:
 def create(work_slug: str, timeline: list[TimelineEntry], edition: str) -> MarkdownReading:
     new_reading = MarkdownReading(
         sequence=_next_sequence_for_date(timeline[0]["date"]),
-        work_slug=work_slug,
+        slug=work_slug,
         edition=edition,
-        edition_notes=None,
+        editionNotes=None,
         timeline=timeline,
     )
 
@@ -84,7 +84,7 @@ def _generate_file_path(json_reading: MarkdownReading) -> Path:
     file_name = "{}-{:02d}-{}".format(
         json_reading["timeline"][-1]["date"],
         json_reading["sequence"],
-        json_reading["work_slug"],
+        json_reading["slug"],
     )
 
     file_path = Path(FOLDER_NAME) / f"{file_name}.md"

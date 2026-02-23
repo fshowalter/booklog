@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-great-movies-by-roger-ebert
+slug: the-great-movies-by-roger-ebert
 edition: Paperback
-edition_notes: Crown, 2003
+editionNotes: Crown, 2003
 timeline:
   - date: 2014-10-28
     progress: 4%

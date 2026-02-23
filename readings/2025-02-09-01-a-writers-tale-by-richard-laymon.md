@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: a-writers-tale-by-richard-laymon
+slug: a-writers-tale-by-richard-laymon
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2025-02-07
     progress: 45%

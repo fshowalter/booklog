@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: the-shining-by-stephen-king
+slug: the-shining-by-stephen-king
 edition: Audiobook
-edition_notes: Read by Campbell Scott
+editionNotes: Read by Campbell Scott
 timeline:
   - date: 2022-10-16
     progress: 3%

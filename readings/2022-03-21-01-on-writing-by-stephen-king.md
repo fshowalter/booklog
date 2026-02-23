@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: on-writing-by-stephen-king
+slug: on-writing-by-stephen-king
 edition: Ebook
-edition_notes: Scribner
+editionNotes: Scribner
 timeline:
   - date: 2022-03-19
     progress: 20%

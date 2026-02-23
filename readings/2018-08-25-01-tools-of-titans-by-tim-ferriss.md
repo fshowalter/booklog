@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: tools-of-titans-by-tim-ferriss
+slug: tools-of-titans-by-tim-ferriss
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-08-07
     progress: 1%

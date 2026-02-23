@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: the-big-sleep-by-raymond-chandler
+slug: the-big-sleep-by-raymond-chandler
 edition: Paperback
-edition_notes: Penguin, 1995
+editionNotes: Penguin, 1995
 timeline:
   - date: 2016-01-29
     progress: 12%

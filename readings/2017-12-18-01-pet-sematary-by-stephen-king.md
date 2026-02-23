@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: pet-sematary-by-stephen-king
+slug: pet-sematary-by-stephen-king
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-12-01
     progress: 1%

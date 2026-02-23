@@ -1,6 +1,6 @@
 ---
 sequence: 1
-work_slug: the-woods-are-dark-by-richard-laymon
+slug: the-woods-are-dark-by-richard-laymon
 edition: Paperback
 edition_notes:
   "_The Richard Laymon Collection, Volume 2: The Woods Are Dark / Out

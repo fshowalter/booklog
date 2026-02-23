@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: hottest-blood-by-jeff-gelb-michael-garrett
+slug: hottest-blood-by-jeff-gelb-michael-garrett
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-12-21
     progress: 2%

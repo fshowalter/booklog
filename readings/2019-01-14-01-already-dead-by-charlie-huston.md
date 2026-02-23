@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: already-dead-by-charlie-huston
+slug: already-dead-by-charlie-huston
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-01-06
     progress: 3%

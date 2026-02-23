@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: gothic-by-philip-fracassi
+slug: gothic-by-philip-fracassi
 edition: Ebook
-edition_notes: Cemetery Dance Publications, 2023
+editionNotes: Cemetery Dance Publications, 2023
 timeline:
   - date: 2024-06-28
     progress: 29%

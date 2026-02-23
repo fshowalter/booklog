@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: how-to-write-short-by-roy-peter-clark
+slug: how-to-write-short-by-roy-peter-clark
 edition: Hardcover
-edition_notes: Little, Brown and Company, 2013
+editionNotes: Little, Brown and Company, 2013
 timeline:
   - date: 2016-03-15
     progress: 19%

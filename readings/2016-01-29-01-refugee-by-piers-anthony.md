@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: refugee-by-piers-anthony
+slug: refugee-by-piers-anthony
 edition: Paperback
-edition_notes: Avon Books, 1983
+editionNotes: Avon Books, 1983
 timeline:
   - date: 2016-01-19
     progress: 2%

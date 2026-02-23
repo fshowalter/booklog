@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-shining-by-stephen-king
+slug: the-shining-by-stephen-king
 edition: Paperback
-edition_notes: New American Library, 1986
+editionNotes: New American Library, 1986
 timeline:
   - date: 2011-11-04
     progress: 37%

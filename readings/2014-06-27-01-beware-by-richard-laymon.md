@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: beware-by-richard-laymon
+slug: beware-by-richard-laymon
 edition: Paperback
-edition_notes: "_The Richard Laymon Collection, Volume 4: Beware! / Dark Mountain_, Headline, 2006"
+editionNotes: "_The Richard Laymon Collection, Volume 4: Beware! / Dark Mountain_, Headline, 2006"
 timeline:
   - date: 2014-06-18
     progress: 6%

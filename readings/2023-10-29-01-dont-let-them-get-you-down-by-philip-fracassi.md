@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: dont-let-them-get-you-down-by-philip-fracassi
+slug: dont-let-them-get-you-down-by-philip-fracassi
 edition: Ebook
-edition_notes: Altar Publishing, 2023
+editionNotes: Altar Publishing, 2023
 timeline:
   - date: 2023-10-11
     progress: 21%

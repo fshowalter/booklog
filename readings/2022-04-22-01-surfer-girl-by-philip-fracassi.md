@@ -1,6 +1,6 @@
 ---
 sequence: 1
-work_slug: surfer-girl-by-philip-fracassi
+slug: surfer-girl-by-philip-fracassi
 edition: Ebook
 edition_notes:
   <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the

@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: frank-by-james-kaplan
+slug: frank-by-james-kaplan
 edition: Paperback
-edition_notes: "Anchor, 2011"
+editionNotes: "Anchor, 2011"
 timeline:
   - date: 2015-01-01
     progress: 5%

@@ -1,6 +1,6 @@
 ---
 sequence: 1
-work_slug: the-horse-thief-by-philip-fracassi
+slug: the-horse-thief-by-philip-fracassi
 edition: Ebook
 edition_notes:
   <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the

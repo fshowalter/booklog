@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: christine-by-stephen-king
+slug: christine-by-stephen-king
 edition: Paperback
-edition_notes: Signet, 1983
+editionNotes: Signet, 1983
 timeline:
   - date: 2014-11-04
     progress: 3%

@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-running-man-by-stephen-king
+slug: the-running-man-by-stephen-king
 edition: Paperback
-edition_notes: "_The Bachman Books: Four Early Novels by Stephen King_, Signet Books, 1986"
+editionNotes: "_The Bachman Books: Four Early Novels by Stephen King_, Signet Books, 1986"
 timeline:
   - date: 2014-06-28
     progress: 4%

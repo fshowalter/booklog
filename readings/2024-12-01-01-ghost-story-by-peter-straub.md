@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: ghost-story-by-peter-straub
+slug: ghost-story-by-peter-straub
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2024-11-10
     progress: 4%

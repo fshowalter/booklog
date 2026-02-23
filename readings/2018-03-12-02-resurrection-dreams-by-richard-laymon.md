@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: resurrection-dreams-by-richard-laymon
+slug: resurrection-dreams-by-richard-laymon
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-02-25
     progress: 8%

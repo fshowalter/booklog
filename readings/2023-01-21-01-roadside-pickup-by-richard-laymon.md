@@ -1,6 +1,6 @@
 ---
 sequence: 1
-work_slug: roadside-pickup-by-richard-laymon
+slug: roadside-pickup-by-richard-laymon
 edition: Ebook
 edition_notes:
   '<span data-work-slug="short-stories-volume-one-by-richard-laymon">_Short

@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-caped-crusade-by-glen-weldon
+slug: the-caped-crusade-by-glen-weldon
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-10-09
     progress: 3%

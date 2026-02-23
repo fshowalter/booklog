@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: alarums-by-richard-laymon
+slug: alarums-by-richard-laymon
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-03-13
     progress: 5%

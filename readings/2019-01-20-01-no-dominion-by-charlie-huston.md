@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: no-dominion-by-charlie-huston
+slug: no-dominion-by-charlie-huston
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-01-14
     progress: 0%

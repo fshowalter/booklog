@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: arnold-and-me-by-barbara-outland-baker
+slug: arnold-and-me-by-barbara-outland-baker
 edition: Paperback
-edition_notes: AuthorHouse, 2006
+editionNotes: AuthorHouse, 2006
 timeline:
   - date: 2015-04-14
     progress: 13%

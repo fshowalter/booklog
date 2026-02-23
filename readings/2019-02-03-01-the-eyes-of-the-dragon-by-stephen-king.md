@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-eyes-of-the-dragon-by-stephen-king
+slug: the-eyes-of-the-dragon-by-stephen-king
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-02-01
     progress: 23%

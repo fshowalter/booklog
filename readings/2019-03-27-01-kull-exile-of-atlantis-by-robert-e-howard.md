@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: kull-exile-of-atlantis-by-robert-e-howard
+slug: kull-exile-of-atlantis-by-robert-e-howard
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-03-23
     progress: 29%

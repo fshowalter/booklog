@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: every-last-drop-by-charlie-huston
+slug: every-last-drop-by-charlie-huston
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-01-21
     progress: 0%

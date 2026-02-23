@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-moviegoer-by-walker-percy
+slug: the-moviegoer-by-walker-percy
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-08-10
     progress: 6%

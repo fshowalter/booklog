@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: midnights-lair-by-richard-laymon
+slug: midnights-lair-by-richard-laymon
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-11-26
     progress: 7%

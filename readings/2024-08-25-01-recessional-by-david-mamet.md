@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: recessional-by-david-mamet
+slug: recessional-by-david-mamet
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2024-08-02
     progress: 17%

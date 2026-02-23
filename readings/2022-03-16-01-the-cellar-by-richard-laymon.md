@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-cellar-by-richard-laymon
+slug: the-cellar-by-richard-laymon
 edition: Ebook
-edition_notes: 47 North, 2016
+editionNotes: 47 North, 2016
 timeline:
   - date: 2022-03-07
     progress: 23%

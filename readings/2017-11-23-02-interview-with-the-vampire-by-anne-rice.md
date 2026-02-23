@@ -1,8 +1,8 @@
 ---
 sequence: 2
-work_slug: interview-with-the-vampire-by-anne-rice
+slug: interview-with-the-vampire-by-anne-rice
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-11-12
     progress: 1%

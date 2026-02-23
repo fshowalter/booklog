@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: i-will-find-you-by-joe-kenda
+slug: i-will-find-you-by-joe-kenda
 edition: Audiobook
-edition_notes: Read by Joe Kenda
+editionNotes: Read by Joe Kenda
 timeline:
   - date: 2022-09-13
     progress: 36%

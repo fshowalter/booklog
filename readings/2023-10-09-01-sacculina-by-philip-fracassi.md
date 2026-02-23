@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: sacculina-by-philip-fracassi
+slug: sacculina-by-philip-fracassi
 edition: Ebook
-edition_notes: Lethe Press, 2020
+editionNotes: Lethe Press, 2020
 timeline:
   - date: 2023-10-07
     progress: 50%

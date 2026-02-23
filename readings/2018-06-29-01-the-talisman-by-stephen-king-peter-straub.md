@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-talisman-by-stephen-king-peter-straub
+slug: the-talisman-by-stephen-king-peter-straub
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-06-10
     progress: 8%

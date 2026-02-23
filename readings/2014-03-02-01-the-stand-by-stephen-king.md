@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-stand-by-stephen-king
+slug: the-stand-by-stephen-king
 edition: Paperback
-edition_notes: New American Library, 1980
+editionNotes: New American Library, 1980
 timeline:
   - date: 2012-05-15
     progress: 3%

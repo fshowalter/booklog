@@ -1,8 +1,8 @@
 ---
 sequence: 1
-work_slug: the-pack-by-jason-starr
+slug: the-pack-by-jason-starr
 edition: Hardcover
-edition_notes: Ace Hardcover, 2011
+editionNotes: Ace Hardcover, 2011
 timeline:
   - date: 2018-01-12
     progress: 17%
