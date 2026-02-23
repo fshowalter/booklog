@@ -9,7 +9,7 @@ from booklog.utils.logging import logger
 
 
 class JsonReadingEntry(TypedDict):
-    readingEntrySequence: int
+    readingEntrySequence: str
     slug: str
     edition: str
     readingEntryDate: datetime.date
@@ -37,11 +37,8 @@ def _build_json_reading_entry(
     work = reading.work(repository_data.works)
     reviewed = bool(work.review(repository_data.reviews))
 
-    # Create the key tuple for looking up the sequence number
-    entry_key = (str(reading_entry.date), str(reading.timeline[-1].date), str(reading.sequence))
-
     return JsonReadingEntry(
-        readingEntrySequence=repository_data.reading_entry_sequence_map.get(entry_key, 0),
+        readingEntrySequence=f"{reading_entry.date}-{reading.timeline[-1].date}-{reading.sequence:02d}",
         slug=work.slug,
         edition=reading.edition,
         kind=work.kind,
