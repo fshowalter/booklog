@@ -1,5 +1,5 @@
 ---
-work_slug: the-max-muscle-plan-by-brad-schoenfeld
+slug: the-max-muscle-plan-by-brad-schoenfeld
 grade: C-
 date: 2022-03-18
 ---

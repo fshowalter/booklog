@@ -1,5 +1,5 @@
 ---
-work_slug: true-myths-by-nigel-andrews
+slug: true-myths-by-nigel-andrews
 grade: D+
 date: 2013-04-16
 ---

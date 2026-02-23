@@ -1,5 +1,5 @@
 ---
-work_slug: cujo-by-stephen-king
+slug: cujo-by-stephen-king
 grade: B
 date: 2014-06-17
 ---

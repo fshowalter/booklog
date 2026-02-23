@@ -1,5 +1,5 @@
 ---
-work_slug: the-lonely-one-by-richard-laymon
+slug: the-lonely-one-by-richard-laymon
 grade: C+
 date: 2025-02-15
 ---

@@ -1,5 +1,5 @@
 ---
-work_slug: cured-by-lol-tolhurst
+slug: cured-by-lol-tolhurst
 grade: A-
 date: 2022-07-18
 ---

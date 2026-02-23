@@ -1,5 +1,5 @@
 ---
-work_slug: consider-this-by-chuck-palahniuk
+slug: consider-this-by-chuck-palahniuk
 grade: B
 date: 2022-09-22
 ---

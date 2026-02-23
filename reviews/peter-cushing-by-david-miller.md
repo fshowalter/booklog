@@ -1,5 +1,5 @@
 ---
-work_slug: peter-cushing-by-david-miller
+slug: peter-cushing-by-david-miller
 grade: C
 date: 2014-08-25
 ---

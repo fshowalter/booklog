@@ -1,5 +1,5 @@
 ---
-work_slug: the-big-sleep-by-raymond-chandler
+slug: the-big-sleep-by-raymond-chandler
 grade: C+
 date: 2022-09-24
 ---

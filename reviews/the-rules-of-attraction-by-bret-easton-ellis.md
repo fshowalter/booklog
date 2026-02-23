@@ -1,5 +1,5 @@
 ---
-work_slug: the-rules-of-attraction-by-bret-easton-ellis
+slug: the-rules-of-attraction-by-bret-easton-ellis
 grade: C+
 date: 2022-07-14
 ---

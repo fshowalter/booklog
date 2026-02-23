@@ -1,5 +1,5 @@
 ---
-work_slug: rage-by-stephen-king
+slug: rage-by-stephen-king
 grade: C
 date: 2012-05-13
 ---

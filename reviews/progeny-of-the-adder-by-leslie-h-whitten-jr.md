@@ -1,5 +1,5 @@
 ---
-work_slug: progeny-of-the-adder-by-leslie-h-whitten-jr
+slug: progeny-of-the-adder-by-leslie-h-whitten-jr
 grade: B-
 date: 2025-07-11
 synopsis: A D.C. detective's case involving blonde women turning up dead in the Potomac drained of blood leads to a mysterious suspect with supernatural implications.

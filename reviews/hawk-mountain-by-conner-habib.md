@@ -1,5 +1,5 @@
 ---
-work_slug: hawk-mountain-by-conner-habib
+slug: hawk-mountain-by-conner-habib
 grade: C+
 date: 2022-09-04
 ---

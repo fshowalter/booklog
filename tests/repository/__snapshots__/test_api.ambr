@@ -2,7 +2,7 @@
 # name: test_can_create_new_review
   '''
   ---
-  work_slug: the-cellar-by-richard-laymon
+  slug: the-cellar-by-richard-laymon
   grade: A+
   date: 2016-03-10
   ---
@@ -13,7 +13,7 @@
 # name: test_can_update_existing_review
   '''
   ---
-  work_slug: the-cellar-by-richard-laymon
+  slug: the-cellar-by-richard-laymon
   grade: C+
   date: 2017-03-12
   ---

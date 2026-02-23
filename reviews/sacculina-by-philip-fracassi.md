@@ -1,5 +1,5 @@
 ---
-work_slug: sacculina-by-philip-fracassi
+slug: sacculina-by-philip-fracassi
 grade: B
 date: 2023-10-09
 ---

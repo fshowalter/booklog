@@ -1,5 +1,5 @@
 ---
-work_slug: the-cellar-by-richard-laymon
+slug: the-cellar-by-richard-laymon
 grade: C+
 date: 2022-03-16
 ---

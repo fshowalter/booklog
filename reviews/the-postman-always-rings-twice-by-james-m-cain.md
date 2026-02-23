@@ -1,5 +1,5 @@
 ---
-work_slug: the-postman-always-rings-twice-by-james-m-cain
+slug: the-postman-always-rings-twice-by-james-m-cain
 grade: B+
 date: 2022-07-24
 ---

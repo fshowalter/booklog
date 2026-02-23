@@ -1,5 +1,5 @@
 ---
-work_slug: mother-by-philip-fracassi
+slug: mother-by-philip-fracassi
 grade: B-
 date: 2022-04-23
 ---

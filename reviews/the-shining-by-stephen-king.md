@@ -1,5 +1,5 @@
 ---
-work_slug: the-shining-by-stephen-king
+slug: the-shining-by-stephen-king
 grade: B
 date: 2022-10-29
 ---

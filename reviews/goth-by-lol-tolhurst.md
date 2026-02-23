@@ -1,5 +1,5 @@
 ---
-work_slug: goth-by-lol-tolhurst
+slug: goth-by-lol-tolhurst
 grade: C
 date: 2024-11-08
 ---

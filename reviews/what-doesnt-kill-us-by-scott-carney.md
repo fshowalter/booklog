@@ -1,5 +1,5 @@
 ---
-work_slug: what-doesnt-kill-us-by-scott-carney
+slug: what-doesnt-kill-us-by-scott-carney
 grade: C+
 date: 2022-10-04
 ---

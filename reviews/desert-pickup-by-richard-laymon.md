@@ -1,5 +1,5 @@
 ---
-work_slug: desert-pickup-by-richard-laymon
+slug: desert-pickup-by-richard-laymon
 grade: C-
 date: 2022-04-03
 ---

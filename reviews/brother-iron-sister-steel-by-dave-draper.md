@@ -1,5 +1,5 @@
 ---
-work_slug: brother-iron-sister-steel-by-dave-draper
+slug: brother-iron-sister-steel-by-dave-draper
 grade: C
 date: 2022-03-06
 ---

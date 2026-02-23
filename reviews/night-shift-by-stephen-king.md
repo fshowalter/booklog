@@ -1,5 +1,5 @@
 ---
-work_slug: night-shift-by-stephen-king
+slug: night-shift-by-stephen-king
 grade: B
 date: 2012-05-14
 ---

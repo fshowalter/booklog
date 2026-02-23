@@ -87,7 +87,7 @@ def _build_more_reviews(
             (
                 review
                 for review in repository_data.reviews
-                if review.work_slug not in slugs_to_exclude
+                if review.slug not in slugs_to_exclude
             ),
             key=lambda review: review.work(repository_data.works).sort_title,
         ),
@@ -95,16 +95,16 @@ def _build_more_reviews(
     )
 
     return [
-        review.work_slug
+        review.slug
         for review in sliced_reviews
-        if review.work_slug != work.slug
+        if review.slug != work.slug
     ]
 
 
 def _build_review_matcher(
     slug_to_match: str,
 ) -> Callable[[repository_api.Review], bool]:
-    return lambda review: review.work_slug == slug_to_match
+    return lambda review: review.slug == slug_to_match
 
 
 def _build_work_matcher(slug_to_match: str) -> Callable[[repository_api.Work], bool]:

@@ -1,5 +1,5 @@
 ---
-work_slug: the-rise-of-theodore-roosevelt-by-edmund-morris
+slug: the-rise-of-theodore-roosevelt-by-edmund-morris
 grade: A-
 date: 2022-05-07
 ---

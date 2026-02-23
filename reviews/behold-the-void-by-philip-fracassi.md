@@ -1,5 +1,5 @@
 ---
-work_slug: behold-the-void-by-philip-fracassi
+slug: behold-the-void-by-philip-fracassi
 grade: B+
 date: 2022-05-07
 ---

@@ -1,5 +1,5 @@
 ---
-work_slug: i-will-find-you-by-joe-kenda
+slug: i-will-find-you-by-joe-kenda
 grade: B
 date: 2022-09-17
 ---

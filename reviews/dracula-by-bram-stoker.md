@@ -1,5 +1,5 @@
 ---
-work_slug: dracula-by-bram-stoker
+slug: dracula-by-bram-stoker
 grade: C+
 date: 2022-07-09
 ---

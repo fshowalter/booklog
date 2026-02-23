@@ -1,5 +1,5 @@
 ---
-work_slug: tread-softly-by-richard-laymon
+slug: tread-softly-by-richard-laymon
 grade: C
 date: 2014-09-21
 ---

@@ -1,5 +1,5 @@
 ---
-work_slug: the-intruder-by-richard-laymon
+slug: the-intruder-by-richard-laymon
 grade: C
 date: 2014-07-23
 ---

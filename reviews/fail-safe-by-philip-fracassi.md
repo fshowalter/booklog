@@ -1,5 +1,5 @@
 ---
-work_slug: fail-safe-by-philip-fracassi
+slug: fail-safe-by-philip-fracassi
 grade: C
 date: 2022-04-30
 ---

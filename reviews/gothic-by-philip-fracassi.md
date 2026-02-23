@@ -1,5 +1,5 @@
 ---
-work_slug: gothic-by-philip-fracassi
+slug: gothic-by-philip-fracassi
 grade: B+
 date: 2024-06-30
 ---

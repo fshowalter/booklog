@@ -1,5 +1,5 @@
 ---
-work_slug: out-are-the-lights-by-richard-laymon
+slug: out-are-the-lights-by-richard-laymon
 grade: C-
 date: 2022-10-11
 ---

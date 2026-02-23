@@ -1,5 +1,5 @@
 ---
-work_slug: the-long-walk-by-stephen-king
+slug: the-long-walk-by-stephen-king
 grade: D
 date: 2014-03-09
 ---

@@ -86,7 +86,7 @@ class Work:
     def review(self, cache: list[Review] | None = None) -> Review | None:
         reviews_iterable = cache or reviews()
         return next(
-            (review for review in reviews_iterable if review.work_slug == self.slug),
+            (review for review in reviews_iterable if review.slug == self.slug),
             None,
         )
 
@@ -115,16 +115,16 @@ class Reading:
 
 @dataclass
 class Review:
-    work_slug: str
+    slug: str
     date: datetime.date
     grade: Grade
     review_content: str | None = None
 
     def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        work = next((work for work in works_iterable if work.slug == self.work_slug), None)
+        work = next((work for work in works_iterable if work.slug == self.slug), None)
         if not work:
-            raise ValueError(f"Work with slug '{self.work_slug}' not found")
+            raise ValueError(f"Work with slug '{self.slug}' not found")
         return work
 
     @property
@@ -288,7 +288,7 @@ def _hydrate_markdown_review(
     markdown_review: markdown_reviews.MarkdownReview,
 ) -> Review:
     return Review(
-        work_slug=markdown_review.yaml["work_slug"],
+        slug=markdown_review.yaml["slug"],
         date=markdown_review.yaml["date"],
         grade=cast(Grade, markdown_review.yaml["grade"]),
         review_content=markdown_review.review_content,

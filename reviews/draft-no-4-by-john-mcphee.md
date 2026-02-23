@@ -1,5 +1,5 @@
 ---
-work_slug: draft-no-4-by-john-mcphee
+slug: draft-no-4-by-john-mcphee
 grade: C
 date: 2022-09-11
 ---

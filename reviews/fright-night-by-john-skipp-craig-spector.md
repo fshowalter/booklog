@@ -1,5 +1,5 @@
 ---
-work_slug: fright-night-by-john-skipp-craig-spector
+slug: fright-night-by-john-skipp-craig-spector
 grade: F
 date: 2023-01-21
 ---

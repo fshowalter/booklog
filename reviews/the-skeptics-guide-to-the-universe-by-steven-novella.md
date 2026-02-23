@@ -1,5 +1,5 @@
 ---
-work_slug: the-skeptics-guide-to-the-universe-by-steven-novella
+slug: the-skeptics-guide-to-the-universe-by-steven-novella
 grade: B+
 date: 2022-10-29
 ---

@@ -1,5 +1,5 @@
 ---
-work_slug: live-and-let-die-by-ian-fleming
+slug: live-and-let-die-by-ian-fleming
 grade: D
 date: 2022-06-30
 ---

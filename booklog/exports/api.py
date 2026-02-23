@@ -19,7 +19,7 @@ def export_data() -> None:
     repository_data = RepositoryData(
         authors=sorted(all_authors, key=lambda author: author.sort_name),
         works=sorted(works, key=lambda work: work.sort_title),
-        reviews=sorted(reviews, key=lambda review: review.work_slug),
+        reviews=sorted(reviews, key=lambda review: review.slug),
         readings=sorted(repository_api.readings(), key=lambda reading: reading.sequence),
         authors_with_reviews=authors_with_reviews,
     )

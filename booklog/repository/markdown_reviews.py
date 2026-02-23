@@ -31,7 +31,7 @@ class MarkdownReview:
 
 
 class ReviewYaml(TypedDict):
-    work_slug: str
+    slug: str
     grade: str
     date: datetime.date
 
@@ -45,7 +45,7 @@ def create_or_update(
         (
             markdown_review
             for markdown_review in read_all()
-            if markdown_review.yaml["work_slug"] == work_slug
+            if markdown_review.yaml["slug"] == work_slug
         ),
         None,
     )
@@ -56,7 +56,7 @@ def create_or_update(
     else:
         markdown_review = MarkdownReview(
             yaml=ReviewYaml(
-                work_slug=work_slug,
+                slug=work_slug,
                 grade=grade,
                 date=date,
             )
@@ -78,7 +78,7 @@ def read_all() -> Iterable[MarkdownReview]:
 
 
 def generate_file_path(markdown_review: MarkdownReview) -> Path:
-    file_path = Path(FOLDER_NAME) / f"{markdown_review.yaml['work_slug']}.md"
+    file_path = Path(FOLDER_NAME) / f"{markdown_review.yaml['slug']}.md"
 
     path_tools.ensure_file_path(file_path)
 

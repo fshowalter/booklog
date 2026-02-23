@@ -1,5 +1,5 @@
 ---
-work_slug: the-horse-thief-by-philip-fracassi
+slug: the-horse-thief-by-philip-fracassi
 grade: B
 date: 2022-04-19
 ---

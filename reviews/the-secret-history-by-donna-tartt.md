@@ -1,5 +1,5 @@
 ---
-work_slug: the-secret-history-by-donna-tartt
+slug: the-secret-history-by-donna-tartt
 grade: A
 date: 2022-07-02
 ---

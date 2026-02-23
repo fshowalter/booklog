@@ -1,5 +1,5 @@
 ---
-work_slug: the-baby-farmer-by-philip-fracassi
+slug: the-baby-farmer-by-philip-fracassi
 grade: C+
 date: 2022-04-21
 ---

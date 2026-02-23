@@ -1,5 +1,5 @@
 ---
-work_slug: set-the-boy-free-by-johnny-marr
+slug: set-the-boy-free-by-johnny-marr
 grade: B+
 date: 2022-06-25
 ---

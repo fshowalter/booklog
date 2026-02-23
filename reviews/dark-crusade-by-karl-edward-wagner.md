@@ -1,5 +1,5 @@
 ---
-work_slug: dark-crusade-by-karl-edward-wagner
+slug: dark-crusade-by-karl-edward-wagner
 grade: C
 date: 2012-05-18
 ---

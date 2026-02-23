@@ -1,5 +1,5 @@
 ---
-work_slug: soft-construction-of-a-sunset-by-philip-fracassi
+slug: soft-construction-of-a-sunset-by-philip-fracassi
 grade: B-
 date: 2022-04-17
 ---

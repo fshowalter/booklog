@@ -1,5 +1,5 @@
 ---
-work_slug: cary-grant-by-marc-eliot
+slug: cary-grant-by-marc-eliot
 grade: C
 date: 2012-05-31
 ---

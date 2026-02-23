@@ -1,5 +1,5 @@
 ---
-work_slug: on-writing-by-stephen-king
+slug: on-writing-by-stephen-king
 grade: A-
 date: 2022-03-21
 ---

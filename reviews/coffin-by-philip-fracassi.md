@@ -1,5 +1,5 @@
 ---
-work_slug: coffin-by-philip-fracassi
+slug: coffin-by-philip-fracassi
 grade: C+
 date: 2022-04-20
 ---
