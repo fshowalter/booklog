@@ -15,10 +15,8 @@ def _build_json_author(
         name=author.name,
         sortName=author.sort_name,
         slug=author.slug,
-        reviewedWorks=[
-            work.slug
-            for work in author_works
-            if work.review(repository_data.reviews) is not None
+        reviewedSlugs=[
+            work.slug for work in author_works if work.review(repository_data.reviews) is not None
         ],
     )
 
@@ -35,7 +33,7 @@ def export(repository_data: RepositoryData) -> None:
     ]
 
     exporter.serialize_dicts_to_folder(
-        [json_author for json_author in json_authors if len(json_author["reviewedWorks"]) > 0],
+        [json_author for json_author in json_authors if len(json_author["reviewedSlugs"]) > 0],
         "authors",
         filename_key=lambda json_author: json_author["slug"],
     )

@@ -102,7 +102,7 @@ class Reading:
     sequence: int
     edition: str
     timeline: list[TimelineEntry]
-    editionNotes: str | None = None
+    editionNotes: str | None = None  # noqa: N815
     slug: str
 
     def work(self, cache: list[Work] | None = None) -> Work:
