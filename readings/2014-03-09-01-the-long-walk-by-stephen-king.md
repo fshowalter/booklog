@@ -4,8 +4,9 @@ slug: 2014-03-09-01-the-long-walk-by-stephen-king
 workSlug: the-long-walk-by-stephen-king
 date: 2014-03-09
 edition: Paperback
-editionNotes: '_The Bachman Books: Four Early Novels by Stephen King_, Signet Books,
-  1986'
+editionNotes:
+  "_The Bachman Books: Four Early Novels by Stephen King_, Signet Books,
+  1986"
 timeline:
   - date: 2014-03-02
     progress: 15%

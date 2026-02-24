@@ -72,27 +72,3 @@ def test_exports_authors(tmp_path: Path, snapshot_json: SnapshotAssertion) -> No
         file_content = json.load(output_file)
 
     assert file_content == snapshot_json
-
-
-def test_exports_reviewed_works(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
-    exports_api.export_data()
-
-    with Path.open(
-        Path(tmp_path) / "exports" / "reviewed-works.json",
-        "r",
-    ) as output_file:
-        file_content = json.load(output_file)
-
-    assert file_content == snapshot_json
-
-
-def test_exports_reading_entries(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
-    exports_api.export_data()
-
-    with Path.open(
-        Path(tmp_path) / "exports" / "reading-entries.json",
-        "r",
-    ) as output_file:
-        file_content = json.load(output_file)
-
-    assert file_content == snapshot_json

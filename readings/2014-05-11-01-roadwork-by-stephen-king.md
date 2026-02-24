@@ -4,8 +4,9 @@ slug: 2014-05-11-01-roadwork-by-stephen-king
 workSlug: roadwork-by-stephen-king
 date: 2014-05-11
 edition: Paperback
-editionNotes: '_The Bachman Books: Four Early Novels by Stephen King_, Signet Books,
-  1986'
+editionNotes:
+  "_The Bachman Books: Four Early Novels by Stephen King_, Signet Books,
+  1986"
 timeline:
   - date: 2014-04-29
     progress: 6%

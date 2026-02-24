@@ -4,8 +4,9 @@ slug: 2014-05-21-01-night-show-by-richard-laymon
 workSlug: night-show-by-richard-laymon
 date: 2014-05-21
 edition: Paperback
-editionNotes: '_The Richard Laymon Collection, Volume 3: Night Show / Allhallow''s
-  Eve_, Headline, 2006'
+editionNotes:
+  "_The Richard Laymon Collection, Volume 3: Night Show / Allhallow's
+  Eve_, Headline, 2006"
 timeline:
   - date: 2014-05-16
     progress: 14%

@@ -4,8 +4,9 @@ slug: 2012-05-13-01-rage-by-stephen-king
 workSlug: rage-by-stephen-king
 date: 2012-05-13
 edition: Paperback
-editionNotes: '_The Bachman Books: Four Early Novels by Stephen King_, Signet Books,
-  1986'
+editionNotes:
+  "_The Bachman Books: Four Early Novels by Stephen King_, Signet Books,
+  1986"
 timeline:
   - date: 2011-11-06
     progress: 5%
