@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: peter-cushing-by-david-miller
+slug: 2014-08-25-01-peter-cushing-by-david-miller
+workSlug: peter-cushing-by-david-miller
+date: 2014-08-25
 edition: Hardcover
-edition_notes: Titan Books, 2013
+editionNotes: Titan Books, 2013
 timeline:
   - date: 2014-08-06
     progress: 9%

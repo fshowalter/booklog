@@ -1,5 +1,5 @@
 ---
-work_slug: surfer-girl-by-philip-fracassi
+slug: surfer-girl-by-philip-fracassi
 grade: C+
 date: 2022-04-22
 ---

@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-lady-in-the-lake-by-raymond-chandler
+slug: 2019-04-14-01-the-lady-in-the-lake-by-raymond-chandler
+workSlug: the-lady-in-the-lake-by-raymond-chandler
+date: 2019-04-14
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-04-11
     progress: 10%

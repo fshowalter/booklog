@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: night-shift-by-stephen-king
+slug: 2012-05-14-01-night-shift-by-stephen-king
+workSlug: night-shift-by-stephen-king
+date: 2012-05-14
 edition: Paperback
-edition_notes: New American Library / Signet, 1986
+editionNotes: New American Library / Signet, 1986
 timeline:
   - date: 2012-05-13
     progress: 70%

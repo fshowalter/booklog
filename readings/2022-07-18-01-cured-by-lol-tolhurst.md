@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: cured-by-lol-tolhurst
+slug: 2022-07-18-01-cured-by-lol-tolhurst
+workSlug: cured-by-lol-tolhurst
+date: 2022-07-18
 edition: Audiobook
-edition_notes: Read by Lol Tolhurst
+editionNotes: Read by Lol Tolhurst
 timeline:
   - date: 2022-07-16
     progress: 33%

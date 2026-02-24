@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-secret-history-by-donna-tartt
+slug: 2022-07-02-01-the-secret-history-by-donna-tartt
+workSlug: the-secret-history-by-donna-tartt
+date: 2022-07-02
 edition: Audiobook
-edition_notes: Read by Donna Tartt
+editionNotes: Read by Donna Tartt
 timeline:
   - date: 2022-06-25
     progress: 7%

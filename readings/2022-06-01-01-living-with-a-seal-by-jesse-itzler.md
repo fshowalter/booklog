@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: living-with-a-seal-by-jesse-itzler
+slug: 2022-06-01-01-living-with-a-seal-by-jesse-itzler
+workSlug: living-with-a-seal-by-jesse-itzler
+date: 2022-06-01
 edition: Ebook
-edition_notes: Center Street, 2015
+editionNotes: Center Street, 2015
 timeline:
   - date: 2022-05-24
     progress: 30%

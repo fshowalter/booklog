@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-postman-always-rings-twice-by-james-m-cain
+slug: 2022-07-24-01-the-postman-always-rings-twice-by-james-m-cain
+workSlug: the-postman-always-rings-twice-by-james-m-cain
+date: 2022-07-24
 edition: Ebook
-edition_notes: Vintage Crime / Black Lizard, 2010
+editionNotes: Vintage Crime / Black Lizard, 2010
 timeline:
   - date: 2022-07-18
     progress: 13%

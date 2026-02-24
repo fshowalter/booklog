@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: out-are-the-lights-by-richard-laymon
+slug: 2022-10-11-01-out-are-the-lights-by-richard-laymon
+workSlug: out-are-the-lights-by-richard-laymon
+date: 2022-10-11
 edition: Ebook
-edition_notes:
+editionNotes:
   <span data-work-slug="out-are-the-lights-and-other-tales-by-richard-laymon">_Out
   Are the Lights and Other Tales_</span>, Headline, 1993
 timeline:

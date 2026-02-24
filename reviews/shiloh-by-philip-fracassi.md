@@ -1,5 +1,5 @@
 ---
-work_slug: shiloh-by-philip-fracassi
+slug: shiloh-by-philip-fracassi
 grade: B
 date: 2025-07-11
 synopsis: During the brutal Civil War battle, as artillery shreds trees and flesh alike and soldiers become scavengers among the corpses, a Confederate veteran encounters something supernatural stalking the battlefield.

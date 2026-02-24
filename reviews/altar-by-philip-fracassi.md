@@ -1,5 +1,5 @@
 ---
-work_slug: altar-by-philip-fracassi
+slug: altar-by-philip-fracassi
 grade: A-
 date: 2022-04-18
 ---

@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-dead-zone-by-stephen-king
+slug: 2014-04-04-01-the-dead-zone-by-stephen-king
+workSlug: the-dead-zone-by-stephen-king
+date: 2014-04-04
 edition: Paperback
-edition_notes: Signet/New American Library, 1980
+editionNotes: Signet/New American Library, 1980
 timeline:
   - date: 2014-03-13
     progress: 6%

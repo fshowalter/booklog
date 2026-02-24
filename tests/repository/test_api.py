@@ -118,7 +118,7 @@ def test_can_create_new_review(
 def test_can_update_existing_review(
     tmp_path: Path, work_fixture: repository_api.Work, snapshot: SnapshotAssertion
 ) -> None:
-    existing_review = "---\nwork_slug: the-cellar-by-richard-laymon\ngrade: A+\ndate: 2016-03-10\n---\n\nSome review content we want to preserve between updates."  # noqa: E501
+    existing_review = "---\nslug: the-cellar-by-richard-laymon\ngrade: A+\ndate: 2016-03-10\n---\n\nSome review content we want to preserve between updates."  # noqa: E501
 
     with Path.open(
         Path(tmp_path) / "reviews" / "the-cellar-by-richard-laymon.md",
@@ -151,7 +151,12 @@ def test_work_author_with_invalid_slug_raises_error() -> None:
 def test_reading_with_invalid_work_slug_raises_error() -> None:
     """Test that Reading.work() raises ValueError for invalid slug."""
     reading = repository_api.Reading(
-        sequence=1, edition="Kindle", timeline=[], work_slug="non-existent-work"
+        sequence=1,
+        edition="Kindle",
+        timeline=[],
+        slug="2024-01-01-01-non-existent-work",
+        workSlug="non-existent-work",
+        date=datetime.date(2024, 1, 1),
     )
 
     with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):
@@ -161,7 +166,7 @@ def test_reading_with_invalid_work_slug_raises_error() -> None:
 def test_review_with_invalid_work_slug_raises_error() -> None:
     """Test that Review.work() raises ValueError for invalid slug."""
     review = repository_api.Review(
-        work_slug="non-existent-work", date=datetime.date(2024, 1, 1), grade="A+"
+        slug="non-existent-work", date=datetime.date(2024, 1, 1), grade="A+"
     )
 
     with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):

@@ -1,5 +1,5 @@
 ---
-work_slug: cant-hurt-me-by-david-goggins
+slug: cant-hurt-me-by-david-goggins
 grade: B
 date: 2022-10-13
 ---

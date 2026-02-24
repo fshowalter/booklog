@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-woods-are-dark-by-richard-laymon
+slug: 2014-03-18-01-the-woods-are-dark-by-richard-laymon
+workSlug: the-woods-are-dark-by-richard-laymon
+date: 2014-03-18
 edition: Paperback
-edition_notes:
+editionNotes:
   "_The Richard Laymon Collection, Volume 2: The Woods Are Dark / Out
   Are The Lights_, Headline, 2006"
 timeline:

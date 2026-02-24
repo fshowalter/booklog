@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-black-train-by-edward-lee
+slug: 2017-02-20-01-the-black-train-by-edward-lee
+workSlug: the-black-train-by-edward-lee
+date: 2017-02-20
 edition: Paperback
-edition_notes: Leisure Books, 2009
+editionNotes: Leisure Books, 2009
 timeline:
   - date: 2016-02-12
     progress: 1%

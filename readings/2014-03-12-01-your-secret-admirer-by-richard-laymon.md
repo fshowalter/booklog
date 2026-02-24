@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: your-secret-admirer-by-richard-laymon
+slug: 2014-03-12-01-your-secret-admirer-by-richard-laymon
+workSlug: your-secret-admirer-by-richard-laymon
+date: 2014-03-12
 edition: Paperback
-edition_notes: Scholastic, 1980
+editionNotes: Scholastic, 1980
 timeline:
   - date: 2014-03-07
     progress: 19%

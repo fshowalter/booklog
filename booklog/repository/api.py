@@ -80,13 +80,13 @@ class Work:
         readings_iterable = cache or readings()
 
         for reading in readings_iterable:
-            if reading.work_slug == self.slug:
+            if reading.workSlug == self.slug:
                 yield reading
 
     def review(self, cache: list[Review] | None = None) -> Review | None:
         reviews_iterable = cache or reviews()
         return next(
-            (review for review in reviews_iterable if review.work_slug == self.slug),
+            (review for review in reviews_iterable if review.slug == self.slug),
             None,
         )
 
@@ -102,29 +102,31 @@ class Reading:
     sequence: int
     edition: str
     timeline: list[TimelineEntry]
-    edition_notes: str | None = None
-    work_slug: str
+    editionNotes: str | None = None  # noqa: N815
+    slug: str
+    workSlug: str  # noqa: N815
+    date: datetime.date
 
     def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        work = next((work for work in works_iterable if work.slug == self.work_slug), None)
+        work = next((work for work in works_iterable if work.slug == self.workSlug), None)
         if not work:
-            raise ValueError(f"Work with slug '{self.work_slug}' not found")
+            raise ValueError(f"Work with slug '{self.workSlug}' not found")
         return work
 
 
 @dataclass
 class Review:
-    work_slug: str
+    slug: str
     date: datetime.date
     grade: Grade
     review_content: str | None = None
 
     def work(self, cache: list[Work] | None = None) -> Work:
         works_iterable = cache or works()
-        work = next((work for work in works_iterable if work.slug == self.work_slug), None)
+        work = next((work for work in works_iterable if work.slug == self.slug), None)
         if not work:
-            raise ValueError(f"Work with slug '{self.work_slug}' not found")
+            raise ValueError(f"Work with slug '{self.slug}' not found")
         return work
 
     @property
@@ -279,8 +281,10 @@ def _hydrate_markdown_reading(
             for yaml_timeline_entry in markdown_reading["timeline"]
         ],
         edition=markdown_reading["edition"],
-        edition_notes=markdown_reading["edition_notes"],
-        work_slug=markdown_reading["work_slug"],
+        editionNotes=markdown_reading["editionNotes"],
+        slug=markdown_reading["slug"],
+        workSlug=markdown_reading["workSlug"],
+        date=markdown_reading["date"],
     )
 
 
@@ -288,7 +292,7 @@ def _hydrate_markdown_review(
     markdown_review: markdown_reviews.MarkdownReview,
 ) -> Review:
     return Review(
-        work_slug=markdown_review.yaml["work_slug"],
+        slug=markdown_review.yaml["slug"],
         date=markdown_review.yaml["date"],
         grade=cast(Grade, markdown_review.yaml["grade"]),
         review_content=markdown_review.review_content,

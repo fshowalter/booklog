@@ -1,8 +1,10 @@
 ---
 sequence: 4
-work_slug: cujo-by-stephen-king
+slug: 2014-06-17-04-cujo-by-stephen-king
+workSlug: cujo-by-stephen-king
+date: 2014-06-17
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2014-06-09
     progress: 3%

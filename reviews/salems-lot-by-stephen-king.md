@@ -1,5 +1,5 @@
 ---
-work_slug: salems-lot-by-stephen-king
+slug: salems-lot-by-stephen-king
 grade: B
 date: 2022-10-14
 ---

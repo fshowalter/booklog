@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: endless-night-by-richard-laymon
+slug: 2019-05-27-01-endless-night-by-richard-laymon
+workSlug: endless-night-by-richard-laymon
+date: 2019-05-27
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-05-19
     progress: 0%

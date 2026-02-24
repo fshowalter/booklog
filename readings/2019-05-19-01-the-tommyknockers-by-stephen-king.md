@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-tommyknockers-by-stephen-king
+slug: 2019-05-19-01-the-tommyknockers-by-stephen-king
+workSlug: the-tommyknockers-by-stephen-king
+date: 2019-05-19
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-04-28
     progress: 0%

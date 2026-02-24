@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: fight-club-by-chuck-palahniuk
+slug: 2022-07-16-01-fight-club-by-chuck-palahniuk
+workSlug: fight-club-by-chuck-palahniuk
+date: 2022-07-16
 edition: Audiobook
-edition_notes: Read by Jim Colby
+editionNotes: Read by Jim Colby
 timeline:
   - date: 2022-07-15
     progress: 15%

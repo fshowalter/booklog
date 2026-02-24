@@ -1,5 +1,5 @@
 ---
-work_slug: in-the-pines-by-karl-edward-wagner
+slug: in-the-pines-by-karl-edward-wagner
 grade: C
 date: 2025-10-26
 synopsis: A grief-stricken man sees visions of a flapper-era woman at his Tennessee cabin--and discovers he's not the first.

@@ -1,5 +1,5 @@
 ---
-work_slug: the-devils-of-d-day-by-graham-masterton
+slug: the-devils-of-d-day-by-graham-masterton
 grade: B
 date: 2016-01-26
 ---

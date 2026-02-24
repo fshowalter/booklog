@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: progeny-of-the-adder-by-leslie-h-whitten-jr
+slug: 2025-07-11-01-progeny-of-the-adder-by-leslie-h-whitten-jr
+workSlug: progeny-of-the-adder-by-leslie-h-whitten-jr
+date: 2025-07-11
 edition: Ebook
-edition_notes: Valancourt Books, 2022
+editionNotes: Valancourt Books, 2022
 timeline:
   - date: 2025-07-04
     progress: 5%

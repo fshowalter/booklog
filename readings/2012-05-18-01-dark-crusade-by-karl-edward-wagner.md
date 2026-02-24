@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: dark-crusade-by-karl-edward-wagner
+slug: 2012-05-18-01-dark-crusade-by-karl-edward-wagner
+workSlug: dark-crusade-by-karl-edward-wagner
+date: 2012-05-18
 edition: Paperback
-edition_notes: Baen, 1991
+editionNotes: Baen, 1991
 timeline:
   - date: 2012-05-13
     progress: 14%

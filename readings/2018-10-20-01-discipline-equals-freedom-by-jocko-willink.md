@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: discipline-equals-freedom-by-jocko-willink
+slug: 2018-10-20-01-discipline-equals-freedom-by-jocko-willink
+workSlug: discipline-equals-freedom-by-jocko-willink
+date: 2018-10-20
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-10-19
     progress: 7%

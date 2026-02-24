@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-scarlet-gospels-by-clive-barker
+slug: 2015-06-17-01-the-scarlet-gospels-by-clive-barker
+workSlug: the-scarlet-gospels-by-clive-barker
+date: 2015-06-17
 edition: Hardcover
-edition_notes: St. Martin's Press, 2015
+editionNotes: St. Martin's Press, 2015
 timeline:
   - date: 2015-05-24
     progress: 12%

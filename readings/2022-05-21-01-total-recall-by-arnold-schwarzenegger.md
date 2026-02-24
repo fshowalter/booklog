@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: total-recall-by-arnold-schwarzenegger
+slug: 2022-05-21-01-total-recall-by-arnold-schwarzenegger
+workSlug: total-recall-by-arnold-schwarzenegger
+date: 2022-05-21
 edition: Audiobook
-edition_notes: Read by Stephen Lang and Arnold Schwarzenegger
+editionNotes: Read by Stephen Lang and Arnold Schwarzenegger
 timeline:
   - date: 2022-05-07
     progress: 2%

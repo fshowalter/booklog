@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: consider-this-by-chuck-palahniuk
+slug: 2022-09-22-01-consider-this-by-chuck-palahniuk
+workSlug: consider-this-by-chuck-palahniuk
+date: 2022-09-22
 edition: Audiobook
-edition_notes: Read by Chuck Palahniuk, Edoardo Ballerini
+editionNotes: Read by Chuck Palahniuk, Edoardo Ballerini
 timeline:
   - date: 2022-09-21
     progress: 56%

@@ -1,5 +1,5 @@
 ---
-work_slug: the-48-laws-of-power-by-robert-greene
+slug: the-48-laws-of-power-by-robert-greene
 grade: D+
 date: 2022-07-15
 ---

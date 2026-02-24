@@ -1,5 +1,5 @@
 ---
-work_slug: fast-forward-by-stephen-morris
+slug: fast-forward-by-stephen-morris
 grade: A-
 date: 2024-07-01
 ---

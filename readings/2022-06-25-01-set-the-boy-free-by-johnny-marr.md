@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: set-the-boy-free-by-johnny-marr
+slug: 2022-06-25-01-set-the-boy-free-by-johnny-marr
+workSlug: set-the-boy-free-by-johnny-marr
+date: 2022-06-25
 edition: Audiobook
-edition_notes: Read by Johnny Marr
+editionNotes: Read by Johnny Marr
 timeline:
   - date: 2022-06-24
     progress: 50%

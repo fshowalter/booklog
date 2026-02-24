@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-48-laws-of-power-by-robert-greene
+slug: 2022-07-15-01-the-48-laws-of-power-by-robert-greene
+workSlug: the-48-laws-of-power-by-robert-greene
+date: 2022-07-15
 edition: Audiobook
-edition_notes: Read by Richard Poe
+editionNotes: Read by Richard Poe
 timeline:
   - date: 2022-07-10
     progress: 41%

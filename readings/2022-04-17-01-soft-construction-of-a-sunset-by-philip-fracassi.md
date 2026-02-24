@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: soft-construction-of-a-sunset-by-philip-fracassi
+slug: 2022-04-17-01-soft-construction-of-a-sunset-by-philip-fracassi
+workSlug: soft-construction-of-a-sunset-by-philip-fracassi
+date: 2022-04-17
 edition: Ebook
-edition_notes:
+editionNotes:
   <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the
   Void_</span>, Lovecraft eZine Press, 2018
 timeline:

@@ -1,5 +1,5 @@
 ---
-work_slug: churchill-by-andrew-roberts
+slug: churchill-by-andrew-roberts
 grade: A-
 date: 2022-06-14
 ---

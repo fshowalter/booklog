@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: dracula-by-bram-stoker
+slug: 2022-07-09-01-dracula-by-bram-stoker
+workSlug: dracula-by-bram-stoker
+date: 2022-07-09
 edition: Audiobook
-edition_notes:
+editionNotes:
   Narrated by Alan Cumming, Simon Vance, Katy Kellgren, Susan Duerden,
   and Tim Curry
 timeline:

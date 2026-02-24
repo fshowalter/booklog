@@ -1,5 +1,5 @@
 ---
-work_slug: king-mob-by-philip-fracassi
+slug: king-mob-by-philip-fracassi
 grade: C+
 date: 2025-07-12
 synopsis: In 1780 London, William Blake finds himself swept into the Gordon Riots, only to discover the rioters' enigmatic leader harbors a dark secret.

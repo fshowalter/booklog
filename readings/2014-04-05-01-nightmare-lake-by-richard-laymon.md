@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: nightmare-lake-by-richard-laymon
+slug: 2014-04-05-01-nightmare-lake-by-richard-laymon
+workSlug: nightmare-lake-by-richard-laymon
+date: 2014-04-05
 edition: Paperback
-edition_notes: Dell Publishing Co., Inc., 1983
+editionNotes: Dell Publishing Co., Inc., 1983
 timeline:
   - date: 2014-04-04
     progress: 51%

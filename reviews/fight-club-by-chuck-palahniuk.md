@@ -1,5 +1,5 @@
 ---
-work_slug: fight-club-by-chuck-palahniuk
+slug: fight-club-by-chuck-palahniuk
 grade: A-
 date: 2022-07-16
 ---

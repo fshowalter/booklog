@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: liars-poker-by-michael-lewis
+slug: 2018-02-22-01-liars-poker-by-michael-lewis
+workSlug: liars-poker-by-michael-lewis
+date: 2018-02-22
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-02-11
     progress: 7%

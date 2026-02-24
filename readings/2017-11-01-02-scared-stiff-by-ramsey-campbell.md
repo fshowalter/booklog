@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: scared-stiff-by-ramsey-campbell
+slug: 2017-11-01-02-scared-stiff-by-ramsey-campbell
+workSlug: scared-stiff-by-ramsey-campbell
+date: 2017-11-01
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-10-22
     progress: 12%

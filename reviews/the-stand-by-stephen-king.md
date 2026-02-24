@@ -1,5 +1,5 @@
 ---
-work_slug: the-stand-by-stephen-king
+slug: the-stand-by-stephen-king
 grade: D
 date: 2014-03-02
 ---

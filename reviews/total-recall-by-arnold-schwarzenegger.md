@@ -1,5 +1,5 @@
 ---
-work_slug: total-recall-by-arnold-schwarzenegger
+slug: total-recall-by-arnold-schwarzenegger
 grade: C+
 date: 2022-05-21
 ---

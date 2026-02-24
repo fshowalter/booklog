@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: fail-safe-by-philip-fracassi
+slug: 2022-04-30-01-fail-safe-by-philip-fracassi
+workSlug: fail-safe-by-philip-fracassi
+date: 2022-04-30
 edition: Ebook
-edition_notes:
+editionNotes:
   <span data-work-slug="behold-the-void-by-philip-fracassi">_Behold the
   Void_</span>, Lovecraft eZine Press, 2018
 timeline:

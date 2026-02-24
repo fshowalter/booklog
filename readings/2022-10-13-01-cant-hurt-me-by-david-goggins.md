@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: cant-hurt-me-by-david-goggins
+slug: 2022-10-13-01-cant-hurt-me-by-david-goggins
+workSlug: cant-hurt-me-by-david-goggins
+date: 2022-10-13
 edition: Audiobook
-edition_notes: Read by Adam Skolnick
+editionNotes: Read by Adam Skolnick
 timeline:
   - date: 2022-10-04
     progress: 11%

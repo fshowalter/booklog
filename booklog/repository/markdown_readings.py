@@ -20,6 +20,9 @@ class BlockCollectionIndentDumper(yaml.Dumper):
     def increase_indent(self, flow: bool = False, indentless: bool = False) -> None:  # noqa: FBT001 FBT002
         return super().increase_indent(flow, indentless=False)
 
+    def ignore_aliases(self, data: Any) -> bool:
+        return True
+
 
 class TimelineEntry(TypedDict):
     date: datetime.date
@@ -28,9 +31,11 @@ class TimelineEntry(TypedDict):
 
 class MarkdownReading(TypedDict):
     sequence: int
-    work_slug: str
+    slug: str
+    workSlug: str
+    date: datetime.date
     edition: str
-    edition_notes: str | None
+    editionNotes: str | None
     timeline: list[TimelineEntry]
 
 
@@ -39,11 +44,17 @@ def _represent_none(self: Any, _: Any) -> Any:
 
 
 def create(work_slug: str, timeline: list[TimelineEntry], edition: str) -> MarkdownReading:
+    date = timeline[-1]["date"]
+    sequence = _next_sequence_for_date(date)
+    slug = f"{date}-{sequence:02d}-{work_slug}"
+
     new_reading = MarkdownReading(
-        sequence=_next_sequence_for_date(timeline[0]["date"]),
-        work_slug=work_slug,
+        sequence=sequence,
+        slug=slug,
+        workSlug=work_slug,
+        date=date,
         edition=edition,
-        edition_notes=None,
+        editionNotes=None,
         timeline=timeline,
     )
 
@@ -81,13 +92,7 @@ def read_all() -> Iterable[MarkdownReading]:
 
 
 def _generate_file_path(json_reading: MarkdownReading) -> Path:
-    file_name = "{}-{:02d}-{}".format(
-        json_reading["timeline"][-1]["date"],
-        json_reading["sequence"],
-        json_reading["work_slug"],
-    )
-
-    file_path = Path(FOLDER_NAME) / f"{file_name}.md"
+    file_path = Path(FOLDER_NAME) / f"{json_reading['slug']}.md"
 
     path_tools.ensure_file_path(file_path)
 
@@ -95,7 +100,7 @@ def _generate_file_path(json_reading: MarkdownReading) -> Path:
 
 
 def _serialize(markdown_reading: MarkdownReading) -> Path:
-    yaml.add_representer(type(None), _represent_none)
+    BlockCollectionIndentDumper.add_representer(type(None), _represent_none)
 
     file_path = _generate_file_path(markdown_reading)
 

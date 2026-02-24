@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-hacienda-by-peter-hook
+slug: 2018-10-19-01-the-hacienda-by-peter-hook
+workSlug: the-hacienda-by-peter-hook
+date: 2018-10-19
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-10-14
     progress: 4%

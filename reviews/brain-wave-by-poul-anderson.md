@@ -1,5 +1,5 @@
 ---
-work_slug: brain-wave-by-poul-anderson
+slug: brain-wave-by-poul-anderson
 grade: C
 date: 2013-04-07
 ---

@@ -1,5 +1,5 @@
 ---
-work_slug: the-dark-tunnel-by-ross-macdonald
+slug: the-dark-tunnel-by-ross-macdonald
 grade: D+
 date: 2022-04-17
 ---

@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: arnold-the-education-of-a-bodybuilder-by-arnold-schwarzenegger
+slug: 2019-01-31-01-arnold-the-education-of-a-bodybuilder-by-arnold-schwarzenegger
+workSlug: arnold-the-education-of-a-bodybuilder-by-arnold-schwarzenegger
+date: 2019-01-31
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-01-30
     progress: 44%

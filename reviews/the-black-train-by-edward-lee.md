@@ -1,5 +1,5 @@
 ---
-work_slug: the-black-train-by-edward-lee
+slug: the-black-train-by-edward-lee
 grade: D+
 date: 2017-02-20
 ---

@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: misery-by-stephen-king
+slug: 2019-04-03-01-misery-by-stephen-king
+workSlug: misery-by-stephen-king
+date: 2019-04-03
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-03-27
     progress: 4%

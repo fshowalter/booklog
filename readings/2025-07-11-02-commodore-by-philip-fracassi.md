@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: commodore-by-philip-fracassi
+slug: 2025-07-11-02-commodore-by-philip-fracassi
+workSlug: commodore-by-philip-fracassi
+date: 2025-07-11
 edition: Ebook
-edition_notes: Strange Aeons, 2021
+editionNotes: Strange Aeons, 2021
 timeline:
   - date: 2025-07-11
     progress: Finished

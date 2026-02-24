@@ -9,24 +9,12 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
-class JsonMostReadAuthorReading(TypedDict):
-    readingSequence: int
-    date: date
-    slug: str
-    edition: str
-    kind: str
-    title: str
-    workYear: str
-    includedInSlugs: list[str]
-    reviewed: bool
-
-
 class JsonMostReadAuthor(TypedDict):
     name: str
     count: int
     slug: str
     reviewed: bool
-    readings: list[JsonMostReadAuthorReading]
+    readings: list[str]
 
 
 class JsonDistribution(TypedDict):
@@ -116,38 +104,6 @@ def _group_readings_by_author(
     return readings_by_author
 
 
-def _build_json_most_read_author_reading(
-    reading: repository_api.Reading,
-    repository_data: RepositoryData,
-) -> JsonMostReadAuthorReading:
-    work = reading.work(repository_data.works)
-    reviewed = bool(work.review(repository_data.reviews))
-
-    # Get last timeline date for the reading sequence lookup
-    last_timeline_date = _date_finished_or_abandoned(reading=reading)
-    reading_key = (str(last_timeline_date), reading.sequence)
-    reading_sequence = repository_data.reading_sequence_map.get(reading_key, 0)
-
-    return JsonMostReadAuthorReading(
-        readingSequence=reading_sequence,
-        date=last_timeline_date,
-        slug=work.slug,
-        edition=reading.edition,
-        kind=work.kind,
-        title=work.title,
-        workYear=work.year,
-        includedInSlugs=[
-            included_in_work.slug
-            for included_in_work in work.included_in_works(repository_data.works)
-        ],
-        reviewed=reviewed,
-    )
-
-
-def _reading_sort_key(reading: JsonMostReadAuthorReading) -> str:
-    return "{}-{}".format(reading["date"], reading["readingSequence"])
-
-
 def _build_most_read_authors(
     readings: list[repository_api.Reading],
     repository_data: RepositoryData,
@@ -164,16 +120,7 @@ def _build_most_read_authors(
             count=len(readings),
             slug=author_slug,
             reviewed=author_slug in repository_data.authors_with_reviews,
-            readings=sorted(
-                [
-                    _build_json_most_read_author_reading(
-                        reading=reading,
-                        repository_data=repository_data,
-                    )
-                    for reading in readings
-                ],
-                key=_reading_sort_key,
-            ),
+            readings=sorted(reading.slug for reading in readings),
         )
         for author_slug, readings in readings_by_author.items()
         if len(readings) > 1

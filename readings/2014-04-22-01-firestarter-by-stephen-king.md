@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: firestarter-by-stephen-king
+slug: 2014-04-22-01-firestarter-by-stephen-king
+workSlug: firestarter-by-stephen-king
+date: 2014-04-22
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2014-04-12
     progress: 10%

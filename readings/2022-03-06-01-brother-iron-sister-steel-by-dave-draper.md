@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: brother-iron-sister-steel-by-dave-draper
+slug: 2022-03-06-01-brother-iron-sister-steel-by-dave-draper
+workSlug: brother-iron-sister-steel-by-dave-draper
+date: 2022-03-06
 edition: Ebook
-edition_notes: On Target Publications
+editionNotes: On Target Publications
 timeline:
   - date: 2022-03-05
     progress: 47%

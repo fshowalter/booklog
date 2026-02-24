@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: rat-pack-confidential-by-shawn-levy
+slug: 2016-01-08-02-rat-pack-confidential-by-shawn-levy
+workSlug: rat-pack-confidential-by-shawn-levy
+date: 2016-01-08
 edition: Paperback
-edition_notes: Crown, 1999
+editionNotes: Crown, 1999
 timeline:
   - date: 2016-01-03
     progress: 1%

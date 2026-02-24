@@ -1,5 +1,5 @@
 ---
-work_slug: extreme-ownership-by-jocko-willink-leif-babin
+slug: extreme-ownership-by-jocko-willink-leif-babin
 grade: A
 date: 2022-06-26
 ---

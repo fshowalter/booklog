@@ -1,5 +1,5 @@
 ---
-work_slug: less-than-zero-by-bret-easton-ellis
+slug: less-than-zero-by-bret-easton-ellis
 grade: B+
 date: 2022-04-02
 ---

@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: deliverance-by-james-dickey
+slug: 2017-11-12-02-deliverance-by-james-dickey
+workSlug: deliverance-by-james-dickey
+date: 2017-11-12
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-11-08
     progress: 1%

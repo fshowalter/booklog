@@ -1,5 +1,5 @@
 ---
-work_slug: moonraker-by-ian-fleming
+slug: moonraker-by-ian-fleming
 grade: B
 date: 2022-10-16
 ---

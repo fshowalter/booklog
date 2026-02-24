@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: the-horror-stories-of-robert-e-howard-by-robert-e-howard
+slug: 2019-03-02-02-the-horror-stories-of-robert-e-howard-by-robert-e-howard
+workSlug: the-horror-stories-of-robert-e-howard-by-robert-e-howard
+date: 2019-03-02
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-02-16
     progress: 10%

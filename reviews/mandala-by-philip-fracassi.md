@@ -1,5 +1,5 @@
 ---
-work_slug: mandala-by-philip-fracassi
+slug: mandala-by-philip-fracassi
 grade: B+
 date: 2022-05-07
 ---

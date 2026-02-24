@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: the-woods-are-dark-by-richard-laymon
+slug: 2022-09-11-02-the-woods-are-dark-by-richard-laymon
+workSlug: the-woods-are-dark-by-richard-laymon
+date: 2022-09-11
 edition: Audiobook
-edition_notes: Read by Bob Dunsworth
+editionNotes: Read by Bob Dunsworth
 timeline:
   - date: 2022-09-10
     progress: 49%

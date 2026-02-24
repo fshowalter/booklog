@@ -1,5 +1,5 @@
 ---
-work_slug: beware-by-richard-laymon
+slug: beware-by-richard-laymon
 grade: C
 date: 2014-06-27
 ---

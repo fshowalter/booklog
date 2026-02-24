@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: doctor-sleep-by-stephen-king
+slug: 2023-01-14-01-doctor-sleep-by-stephen-king
+workSlug: doctor-sleep-by-stephen-king
+date: 2023-01-14
 edition: Ebook
-edition_notes: Scribner, 2013
+editionNotes: Scribner, 2013
 timeline:
   - date: 2022-10-30
     progress: 4%

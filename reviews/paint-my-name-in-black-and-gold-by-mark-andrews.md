@@ -1,5 +1,5 @@
 ---
-work_slug: paint-my-name-in-black-and-gold-by-mark-andrews
+slug: paint-my-name-in-black-and-gold-by-mark-andrews
 grade: C+
 date: 2025-12-20
 synopsis: An oral history of the Sisters of Mercy's rise from Leeds clubs through their debut album and subsequent implosion.

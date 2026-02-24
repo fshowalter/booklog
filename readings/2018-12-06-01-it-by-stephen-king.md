@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: it-by-stephen-king
+slug: 2018-12-06-01-it-by-stephen-king
+workSlug: it-by-stephen-king
+date: 2018-12-06
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-10-20
     progress: 1%

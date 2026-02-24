@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-drawing-of-the-three-by-stephen-king
+slug: 2019-03-13-01-the-drawing-of-the-three-by-stephen-king
+workSlug: the-drawing-of-the-three-by-stephen-king
+date: 2019-03-13
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-03-06
     progress: 7%

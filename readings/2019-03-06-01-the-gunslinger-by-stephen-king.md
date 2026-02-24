@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-gunslinger-by-stephen-king
+slug: 2019-03-06-01-the-gunslinger-by-stephen-king
+workSlug: the-gunslinger-by-stephen-king
+date: 2019-03-06
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-03-03
     progress: 44%

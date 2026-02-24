@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: everybody-lies-by-seth-stephens-davidowitz
+slug: 2018-07-15-01-everybody-lies-by-seth-stephens-davidowitz
+workSlug: everybody-lies-by-seth-stephens-davidowitz
+date: 2018-07-15
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-07-07
     progress: 27%

@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: the-shining-by-stephen-king
+slug: 2022-10-29-02-the-shining-by-stephen-king
+workSlug: the-shining-by-stephen-king
+date: 2022-10-29
 edition: Audiobook
-edition_notes: Read by Campbell Scott
+editionNotes: Read by Campbell Scott
 timeline:
   - date: 2022-10-16
     progress: 3%

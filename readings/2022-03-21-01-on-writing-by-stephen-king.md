@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: on-writing-by-stephen-king
+slug: 2022-03-21-01-on-writing-by-stephen-king
+workSlug: on-writing-by-stephen-king
+date: 2022-03-21
 edition: Ebook
-edition_notes: Scribner
+editionNotes: Scribner
 timeline:
   - date: 2022-03-19
     progress: 20%

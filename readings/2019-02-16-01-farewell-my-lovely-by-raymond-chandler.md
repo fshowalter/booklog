@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: farewell-my-lovely-by-raymond-chandler
+slug: 2019-02-16-01-farewell-my-lovely-by-raymond-chandler
+workSlug: farewell-my-lovely-by-raymond-chandler
+date: 2019-02-16
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-02-10
     progress: 33%

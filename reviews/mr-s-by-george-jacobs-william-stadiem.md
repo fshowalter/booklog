@@ -1,5 +1,5 @@
 ---
-work_slug: mr-s-by-george-jacobs-william-stadiem
+slug: mr-s-by-george-jacobs-william-stadiem
 grade: B
 date: 2012-06-14
 ---

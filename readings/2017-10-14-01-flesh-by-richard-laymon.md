@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: flesh-by-richard-laymon
+slug: 2017-10-14-01-flesh-by-richard-laymon
+workSlug: flesh-by-richard-laymon
+date: 2017-10-14
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-09-24
     progress: 30%

@@ -1,5 +1,5 @@
 ---
-work_slug: carrie-by-stephen-king
+slug: carrie-by-stephen-king
 grade: B-
 date: 2022-09-19
 ---

@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-shotgun-rule-by-charlie-huston
+slug: 2019-06-07-01-the-shotgun-rule-by-charlie-huston
+workSlug: the-shotgun-rule-by-charlie-huston
+date: 2019-06-07
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-06-01
     progress: 0%

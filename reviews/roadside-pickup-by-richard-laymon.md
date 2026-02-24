@@ -1,5 +1,5 @@
 ---
-work_slug: roadside-pickup-by-richard-laymon
+slug: roadside-pickup-by-richard-laymon
 grade: C-
 date: 2023-01-21
 ---

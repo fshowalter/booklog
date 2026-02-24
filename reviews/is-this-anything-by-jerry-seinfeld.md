@@ -1,5 +1,5 @@
 ---
-work_slug: is-this-anything-by-jerry-seinfeld
+slug: is-this-anything-by-jerry-seinfeld
 grade: C
 date: 2022-09-10
 ---

@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: astrophysics-for-people-in-a-hurry-by-neil-degrasse-tyson
+slug: 2018-05-29-02-astrophysics-for-people-in-a-hurry-by-neil-degrasse-tyson
+workSlug: astrophysics-for-people-in-a-hurry-by-neil-degrasse-tyson
+date: 2018-05-29
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-05-20
     progress: 14%

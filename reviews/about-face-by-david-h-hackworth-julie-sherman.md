@@ -1,5 +1,5 @@
 ---
-work_slug: about-face-by-david-h-hackworth-julie-sherman
+slug: about-face-by-david-h-hackworth-julie-sherman
 grade: A-
 date: 2022-09-05
 ---

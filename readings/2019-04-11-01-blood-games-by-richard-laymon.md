@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: blood-games-by-richard-laymon
+slug: 2019-04-11-01-blood-games-by-richard-laymon
+workSlug: blood-games-by-richard-laymon
+date: 2019-04-11
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2019-04-03
     progress: 3%

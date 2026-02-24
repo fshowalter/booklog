@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-maltese-falcon-by-dashiell-hammett
+slug: 2017-03-17-01-the-maltese-falcon-by-dashiell-hammett
+workSlug: the-maltese-falcon-by-dashiell-hammett
+date: 2017-03-17
 edition: Paperback
-edition_notes: Vintage Crime / Black Lizard, 1992
+editionNotes: Vintage Crime / Black Lizard, 1992
 timeline:
   - date: 2017-02-21
     progress: 15%

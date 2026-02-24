@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: hot-blood-by-jeff-gelb-lonn-m-friend
+slug: 2018-01-05-01-hot-blood-by-jeff-gelb-lonn-m-friend
+workSlug: hot-blood-by-jeff-gelb-lonn-m-friend
+date: 2018-01-05
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-11-25
     progress: 10%

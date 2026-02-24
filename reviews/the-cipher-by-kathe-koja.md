@@ -1,5 +1,5 @@
 ---
-work_slug: the-cipher-by-kathe-koja
+slug: the-cipher-by-kathe-koja
 grade: B
 date: 2023-01-29
 ---

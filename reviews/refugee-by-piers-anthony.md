@@ -1,5 +1,5 @@
 ---
-work_slug: refugee-by-piers-anthony
+slug: refugee-by-piers-anthony
 grade: Abandoned
 date: 2016-01-29
 ---

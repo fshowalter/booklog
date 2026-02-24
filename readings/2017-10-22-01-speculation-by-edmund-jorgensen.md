@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: speculation-by-edmund-jorgensen
+slug: 2017-10-22-01-speculation-by-edmund-jorgensen
+workSlug: speculation-by-edmund-jorgensen
+date: 2017-10-22
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-10-15
     progress: 48%

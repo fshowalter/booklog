@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: the-stake-by-richard-laymon
+slug: 2018-07-06-01-the-stake-by-richard-laymon
+workSlug: the-stake-by-richard-laymon
+date: 2018-07-06
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-06-06
     progress: 6%

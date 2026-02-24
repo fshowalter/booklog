@@ -1,8 +1,10 @@
 ---
 sequence: 2
-work_slug: books-of-blood-volume-1-by-clive-barker
+slug: 2018-07-23-02-books-of-blood-volume-1-by-clive-barker
+workSlug: books-of-blood-volume-1-by-clive-barker
+date: 2018-07-23
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2017-11-23
     progress: 11%

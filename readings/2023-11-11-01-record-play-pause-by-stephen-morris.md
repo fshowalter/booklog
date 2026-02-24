@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: record-play-pause-by-stephen-morris
+slug: 2023-11-11-01-record-play-pause-by-stephen-morris
+workSlug: record-play-pause-by-stephen-morris
+date: 2023-11-11
 edition: Audiobook
-edition_notes: Read by Stephen Morris
+editionNotes: Read by Stephen Morris
 timeline:
   - date: 2023-11-06
     progress: 43%

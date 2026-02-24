@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: about-face-by-david-h-hackworth-julie-sherman
+slug: 2022-09-05-01-about-face-by-david-h-hackworth-julie-sherman
+workSlug: about-face-by-david-h-hackworth-julie-sherman
+date: 2022-09-05
 edition: Audiobook
-edition_notes: Read by John Pruden
+editionNotes: Read by John Pruden
 timeline:
   - date: 2022-08-29
     progress: 4%

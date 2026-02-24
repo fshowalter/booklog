@@ -1,5 +1,5 @@
 ---
-work_slug: the-woods-are-dark-by-richard-laymon
+slug: the-woods-are-dark-by-richard-laymon
 grade: C+
 date: 2022-09-11
 ---

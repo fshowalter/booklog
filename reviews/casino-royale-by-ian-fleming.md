@@ -1,5 +1,5 @@
 ---
-work_slug: casino-royale-by-ian-fleming
+slug: casino-royale-by-ian-fleming
 grade: B-
 date: 2022-06-14
 ---

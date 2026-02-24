@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: one-rainy-night-by-richard-laymon
+slug: 2018-09-03-01-one-rainy-night-by-richard-laymon
+workSlug: one-rainy-night-by-richard-laymon
+date: 2018-09-03
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-07-25
     progress: 5%

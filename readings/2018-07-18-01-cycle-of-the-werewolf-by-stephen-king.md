@@ -1,8 +1,10 @@
 ---
 sequence: 1
-work_slug: cycle-of-the-werewolf-by-stephen-king
+slug: 2018-07-18-01-cycle-of-the-werewolf-by-stephen-king
+workSlug: cycle-of-the-werewolf-by-stephen-king
+date: 2018-07-18
 edition: Ebook
-edition_notes: null
+editionNotes: null
 timeline:
   - date: 2018-07-18
     progress: Finished

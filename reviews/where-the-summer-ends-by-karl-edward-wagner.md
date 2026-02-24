@@ -1,5 +1,5 @@
 ---
-work_slug: where-the-summer-ends-by-karl-edward-wagner
+slug: where-the-summer-ends-by-karl-edward-wagner
 grade: D+
 date: 2025-11-09
 synopsis: A college student visits the last man on an abandoned, kudzu-choked street and learns what lurks beneath the vines.
