@@ -7,7 +7,7 @@ from booklog.utils.logging import logger
 
 
 class JsonWorkAuthor(TypedDict):
-    slug: str
+    author: str
     notes: str | None
 
 
@@ -17,7 +17,7 @@ def _build_json_work_author(
     author = work_author.author(all_authors)
 
     return JsonWorkAuthor(
-        slug=author.slug,
+        author=author.slug,
         notes=work_author.notes,
     )
 

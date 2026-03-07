@@ -10,9 +10,8 @@ from booklog.utils.logging import logger
 
 
 class JsonMostReadAuthor(TypedDict):
-    name: str
     count: int
-    slug: str
+    author: str
     reviewed: bool
     readings: list[str]
 
@@ -114,11 +113,8 @@ def _build_most_read_authors(
 
     most_read_authors_list = [
         JsonMostReadAuthor(
-            name=next(
-                author.name for author in repository_data.authors if author.slug == author_slug
-            ),
             count=len(readings),
-            slug=author_slug,
+            author=author_slug,
             reviewed=author_slug in repository_data.authors_with_reviews,
             readings=sorted(reading.slug for reading in readings),
         )
