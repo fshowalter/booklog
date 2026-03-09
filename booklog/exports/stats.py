@@ -1,3 +1,4 @@
+import datetime
 from collections import defaultdict
 from collections.abc import Callable, Iterable
 from datetime import date
@@ -9,12 +10,19 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
+class JsonMostReadAuthorWork(TypedDict):
+    title: str
+    readingDate: datetime.date
+    edition: str
+    reviewSlug: str | None
+
+
 class JsonMostReadAuthor(TypedDict):
     count: int
     name: str
     slug: str | None
     reviewed: bool
-    readings: list[str]
+    readWorks: list[JsonMostReadAuthorWork]
 
 
 class JsonDistribution(TypedDict):
@@ -106,6 +114,29 @@ def _group_readings_by_author(
     return readings_by_author
 
 
+def _build_most_read_author_works(
+    readings: list[repository_api.Reading], repository_data: RepositoryData
+) -> list[JsonMostReadAuthorWork]:
+    works = []
+
+    sorted_readings = sorted(readings, key=lambda reading: reading.slug)
+
+    for reading in sorted_readings:
+        work = reading.work(repository_data.works)
+        review = work.review(repository_data.reviews)
+
+        works.append(
+            JsonMostReadAuthorWork(
+                title=work.title,
+                edition=reading.edition,
+                readingDate=reading.date,
+                reviewSlug=review.slug if review else None,
+            )
+        )
+
+    return works
+
+
 def _build_most_read_authors(
     readings: list[repository_api.Reading],
     repository_data: RepositoryData,
@@ -122,7 +153,7 @@ def _build_most_read_authors(
             ),
             slug=author_slug if author_slug in repository_data.authors_with_reviews else None,
             reviewed=author_slug in repository_data.authors_with_reviews,
-            readings=sorted(reading.slug for reading in readings),
+            readWorks=_build_most_read_author_works(readings, repository_data),
         )
         for author_slug, readings in readings_by_author.items()
         if len(readings) > 1

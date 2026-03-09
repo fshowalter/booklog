@@ -13,6 +13,7 @@ class JsonWorkAuthor(TypedDict):
     notes: str | None
     name: str
     slug: str
+    sortName: str
 
 
 class JsonMoreByAuthor(TypedDict):
@@ -100,6 +101,7 @@ def _build_json_work_author(
 
     return JsonWorkAuthor(
         name=author.name,
+        sortName=author.sort_name,
         slug=author.slug,
         notes=work_author.notes,
     )
