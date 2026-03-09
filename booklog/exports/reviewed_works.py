@@ -228,7 +228,8 @@ def export(repository_data: RepositoryData) -> None:
             )
         )
 
-    exporter.serialize_dicts(
+    exporter.serialize_dicts_to_folder(
         json_reviewed_works,
         "reviewed-works",
+        filename_key=lambda json_work: json_work["id"],
     )

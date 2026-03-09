@@ -40,7 +40,6 @@ class JsonYearStats(TypedDict):
     year: str
     workCount: int
     bookCount: int
-    allStatsYears: list[str]
     kindDistribution: list[JsonDistribution]
     editionDistribution: list[JsonDistribution]
     decadeDistribution: list[JsonDistribution]
@@ -51,7 +50,7 @@ class JsonAllTimeStats(TypedDict):
     reviewCount: int
     workCount: int
     bookCount: int
-    allStatsYears: list[str]
+    statsYears: list[str]
     gradeDistribution: list[JsonGradeDistribution]
     kindDistribution: list[JsonDistribution]
     editionDistribution: list[JsonDistribution]
@@ -200,7 +199,6 @@ def _build_year_json_stats(
 
     return JsonYearStats(
         year=year,
-        allStatsYears=all_stats_years,
         workCount=len(readings),
         bookCount=_book_count(readings, repository_data=repository_data),
         kindDistribution=_build_kind_distribution(works),
@@ -220,7 +218,7 @@ def _build_all_time_json_stats(
     works = [reading.work(repository_data.works) for reading in readings]
 
     return JsonAllTimeStats(
-        allStatsYears=all_stats_years,
+        statsYears=all_stats_years,
         reviewCount=len(reviews),
         workCount=len(readings),
         bookCount=_book_count(readings, repository_data=repository_data),
