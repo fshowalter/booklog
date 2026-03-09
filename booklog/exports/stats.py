@@ -11,7 +11,8 @@ from booklog.utils.logging import logger
 
 class JsonMostReadAuthor(TypedDict):
     count: int
-    author: str
+    name: str
+    slug: str | None
     reviewed: bool
     readings: list[str]
 
@@ -31,6 +32,7 @@ class JsonYearStats(TypedDict):
     year: str
     workCount: int
     bookCount: int
+    allStatsYears: list[str]
     kindDistribution: list[JsonDistribution]
     editionDistribution: list[JsonDistribution]
     decadeDistribution: list[JsonDistribution]
@@ -41,6 +43,7 @@ class JsonAllTimeStats(TypedDict):
     reviewCount: int
     workCount: int
     bookCount: int
+    allStatsYears: list[str]
     gradeDistribution: list[JsonGradeDistribution]
     kindDistribution: list[JsonDistribution]
     editionDistribution: list[JsonDistribution]
@@ -114,7 +117,10 @@ def _build_most_read_authors(
     most_read_authors_list = [
         JsonMostReadAuthor(
             count=len(readings),
-            author=author_slug,
+            name=next(
+                author.name for author in repository_data.authors if author.slug == author_slug
+            ),
+            slug=author_slug if author_slug in repository_data.authors_with_reviews else None,
             reviewed=author_slug in repository_data.authors_with_reviews,
             readings=sorted(reading.slug for reading in readings),
         )
@@ -157,11 +163,13 @@ def _build_year_json_stats(
     readings: list[repository_api.Reading],
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
+    all_stats_years: list[str],
 ) -> JsonYearStats:
     works = [reading.work(repository_data.works) for reading in readings]
 
     return JsonYearStats(
         year=year,
+        allStatsYears=all_stats_years,
         workCount=len(readings),
         bookCount=_book_count(readings, repository_data=repository_data),
         kindDistribution=_build_kind_distribution(works),
@@ -176,10 +184,12 @@ def _build_all_time_json_stats(
     reviews: list[repository_api.Review],
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
+    all_stats_years: list[str],
 ) -> JsonAllTimeStats:
     works = [reading.work(repository_data.works) for reading in readings]
 
     return JsonAllTimeStats(
+        allStatsYears=all_stats_years,
         reviewCount=len(reviews),
         workCount=len(readings),
         bookCount=_book_count(readings, repository_data=repository_data),
@@ -194,6 +204,13 @@ def _build_all_time_json_stats(
 def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "reading_stats")
 
+    readings_by_year = list_tools.group_list_by_key(
+        repository_data.readings,
+        lambda reading: str(_date_finished_or_abandoned(reading).year),
+    )
+
+    all_stats_years = list(readings_by_year.keys())
+
     all_time_stats = _build_all_time_json_stats(
         reviews=repository_data.reviews,
         readings=repository_data.readings,
@@ -202,6 +219,7 @@ def export(repository_data: RepositoryData) -> None:
             repository_data=repository_data,
         ),
         repository_data=repository_data,
+        all_stats_years=all_stats_years,
     )
 
     exporter.serialize_dict(
@@ -210,11 +228,6 @@ def export(repository_data: RepositoryData) -> None:
     )
 
     year_stats = []
-
-    readings_by_year = list_tools.group_list_by_key(
-        repository_data.readings,
-        lambda reading: str(_date_finished_or_abandoned(reading).year),
-    )
 
     for year, readings_for_year in readings_by_year.items():
         year_stats.append(
@@ -226,6 +239,7 @@ def export(repository_data: RepositoryData) -> None:
                     repository_data=repository_data,
                 ),
                 repository_data=repository_data,
+                all_stats_years=all_stats_years,
             )
         )
 

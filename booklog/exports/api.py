@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from booklog.exports import authors, more_for_reviewed_work, stats, works
+from booklog.exports import authors, reviewed_works, stats, works
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
 
@@ -25,6 +25,6 @@ def export_data() -> None:
     )
 
     authors.export(repository_data)
-    more_for_reviewed_work.export(repository_data)
+    reviewed_works.export(repository_data)
     stats.export(repository_data)
     works.export(repository_data)

@@ -7,49 +7,56 @@ from booklog.utils.logging import logger
 
 
 class JsonWorkAuthor(TypedDict):
-    author: str
+    name: str
+    slug: str | None
     notes: str | None
 
 
 def _build_json_work_author(
-    work_author: repository_api.WorkAuthor, all_authors: list[repository_api.Author]
+    work_author: repository_api.WorkAuthor, repository_data: RepositoryData
 ) -> JsonWorkAuthor:
-    author = work_author.author(all_authors)
+    author = work_author.author(repository_data.authors)
+    author_reviewed_works = [
+        work for work in author.works(repository_data.works) if work.review(repository_data.reviews)
+    ]
 
     return JsonWorkAuthor(
-        author=author.slug,
+        name=author.name,
+        slug=author.slug if len(author_reviewed_works) > 0 else None,
         notes=work_author.notes,
     )
 
 
 class JsonWork(TypedDict):
+    id: str
     title: str
-    subtitle: str | None
     sortTitle: str
+    subtitle: str | None
     year: str
     authors: list[JsonWorkAuthor]
     kind: str
-    slug: str
-    includedWorks: list[str]
+    slug: str | None
+    reviewed: bool
 
 
 def _build_json_work(
     work: repository_api.Work,
     repository_data: RepositoryData,
 ) -> JsonWork:
+    review = work.review(repository_data.reviews)
+
     return JsonWork(
+        id=work.slug,
         title=work.title,
         subtitle=work.subtitle,
         sortTitle=work.sort_title,
         year=work.year,
         kind=work.kind,
-        slug=work.slug,
+        slug=work.slug if review else None,
+        reviewed=bool(review),
         authors=[
-            _build_json_work_author(work_author, repository_data.authors)
+            _build_json_work_author(work_author, repository_data)
             for work_author in work.work_authors
-        ],
-        includedWorks=[
-            included_work.slug for included_work in work.included_works(repository_data.works)
         ],
     )
 
@@ -57,16 +64,23 @@ def _build_json_work(
 def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "works")
 
-    json_works = [
-        _build_json_work(
-            work=work,
-            repository_data=repository_data,
+    json_works = []
+
+    for work in repository_data.works:
+        readings_for_work = list(work.readings(repository_data.readings))
+
+        if len(readings_for_work) == 0:
+            continue
+
+        json_works.append(
+            _build_json_work(
+                work=work,
+                repository_data=repository_data,
+            )
         )
-        for work in repository_data.works
-    ]
 
     exporter.serialize_dicts_to_folder(
         json_works,
         "works",
-        filename_key=lambda json_work: json_work["slug"],
+        filename_key=lambda json_work: json_work["id"],
     )
