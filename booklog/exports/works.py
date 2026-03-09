@@ -35,8 +35,7 @@ class JsonWork(TypedDict):
     year: str
     authors: list[JsonWorkAuthor]
     kind: str
-    slug: str | None
-    reviewed: bool
+    review: str | None
 
 
 def _build_json_work(
@@ -52,8 +51,7 @@ def _build_json_work(
         sortTitle=work.sort_title,
         year=work.year,
         kind=work.kind,
-        slug=work.slug if review else None,
-        reviewed=bool(review),
+        review=review.slug if review else None,
         authors=[
             _build_json_work_author(work_author, repository_data)
             for work_author in work.work_authors
