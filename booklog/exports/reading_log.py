@@ -44,7 +44,7 @@ def _build_json_reading_log_entry(
 
     return JsonReadingLogEntry(
         id=f"{reading.slug}-{timeline_index}",
-        sequence=f"{reading.slug}-{timeline_index}",
+        sequence=f"{timeline_entry.date.isoformat()}-{reading.slug}",
         reviewSlug=review.slug if review else None,
         edition=reading.edition,
         kind=work.kind,
