@@ -10,29 +10,27 @@ from booklog.utils.logging import logger
 class JsonWorkAuthor(TypedDict):
     notes: str | None
     name: str
+    sortName: str
     slug: str
 
 
 class JsonAuthorWork(TypedDict):
     id: str
-    sequence: str
+    reviewSequence: str
     grade: str
-    gradeValue: int
     reviewDate: datetime.date
-    reviewYear: str
     title: str
     sortTitle: str
     workYear: str
     authors: list[JsonWorkAuthor]
     kind: str
-    slug: str
+    reviewSlug: str
 
 
 class JsonAuthor(TypedDict):
     name: str
     sortName: str
     slug: str
-    reviewCount: int
     reviewedWorks: list[JsonAuthorWork]
 
 
@@ -42,9 +40,10 @@ def _build_json_work_author(
     author = work_author.author(all_authors)
 
     return JsonWorkAuthor(
+        name=author.name,
+        sortName=author.sort_name,
         slug=author.slug,
         notes=work_author.notes,
-        name=author.name,
     )
 
 
@@ -62,20 +61,18 @@ def _build_json_author_work(
 
     return JsonAuthorWork(
         id=work.slug,
-        sequence=most_recent_reading.slug,
-        slug=work.slug,
+        reviewSequence=most_recent_reading.slug,
+        reviewSlug=work.slug,
         title=work.title,
         sortTitle=work.sort_title,
         workYear=work.year,
         grade=review.grade,
-        gradeValue=review.grade_value,
         kind=work.kind,
         reviewDate=review.date,
         authors=[
             _build_json_work_author(work_author=work_author, all_authors=repository_data.authors)
             for work_author in work.work_authors
         ],
-        reviewYear=str(review.date.year),
     )
 
 
@@ -105,13 +102,12 @@ def _build_json_author(
         name=author.name,
         sortName=author.sort_name,
         slug=author.slug,
-        reviewCount=review_count,
         reviewedWorks=reviewed_works,
     )
 
 
 def export(repository_data: RepositoryData) -> None:
-    logger.log("==== Begin exporting {}...", "authors")
+    logger.log("==== Begin exporting {}...", "reviewed-authors")
     json_authors = []
 
     for author in repository_data.authors:
@@ -127,6 +123,6 @@ def export(repository_data: RepositoryData) -> None:
 
     exporter.serialize_dicts_to_folder(
         [json_author for json_author in json_authors if json_author is not None],
-        "authors",
+        "reviewed-authors",
         filename_key=lambda json_author: json_author["slug"],
     )
