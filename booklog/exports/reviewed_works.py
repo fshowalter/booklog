@@ -43,6 +43,8 @@ def _slice_list[ListType](
     source_list: list[ListType],
     matcher: Callable[[ListType], bool],
 ) -> list[ListType]:
+    if len(source_list) < 7:
+        return source_list
 
     midpoint = next(
         index for index, collection_item in zip(count(), source_list) if matcher(collection_item)
@@ -120,9 +122,6 @@ def _build_more_by_authors(
             for author_work in author.works(repository_data.works)
             if author_work.review(repository_data.reviews) is not None
         ]
-
-        if len(reviewed_author_works) < 5:
-            continue
 
         sliced_works = _slice_list(
             source_list=sorted(
@@ -216,8 +215,6 @@ def export(repository_data: RepositoryData) -> None:
     for review in repository_data.reviews:
         work = review.work(repository_data.works)
         readings_for_work = list(work.readings(repository_data.readings))
-        if not readings_for_work:
-            continue
 
         json_reviewed_works.append(
             _build_json_reviewed_work(

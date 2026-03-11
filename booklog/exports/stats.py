@@ -193,7 +193,6 @@ def _build_year_json_stats(
     readings: list[repository_api.Reading],
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
-    all_stats_years: list[str],
 ) -> JsonYearStats:
     works = [reading.work(repository_data.works) for reading in readings]
 
@@ -268,7 +267,6 @@ def export(repository_data: RepositoryData) -> None:
                     repository_data=repository_data,
                 ),
                 repository_data=repository_data,
-                all_stats_years=all_stats_years,
             )
         )
 

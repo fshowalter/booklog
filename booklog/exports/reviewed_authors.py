@@ -122,7 +122,7 @@ def export(repository_data: RepositoryData) -> None:
         json_authors.append(json_author)
 
     exporter.serialize_dicts_to_folder(
-        [json_author for json_author in json_authors if json_author is not None],
+        json_authors,
         "reviewed-authors",
         filename_key=lambda json_author: json_author["slug"],
     )
