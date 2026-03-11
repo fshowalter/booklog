@@ -61,7 +61,7 @@ def _build_json_author_work(
 
     return JsonAuthorWork(
         id=work.slug,
-        reviewSequence=most_recent_reading.slug,
+        reviewSequence=f"{most_recent_reading.date}-{most_recent_reading.sequence:02}",
         reviewSlug=work.slug,
         title=work.title,
         sortTitle=work.sort_title,
@@ -93,9 +93,7 @@ def _build_json_author(
             _build_json_author_work(work=work, review=review, repository_data=repository_data)
         )
 
-    review_count = len(reviewed_works)
-
-    if review_count == 0:
+    if not reviewed_works:
         return None
 
     return JsonAuthor(
