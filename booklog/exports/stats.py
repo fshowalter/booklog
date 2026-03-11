@@ -1,3 +1,4 @@
+import datetime
 from collections import defaultdict
 from collections.abc import Callable, Iterable
 from datetime import date
@@ -9,11 +10,19 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
+class JsonMostReadAuthorWork(TypedDict):
+    title: str
+    readingDate: datetime.date
+    edition: str
+    reviewSlug: str | None
+
+
 class JsonMostReadAuthor(TypedDict):
     count: int
-    author: str
+    name: str
+    slug: str | None
     reviewed: bool
-    readings: list[str]
+    readWorks: list[JsonMostReadAuthorWork]
 
 
 class JsonDistribution(TypedDict):
@@ -41,6 +50,7 @@ class JsonAllTimeStats(TypedDict):
     reviewCount: int
     workCount: int
     bookCount: int
+    statsYears: list[str]
     gradeDistribution: list[JsonGradeDistribution]
     kindDistribution: list[JsonDistribution]
     editionDistribution: list[JsonDistribution]
@@ -103,6 +113,29 @@ def _group_readings_by_author(
     return readings_by_author
 
 
+def _build_most_read_author_works(
+    readings: list[repository_api.Reading], repository_data: RepositoryData
+) -> list[JsonMostReadAuthorWork]:
+    works = []
+
+    sorted_readings = sorted(readings, key=lambda reading: reading.slug)
+
+    for reading in sorted_readings:
+        work = reading.work(repository_data.works)
+        review = work.review(repository_data.reviews)
+
+        works.append(
+            JsonMostReadAuthorWork(
+                title=work.title,
+                edition=reading.edition,
+                readingDate=reading.date,
+                reviewSlug=review.slug if review else None,
+            )
+        )
+
+    return works
+
+
 def _build_most_read_authors(
     readings: list[repository_api.Reading],
     repository_data: RepositoryData,
@@ -114,9 +147,12 @@ def _build_most_read_authors(
     most_read_authors_list = [
         JsonMostReadAuthor(
             count=len(readings),
-            author=author_slug,
+            name=next(
+                author.name for author in repository_data.authors if author.slug == author_slug
+            ),
+            slug=author_slug if author_slug in repository_data.authors_with_reviews else None,
             reviewed=author_slug in repository_data.authors_with_reviews,
-            readings=sorted(reading.slug for reading in readings),
+            readWorks=_build_most_read_author_works(readings, repository_data),
         )
         for author_slug, readings in readings_by_author.items()
         if len(readings) > 1
@@ -176,10 +212,12 @@ def _build_all_time_json_stats(
     reviews: list[repository_api.Review],
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
+    all_stats_years: list[str],
 ) -> JsonAllTimeStats:
     works = [reading.work(repository_data.works) for reading in readings]
 
     return JsonAllTimeStats(
+        statsYears=all_stats_years,
         reviewCount=len(reviews),
         workCount=len(readings),
         bookCount=_book_count(readings, repository_data=repository_data),
@@ -194,6 +232,13 @@ def _build_all_time_json_stats(
 def export(repository_data: RepositoryData) -> None:
     logger.log("==== Begin exporting {}...", "reading_stats")
 
+    readings_by_year = list_tools.group_list_by_key(
+        repository_data.readings,
+        lambda reading: str(_date_finished_or_abandoned(reading).year),
+    )
+
+    all_stats_years = list(readings_by_year.keys())
+
     all_time_stats = _build_all_time_json_stats(
         reviews=repository_data.reviews,
         readings=repository_data.readings,
@@ -202,6 +247,7 @@ def export(repository_data: RepositoryData) -> None:
             repository_data=repository_data,
         ),
         repository_data=repository_data,
+        all_stats_years=all_stats_years,
     )
 
     exporter.serialize_dict(
@@ -210,11 +256,6 @@ def export(repository_data: RepositoryData) -> None:
     )
 
     year_stats = []
-
-    readings_by_year = list_tools.group_list_by_key(
-        repository_data.readings,
-        lambda reading: str(_date_finished_or_abandoned(reading).year),
-    )
 
     for year, readings_for_year in readings_by_year.items():
         year_stats.append(

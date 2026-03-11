@@ -1,4 +1,5 @@
-from collections.abc import Callable
+import datetime
+from collections.abc import Callable, Iterable
 from itertools import count
 from typing import TypedDict
 
@@ -8,13 +9,32 @@ from booklog.repository import api as repository_api
 from booklog.utils.logging import logger
 
 
+class JsonWorkAuthor(TypedDict):
+    notes: str | None
+    name: str
+    slug: str
+    sortName: str
+
+
 class JsonMoreByAuthor(TypedDict):
     author: str
     reviews: list[str]
 
 
 class JsonReviewedWork(TypedDict):
-    work: str
+    id: str
+    reviewSequence: str
+    grade: str
+    reviewDate: datetime.date
+    title: str
+    sortTitle: str
+    subtitle: str | None
+    workYear: str
+    authors: list[JsonWorkAuthor]
+    kind: str
+    review: str
+    includedInWorks: list[str]
+    includedWorks: list[str]
     moreReviews: list[str]
     moreByAuthors: list[JsonMoreByAuthor]
 
@@ -23,6 +43,9 @@ def _slice_list[ListType](
     source_list: list[ListType],
     matcher: Callable[[ListType], bool],
 ) -> list[ListType]:
+    if len(source_list) < 7:
+        return source_list
+
     midpoint = next(
         index for index, collection_item in zip(count(), source_list) if matcher(collection_item)
     )
@@ -73,6 +96,19 @@ def _build_work_matcher(slug_to_match: str) -> Callable[[repository_api.Work], b
     return lambda work: work.slug == slug_to_match
 
 
+def _build_json_work_author(
+    work_author: repository_api.WorkAuthor, all_authors: list[repository_api.Author]
+) -> JsonWorkAuthor:
+    author = work_author.author(all_authors)
+
+    return JsonWorkAuthor(
+        name=author.name,
+        sortName=author.sort_name,
+        slug=author.slug,
+        notes=work_author.notes,
+    )
+
+
 def _build_more_by_authors(
     work: repository_api.Work,
     repository_data: RepositoryData,
@@ -86,9 +122,6 @@ def _build_more_by_authors(
             for author_work in author.works(repository_data.works)
             if author_work.review(repository_data.reviews) is not None
         ]
-
-        if len(reviewed_author_works) < 5:
-            continue
 
         sliced_works = _slice_list(
             source_list=sorted(
@@ -112,8 +145,27 @@ def _build_more_by_authors(
     return more_by_author_entries
 
 
+def _build_json_included_works(
+    works: Iterable[repository_api.Work],
+    repository_data: RepositoryData,
+) -> list[str]:
+    included_works = []
+
+    for included_work in works:
+        review = included_work.review(repository_data.reviews)
+
+        if not review:
+            continue
+
+        included_works.append(included_work.slug)
+
+    return included_works
+
+
 def _build_json_reviewed_work(
     work: repository_api.Work,
+    readings_for_work: list[repository_api.Reading],
+    review: repository_api.Review,
     repository_data: RepositoryData,
 ) -> JsonReviewedWork:
     more_by_authors = _build_more_by_authors(work=work, repository_data=repository_data)
@@ -123,8 +175,33 @@ def _build_json_reviewed_work(
         repository_data=repository_data,
     )
 
+    most_recent_reading = sorted(readings_for_work, key=lambda reading: reading.slug, reverse=True)[
+        0
+    ]
+
     return JsonReviewedWork(
-        work=work.slug,
+        id=work.slug,
+        title=work.title,
+        sortTitle=work.sort_title,
+        subtitle=work.subtitle,
+        workYear=work.year,
+        kind=work.kind,
+        review=review.slug,
+        reviewDate=review.date,
+        grade=review.grade,
+        reviewSequence=f"{most_recent_reading.date}-{most_recent_reading.sequence:02}",
+        authors=[
+            _build_json_work_author(work_author=work_author, all_authors=repository_data.authors)
+            for work_author in work.work_authors
+        ],
+        includedWorks=_build_json_included_works(
+            work.included_works(repository_data.works),
+            repository_data=repository_data,
+        ),
+        includedInWorks=_build_json_included_works(
+            work.included_in_works(repository_data.works),
+            repository_data=repository_data,
+        ),
         moreByAuthors=more_by_authors,
         moreReviews=more_reviews,
     )
@@ -138,17 +215,18 @@ def export(repository_data: RepositoryData) -> None:
     for review in repository_data.reviews:
         work = review.work(repository_data.works)
         readings_for_work = list(work.readings(repository_data.readings))
-        if not readings_for_work:
-            continue
 
         json_reviewed_works.append(
             _build_json_reviewed_work(
                 work=work,
+                readings_for_work=readings_for_work,
+                review=review,
                 repository_data=repository_data,
             )
         )
 
-    exporter.serialize_dicts(
+    exporter.serialize_dicts_to_folder(
         json_reviewed_works,
-        "more-for-reviewed-works",
+        "reviewed-works",
+        filename_key=lambda json_work: json_work["id"],
     )

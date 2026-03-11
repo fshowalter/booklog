@@ -22,8 +22,14 @@ def serialize_dict[T](dict_to_export: T, file_name: str) -> None:
     )
 
 
-def serialize_dicts[T](dicts: Iterable[T], file_name: str) -> None:
+def serialize_dicts_to_file[T](
+    dicts: Iterable[T], file_name: str, folder_name: str | None = None
+) -> None:
     folder_path = Path(EXPORT_FOLDER_NAME)
+
+    if folder_name:
+        folder_path = folder_path / folder_name
+
     folder_path.mkdir(parents=True, exist_ok=True)
 
     json_file_name = folder_path / f"{file_name}.json"
