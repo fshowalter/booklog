@@ -131,6 +131,9 @@ def _build_more_by_authors(
             matcher=_build_work_matcher(work.slug),
         )
 
+        if not sliced_works:
+            continue
+
         more_by_author_entries.append(
             JsonMoreByAuthor(
                 author=author.slug,
