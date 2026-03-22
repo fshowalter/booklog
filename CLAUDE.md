@@ -71,5 +71,4 @@ Always perform these steps before creating a PR:
 2. `git pull --rebase origin main` - Rebase on latest main branch
 3. `uv run mypy .` - Ensure type safety
 4. `uv run ruff check .` - Check for linting issues
-5. `npm run format` - Verify formatting is correct
-6. `uv run pytest` - Ensure all tests pass
+5. `uv run pytest` - Ensure all tests pass
