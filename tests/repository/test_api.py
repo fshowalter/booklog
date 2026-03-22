@@ -73,7 +73,7 @@ def test_create_title(
     assert data["title"] == "The Cellar"
     assert data["year"] == "1980"
     assert data["kind"] == "Novel"
-    assert data["authors"][0]["id"] == "richard-laymon"
+    assert data["authors"][0]["slug"] == "richard-laymon"
     assert data["includedTitles"] == []
 
 
