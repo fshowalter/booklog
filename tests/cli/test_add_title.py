@@ -1,7 +1,9 @@
-from unittest.mock import MagicMock
+from __future__ import annotations
+
+import json
+from pathlib import Path
 
 import pytest
-from pytest_mock import MockerFixture
 
 from booklog.cli import add_title
 from booklog.repository import api as repository_api
@@ -9,11 +11,6 @@ from booklog.repository.types import NonEmptyList
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Escape
 from tests.cli.prompt_utils import ConfirmType, enter_text, select_option
-
-
-@pytest.fixture
-def mock_create_title(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.add_title.repository_api.create_title")
 
 
 @pytest.fixture(autouse=True)
@@ -74,10 +71,10 @@ def enter_year_published(year: str) -> list[str]:
     return enter_text(year)
 
 
-def test_calls_create_title(
+def test_creates_title(
     mock_input: MockInput,
     author_fixture: repository_api.Author,
-    mock_create_title: MagicMock,
+    tmp_path: Path,
 ) -> None:
     mock_input(
         [
@@ -94,26 +91,16 @@ def test_calls_create_title(
 
     add_title.prompt()
 
-    mock_create_title.assert_called_once_with(
-        title="The Cellar",
-        subtitle=None,
-        title_authors=NonEmptyList(
-            repository_api.TitleAuthor(
-                author_slug=author_fixture.slug,
-                notes=None,
-            )
-        ),
-        year="1980",
-        kind="Novel",
-        included_title_ids=[],
-    )
+    data = json.loads((tmp_path / "titles" / "the-cellar-by-richard-laymon.json").read_text())
+    assert data["title"] == "The Cellar"
+    assert data["kind"] == "Novel"
 
 
-def test_calls_create_title_for_collection(
+def test_creates_title_for_collection(
     mock_input: MockInput,
     author_fixture: repository_api.Author,
-    mock_create_title: MagicMock,
     title_fixture: repository_api.Title,
+    tmp_path: Path,
 ) -> None:
     mock_input(
         [
@@ -133,40 +120,23 @@ def test_calls_create_title_for_collection(
 
     add_title.prompt()
 
-    mock_create_title.assert_called_once_with(
-        title="The Richard Laymon Collection Volume 1",
-        subtitle=None,
-        title_authors=NonEmptyList(
-            repository_api.TitleAuthor(
-                author_slug=author_fixture.slug,
-                notes=None,
-            )
-        ),
-        year="2006",
-        kind="Collection",
-        included_title_ids=[title_fixture.slug],
-    )
+    slug = "the-richard-laymon-collection-volume-1-by-richard-laymon"
+    data = json.loads((tmp_path / "titles" / f"{slug}.json").read_text())
+    assert data["kind"] == "Collection"
+    assert title_fixture.slug in data["includedTitles"]
 
 
-def test_can_cancel_out_of_author_name(mock_input: MockInput, mock_create_title: MagicMock) -> None:
-    mock_input(
-        [
-            Escape,
-        ]
-    )
+def test_can_cancel_out_of_author_name(mock_input: MockInput, tmp_path: Path) -> None:
+    mock_input([Escape])
 
     add_title.prompt()
 
-    mock_create_title.assert_not_called()
+    assert len(list((tmp_path / "titles").glob("*.json"))) == 1
 
 
-def test_can_cancel_out_of_kind(mock_input: MockInput, mock_create_title: MagicMock) -> None:
-    mock_input(
-        [
-            Escape,
-        ]
-    )
+def test_can_cancel_out_of_kind(mock_input: MockInput, tmp_path: Path) -> None:
+    mock_input([Escape])
 
     add_title.prompt()
 
-    mock_create_title.assert_not_called()
+    assert len(list((tmp_path / "titles").glob("*.json"))) == 1

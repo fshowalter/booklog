@@ -1,18 +1,22 @@
+from __future__ import annotations
+
 import datetime
 import json
+import re
 from pathlib import Path
 
 import pytest
-from syrupy.assertion import SnapshotAssertion
-from syrupy.extensions.json import JSONSnapshotExtension
+import yaml
 
 from booklog.repository import api as repository_api
 from booklog.repository.types import NonEmptyList
 
+_FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
 
-@pytest.fixture
-def snapshot_json(snapshot: SnapshotAssertion) -> SnapshotAssertion:
-    return snapshot.with_defaults(extension_class=JSONSnapshotExtension)
+
+def _read_yaml_frontmatter(file_path: Path) -> dict:  # type: ignore[type-arg]
+    _, frontmatter, _ = _FM_REGEX.split(file_path.read_text(), 2)
+    return yaml.safe_load(frontmatter)  # type: ignore[no-any-return]
 
 
 @pytest.fixture
@@ -37,22 +41,19 @@ def title_fixture(author_fixture: repository_api.Author) -> repository_api.Title
     )
 
 
-def test_create_author(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None:
+def test_create_author(tmp_path: Path) -> None:
     repository_api.create_author(name="Stephen King")
 
-    with Path.open(
-        Path(tmp_path) / "authors" / "stephen-king.json",
-        "r",
-    ) as output_file:
-        file_content = json.load(output_file)
+    data = json.loads((tmp_path / "authors" / "stephen-king.json").read_text())
 
-    assert file_content == snapshot_json
+    assert data["name"] == "Stephen King"
+    assert data["slug"] == "stephen-king"
+    assert data["sortName"] == "King, Stephen"
 
 
 def test_create_title(
     author_fixture: repository_api.Author,
     tmp_path: Path,
-    snapshot_json: SnapshotAssertion,
 ) -> None:
     repository_api.create_title(
         title="The Cellar",
@@ -67,17 +68,44 @@ def test_create_title(
         kind="Novel",
     )
 
-    with Path.open(
-        Path(tmp_path) / "titles" / "the-cellar-by-richard-laymon.json",
-        "r",
-    ) as output_file:
-        file_content = json.load(output_file)
+    data = json.loads((tmp_path / "titles" / "the-cellar-by-richard-laymon.json").read_text())
 
-    assert file_content == snapshot_json
+    assert data["title"] == "The Cellar"
+    assert data["year"] == "1980"
+    assert data["kind"] == "Novel"
+    assert data["authors"][0]["id"] == "richard-laymon"
+    assert data["includedTitles"] == []
+
+
+def test_create_title_with_included_titles(
+    author_fixture: repository_api.Author,
+    title_fixture: repository_api.Title,
+    tmp_path: Path,
+) -> None:
+    repository_api.create_title(
+        title="The Richard Laymon Collection Volume 1",
+        subtitle=None,
+        year="2006",
+        title_authors=NonEmptyList(
+            repository_api.TitleAuthor(
+                author_slug=author_fixture.slug,
+                notes=None,
+            )
+        ),
+        kind="Collection",
+        included_title_ids=[title_fixture.slug],
+    )
+
+    slug = "the-richard-laymon-collection-volume-1-by-richard-laymon"
+    data = json.loads((tmp_path / "titles" / f"{slug}.json").read_text())
+
+    assert data["kind"] == "Collection"
+    assert title_fixture.slug in data["includedTitles"]
 
 
 def test_can_create_reading(
-    tmp_path: Path, title_fixture: repository_api.Title, snapshot_json: SnapshotAssertion
+    tmp_path: Path,
+    title_fixture: repository_api.Title,
 ) -> None:
     repository_api.create_reading(
         title=title_fixture,
@@ -89,17 +117,21 @@ def test_can_create_reading(
         ],
     )
 
-    with Path.open(
-        Path(tmp_path) / "readings" / "2016-03-12-01-the-cellar-by-richard-laymon.md",
-        "r",
-    ) as output_file:
-        file_content = output_file.read()
+    fm = _read_yaml_frontmatter(
+        tmp_path / "readings" / "2016-03-12-01-the-cellar-by-richard-laymon.md"
+    )
 
-    assert file_content == snapshot_json
+    assert fm["titleId"] == "the-cellar-by-richard-laymon"
+    assert fm["edition"] == "Kindle"
+    assert fm["date"] == datetime.date(2016, 3, 12)
+    assert fm["timeline"][0]["progress"] == "15%"
+    assert fm["timeline"][1]["progress"] == "50%"
+    assert fm["timeline"][2]["progress"] == "Finished"
 
 
 def test_can_create_new_review(
-    tmp_path: Path, title_fixture: repository_api.Title, snapshot: SnapshotAssertion
+    tmp_path: Path,
+    title_fixture: repository_api.Title,
 ) -> None:
     repository_api.create_or_update_review(
         title=title_fixture,
@@ -107,24 +139,19 @@ def test_can_create_new_review(
         date=datetime.date(2016, 3, 10),
     )
 
-    with Path.open(
-        Path(tmp_path) / "reviews" / "the-cellar-by-richard-laymon.md", "r"
-    ) as output_file:
-        file_content = output_file.read()
+    fm = _read_yaml_frontmatter(tmp_path / "reviews" / "the-cellar-by-richard-laymon.md")
 
-    assert file_content == snapshot
+    assert fm["slug"] == "the-cellar-by-richard-laymon"
+    assert fm["grade"] == "A+"
+    assert fm["date"] == datetime.date(2016, 3, 10)
 
 
 def test_can_update_existing_review(
-    tmp_path: Path, title_fixture: repository_api.Title, snapshot: SnapshotAssertion
+    tmp_path: Path,
+    title_fixture: repository_api.Title,
 ) -> None:
     existing_review = "---\nslug: the-cellar-by-richard-laymon\ngrade: A+\ndate: 2016-03-10\n---\n\nSome review content we want to preserve between updates."  # noqa: E501
-
-    with Path.open(
-        Path(tmp_path) / "reviews" / "the-cellar-by-richard-laymon.md",
-        "w",
-    ) as first_output_file:
-        first_output_file.write(existing_review)
+    (tmp_path / "reviews" / "the-cellar-by-richard-laymon.md").write_text(existing_review)
 
     repository_api.create_or_update_review(
         title=title_fixture,
@@ -132,12 +159,12 @@ def test_can_update_existing_review(
         date=datetime.date(2017, 3, 12),
     )
 
-    with Path.open(
-        Path(tmp_path) / "reviews" / "the-cellar-by-richard-laymon.md", "r"
-    ) as output_file:
-        file_content = output_file.read()
+    review_path = tmp_path / "reviews" / "the-cellar-by-richard-laymon.md"
+    fm = _read_yaml_frontmatter(review_path)
 
-    assert file_content == snapshot
+    assert fm["grade"] == "C+"
+    assert fm["date"] == datetime.date(2017, 3, 12)
+    assert "Some review content we want to preserve between updates." in review_path.read_text()
 
 
 def test_title_author_with_invalid_slug_raises_error() -> None:
