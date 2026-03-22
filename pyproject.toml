@@ -20,14 +20,9 @@ booklog = "booklog.cli.main:prompt"
 
 [dependency-groups]
 dev = [
-  "syrupy==5.1.0",
   "ruff==0.15.7",
   "mypy==1.19.1",
   "pytest==9.0.2",
-  "pytest-cov==7.1.0",
-  "pytest-mock==3.15.1",
-  "pytest-randomly==4.0.1",
-  "types-mock==5.2.0.20250924",
   "types-python-slugify==8.0.2.20240310",
   "types-pyyaml==6.0.12.20250915",
 ]
@@ -37,8 +32,6 @@ dev = [
 target-version = "py313"
 line-length = 100
 extend-exclude = [
-  # Intentionally bad code:
-  "tests/**/__snapshots__/**",
   "tests/fixtures/**",
 ]
 
@@ -145,13 +138,7 @@ norecursedirs = [
 ]
 junit_family = "xunit1"
 
-addopts = "--strict-markers --cov=. --cov-branch --cov-report html -s --show-capture stdout"
-
-[tool.coverage.run]
-omit = ["**/__init__.py", ".venv/**"]
-
-[tool.coverage.report]
-exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
+addopts = "--strict-markers -s --show-capture stdout"
 
 [tool.setuptools]
 packages = ["booklog", "booklog.cli"]

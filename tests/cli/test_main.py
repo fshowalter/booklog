@@ -1,7 +1,8 @@
+from __future__ import annotations
+
 from unittest.mock import MagicMock
 
 import pytest
-from pytest_mock import MockerFixture
 
 from booklog.cli import main
 from tests.cli.conftest import MockInput
@@ -9,23 +10,31 @@ from tests.cli.keys import ControlD, Down, Enter, Up
 
 
 @pytest.fixture(autouse=True)
-def mock_add_reading(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.main.add_reading.prompt")
+def mock_add_reading(monkeypatch: pytest.MonkeyPatch) -> MagicMock:
+    m = MagicMock()
+    monkeypatch.setattr("booklog.cli.add_reading.prompt", m)
+    return m
 
 
 @pytest.fixture(autouse=True)
-def mock_add_author(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.main.add_author.prompt")
+def mock_add_author(monkeypatch: pytest.MonkeyPatch) -> MagicMock:
+    m = MagicMock()
+    monkeypatch.setattr("booklog.cli.add_author.prompt", m)
+    return m
 
 
 @pytest.fixture(autouse=True)
-def mock_add_title(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.main.add_title.prompt")
+def mock_add_title(monkeypatch: pytest.MonkeyPatch) -> MagicMock:
+    m = MagicMock()
+    monkeypatch.setattr("booklog.cli.add_title.prompt", m)
+    return m
 
 
 @pytest.fixture(autouse=True)
-def mock_export_data(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.main.exports_api.export_data")
+def mock_export_data(monkeypatch: pytest.MonkeyPatch) -> MagicMock:
+    m = MagicMock()
+    monkeypatch.setattr("booklog.exports.api.export_data", m)
+    return m
 
 
 def test_calls_add_author(mock_input: MockInput, mock_add_author: MagicMock) -> None:

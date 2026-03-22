@@ -1,8 +1,11 @@
+from __future__ import annotations
+
+import re
 from datetime import date
-from unittest.mock import MagicMock
+from pathlib import Path
 
 import pytest
-from pytest_mock import MockerFixture
+import yaml
 
 from booklog.cli import add_reading
 from booklog.repository import api as repository_api
@@ -11,15 +14,12 @@ from tests.cli.conftest import MockInput
 from tests.cli.keys import Backspace, Escape
 from tests.cli.prompt_utils import ConfirmType, enter_text, select_option
 
-
-@pytest.fixture
-def mock_create_reading(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.add_reading.repository_api.create_reading")
+_FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
 
 
-@pytest.fixture
-def mock_create_review(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.add_reading.repository_api.create_or_update_review")
+def _read_yaml_frontmatter(file_path: Path) -> dict:  # type: ignore[type-arg]
+    _, frontmatter, _ = _FM_REGEX.split(file_path.read_text(), 2)
+    return yaml.safe_load(frontmatter)  # type: ignore[no-any-return]
 
 
 @pytest.fixture(autouse=True)
@@ -45,15 +45,9 @@ def title_fixture(author_fixture: repository_api.Author) -> repository_api.Title
 
 
 @pytest.fixture(autouse=True)
-def stub_editions(mocker: MockerFixture) -> None:
-    editions = [
-        "Audible",
-        "Hardback",
-        "Kindle",
-        "Paperback",
-    ]
-
-    mocker.patch("booklog.cli.add_reading.repository_api.reading_editions", return_value=editions)
+def stub_editions(monkeypatch: pytest.MonkeyPatch) -> None:
+    editions = ["Audible", "Hardback", "Kindle", "Paperback"]
+    monkeypatch.setattr(repository_api, "reading_editions", lambda: editions)
 
 
 def enter_title(title: str) -> list[str]:
@@ -68,15 +62,11 @@ def select_search_again() -> list[str]:
     return select_option(1)
 
 
-def enter_notes(notes: str | None = None) -> list[str]:
-    return enter_text(notes)
-
-
 def select_edition_kindle() -> list[str]:
     return select_option(3)
 
 
-def enter_date(date: str) -> list[str]:
+def enter_date(date_str: str) -> list[str]:
     return [
         Backspace,
         Backspace,
@@ -88,7 +78,7 @@ def enter_date(date: str) -> list[str]:
         Backspace,
         Backspace,
         Backspace,
-        *enter_text(date),
+        *enter_text(date_str),
     ]
 
 
@@ -100,11 +90,26 @@ def enter_grade(grade: str) -> list[str]:
     return enter_text(grade)
 
 
-def test_calls_add_reading_and_add_review(
+def _assert_reading_created(tmp_path: Path) -> None:
+    fm = _read_yaml_frontmatter(
+        tmp_path / "readings" / "2016-03-12-01-the-cellar-by-richard-laymon.md"
+    )
+    assert fm["titleId"] == "the-cellar-by-richard-laymon"
+    assert fm["edition"] == "Kindle"
+    assert fm["timeline"][0]["progress"] == "15%"
+    assert fm["timeline"][1]["progress"] == "50%"
+    assert fm["timeline"][2]["progress"] == "Finished"
+
+
+def _assert_review_created(tmp_path: Path) -> None:
+    fm = _read_yaml_frontmatter(tmp_path / "reviews" / "the-cellar-by-richard-laymon.md")
+    assert fm["grade"] == "A+"
+    assert fm["date"] == date(2016, 3, 12)
+
+
+def test_creates_reading_and_review(
     mock_input: MockInput,
-    mock_create_reading: MagicMock,
-    mock_create_review: MagicMock,
-    title_fixture: repository_api.Title,
+    tmp_path: Path,
 ) -> None:
     mock_input(
         [
@@ -124,26 +129,13 @@ def test_calls_add_reading_and_add_review(
 
     add_reading.prompt()
 
-    mock_create_reading.assert_called_once_with(
-        title=title_fixture,
-        edition="Kindle",
-        timeline=[
-            repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
-        ],
-    )
-
-    mock_create_review.assert_called_once_with(
-        title=title_fixture, grade="A+", date=date(2016, 3, 12)
-    )
+    _assert_reading_created(tmp_path)
+    _assert_review_created(tmp_path)
 
 
 def test_can_search_again(
     mock_input: MockInput,
-    mock_create_reading: MagicMock,
-    mock_create_review: MagicMock,
-    title_fixture: repository_api.Title,
+    tmp_path: Path,
 ) -> None:
     mock_input(
         [
@@ -165,26 +157,13 @@ def test_can_search_again(
 
     add_reading.prompt()
 
-    mock_create_reading.assert_called_once_with(
-        title=title_fixture,
-        edition="Kindle",
-        timeline=[
-            repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
-        ],
-    )
-
-    mock_create_review.assert_called_once_with(
-        title=title_fixture, grade="A+", date=date(2016, 3, 12)
-    )
+    _assert_reading_created(tmp_path)
+    _assert_review_created(tmp_path)
 
 
 def test_can_escape_from_first_date(
     mock_input: MockInput,
-    mock_create_reading: MagicMock,
-    mock_create_review: MagicMock,
-    title_fixture: repository_api.Title,
+    tmp_path: Path,
 ) -> None:
     mock_input(
         [
@@ -207,26 +186,13 @@ def test_can_escape_from_first_date(
 
     add_reading.prompt()
 
-    mock_create_reading.assert_called_once_with(
-        title=title_fixture,
-        edition="Kindle",
-        timeline=[
-            repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
-        ],
-    )
-
-    mock_create_review.assert_called_once_with(
-        title=title_fixture, grade="A+", date=date(2016, 3, 12)
-    )
+    _assert_reading_created(tmp_path)
+    _assert_review_created(tmp_path)
 
 
 def test_can_escape_from_second_progress_and_date(
     mock_input: MockInput,
-    mock_create_reading: MagicMock,
-    mock_create_review: MagicMock,
-    title_fixture: repository_api.Title,
+    tmp_path: Path,
 ) -> None:
     mock_input(
         [
@@ -252,26 +218,13 @@ def test_can_escape_from_second_progress_and_date(
 
     add_reading.prompt()
 
-    mock_create_reading.assert_called_once_with(
-        title=title_fixture,
-        edition="Kindle",
-        timeline=[
-            repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
-        ],
-    )
-
-    mock_create_review.assert_called_once_with(
-        title=title_fixture, grade="A+", date=date(2016, 3, 12)
-    )
+    _assert_reading_created(tmp_path)
+    _assert_review_created(tmp_path)
 
 
 def test_can_escape_from_progress(
     mock_input: MockInput,
-    mock_create_reading: MagicMock,
-    mock_create_review: MagicMock,
-    title_fixture: repository_api.Title,
+    tmp_path: Path,
 ) -> None:
     mock_input(
         [
@@ -293,34 +246,17 @@ def test_can_escape_from_progress(
 
     add_reading.prompt()
 
-    mock_create_reading.assert_called_once_with(
-        title=title_fixture,
-        edition="Kindle",
-        timeline=[
-            repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 11), progress="50%"),
-            repository_api.TimelineEntry(date=date(2016, 3, 12), progress="Finished"),
-        ],
-    )
-
-    mock_create_review.assert_called_once_with(
-        title=title_fixture, grade="A+", date=date(2016, 3, 12)
-    )
+    _assert_reading_created(tmp_path)
+    _assert_review_created(tmp_path)
 
 
 def test_can_escape_from_title(
     mock_input: MockInput,
-    mock_create_reading: MagicMock,
-    mock_create_review: MagicMock,
+    tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            Escape,
-        ]
-    )
+    mock_input([Escape])
 
     add_reading.prompt()
 
-    mock_create_reading.assert_not_called()
-
-    mock_create_review.assert_not_called()
+    assert list((tmp_path / "readings").glob("*.md")) == []
+    assert list((tmp_path / "reviews").glob("*.md")) == []

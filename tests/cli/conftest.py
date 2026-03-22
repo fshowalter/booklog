@@ -17,7 +17,7 @@ def mock_input() -> Generator[MockInput]:
         create_app_session(input=pipe_input, output=DummyOutput()),
     ):
 
-        def factory(input_sequence: Sequence[str]) -> None:  # noqa: WPS 430
+        def factory(input_sequence: Sequence[str]) -> None:
             pipe_input.send_text("".join(input_sequence))
 
         yield factory

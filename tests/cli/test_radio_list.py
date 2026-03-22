@@ -1,8 +1,9 @@
+from __future__ import annotations
+
 from collections.abc import Sequence
 
 import pytest
 from prompt_toolkit.formatted_text import AnyFormattedText
-from pytest_mock import MockerFixture
 
 from booklog.cli import radio_list
 from tests.cli.conftest import MockInput
@@ -12,7 +13,7 @@ Options = Sequence[tuple[int, AnyFormattedText]]
 
 
 @pytest.fixture
-def options(mocker: MockerFixture) -> Options:
+def options() -> Options:
     return [
         (1, "option 1"),
         (2, "option 2"),
