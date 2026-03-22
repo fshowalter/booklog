@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-05-21-01-night-show-by-richard-laymon
-workSlug: night-show-by-richard-laymon
+titleId: night-show-by-richard-laymon
 date: 2014-05-21
 edition: Paperback
 editionNotes:

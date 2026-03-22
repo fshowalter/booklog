@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2015-12-30-01-sinatra-by-james-kaplan
-workSlug: sinatra-by-james-kaplan
+titleId: sinatra-by-james-kaplan
 date: 2015-12-30
 edition: Hardcover
 editionNotes: Doubleday, 2015

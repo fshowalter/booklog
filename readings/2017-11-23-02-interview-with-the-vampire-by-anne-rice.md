@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2017-11-23-02-interview-with-the-vampire-by-anne-rice
-workSlug: interview-with-the-vampire-by-anne-rice
+titleId: interview-with-the-vampire-by-anne-rice
 date: 2017-11-23
 edition: Ebook
 editionNotes: null

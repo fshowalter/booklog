@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2016-01-14-01-christine-by-stephen-king
-workSlug: christine-by-stephen-king
+titleId: christine-by-stephen-king
 date: 2016-01-14
 edition: Paperback
 editionNotes: Signet, 1983

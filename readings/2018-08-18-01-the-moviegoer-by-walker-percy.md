@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-08-18-01-the-moviegoer-by-walker-percy
-workSlug: the-moviegoer-by-walker-percy
+titleId: the-moviegoer-by-walker-percy
 date: 2018-08-18
 edition: Ebook
 editionNotes: null

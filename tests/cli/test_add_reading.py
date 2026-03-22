@@ -28,15 +28,15 @@ def author_fixture() -> repository_api.Author:
 
 
 @pytest.fixture(autouse=True)
-def work_fixture(author_fixture: repository_api.Author) -> repository_api.Work:
-    return repository_api.create_work(
+def title_fixture(author_fixture: repository_api.Author) -> repository_api.Title:
+    return repository_api.create_title(
         title="The Cellar",
         subtitle=None,
         year="1980",
         kind="Novel",
-        included_work_slugs=[],
-        work_authors=NonEmptyList(
-            repository_api.WorkAuthor(
+        included_title_ids=[],
+        title_authors=NonEmptyList(
+            repository_api.TitleAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
@@ -104,7 +104,7 @@ def test_calls_add_reading_and_add_review(
     mock_input: MockInput,
     mock_create_reading: MagicMock,
     mock_create_review: MagicMock,
-    work_fixture: repository_api.Work,
+    title_fixture: repository_api.Title,
 ) -> None:
     mock_input(
         [
@@ -125,7 +125,7 @@ def test_calls_add_reading_and_add_review(
     add_reading.prompt()
 
     mock_create_reading.assert_called_once_with(
-        work=work_fixture,
+        title=title_fixture,
         edition="Kindle",
         timeline=[
             repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
@@ -135,7 +135,7 @@ def test_calls_add_reading_and_add_review(
     )
 
     mock_create_review.assert_called_once_with(
-        work=work_fixture, grade="A+", date=date(2016, 3, 12)
+        title=title_fixture, grade="A+", date=date(2016, 3, 12)
     )
 
 
@@ -143,7 +143,7 @@ def test_can_search_again(
     mock_input: MockInput,
     mock_create_reading: MagicMock,
     mock_create_review: MagicMock,
-    work_fixture: repository_api.Work,
+    title_fixture: repository_api.Title,
 ) -> None:
     mock_input(
         [
@@ -166,7 +166,7 @@ def test_can_search_again(
     add_reading.prompt()
 
     mock_create_reading.assert_called_once_with(
-        work=work_fixture,
+        title=title_fixture,
         edition="Kindle",
         timeline=[
             repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
@@ -176,7 +176,7 @@ def test_can_search_again(
     )
 
     mock_create_review.assert_called_once_with(
-        work=work_fixture, grade="A+", date=date(2016, 3, 12)
+        title=title_fixture, grade="A+", date=date(2016, 3, 12)
     )
 
 
@@ -184,7 +184,7 @@ def test_can_escape_from_first_date(
     mock_input: MockInput,
     mock_create_reading: MagicMock,
     mock_create_review: MagicMock,
-    work_fixture: repository_api.Work,
+    title_fixture: repository_api.Title,
 ) -> None:
     mock_input(
         [
@@ -208,7 +208,7 @@ def test_can_escape_from_first_date(
     add_reading.prompt()
 
     mock_create_reading.assert_called_once_with(
-        work=work_fixture,
+        title=title_fixture,
         edition="Kindle",
         timeline=[
             repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
@@ -218,7 +218,7 @@ def test_can_escape_from_first_date(
     )
 
     mock_create_review.assert_called_once_with(
-        work=work_fixture, grade="A+", date=date(2016, 3, 12)
+        title=title_fixture, grade="A+", date=date(2016, 3, 12)
     )
 
 
@@ -226,7 +226,7 @@ def test_can_escape_from_second_progress_and_date(
     mock_input: MockInput,
     mock_create_reading: MagicMock,
     mock_create_review: MagicMock,
-    work_fixture: repository_api.Work,
+    title_fixture: repository_api.Title,
 ) -> None:
     mock_input(
         [
@@ -253,7 +253,7 @@ def test_can_escape_from_second_progress_and_date(
     add_reading.prompt()
 
     mock_create_reading.assert_called_once_with(
-        work=work_fixture,
+        title=title_fixture,
         edition="Kindle",
         timeline=[
             repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
@@ -263,7 +263,7 @@ def test_can_escape_from_second_progress_and_date(
     )
 
     mock_create_review.assert_called_once_with(
-        work=work_fixture, grade="A+", date=date(2016, 3, 12)
+        title=title_fixture, grade="A+", date=date(2016, 3, 12)
     )
 
 
@@ -271,7 +271,7 @@ def test_can_escape_from_progress(
     mock_input: MockInput,
     mock_create_reading: MagicMock,
     mock_create_review: MagicMock,
-    work_fixture: repository_api.Work,
+    title_fixture: repository_api.Title,
 ) -> None:
     mock_input(
         [
@@ -294,7 +294,7 @@ def test_can_escape_from_progress(
     add_reading.prompt()
 
     mock_create_reading.assert_called_once_with(
-        work=work_fixture,
+        title=title_fixture,
         edition="Kindle",
         timeline=[
             repository_api.TimelineEntry(date=date(2016, 3, 10), progress="15%"),
@@ -304,7 +304,7 @@ def test_can_escape_from_progress(
     )
 
     mock_create_review.assert_called_once_with(
-        work=work_fixture, grade="A+", date=date(2016, 3, 12)
+        title=title_fixture, grade="A+", date=date(2016, 3, 12)
     )
 
 

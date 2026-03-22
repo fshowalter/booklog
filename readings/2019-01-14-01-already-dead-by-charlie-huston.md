@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2019-01-14-01-already-dead-by-charlie-huston
-workSlug: already-dead-by-charlie-huston
+titleId: already-dead-by-charlie-huston
 date: 2019-01-14
 edition: Ebook
 editionNotes: null

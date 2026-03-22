@@ -1,0 +1,15 @@
+{
+  "title": "Dracula",
+  "subtitle": null,
+  "sortTitle": "Dracula",
+  "year": "1897",
+  "authors": [
+    {
+      "notes": null,
+      "id": "bram-stoker"
+    }
+  ],
+  "slug": "dracula-by-bram-stoker",
+  "kind": "Novel",
+  "includedTitles": []
+}

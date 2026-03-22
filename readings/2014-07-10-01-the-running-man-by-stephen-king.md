@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-07-10-01-the-running-man-by-stephen-king
-workSlug: the-running-man-by-stephen-king
+titleId: the-running-man-by-stephen-king
 date: 2014-07-10
 edition: Paperback
 editionNotes:

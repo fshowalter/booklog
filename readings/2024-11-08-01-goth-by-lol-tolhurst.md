@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2024-11-08-01-goth-by-lol-tolhurst
-workSlug: goth-by-lol-tolhurst
+titleId: goth-by-lol-tolhurst
 date: 2024-11-08
 edition: Audiobook
 editionNotes: null

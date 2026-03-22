@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2016-01-29-01-refugee-by-piers-anthony
-workSlug: refugee-by-piers-anthony
+titleId: refugee-by-piers-anthony
 date: 2016-01-29
 edition: Paperback
 editionNotes: Avon Books, 1983

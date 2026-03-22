@@ -19,8 +19,8 @@ def mock_add_author(mocker: MockerFixture) -> MagicMock:
 
 
 @pytest.fixture(autouse=True)
-def mock_add_work(mocker: MockerFixture) -> MagicMock:
-    return mocker.patch("booklog.cli.main.add_work.prompt")
+def mock_add_title(mocker: MockerFixture) -> MagicMock:
+    return mocker.patch("booklog.cli.main.add_title.prompt")
 
 
 @pytest.fixture(autouse=True)
@@ -35,11 +35,11 @@ def test_calls_add_author(mock_input: MockInput, mock_add_author: MagicMock) -> 
     mock_add_author.assert_called_once()
 
 
-def test_calls_add_work(mock_input: MockInput, mock_add_work: MagicMock) -> None:
+def test_calls_add_title(mock_input: MockInput, mock_add_title: MagicMock) -> None:
     mock_input([Down, Enter, ControlD])
     main.prompt()
 
-    mock_add_work.assert_called_once()
+    mock_add_title.assert_called_once()
 
 
 def test_calls_add_reading(mock_input: MockInput, mock_add_reading: MagicMock) -> None:

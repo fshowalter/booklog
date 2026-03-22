@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2023-01-29-01-the-cipher-by-kathe-koja
-workSlug: the-cipher-by-kathe-koja
+titleId: the-cipher-by-kathe-koja
 date: 2023-01-29
 edition: Ebook
 editionNotes: Roadswell Editions, 2012

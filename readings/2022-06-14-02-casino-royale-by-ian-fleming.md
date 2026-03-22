@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2022-06-14-02-casino-royale-by-ian-fleming
-workSlug: casino-royale-by-ian-fleming
+titleId: casino-royale-by-ian-fleming
 date: 2022-06-14
 edition: Ebook
 editionNotes: Thomas & Mercer, 2012

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2015-01-25-01-frank-by-james-kaplan
-workSlug: frank-by-james-kaplan
+titleId: frank-by-james-kaplan
 date: 2015-01-25
 edition: Paperback
 editionNotes: Anchor, 2011

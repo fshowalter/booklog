@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-12-30-01-the-great-movies-by-roger-ebert
-workSlug: the-great-movies-by-roger-ebert
+titleId: the-great-movies-by-roger-ebert
 date: 2014-12-30
 edition: Paperback
 editionNotes: Crown, 2003

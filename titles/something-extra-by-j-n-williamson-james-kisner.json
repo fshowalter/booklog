@@ -1,0 +1,19 @@
+{
+  "title": "Something Extra",
+  "subtitle": null,
+  "sortTitle": "Something Extra",
+  "year": "1991",
+  "authors": [
+    {
+      "notes": null,
+      "id": "j-n-williamson"
+    },
+    {
+      "notes": null,
+      "id": "james-kisner"
+    }
+  ],
+  "slug": "something-extra-by-j-n-williamson-james-kisner",
+  "kind": "Short Story",
+  "includedTitles": []
+}

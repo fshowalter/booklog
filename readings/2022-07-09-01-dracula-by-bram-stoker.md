@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-07-09-01-dracula-by-bram-stoker
-workSlug: dracula-by-bram-stoker
+titleId: dracula-by-bram-stoker
 date: 2022-07-09
 edition: Audiobook
 editionNotes:

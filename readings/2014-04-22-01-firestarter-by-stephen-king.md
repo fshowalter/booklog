@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-04-22-01-firestarter-by-stephen-king
-workSlug: firestarter-by-stephen-king
+titleId: firestarter-by-stephen-king
 date: 2014-04-22
 edition: Ebook
 editionNotes: null

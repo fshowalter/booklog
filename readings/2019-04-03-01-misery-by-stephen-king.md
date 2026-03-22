@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2019-04-03-01-misery-by-stephen-king
-workSlug: misery-by-stephen-king
+titleId: misery-by-stephen-king
 date: 2019-04-03
 edition: Ebook
 editionNotes: null

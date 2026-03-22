@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-02-24-01-the-cellar-by-richard-laymon
-workSlug: the-cellar-by-richard-laymon
+titleId: the-cellar-by-richard-laymon
 date: 2014-02-24
 edition: Paperback
 editionNotes:

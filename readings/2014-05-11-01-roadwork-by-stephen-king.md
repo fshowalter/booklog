@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-05-11-01-roadwork-by-stephen-king
-workSlug: roadwork-by-stephen-king
+titleId: roadwork-by-stephen-king
 date: 2014-05-11
 edition: Paperback
 editionNotes:

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2019-03-18-01-alarums-by-richard-laymon
-workSlug: alarums-by-richard-laymon
+titleId: alarums-by-richard-laymon
 date: 2019-03-18
 edition: Ebook
 editionNotes: null

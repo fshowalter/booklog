@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2023-12-09-01-fast-forward-by-stephen-morris
-workSlug: fast-forward-by-stephen-morris
+titleId: fast-forward-by-stephen-morris
 date: 2023-12-09
 edition: Audiobook
 editionNotes: Read by Stephen Morris

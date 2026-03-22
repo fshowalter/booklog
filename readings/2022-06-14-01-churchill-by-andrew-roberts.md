@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-06-14-01-churchill-by-andrew-roberts
-workSlug: churchill-by-andrew-roberts
+titleId: churchill-by-andrew-roberts
 date: 2022-06-14
 edition: Audiobook
 editionNotes: Read by Stephen Thorne

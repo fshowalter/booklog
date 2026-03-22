@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-03-18-01-the-woods-are-dark-by-richard-laymon
-workSlug: the-woods-are-dark-by-richard-laymon
+titleId: the-woods-are-dark-by-richard-laymon
 date: 2014-03-18
 edition: Paperback
 editionNotes:

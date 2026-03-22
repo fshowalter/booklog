@@ -4,7 +4,7 @@ grade: A-
 date: 2022-03-21
 ---
 
-When writing my review of <span data-work-slug="the-cellar-by-richard-laymon">_The Cellar_</span>, I remembered something King had written in _On Writing_ about reader-friendliness. Looking for the exact quote hooked me and I decided a reread might prove inspirational.
+When writing my review of <span data-title-id="the-cellar-by-richard-laymon">_The Cellar_</span>, I remembered something King had written in _On Writing_ about reader-friendliness. Looking for the exact quote hooked me and I decided a reread might prove inspirational.
 
 <!-- end -->
 
@@ -16,13 +16,13 @@ King’s charming conversational tone shines. Consider this bit detailing his ea
 
 That last sentence had me chuckling aloud.
 
-For writers, King offers solid advice. Be brief (second draft equals first draft minus ten percent), be clear (beware pronouns), and don’t be lazy (avoid adverbs). He gives great examples, culminating in a first-to-second draft comparison of one of his stories, <span data-work-slug="1408-by-stephen-king">"1408"</span>. For aspiring writers of all kinds, it’s a must-read.
+For writers, King offers solid advice. Be brief (second draft equals first draft minus ten percent), be clear (beware pronouns), and don’t be lazy (avoid adverbs). He gives great examples, culminating in a first-to-second draft comparison of one of his stories, <span data-title-id="1408-by-stephen-king">"1408"</span>. For aspiring writers of all kinds, it’s a must-read.
 
 But King’s guidance also betrays his biggest weakness as a writer. He distrusts plot. He constructs all his novels based on situations. From the situation, characters take shape, and the story proceeds. This would explain his history of underwhelming endings. That said, he admits the following:
 
 > The only plot-driven novel of mine which I really like is The Dead Zone (and in all fairness, I must say I like that one a great deal).
 
-Given I found <span data-work-slug="the-dead-zone-by-stephen-king">_The Dead Zone_<span> one of King’s most satisfying reads, I wish he could find a middle ground between no-plot and all-plot. He confesses to almost abandoning <span data-work-slug="the-stand-by-stephen-king">_The Stand_</span> five-hundred pages in because he had lost the narrative thread. A bit of advanced plotting may have helped. It might even have prevented the awful ending.
+Given I found <span data-title-id="the-dead-zone-by-stephen-king">_The Dead Zone_<span> one of King’s most satisfying reads, I wish he could find a middle ground between no-plot and all-plot. He confesses to almost abandoning <span data-title-id="the-stand-by-stephen-king">_The Stand_</span> five-hundred pages in because he had lost the narrative thread. A bit of advanced plotting may have helped. It might even have prevented the awful ending.
 
 But I digress. After the world-class writing seminar, King demonstrates his mastery of the craft with a harrowing account of the accident that should have killed him. Even here, battling raw emotion and still recovering from traumatic injuries, King retains his signature voice. Consider this bit describing the man driving the van which hit him:
 

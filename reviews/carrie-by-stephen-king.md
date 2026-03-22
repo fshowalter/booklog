@@ -8,7 +8,7 @@ date: 2022-09-19
 
 <!-- end -->
 
-In <span data-work-slug="on-writing-by-stephen-king">_On Writing_</span>, King tells the story of how his wife fished the abandoned first few pages of Carrie out of a trashcan, read them, and convinced King to continue with the story.
+In <span data-title-id="on-writing-by-stephen-king">_On Writing_</span>, King tells the story of how his wife fished the abandoned first few pages of Carrie out of a trashcan, read them, and convinced King to continue with the story.
 
 He debuts with his signature conversational voice sprinkled with folksy colloquialisms. For example, in describing Carrie's mother:
 
@@ -34,7 +34,7 @@ Indeed, Nolan proves the forgotten monster, not as over-the-top as Carrie's dera
 
 > He wondered how long she would last. Maybe not long after tonight. Somehow it had all led to this, even the early part, and when it was done the glue that had held them together would be thin and might dissolve, leaving them to wonder how it could have been in the first place. He thought she would start to look less like a goddess and more like the typical society bitch again, and that would make him want to belt her around a little. Or maybe a lot. Rub her nose in it.
 
-_Carrie_ proves unique in King's oeuvre. Kings likes to write what he knows, and he didn't feel comfortable writing a sixteen-year-old-girl. He didn't even like her. His next books (<span data-work-slug="salems-lot-by-stephen-king">_‘Salem's Lot_</span> and <span data-work-slug="the-shining-by-stephen-king">_The Shining_</span>) would center on male authors his own age.
+_Carrie_ proves unique in King's oeuvre. Kings likes to write what he knows, and he didn't feel comfortable writing a sixteen-year-old-girl. He didn't even like her. His next books (<span data-title-id="salems-lot-by-stephen-king">_‘Salem's Lot_</span> and <span data-title-id="the-shining-by-stephen-king">_The Shining_</span>) would center on male authors his own age.
 
 I suspect either book would have launched his career. But having Carrie, a high school aged girl, as the protagonist widened his debut audience. She's more relatable than Ben Mears or Jack Torrance. We all struggled through adolescence. We've all felt like outsiders.
 

@@ -13,7 +13,7 @@ As the fight wears on, the supernatural bleeds naturally into the carnage. When 
 
 Fracassi compresses the backstory--a tobacco farm, two hundred acres, preacher father, brothers bound by blood and bullets--while stretching each moment of combat until your nerves fray. Every creeping advance is a potential ambush leaving the soldiers to "pray the scouts who’ve run ahead are keen-eyed and not throat-slit."
 
-Yet, the story's biblical parallels feel underdeveloped. The supernatural elements, while effective, could use more room to breathe. You sense a larger, more ambitious story trapped inside this compact frame. Thematically, it follows Fracassi's short story, "<span data-work-slug="king-mob-by-philip-fracassi">King Mob</span>," which also felt constrained, so there's hope Fracassi revisits this idea for a future work.
+Yet, the story's biblical parallels feel underdeveloped. The supernatural elements, while effective, could use more room to breathe. You sense a larger, more ambitious story trapped inside this compact frame. Thematically, it follows Fracassi's short story, "<span data-title-id="king-mob-by-philip-fracassi">King Mob</span>," which also felt constrained, so there's hope Fracassi revisits this idea for a future work.
 
 That said, _Shiloh_ succeeds as a brutal meditation on war's soul-destroying power. Fracassi has genuine talent for visceral storytelling. He just hasn't quite found the perfect vessel for this vision.
 

@@ -4,7 +4,7 @@ grade: A-
 date: 2022-04-18
 ---
 
-I struggle to remember the last time a story evoked such a visceral sense of dread. Both <span data-work-slug="guts-by-chuck-palahniuk">Chuck Palahniuk's “Guts”</span> and <span data-work-slug="american-psycho-by-bret-easton-ellis">Bret Easton Ellis's _American Psycho_</span> had scenes that forced me to stop reading, but "Altar" is different.
+I struggle to remember the last time a story evoked such a visceral sense of dread. Both <span data-title-id="guts-by-chuck-palahniuk">Chuck Palahniuk's “Guts”</span> and <span data-title-id="american-psycho-by-bret-easton-ellis">Bret Easton Ellis's _American Psycho_</span> had scenes that forced me to stop reading, but "Altar" is different.
 
 <!-- end -->
 

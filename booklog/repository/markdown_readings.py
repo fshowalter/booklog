@@ -32,7 +32,7 @@ class TimelineEntry(TypedDict):
 class MarkdownReading(TypedDict):
     sequence: int
     slug: str
-    workSlug: str
+    titleId: str
     date: datetime.date
     edition: str
     editionNotes: str | None
@@ -43,15 +43,15 @@ def _represent_none(self: Any, _: Any) -> Any:
     return self.represent_scalar("tag:yaml.org,2002:null", "null")
 
 
-def create(work_slug: str, timeline: list[TimelineEntry], edition: str) -> MarkdownReading:
+def create(title_id: str, timeline: list[TimelineEntry], edition: str) -> MarkdownReading:
     date = timeline[-1]["date"]
     sequence = _next_sequence_for_date(date)
-    slug = f"{date}-{sequence:02d}-{work_slug}"
+    slug = f"{date}-{sequence:02d}-{title_id}"
 
     new_reading = MarkdownReading(
         sequence=sequence,
         slug=slug,
-        workSlug=work_slug,
+        titleId=title_id,
         date=date,
         edition=edition,
         editionNotes=None,

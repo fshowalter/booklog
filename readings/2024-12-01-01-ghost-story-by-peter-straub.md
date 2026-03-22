@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2024-12-01-01-ghost-story-by-peter-straub
-workSlug: ghost-story-by-peter-straub
+titleId: ghost-story-by-peter-straub
 date: 2024-12-01
 edition: Ebook
 editionNotes: null

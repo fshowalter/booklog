@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-10-14-01-the-caped-crusade-by-glen-weldon
-workSlug: the-caped-crusade-by-glen-weldon
+titleId: the-caped-crusade-by-glen-weldon
 date: 2018-10-14
 edition: Ebook
 editionNotes: null

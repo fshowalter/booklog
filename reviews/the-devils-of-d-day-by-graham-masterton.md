@@ -18,7 +18,7 @@ That’s how I came to have a 1978 copy of Graham Masterton’s _The Devils of D
 
 Fast forward three years.
 
-If I’d read its back cover blurb, Masterton’s book might still be gathering dust on that shelf. The plot synopsis suggests a haunted tank story and I’d just finished <span data-work-slug="christine-by-stephen-king">_Stephen King's Christine_</span>, a disappointing novel about a haunted car. The last thing I wanted was another haunted vehicle story. Fortunately, the blurb is misleading.
+If I’d read its back cover blurb, Masterton’s book might still be gathering dust on that shelf. The plot synopsis suggests a haunted tank story and I’d just finished <span data-title-id="christine-by-stephen-king">_Stephen King's Christine_</span>, a disappointing novel about a haunted car. The last thing I wanted was another haunted vehicle story. Fortunately, the blurb is misleading.
 
 The story opens with our narrator, an American cartographer, discovering a mysterious tank in a remote French village. Abandoned by the Allies during World War II, it’s now overgrown with vines, but radiates an ominous aura. Closer inspection reveals the Allies sealed every possible opening, including welding a giant cross over the turret hatch.
 

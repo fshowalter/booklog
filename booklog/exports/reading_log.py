@@ -8,7 +8,7 @@ from booklog.utils.list_tools import group_list_by_key
 from booklog.utils.logging import logger
 
 
-class JsonWorkAuthor(TypedDict):
+class JsonTitleAuthor(TypedDict):
     notes: str | None
     name: str
 
@@ -20,17 +20,17 @@ class JsonReadingLogEntry(TypedDict):
     edition: str
     date: datetime.date
     progress: str
-    workYear: str
+    titleYear: str
     title: str
     kind: str
-    authors: list[JsonWorkAuthor]
+    authors: list[JsonTitleAuthor]
 
 
 def _build_json_reading_entry_author(
-    work_author: repository_api.WorkAuthor, authors: list[repository_api.Author]
-) -> JsonWorkAuthor:
-    author = work_author.author(authors)
-    return JsonWorkAuthor(name=author.name, notes=work_author.notes)
+    title_author: repository_api.TitleAuthor, authors: list[repository_api.Author]
+) -> JsonTitleAuthor:
+    author = title_author.author(authors)
+    return JsonTitleAuthor(name=author.name, notes=title_author.notes)
 
 
 def _build_json_reading_log_entry(
@@ -39,22 +39,22 @@ def _build_json_reading_log_entry(
     timeline_index: int,
     repository_data: RepositoryData,
 ) -> JsonReadingLogEntry:
-    work = reading.work(repository_data.works)
-    review = work.review(repository_data.reviews)
+    title = reading.title(repository_data.titles)
+    review = title.review(repository_data.reviews)
 
     return JsonReadingLogEntry(
         id=f"{reading.slug}-{timeline_index}",
         sequence=f"{timeline_entry.date.isoformat()}-{reading.slug}",
         reviewSlug=review.slug if review else None,
         edition=reading.edition,
-        kind=work.kind,
+        kind=title.kind,
         date=timeline_entry.date,
         progress=timeline_entry.progress,
-        workYear=work.year,
-        title=work.title,
+        titleYear=title.year,
+        title=title.title,
         authors=[
-            _build_json_reading_entry_author(work_author, repository_data.authors)
-            for work_author in work.work_authors
+            _build_json_reading_entry_author(title_author, repository_data.authors)
+            for title_author in title.title_authors
         ],
     )
 

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-06-01-01-living-with-a-seal-by-jesse-itzler
-workSlug: living-with-a-seal-by-jesse-itzler
+titleId: living-with-a-seal-by-jesse-itzler
 date: 2022-06-01
 edition: Ebook
 editionNotes: Center Street, 2015

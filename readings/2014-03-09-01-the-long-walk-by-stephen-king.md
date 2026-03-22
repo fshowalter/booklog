@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-03-09-01-the-long-walk-by-stephen-king
-workSlug: the-long-walk-by-stephen-king
+titleId: the-long-walk-by-stephen-king
 date: 2014-03-09
 edition: Paperback
 editionNotes:

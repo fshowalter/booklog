@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2022-04-17-02-the-dark-tunnel-by-ross-macdonald
-workSlug: the-dark-tunnel-by-ross-macdonald
+titleId: the-dark-tunnel-by-ross-macdonald
 date: 2022-04-17
 edition: Ebook
 editionNotes: MysteriousPress.com / Open Road, 2013

@@ -1,0 +1,19 @@
+{
+  "title": "Fright Night",
+  "subtitle": null,
+  "sortTitle": "Fright Night",
+  "year": "1985",
+  "authors": [
+    {
+      "notes": null,
+      "id": "john-skipp"
+    },
+    {
+      "notes": null,
+      "id": "craig-spector"
+    }
+  ],
+  "slug": "fright-night-by-john-skipp-craig-spector",
+  "kind": "Novel",
+  "includedTitles": []
+}

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2012-05-14-01-night-shift-by-stephen-king
-workSlug: night-shift-by-stephen-king
+titleId: night-shift-by-stephen-king
 date: 2012-05-14
 edition: Paperback
 editionNotes: New American Library / Signet, 1986

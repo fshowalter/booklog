@@ -42,9 +42,9 @@ def search_authors(query: str) -> Iterable[repository_api.Author]:
 
 
 def format_author_works(author: repository_api.Author) -> str:
-    first_three_author_works = itertools.islice(author.works(), 3)
+    first_three_author_titles = itertools.islice(author.titles(), 3)
 
-    return ", ".join(html.escape(work.title) for work in first_three_author_works)
+    return ", ".join(html.escape(title.title) for title in first_three_author_titles)
 
 
 def build_author_options(

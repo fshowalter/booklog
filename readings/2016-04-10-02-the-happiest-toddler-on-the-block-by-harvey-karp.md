@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2016-04-10-02-the-happiest-toddler-on-the-block-by-harvey-karp
-workSlug: the-happiest-toddler-on-the-block-by-harvey-karp
+titleId: the-happiest-toddler-on-the-block-by-harvey-karp
 date: 2016-04-10
 edition: Paperback
 editionNotes: Bantam, 2008

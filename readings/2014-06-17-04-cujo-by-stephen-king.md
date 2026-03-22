@@ -1,7 +1,7 @@
 ---
 sequence: 4
 slug: 2014-06-17-04-cujo-by-stephen-king
-workSlug: cujo-by-stephen-king
+titleId: cujo-by-stephen-king
 date: 2014-06-17
 edition: Ebook
 editionNotes: null

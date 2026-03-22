@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-07-02-01-the-secret-history-by-donna-tartt
-workSlug: the-secret-history-by-donna-tartt
+titleId: the-secret-history-by-donna-tartt
 date: 2022-07-02
 edition: Audiobook
 editionNotes: Read by Donna Tartt

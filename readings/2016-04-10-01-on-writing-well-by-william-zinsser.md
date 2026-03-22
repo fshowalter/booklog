@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2016-04-10-01-on-writing-well-by-william-zinsser
-workSlug: on-writing-well-by-william-zinsser
+titleId: on-writing-well-by-william-zinsser
 date: 2016-04-10
 edition: Paperback
 editionNotes: Harper Perennial, 2006

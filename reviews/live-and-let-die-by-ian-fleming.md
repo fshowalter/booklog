@@ -4,7 +4,7 @@ grade: D
 date: 2022-06-30
 ---
 
-**The second James Bond novel.** A disappointing sequel to <span data-work-slug="casino-royale-by-ian-fleming">_Casino Royale_</span> that sees Bond transplanted to America to investigate a Harlem gangster known as Mr. Big who's smuggling pirate treasure from Jamaica into the states via Florida.
+**The second James Bond novel.** A disappointing sequel to <span data-title-id="casino-royale-by-ian-fleming">_Casino Royale_</span> that sees Bond transplanted to America to investigate a Harlem gangster known as Mr. Big who's smuggling pirate treasure from Jamaica into the states via Florida.
 
 <!-- end -->
 
@@ -72,6 +72,6 @@ Fleming again flashes a moment of poetic brilliance:
 
 > The evening awaited him, to be opened and read, page by page, word by word. In front of his eyes, the rain came down in swift, slanting strokes – italic script across the unopened black cover that hid the secret hours that lay ahead.
 
-But it's not enough to overcome the missteps. The neutered Bond, the casual racism, the low narrative stakes involving pirate treasure, they combine to drag down what should have been a tight thriller. Where _Casino Royale_ left me eager for more Bond adventures, perhaps I'll wait to try <span data-work-slug="moonraker-by-ian-fleming">_Moonraker_</span>.
+But it's not enough to overcome the missteps. The neutered Bond, the casual racism, the low narrative stakes involving pirate treasure, they combine to drag down what should have been a tight thriller. Where _Casino Royale_ left me eager for more Bond adventures, perhaps I'll wait to try <span data-title-id="moonraker-by-ian-fleming">_Moonraker_</span>.
 
 [^1]: The Soviet group introduced in the prior novel, short for Smyert Spionam – Death to Spies

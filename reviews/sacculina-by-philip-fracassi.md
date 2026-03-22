@@ -60,6 +60,6 @@ Fracassi builds an almost palpable dread, then delivers the goods once his narra
 
 He introduces four characters, made real by their flaws, then puts them through hell, not to move them through a character journey, but to place us there by proxy. To feel their fear and despair and insignificance. A powerful work.
 
-The premise invites comparisons to Stephen King’s 1982 short story, <span data-work-slug="the-raft-by-stephen-king">“The Raft,”</span> but Fracassi’s work feels so assured, it’s as though someone said he couldn’t write a better version of King’s story and Fracassi set out to prove them wrong. Fracassi retains King’s basic setup and structure, but his tale proves far more intense and unsettling. I think King would be proud, though his fans should beware--Fracassi’s sentiments run closer to King's cynical pseudonym, Richard Bachman.
+The premise invites comparisons to Stephen King’s 1982 short story, <span data-title-id="the-raft-by-stephen-king">“The Raft,”</span> but Fracassi’s work feels so assured, it’s as though someone said he couldn’t write a better version of King’s story and Fracassi set out to prove them wrong. Fracassi retains King’s basic setup and structure, but his tale proves far more intense and unsettling. I think King would be proud, though his fans should beware--Fracassi’s sentiments run closer to King's cynical pseudonym, Richard Bachman.
 
 Oh, and about the title. I didn’t recognize the word, and it didn’t appear in the story, so I looked it up after reading. I recommend you do the same. It’s like a post-credits stinger.

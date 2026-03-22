@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-12-09-01-the-way-it-was-by-eliot-weisman
-workSlug: the-way-it-was-by-eliot-weisman
+titleId: the-way-it-was-by-eliot-weisman
 date: 2018-12-09
 edition: Ebook
 editionNotes: null

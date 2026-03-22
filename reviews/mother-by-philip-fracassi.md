@@ -16,4 +16,4 @@ I enjoyed it, despite this wince-inducing early line:
 
 Once he gets going, however, Fracassi delivers the goods in a nightmarish woodland sequence that leaves us as unsettled as the narrator. The story stumbles after, unsure how to link this sequence to the set-piece finale. Fracassi doesn't quite stick the landing, but the whole entertains.
 
-This was Fracassi's first published story and first foray into horror. He'd revisit the themes of abuse and nature's malevolence in <span data-work-slug="coffin-by-philip-fracassi">"Coffin"</span> and echoes of this story's finale would surface in <span data-work-slug="altar-by-philip-fracassi">"Altar"</span>.
+This was Fracassi's first published story and first foray into horror. He'd revisit the themes of abuse and nature's malevolence in <span data-title-id="coffin-by-philip-fracassi">"Coffin"</span> and echoes of this story's finale would surface in <span data-title-id="altar-by-philip-fracassi">"Altar"</span>.

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-10-19-01-the-hacienda-by-peter-hook
-workSlug: the-hacienda-by-peter-hook
+titleId: the-hacienda-by-peter-hook
 date: 2018-10-19
 edition: Ebook
 editionNotes: null

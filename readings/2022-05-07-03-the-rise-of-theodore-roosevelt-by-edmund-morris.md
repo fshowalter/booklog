@@ -1,7 +1,7 @@
 ---
 sequence: 3
 slug: 2022-05-07-03-the-rise-of-theodore-roosevelt-by-edmund-morris
-workSlug: the-rise-of-theodore-roosevelt-by-edmund-morris
+titleId: the-rise-of-theodore-roosevelt-by-edmund-morris
 date: 2022-05-07
 edition: Audiobook
 editionNotes: Read by Mark Deakins

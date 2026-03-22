@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-09-30-01-extreme-ownership-by-jocko-willink-leif-babin
-workSlug: extreme-ownership-by-jocko-willink-leif-babin
+titleId: extreme-ownership-by-jocko-willink-leif-babin
 date: 2018-09-30
 edition: Ebook
 editionNotes: null

@@ -14,4 +14,4 @@ I read this during a cross-Atlantic plane ride. Even as a captive audience, it s
 
 Itzler, while affable and a competent writer, proves an uncompelling subject. To pad the length, he includes autobiographical anecdotes, such as how he broke into the recording business, met his wife, and started his private jet business. These didn't interest me. I came for the SEAL, but Itzler paints him as an enigma bordering on caricature.
 
-Fortunately, Itzler later identified the SEAL as David Goggins, who wrote his own story, <span data-work-slug="cant-hurt-me-by-david-goggins">_Can't Hurt Me_</span>, which I look forward to listening to in his own words.
+Fortunately, Itzler later identified the SEAL as David Goggins, who wrote his own story, <span data-title-id="cant-hurt-me-by-david-goggins">_Can't Hurt Me_</span>, which I look forward to listening to in his own words.

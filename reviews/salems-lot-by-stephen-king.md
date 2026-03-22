@@ -4,7 +4,7 @@ grade: B
 date: 2022-10-14
 ---
 
-**Stephen King's sophomore novel** transplants <span data-work-slug="dracula-by-bram-stoker">_the Dracula story_</span> to a remote New England town named Jerusalem's Lot--`Salem's Lot to the locals.
+**Stephen King's sophomore novel** transplants <span data-title-id="dracula-by-bram-stoker">_the Dracula story_</span> to a remote New England town named Jerusalem's Lot--`Salem's Lot to the locals.
 
 <!-- end -->
 
@@ -14,7 +14,7 @@ But another pair of arrivals coincide with Ben's. They've purchased the Marsten 
 
 Of course, Barlow isn't in New York. He's in a coffin inside the Marsten House. He's begun feeding on the residents of the Lot, making them vampires like himself, as young Mark Petrie discovers one night when his friend Dannie Glick, who died days earlier, materializes outside his bedroom window, tapping and begging Mark to let him in.
 
-This marked my third time through _`Salem's Lot_ and it improves with each visit. After crafting such a memorable small-town setting in <span data-work-slug="carrie-by-stephen-king">_Carrie_</span>, King plays to his strengths and makes a small town the focus of this follow-up novel. As Matt says:
+This marked my third time through _`Salem's Lot_ and it improves with each visit. After crafting such a memorable small-town setting in <span data-title-id="carrie-by-stephen-king">_Carrie_</span>, King plays to his strengths and makes a small town the focus of this follow-up novel. As Matt says:
 
 > "There’s little good in sedentary small towns. Mostly indifference spiced with an occasional vapid evil—or worse, a conscious one."
 
@@ -48,9 +48,9 @@ Father Callahan also meets a darker but more memorable end in this draft.
 >
 > Then thought was gone and he fell forward on the haft of the knife and he closed his eyes and let himself go off to see what gods there were.
 
-The remaining deleted scenes prove interesting, but extraneous. King excised a lot of early passages related to the Marsten House. It's clear the haunted house idea excited him, foreshadowing his next book, <span data-work-slug="the-shining-by-stephen-king">_The Shining_</span>.
+The remaining deleted scenes prove interesting, but extraneous. King excised a lot of early passages related to the Marsten House. It's clear the haunted house idea excited him, foreshadowing his next book, <span data-title-id="the-shining-by-stephen-king">_The Shining_</span>.
 
-Also excised is a scene set in the boarding house Ben's calling home, after Danny Glick dies. Word gets out he might have died from a rare disease and a nervous panic sets in among the boarders. Unlike the haunted house angle, which remains in the final manuscript, King removed any trace of this disease metaphor from the published work, though it portends King's fifth novel, <span data-work-slug="the-stand-by-stephen-king">_The Stand_</span>.
+Also excised is a scene set in the boarding house Ben's calling home, after Danny Glick dies. Word gets out he might have died from a rare disease and a nervous panic sets in among the boarders. Unlike the haunted house angle, which remains in the final manuscript, King removed any trace of this disease metaphor from the published work, though it portends King's fifth novel, <span data-title-id="the-stand-by-stephen-king">_The Stand_</span>.
 
 And the original ending saw Ben and Mark drag Barlow into the sunlight. Another callback to _Horror of Dracula_ but one King did well to revise.
 

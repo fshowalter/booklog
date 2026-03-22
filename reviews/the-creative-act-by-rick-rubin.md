@@ -28,7 +28,7 @@ At least his solutions prove more concrete. He offers practical tips for both Fi
 
 > Unless actively working to make something better, avoid listening to it, reading it, playing it, looking at it, or showing it to friends. Work as far forward as you can while crafting and then step away, without repetitively consuming the unfinished work. By not accepting the work-in-progress as the standard version, we leave room for growth, change, and development to continue.
 
-Great advice. But still his insistence on dealing in abstracts frustrates. Compare this to <span data-work-slug="on-writing-by-stephen-king">Stephen King's _On Writing_</span>, which also featured creative strategies, but tied them to King's own works, including a memorable lesson detailing how he almost lost <span data-work-slug="the-stand-by-stephen-king">_The Stand_</span>.
+Great advice. But still his insistence on dealing in abstracts frustrates. Compare this to <span data-title-id="on-writing-by-stephen-king">Stephen King's _On Writing_</span>, which also featured creative strategies, but tied them to King's own works, including a memorable lesson detailing how he almost lost <span data-title-id="the-stand-by-stephen-king">_The Stand_</span>.
 
 Still, Rubin offers an insight the prolific King couldn't:
 

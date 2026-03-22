@@ -4,7 +4,7 @@ grade: Abandoned
 date: 2016-01-29
 ---
 
-My <span data-work-slug="the-devils-of-d-day-by-graham-masterton">last read</span> left me excited to discover what other surprises awaited me amongst my Dad’s books.
+My <span data-title-id="the-devils-of-d-day-by-graham-masterton">last read</span> left me excited to discover what other surprises awaited me amongst my Dad’s books.
 
 I should have tempered my expectations.
 

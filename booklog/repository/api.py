@@ -5,12 +5,12 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import Literal, cast
 
-from booklog.repository import json_authors, json_works, markdown_readings, markdown_reviews
+from booklog.repository import json_authors, json_titles, markdown_readings, markdown_reviews
 from booklog.repository.types import NonEmptyList
 
-WORK_KINDS = json_works.KINDS
+TITLE_KINDS = json_titles.KINDS
 
-Kind = json_works.Kind
+Kind = json_titles.Kind
 
 SequenceError = markdown_readings.SequenceError
 
@@ -25,19 +25,19 @@ class Author:
     sort_name: str
     slug: str
 
-    def works(self, cache: list[Work] | None = None) -> Iterable[Work]:
-        works_iterable = cache or works()
+    def titles(self, cache: list[Title] | None = None) -> Iterable[Title]:
+        titles_iterable = cache or titles()
 
         return filter(
-            lambda work: (
-                self.slug in {work_author.author_slug for work_author in work.work_authors}
+            lambda title: (
+                self.slug in {title_author.author_slug for title_author in title.title_authors}
             ),
-            works_iterable,
+            titles_iterable,
         )
 
 
 @dataclass
-class WorkAuthor:
+class TitleAuthor:
     notes: str | None
     author_slug: str
 
@@ -52,35 +52,35 @@ class WorkAuthor:
 
 
 @dataclass
-class Work:
+class Title:
     title: str
     subtitle: str | None
     year: str
     sort_title: str
     slug: str
     kind: Kind
-    included_work_slugs: list[str]
-    work_authors: NonEmptyList[WorkAuthor]
+    included_title_ids: list[str]
+    title_authors: NonEmptyList[TitleAuthor]
 
-    def included_works(self, cache: list[Work] | None = None) -> Iterable[Work]:
-        works_iterable = cache or works()
+    def included_titles(self, cache: list[Title] | None = None) -> Iterable[Title]:
+        titles_iterable = cache or titles()
         return filter(
-            lambda work: work.slug in self.included_work_slugs,
-            works_iterable,
+            lambda title: title.slug in self.included_title_ids,
+            titles_iterable,
         )
 
-    def included_in_works(self, cache: list[Work] | None = None) -> Iterable[Work]:
-        works_iterable = cache or works()
+    def included_in_titles(self, cache: list[Title] | None = None) -> Iterable[Title]:
+        titles_iterable = cache or titles()
         return filter(
-            lambda work: self.slug in work.included_work_slugs,
-            works_iterable,
+            lambda title: self.slug in title.included_title_ids,
+            titles_iterable,
         )
 
     def readings(self, cache: list[Reading] | None = None) -> Iterable[Reading]:
         readings_iterable = cache or readings()
 
         for reading in readings_iterable:
-            if reading.workSlug == self.slug:
+            if reading.titleId == self.slug:
                 yield reading
 
     def review(self, cache: list[Review] | None = None) -> Review | None:
@@ -104,15 +104,15 @@ class Reading:
     timeline: list[TimelineEntry]
     editionNotes: str | None = None  # noqa: N815
     slug: str
-    workSlug: str  # noqa: N815
+    titleId: str  # noqa: N815
     date: datetime.date
 
-    def work(self, cache: list[Work] | None = None) -> Work:
-        works_iterable = cache or works()
-        work = next((work for work in works_iterable if work.slug == self.workSlug), None)
-        if not work:
-            raise ValueError(f"Work with slug '{self.workSlug}' not found")
-        return work
+    def title(self, cache: list[Title] | None = None) -> Title:
+        titles_iterable = cache or titles()
+        found = next((t for t in titles_iterable if t.slug == self.titleId), None)
+        if not found:
+            raise ValueError(f"Title with slug '{self.titleId}' not found")
+        return found
 
 
 @dataclass
@@ -122,12 +122,12 @@ class Review:
     grade: Grade
     review_content: str | None = None
 
-    def work(self, cache: list[Work] | None = None) -> Work:
-        works_iterable = cache or works()
-        work = next((work for work in works_iterable if work.slug == self.slug), None)
-        if not work:
-            raise ValueError(f"Work with slug '{self.slug}' not found")
-        return work
+    def title(self, cache: list[Title] | None = None) -> Title:
+        titles_iterable = cache or titles()
+        found = next((t for t in titles_iterable if t.slug == self.slug), None)
+        if not found:
+            raise ValueError(f"Title with slug '{self.slug}' not found")
+        return found
 
     @property
     def grade_value(self) -> int:
@@ -160,9 +160,9 @@ def authors() -> Iterable[Author]:
         yield _hydrate_json_author(json_author=json_author)
 
 
-def works() -> Iterable[Work]:
-    for json_work in json_works.read_all():
-        yield _hydrate_json_work(json_work=json_work)
+def titles() -> Iterable[Title]:
+    for json_title in json_titles.read_all():
+        yield _hydrate_json_title(json_title=json_title)
 
 
 def readings() -> Iterable[Reading]:
@@ -185,37 +185,39 @@ def create_author(
     return _hydrate_json_author(json_authors.create(name=name))
 
 
-def create_work(
+def create_title(
     title: str,
     subtitle: str | None,
     year: str,
-    work_authors: NonEmptyList[WorkAuthor],
+    title_authors: NonEmptyList[TitleAuthor],
     kind: Kind,
-    included_work_slugs: list[str] | None = None,
-) -> Work:
-    return _hydrate_json_work(
-        json_work=json_works.create(
+    included_title_ids: list[str] | None = None,
+) -> Title:
+    return _hydrate_json_title(
+        json_title=json_titles.create(
             title=title,
             subtitle=subtitle,
             year=year,
-            work_authors=[
-                json_works.CreateWorkAuthor(slug=work_author.author_slug, notes=work_author.notes)
-                for work_author in work_authors
+            title_authors=[
+                json_titles.CreateTitleAuthor(
+                    id=title_author.author_slug, notes=title_author.notes
+                )
+                for title_author in title_authors
             ],
             kind=kind,
-            included_work_slugs=included_work_slugs,
+            included_title_ids=included_title_ids,
         ),
     )
 
 
 def create_reading(
-    work: Work,
+    title: Title,
     timeline: list[TimelineEntry],
     edition: str,
 ) -> Reading:
     return _hydrate_markdown_reading(
         markdown_reading=markdown_readings.create(
-            work_slug=work.slug,
+            title_id=title.slug,
             timeline=[
                 markdown_readings.TimelineEntry(
                     date=timeline_entry.date,
@@ -229,13 +231,13 @@ def create_reading(
 
 
 def create_or_update_review(
-    work: Work,
+    title: Title,
     date: datetime.date,
     grade: Grade = "Abandoned",
 ) -> Review:
     return _hydrate_markdown_review(
         markdown_review=markdown_reviews.create_or_update(
-            work_slug=work.slug,
+            title_id=title.slug,
             date=date,
             grade=grade,
         )
@@ -250,19 +252,19 @@ def _hydrate_json_author(json_author: json_authors.JsonAuthor) -> Author:
     )
 
 
-def _hydrate_json_work(json_work: json_works.JsonWork) -> Work:
-    return Work(
-        title=json_work["title"],
-        subtitle=json_work["subtitle"],
-        sort_title=json_work["sortTitle"],
-        slug=json_work["slug"],
-        year=json_work["year"],
-        kind=json_work["kind"],
-        included_work_slugs=json_work["includedWorks"],
-        work_authors=NonEmptyList.from_sequence(
+def _hydrate_json_title(json_title: json_titles.JsonTitle) -> Title:
+    return Title(
+        title=json_title["title"],
+        subtitle=json_title["subtitle"],
+        sort_title=json_title["sortTitle"],
+        slug=json_title["slug"],
+        year=json_title["year"],
+        kind=json_title["kind"],
+        included_title_ids=json_title["includedTitles"],
+        title_authors=NonEmptyList.from_sequence(
             [
-                WorkAuthor(author_slug=work_author["slug"], notes=work_author["notes"])
-                for work_author in json_work["authors"]
+                TitleAuthor(author_slug=title_author["id"], notes=title_author["notes"])
+                for title_author in json_title["authors"]
             ]
         ),
     )
@@ -283,7 +285,7 @@ def _hydrate_markdown_reading(
         edition=markdown_reading["edition"],
         editionNotes=markdown_reading["editionNotes"],
         slug=markdown_reading["slug"],
-        workSlug=markdown_reading["workSlug"],
+        titleId=markdown_reading["titleId"],
         date=markdown_reading["date"],
     )
 

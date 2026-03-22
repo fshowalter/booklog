@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-07-22-01-the-beast-house-by-richard-laymon
-workSlug: the-beast-house-by-richard-laymon
+titleId: the-beast-house-by-richard-laymon
 date: 2014-07-22
 edition: Paperback
 editionNotes:

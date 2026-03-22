@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2024-06-30-01-gothic-by-philip-fracassi
-workSlug: gothic-by-philip-fracassi
+titleId: gothic-by-philip-fracassi
 date: 2024-06-30
 edition: Ebook
 editionNotes: Cemetery Dance Publications, 2023

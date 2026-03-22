@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2019-04-11-01-blood-games-by-richard-laymon
-workSlug: blood-games-by-richard-laymon
+titleId: blood-games-by-richard-laymon
 date: 2019-04-11
 edition: Ebook
 editionNotes: null

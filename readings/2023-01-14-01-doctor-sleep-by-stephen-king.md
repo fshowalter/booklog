@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2023-01-14-01-doctor-sleep-by-stephen-king
-workSlug: doctor-sleep-by-stephen-king
+titleId: doctor-sleep-by-stephen-king
 date: 2023-01-14
 edition: Ebook
 editionNotes: Scribner, 2013

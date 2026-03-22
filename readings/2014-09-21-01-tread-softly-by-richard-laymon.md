@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-09-21-01-tread-softly-by-richard-laymon
-workSlug: tread-softly-by-richard-laymon
+titleId: tread-softly-by-richard-laymon
 date: 2014-09-21
 edition: Paperback
 editionNotes:
