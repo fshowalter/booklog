@@ -134,8 +134,21 @@ def test_can_cancel_out_of_author_name(mock_input: MockInput, tmp_path: Path) ->
     assert len(list((tmp_path / "titles").glob("*.json"))) == 1
 
 
-def test_can_cancel_out_of_kind(mock_input: MockInput, tmp_path: Path) -> None:
-    mock_input([Escape])
+def test_can_cancel_out_of_kind(
+    mock_input: MockInput,
+    author_fixture: repository_api.Author,
+    tmp_path: Path,
+) -> None:
+    mock_input(
+        [
+            *enter_author(author_fixture.name[:6]),
+            *select_author_search_result(),
+            *enter_notes(),
+            "n",
+            Escape,         # cancel at kind → loops back to ask_for_authors
+            *enter_notes(), # empty author name → exits select_author.prompt()
+        ]
+    )
 
     add_title.prompt()
 

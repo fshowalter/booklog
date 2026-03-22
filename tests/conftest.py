@@ -1,8 +1,17 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 import pytest
+import yaml
+
+_FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
+
+
+def read_yaml_frontmatter(file_path: Path) -> dict:  # type: ignore[type-arg]
+    _, frontmatter, _ = _FM_REGEX.split(file_path.read_text(), 2)
+    return yaml.safe_load(frontmatter)  # type: ignore[no-any-return]
 
 
 @pytest.fixture(autouse=True)

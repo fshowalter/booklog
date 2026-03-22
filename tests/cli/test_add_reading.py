@@ -1,11 +1,9 @@
 from __future__ import annotations
 
-import re
 from datetime import date
 from pathlib import Path
 
 import pytest
-import yaml
 
 from booklog.cli import add_reading
 from booklog.repository import api as repository_api
@@ -13,13 +11,7 @@ from booklog.repository.types import NonEmptyList
 from tests.cli.conftest import MockInput
 from tests.cli.keys import Backspace, Escape
 from tests.cli.prompt_utils import ConfirmType, enter_text, select_option
-
-_FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
-
-
-def _read_yaml_frontmatter(file_path: Path) -> dict:  # type: ignore[type-arg]
-    _, frontmatter, _ = _FM_REGEX.split(file_path.read_text(), 2)
-    return yaml.safe_load(frontmatter)  # type: ignore[no-any-return]
+from tests.conftest import read_yaml_frontmatter
 
 
 @pytest.fixture(autouse=True)
@@ -91,7 +83,7 @@ def enter_grade(grade: str) -> list[str]:
 
 
 def _assert_reading_created(tmp_path: Path) -> None:
-    fm = _read_yaml_frontmatter(
+    fm = read_yaml_frontmatter(
         tmp_path / "readings" / "2016-03-12-01-the-cellar-by-richard-laymon.md"
     )
     assert fm["titleId"] == "the-cellar-by-richard-laymon"
@@ -102,7 +94,7 @@ def _assert_reading_created(tmp_path: Path) -> None:
 
 
 def _assert_review_created(tmp_path: Path) -> None:
-    fm = _read_yaml_frontmatter(tmp_path / "reviews" / "the-cellar-by-richard-laymon.md")
+    fm = read_yaml_frontmatter(tmp_path / "reviews" / "the-cellar-by-richard-laymon.md")
     assert fm["grade"] == "A+"
     assert fm["date"] == date(2016, 3, 12)
 

@@ -2,21 +2,13 @@ from __future__ import annotations
 
 import datetime
 import json
-import re
 from pathlib import Path
 
 import pytest
-import yaml
 
 from booklog.repository import api as repository_api
 from booklog.repository.types import NonEmptyList
-
-_FM_REGEX = re.compile(r"^-{3,}\s*$", re.MULTILINE)
-
-
-def _read_yaml_frontmatter(file_path: Path) -> dict:  # type: ignore[type-arg]
-    _, frontmatter, _ = _FM_REGEX.split(file_path.read_text(), 2)
-    return yaml.safe_load(frontmatter)  # type: ignore[no-any-return]
+from tests.conftest import read_yaml_frontmatter
 
 
 @pytest.fixture
@@ -73,7 +65,7 @@ def test_create_title(
     assert data["title"] == "The Cellar"
     assert data["year"] == "1980"
     assert data["kind"] == "Novel"
-    assert data["authors"][0]["id"] == "richard-laymon"
+    assert data["authors"][0]["slug"] == "richard-laymon"
     assert data["includedTitles"] == []
 
 
@@ -117,7 +109,7 @@ def test_can_create_reading(
         ],
     )
 
-    fm = _read_yaml_frontmatter(
+    fm = read_yaml_frontmatter(
         tmp_path / "readings" / "2016-03-12-01-the-cellar-by-richard-laymon.md"
     )
 
@@ -139,7 +131,7 @@ def test_can_create_new_review(
         date=datetime.date(2016, 3, 10),
     )
 
-    fm = _read_yaml_frontmatter(tmp_path / "reviews" / "the-cellar-by-richard-laymon.md")
+    fm = read_yaml_frontmatter(tmp_path / "reviews" / "the-cellar-by-richard-laymon.md")
 
     assert fm["slug"] == "the-cellar-by-richard-laymon"
     assert fm["grade"] == "A+"
@@ -160,7 +152,7 @@ def test_can_update_existing_review(
     )
 
     review_path = tmp_path / "reviews" / "the-cellar-by-richard-laymon.md"
-    fm = _read_yaml_frontmatter(review_path)
+    fm = read_yaml_frontmatter(review_path)
 
     assert fm["grade"] == "C+"
     assert fm["date"] == datetime.date(2017, 3, 12)

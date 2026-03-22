@@ -200,7 +200,7 @@ def create_title(
             year=year,
             title_authors=[
                 json_titles.CreateTitleAuthor(
-                    id=title_author.author_slug, notes=title_author.notes
+                    slug=title_author.author_slug, notes=title_author.notes
                 )
                 for title_author in title_authors
             ],
@@ -263,7 +263,7 @@ def _hydrate_json_title(json_title: json_titles.JsonTitle) -> Title:
         included_title_ids=json_title["includedTitles"],
         title_authors=NonEmptyList.from_sequence(
             [
-                TitleAuthor(author_slug=title_author["id"], notes=title_author["notes"])
+                TitleAuthor(author_slug=title_author["slug"], notes=title_author["notes"])
                 for title_author in json_title["authors"]
             ]
         ),

@@ -25,7 +25,7 @@ KINDS = get_args(Kind)
 
 
 class JsonTitleAuthor(TypedDict):
-    id: str
+    slug: str
     notes: str | None
 
 
@@ -59,7 +59,7 @@ def generate_sort_title(title: str, subtitle: str | None) -> str:
 
 @dataclass
 class CreateTitleAuthor:
-    id: str
+    slug: str
     notes: str | None
 
 
@@ -74,7 +74,7 @@ def create(
     slug = slugify(
         "{}-by-{}".format(
             title.replace("'", ""),
-            ", ".join(title_author.id for title_author in title_authors),
+            ", ".join(title_author.slug for title_author in title_authors),
         )
     )
 
@@ -84,7 +84,7 @@ def create(
         sortTitle=generate_sort_title(title, subtitle),
         year=year,
         authors=[
-            JsonTitleAuthor(id=title_author.id, notes=title_author.notes)
+            JsonTitleAuthor(slug=title_author.slug, notes=title_author.notes)
             for title_author in title_authors
         ],
         slug=slug,
