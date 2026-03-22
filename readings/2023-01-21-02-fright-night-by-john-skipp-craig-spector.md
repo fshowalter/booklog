@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2023-01-21-02-fright-night-by-john-skipp-craig-spector
-workSlug: fright-night-by-john-skipp-craig-spector
+titleId: fright-night-by-john-skipp-craig-spector
 date: 2023-01-21
 edition: Ebook
 editionNotes: Crossroad Press, 2019

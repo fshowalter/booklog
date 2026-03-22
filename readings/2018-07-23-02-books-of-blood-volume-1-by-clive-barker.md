@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2018-07-23-02-books-of-blood-volume-1-by-clive-barker
-workSlug: books-of-blood-volume-1-by-clive-barker
+titleId: books-of-blood-volume-1-by-clive-barker
 date: 2018-07-23
 edition: Ebook
 editionNotes: null

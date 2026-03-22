@@ -4,7 +4,7 @@ grade: C+
 date: 2023-01-14
 ---
 
-Stephen King’s sequel to <span data-work-slug="the-shining-by-stephen-king">_The Shining_</span> finds Dan Torrance a middle-aged recovering alcoholic living in New Hampshire and working as a hospice orderly. He uses his unique gifts to comfort residents as they transition to the other side.
+Stephen King’s sequel to <span data-title-id="the-shining-by-stephen-king">_The Shining_</span> finds Dan Torrance a middle-aged recovering alcoholic living in New Hampshire and working as a hospice orderly. He uses his unique gifts to comfort residents as they transition to the other side.
 
 <!-- end -->
 

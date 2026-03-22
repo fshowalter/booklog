@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2019-03-02-02-the-horror-stories-of-robert-e-howard-by-robert-e-howard
-workSlug: the-horror-stories-of-robert-e-howard-by-robert-e-howard
+titleId: the-horror-stories-of-robert-e-howard-by-robert-e-howard
 date: 2019-03-02
 edition: Ebook
 editionNotes: null

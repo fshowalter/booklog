@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2024-08-25-01-recessional-by-david-mamet
-workSlug: recessional-by-david-mamet
+titleId: recessional-by-david-mamet
 date: 2024-08-25
 edition: Ebook
 editionNotes: null

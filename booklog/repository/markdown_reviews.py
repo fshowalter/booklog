@@ -37,7 +37,7 @@ class ReviewYaml(TypedDict):
 
 
 def create_or_update(
-    work_slug: str,
+    title_id: str,
     grade: str,
     date: datetime.date,
 ) -> MarkdownReview:
@@ -45,7 +45,7 @@ def create_or_update(
         (
             markdown_review
             for markdown_review in read_all()
-            if markdown_review.yaml["slug"] == work_slug
+            if markdown_review.yaml["slug"] == title_id
         ),
         None,
     )
@@ -56,7 +56,7 @@ def create_or_update(
     else:
         markdown_review = MarkdownReview(
             yaml=ReviewYaml(
-                slug=work_slug,
+                slug=title_id,
                 grade=grade,
                 date=date,
             )

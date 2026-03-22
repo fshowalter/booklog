@@ -11,13 +11,13 @@ from prompt_toolkit.formatted_text import AnyFormattedText
 from prompt_toolkit.shortcuts import confirm
 from prompt_toolkit.validation import Validator
 
-from booklog.cli import ask, radio_list, select_work
+from booklog.cli import ask, radio_list, select_title
 from booklog.repository import api as repository_api
 
 Option = tuple[None | str, AnyFormattedText]
 
 Stages = Literal[
-    "ask_for_work",
+    "ask_for_title",
     "ask_for_timeline",
     "ask_for_edition",
     "ask_for_grade",
@@ -28,8 +28,8 @@ Stages = Literal[
 
 @dataclass(kw_only=True)
 class State:
-    stage: Stages = "ask_for_work"
-    work: repository_api.Work | None = None
+    stage: Stages = "ask_for_title"
+    title: repository_api.Title | None = None
     timeline: list[repository_api.TimelineEntry] = field(default_factory=list)
     edition: str | None = None
     grade: repository_api.Grade | None = None
@@ -39,7 +39,7 @@ def prompt() -> None:
     state = State()
 
     state_machine: dict[Stages, Callable[[State], State]] = {
-        "ask_for_work": ask_for_work,
+        "ask_for_title": ask_for_title,
         "ask_for_timeline": ask_for_timeline,
         "ask_for_edition": ask_for_edition,
         "ask_for_grade": ask_for_grade,
@@ -51,39 +51,39 @@ def prompt() -> None:
 
 
 def persist_reading(state: State) -> State:
-    assert state.work
+    assert state.title
     assert state.edition
     assert state.timeline
     assert state.grade
 
     repository_api.create_reading(
-        work=state.work,
+        title=state.title,
         edition=state.edition,
         timeline=state.timeline,
     )
 
     repository_api.create_or_update_review(
-        work=state.work, date=state.timeline[-1].date, grade=state.grade
+        title=state.title, date=state.timeline[-1].date, grade=state.grade
     )
 
     if confirm("Add another reading?"):
-        state.stage = "ask_for_work"
+        state.stage = "ask_for_title"
     else:
         state.stage = "end"
 
     return state
 
 
-def ask_for_work(state: State) -> State:
-    state.work = None
+def ask_for_title(state: State) -> State:
+    state.title = None
 
-    work = select_work.prompt()
+    title = select_title.prompt()
 
-    if not work:
+    if not title:
         state.stage = "end"
         return state
 
-    state.work = work
+    state.title = title
     state.stage = "ask_for_timeline"
     return state
 
@@ -162,7 +162,7 @@ def ask_for_timeline(state: State) -> State:
         timeline_date = ask_for_date(timeline_date)
 
         if not timeline_date and not state.timeline:
-            state.stage = "ask_for_work"
+            state.stage = "ask_for_title"
             return state
 
         if timeline_date:

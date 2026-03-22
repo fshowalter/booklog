@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2012-05-31-01-cary-grant-by-marc-eliot
-workSlug: cary-grant-by-marc-eliot
+titleId: cary-grant-by-marc-eliot
 date: 2012-05-31
 edition: Hardcover
 editionNotes: Harmony, 2004

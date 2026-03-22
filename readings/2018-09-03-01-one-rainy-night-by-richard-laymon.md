@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-09-03-01-one-rainy-night-by-richard-laymon
-workSlug: one-rainy-night-by-richard-laymon
+titleId: one-rainy-night-by-richard-laymon
 date: 2018-09-03
 edition: Ebook
 editionNotes: null

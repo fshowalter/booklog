@@ -34,4 +34,4 @@ Laymon also shows a deft hand crafting action sequences. Consider this scene:
 
 Despite this craft, _Out Are the Lights_ feels disjointed, as though Laymon struggled between writing a much longer, darker book, and this shorter—almost novella length—EC Comics style story with its poetic justice ending.
 
-Said ending surprises with its abrupt arrival, and would have torpedoed a longer read. Would a different structure have helped? Several short stories featuring overlapping characters interspersed with the Schreck shorts and a wraparound narrative? Maybe. I’m curious to read what Laymon says about this work when I get to his autobiography, <span data-work-slug="a-writers-tale-by-richard-laymon">_A Writer’s Tale_</span>.
+Said ending surprises with its abrupt arrival, and would have torpedoed a longer read. Would a different structure have helped? Several short stories featuring overlapping characters interspersed with the Schreck shorts and a wraparound narrative? Maybe. I’m curious to read what Laymon says about this work when I get to his autobiography, <span data-title-id="a-writers-tale-by-richard-laymon">_A Writer’s Tale_</span>.

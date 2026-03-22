@@ -4,7 +4,7 @@ grade: A-
 date: 2024-07-01
 ---
 
-Every bit as entertaining as his first volume, drummer Stephen Morris’s second volume of memoirs picks up where <span data-work-slug="record-play-pause-by-stephen-morris">_Record Play Pause_</span> ended, chronicling New Order's rise to super-stardom and the tensions that tore it apart.
+Every bit as entertaining as his first volume, drummer Stephen Morris’s second volume of memoirs picks up where <span data-title-id="record-play-pause-by-stephen-morris">_Record Play Pause_</span> ended, chronicling New Order's rise to super-stardom and the tensions that tore it apart.
 
 <!-- end -->
 

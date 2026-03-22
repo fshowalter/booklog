@@ -8,7 +8,7 @@ _Don’t Let Them Get You Down_ follows Peter, a copywriter for a medical websit
 
 <!-- end -->
 
-Though published in 2022, Philip Fracassi wrote the novel in 2007. Early on, the first person narration reminded me of <span data-work-slug="fight-club-by-chuck-palahniuk">Chuck Palahniuk’s _Fight Club_</span> with lines like:
+Though published in 2022, Philip Fracassi wrote the novel in 2007. Early on, the first person narration reminded me of <span data-title-id="fight-club-by-chuck-palahniuk">Chuck Palahniuk’s _Fight Club_</span> with lines like:
 
 > I swivel around and see Jimmy, who is normally sitting two cubicles down, standing in front of me. His job has something to do with the office network.
 

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-03-21-01-on-writing-by-stephen-king
-workSlug: on-writing-by-stephen-king
+titleId: on-writing-by-stephen-king
 date: 2022-03-21
 edition: Ebook
 editionNotes: Scribner

@@ -1,7 +1,7 @@
 ---
 sequence: 2
 slug: 2018-05-29-02-astrophysics-for-people-in-a-hurry-by-neil-degrasse-tyson
-workSlug: astrophysics-for-people-in-a-hurry-by-neil-degrasse-tyson
+titleId: astrophysics-for-people-in-a-hurry-by-neil-degrasse-tyson
 date: 2018-05-29
 edition: Ebook
 editionNotes: null

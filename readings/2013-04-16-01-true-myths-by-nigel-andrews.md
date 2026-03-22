@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2013-04-16-01-true-myths-by-nigel-andrews
-workSlug: true-myths-by-nigel-andrews
+titleId: true-myths-by-nigel-andrews
 date: 2013-04-16
 edition: Hardcover
 editionNotes: Birch Lane Pr, 1996

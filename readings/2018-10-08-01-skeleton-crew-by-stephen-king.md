@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-10-08-01-skeleton-crew-by-stephen-king
-workSlug: skeleton-crew-by-stephen-king
+titleId: skeleton-crew-by-stephen-king
 date: 2018-10-08
 edition: Ebook
 editionNotes: null

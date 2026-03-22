@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2016-06-10-01-writing-movies-for-fun-and-profit-by-robert-ben-garant-thomas-lennon
-workSlug: writing-movies-for-fun-and-profit-by-robert-ben-garant-thomas-lennon
+titleId: writing-movies-for-fun-and-profit-by-robert-ben-garant-thomas-lennon
 date: 2016-06-10
 edition: Hardcover
 editionNotes: Touchstone, 2011

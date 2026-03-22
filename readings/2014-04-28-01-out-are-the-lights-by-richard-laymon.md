@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-04-28-01-out-are-the-lights-by-richard-laymon
-workSlug: out-are-the-lights-by-richard-laymon
+titleId: out-are-the-lights-by-richard-laymon
 date: 2014-04-28
 edition: Paperback
 editionNotes:

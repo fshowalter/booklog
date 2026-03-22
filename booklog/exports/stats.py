@@ -21,9 +21,8 @@ class JsonMostReadAuthorWork(TypedDict):
 class JsonMostReadAuthor(TypedDict):
     count: int
     name: str
-    slug: str | None
-    reviewed: bool
-    readWorks: list[JsonMostReadAuthorWork]
+    authorSlug: str | None
+    readTitles: list[JsonMostReadAuthorWork]
 
 
 class JsonDistribution(TypedDict):
@@ -39,7 +38,7 @@ class JsonGradeDistribution(TypedDict):
 
 class JsonYearStats(TypedDict):
     year: str
-    workCount: int
+    titleCount: int
     bookCount: int
     kindDistribution: list[JsonDistribution]
     editionDistribution: list[JsonDistribution]
@@ -49,7 +48,7 @@ class JsonYearStats(TypedDict):
 
 class JsonAllTimeStats(TypedDict):
     reviewCount: int
-    workCount: int
+    titleCount: int
     bookCount: int
     statsYears: list[str]
     gradeDistribution: list[JsonGradeDistribution]
@@ -107,34 +106,34 @@ def _group_readings_by_author(
     readings_by_author: dict[str, list[repository_api.Reading]] = defaultdict(list)
 
     for reading in readings:
-        work = reading.work(repository_data.works)
-        for work_author in work.work_authors:
-            readings_by_author[work_author.author_slug].append(reading)
+        title = reading.title(repository_data.titles)
+        for title_author in title.title_authors:
+            readings_by_author[title_author.author_slug].append(reading)
 
     return readings_by_author
 
 
-def _build_most_read_author_works(
+def _build_most_read_author_titles(
     readings: list[repository_api.Reading], repository_data: RepositoryData
 ) -> list[JsonMostReadAuthorWork]:
-    works = []
+    read_titles = []
 
     sorted_readings = sorted(readings, key=lambda reading: reading.slug)
 
     for reading in sorted_readings:
-        work = reading.work(repository_data.works)
-        review = work.review(repository_data.reviews)
+        title = reading.title(repository_data.titles)
+        review = title.review(repository_data.reviews)
 
-        works.append(
+        read_titles.append(
             JsonMostReadAuthorWork(
-                title=work.title,
+                title=title.title,
                 edition=reading.edition,
                 readingDate=reading.date,
                 reviewSlug=review.slug if review else None,
             )
         )
 
-    return works
+    return read_titles
 
 
 def _build_most_read_authors(
@@ -151,9 +150,8 @@ def _build_most_read_authors(
             name=next(
                 author.name for author in repository_data.authors if author.slug == author_slug
             ),
-            slug=author_slug if author_slug in repository_data.authors_with_reviews else None,
-            reviewed=author_slug in repository_data.authors_with_reviews,
-            readWorks=_build_most_read_author_works(readings, repository_data),
+            authorSlug=author_slug if author_slug in repository_data.authors_with_reviews else None,
+            readTitles=_build_most_read_author_titles(readings, repository_data),
         )
         for author_slug, readings in readings_by_author.items()
         if len(readings) > 1
@@ -167,9 +165,9 @@ def _build_most_read_authors(
 
 
 def _build_kind_distribution(
-    works: list[repository_api.Work],
+    titles: list[repository_api.Title],
 ) -> list[JsonDistribution]:
-    return _build_json_distributions(works, lambda work: work.kind)
+    return _build_json_distributions(titles, lambda title: title.kind)
 
 
 def _build_edition_distribution(
@@ -179,14 +177,14 @@ def _build_edition_distribution(
 
 
 def _build_decade_distribution(
-    works: list[repository_api.Work],
+    titles: list[repository_api.Title],
 ) -> list[JsonDistribution]:
-    return _build_json_distributions(works, lambda work: f"{work.year[:3]}0s")
+    return _build_json_distributions(titles, lambda title: f"{title.year[:3]}0s")
 
 
 def _book_count(readings: list[repository_api.Reading], repository_data: RepositoryData) -> int:
-    works = [reading.work(repository_data.works) for reading in readings]
-    return len([work for work in works if work.kind not in {"Short Story", "Novella"}])
+    titles = [reading.title(repository_data.titles) for reading in readings]
+    return len([title for title in titles if title.kind not in {"Short Story", "Novella"}])
 
 
 def _build_year_json_stats(
@@ -195,15 +193,15 @@ def _build_year_json_stats(
     most_read_authors: list[JsonMostReadAuthor],
     repository_data: RepositoryData,
 ) -> JsonYearStats:
-    works = [reading.work(repository_data.works) for reading in readings]
+    titles = [reading.title(repository_data.titles) for reading in readings]
 
     return JsonYearStats(
         year=year,
-        workCount=len(readings),
+        titleCount=len(readings),
         bookCount=_book_count(readings, repository_data=repository_data),
-        kindDistribution=_build_kind_distribution(works),
+        kindDistribution=_build_kind_distribution(titles),
         editionDistribution=_build_edition_distribution(readings),
-        decadeDistribution=_build_decade_distribution(works),
+        decadeDistribution=_build_decade_distribution(titles),
         mostReadAuthors=most_read_authors,
     )
 
@@ -215,17 +213,17 @@ def _build_all_time_json_stats(
     repository_data: RepositoryData,
     all_stats_years: list[str],
 ) -> JsonAllTimeStats:
-    works = [reading.work(repository_data.works) for reading in readings]
+    titles = [reading.title(repository_data.titles) for reading in readings]
 
     return JsonAllTimeStats(
         statsYears=all_stats_years,
         reviewCount=len(reviews),
-        workCount=len(readings),
+        titleCount=len(readings),
         bookCount=_book_count(readings, repository_data=repository_data),
         gradeDistribution=_build_json_grade_distributions(reviews),
-        kindDistribution=_build_kind_distribution(works),
+        kindDistribution=_build_kind_distribution(titles),
         editionDistribution=_build_edition_distribution(readings),
-        decadeDistribution=_build_decade_distribution(works),
+        decadeDistribution=_build_decade_distribution(titles),
         mostReadAuthors=most_read_authors,
     )
 

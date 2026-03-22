@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2019-05-19-01-the-tommyknockers-by-stephen-king
-workSlug: the-tommyknockers-by-stephen-king
+titleId: the-tommyknockers-by-stephen-king
 date: 2019-05-19
 edition: Ebook
 editionNotes: null

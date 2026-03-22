@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2015-10-23-01-caught-stealing-by-charlie-huston
-workSlug: caught-stealing-by-charlie-huston
+titleId: caught-stealing-by-charlie-huston
 date: 2015-10-23
 edition: Paperback
 editionNotes: Ballantine Books, 2005

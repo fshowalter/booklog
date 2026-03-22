@@ -4,7 +4,7 @@ grade: C
 date: 2022-09-11
 ---
 
-A series of essays concerning John McPhee's writing process. Given how interview-driven non-fiction dominates his work, these speak to how he conducts the interviews, conducts research, and structures the pieces. If Stephen King's <span data-work-slug="on-writing-by-stephen-king">_On Writing_</span> is a 101-level writing class, _Draft No. 4_ is a higher-level elective.
+A series of essays concerning John McPhee's writing process. Given how interview-driven non-fiction dominates his work, these speak to how he conducts the interviews, conducts research, and structures the pieces. If Stephen King's <span data-title-id="on-writing-by-stephen-king">_On Writing_</span> is a 101-level writing class, _Draft No. 4_ is a higher-level elective.
 
 That said, McPhee offers an anecdote about fact-checking, worth reading by all:
 

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2019-01-27-01-every-last-drop-by-charlie-huston
-workSlug: every-last-drop-by-charlie-huston
+titleId: every-last-drop-by-charlie-huston
 date: 2019-01-27
 edition: Ebook
 editionNotes: null

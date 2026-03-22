@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-03-16-01-the-cellar-by-richard-laymon
-workSlug: the-cellar-by-richard-laymon
+titleId: the-cellar-by-richard-laymon
 date: 2022-03-16
 edition: Ebook
 editionNotes: 47 North, 2016

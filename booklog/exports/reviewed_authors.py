@@ -10,32 +10,32 @@ class JsonAuthor(TypedDict):
     name: str
     sortName: str
     slug: str
-    reviewedWorks: list[str]
+    reviewedTitles: list[str]
 
 
 def _build_json_author(
     author: repository_api.Author,
     repository_data: RepositoryData,
 ) -> JsonAuthor | None:
-    author_works = list(author.works(repository_data.works))
+    author_titles = list(author.titles(repository_data.titles))
 
-    reviewed_works = []
+    reviewed_titles = []
 
-    for work in author_works:
-        review = work.review(repository_data.reviews)
+    for title in author_titles:
+        review = title.review(repository_data.reviews)
         if review is None:
             continue
 
-        reviewed_works.append(work.slug)
+        reviewed_titles.append(title.slug)
 
-    if not reviewed_works:
+    if not reviewed_titles:
         return None
 
     return JsonAuthor(
         name=author.name,
         sortName=author.sort_name,
         slug=author.slug,
-        reviewedWorks=reviewed_works,
+        reviewedTitles=reviewed_titles,
     )
 
 

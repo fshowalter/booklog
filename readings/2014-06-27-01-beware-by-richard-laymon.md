@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-06-27-01-beware-by-richard-laymon
-workSlug: beware-by-richard-laymon
+titleId: beware-by-richard-laymon
 date: 2014-06-27
 edition: Paperback
 editionNotes:

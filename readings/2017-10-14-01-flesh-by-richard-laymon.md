@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2017-10-14-01-flesh-by-richard-laymon
-workSlug: flesh-by-richard-laymon
+titleId: flesh-by-richard-laymon
 date: 2017-10-14
 edition: Ebook
 editionNotes: null

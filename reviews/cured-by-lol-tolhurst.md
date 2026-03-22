@@ -4,7 +4,7 @@ grade: A-
 date: 2022-07-18
 ---
 
-After enjoying <span data-work-slug="set-the-boy-free-by-johnny-marr">Johnny Marr's autobiography</span>, I turned to this well-received memoir from Lol Tolhurst, founding member of The Cure. As a big Cure fan in my teens--and still partial to their back catalog--I came in interested.
+After enjoying <span data-title-id="set-the-boy-free-by-johnny-marr">Johnny Marr's autobiography</span>, I turned to this well-received memoir from Lol Tolhurst, founding member of The Cure. As a big Cure fan in my teens--and still partial to their back catalog--I came in interested.
 
 <!-- end -->
 

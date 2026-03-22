@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2019-02-16-01-farewell-my-lovely-by-raymond-chandler
-workSlug: farewell-my-lovely-by-raymond-chandler
+titleId: farewell-my-lovely-by-raymond-chandler
 date: 2019-02-16
 edition: Ebook
 editionNotes: null

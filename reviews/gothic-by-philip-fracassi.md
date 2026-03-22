@@ -18,7 +18,7 @@ Soon Tyson is cranking out a new novel. Marathon sessions at a finger-bleeding p
 
 But this success comes with a cost. The desk demands a terrible price and Tyson will have to decide how much he’s willing to pay.
 
-Indeed, this setup proves reminiscent of <span data-work-slug="christine-by-stephen-king">Stephen King's _Christine_</span>. But Fracassi’s narrative proves more streamlined.
+Indeed, this setup proves reminiscent of <span data-title-id="christine-by-stephen-king">Stephen King's _Christine_</span>. But Fracassi’s narrative proves more streamlined.
 
 Consider the opening. Tyson meets his agent Harry to present his latest manuscript.
 
@@ -62,7 +62,7 @@ From here things get mean quick. Veteran horror readers may think characters wit
 
 Indeed, the plot rolls along at such a fast pace it wasn't until after I'd finished the story that I appreciated how Fracassi resisted the temptation to overwrite. The ending surprises with its abruptness. Readers expect the various plot threads to culminate in a dramatic conclusion. Rather than wrap up every thread, Fracassi cuts several short. These provided false hopes for happier ends. Rather than draw them out, Fracassi abandons them.
 
-It's only in hindsight that you realize their futility. If Fracassi wrote his version of <span data-work-slug="the-stand-by-stephen-king">_The Stand_</span>, it would be half as long, Flagg would win, and you'd need a stiff hug of a drink afterwards to get to sleep.
+It's only in hindsight that you realize their futility. If Fracassi wrote his version of <span data-title-id="the-stand-by-stephen-king">_The Stand_</span>, it would be half as long, Flagg would win, and you'd need a stiff hug of a drink afterwards to get to sleep.
 
 That said, part of me yearned for something even darker in _Gothic_. While Fracassi delivers a visceral set-piece involving the desk mangling a character's hand, the sequence didn't make me squirm the way I suspect Fracassi intended. He's mastered the ability to manufacture dread, but his graphic violence lacks the uncomfortable punch of a Chuck Palahniuk or a Bret Easton Ellis.
 
@@ -70,6 +70,6 @@ Still, Fracassi's still growing as a talent. As the desk’s influence grows on 
 
 > He’s nothing but regret in a nice suit, Tyson thinks.
 
-Which make me think he could write a Dashiell Hammett-esque detective story with aplomb. Indeed, his detective character here intrigues, and Fracassi invites the comparison by having him quote a line from Hammett's <span data-work-slug="the-thin-man-by-dashiell-hammett">_The Thin Man_</span>.
+Which make me think he could write a Dashiell Hammett-esque detective story with aplomb. Indeed, his detective character here intrigues, and Fracassi invites the comparison by having him quote a line from Hammett's <span data-title-id="the-thin-man-by-dashiell-hammett">_The Thin Man_</span>.
 
 Fracassi is fast becoming a favorite author of mine. I love how all of his works feel part of a shared universe without referencing each other. His brand of horror blends the existential dread of Lovecraft, the brisk narrative of Hammett, and the anxiety of Laymon, resulting in a gripping, dread-filled ride tinged with bits of black humor (_Gothic_'s penultimate line had me laughing out loud). Recommended for horror fans, with the caveat that splatter-punk fans may lament the lack of explicit gore.

@@ -7,6 +7,6 @@ from booklog.repository import api as repository_api
 class RepositoryData:
     authors: list[repository_api.Author]
     authors_with_reviews: set[str]
-    works: list[repository_api.Work]
+    titles: list[repository_api.Title]
     readings: list[repository_api.Reading]
     reviews: list[repository_api.Review]

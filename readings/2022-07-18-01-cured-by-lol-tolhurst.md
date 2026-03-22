@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-07-18-01-cured-by-lol-tolhurst
-workSlug: cured-by-lol-tolhurst
+titleId: cured-by-lol-tolhurst
 date: 2022-07-18
 edition: Audiobook
 editionNotes: Read by Lol Tolhurst

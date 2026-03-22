@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-12-06-01-it-by-stephen-king
-workSlug: it-by-stephen-king
+titleId: it-by-stephen-king
 date: 2018-12-06
 edition: Ebook
 editionNotes: null

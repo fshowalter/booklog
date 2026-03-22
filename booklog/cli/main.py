@@ -1,4 +1,4 @@
-from booklog.cli import add_author, add_reading, add_work, radio_list
+from booklog.cli import add_author, add_reading, add_title, radio_list
 from booklog.exports import api as exports_api
 from booklog.utils.logging import logger
 
@@ -7,7 +7,7 @@ from booklog.utils.logging import logger
 def prompt() -> None:
     options = [
         (add_author.prompt, "<cyan>Add Author</cyan>"),
-        (add_work.prompt, "<cyan>Add Work</cyan>"),
+        (add_title.prompt, "<cyan>Add Title</cyan>"),
         (add_reading.prompt, "<cyan>Add Reading</cyan>"),
         (export, "<cyan>Export Data</cyan>"),
     ]

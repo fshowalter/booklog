@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2014-04-04-01-the-dead-zone-by-stephen-king
-workSlug: the-dead-zone-by-stephen-king
+titleId: the-dead-zone-by-stephen-king
 date: 2014-04-04
 edition: Paperback
 editionNotes: Signet/New American Library, 1980

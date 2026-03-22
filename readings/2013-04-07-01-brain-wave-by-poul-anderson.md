@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2013-04-07-01-brain-wave-by-poul-anderson
-workSlug: brain-wave-by-poul-anderson
+titleId: brain-wave-by-poul-anderson
 date: 2013-04-07
 edition: Paperback
 editionNotes: Ballantine, 1966

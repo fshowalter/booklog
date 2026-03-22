@@ -21,15 +21,15 @@ def author_fixture() -> repository_api.Author:
 
 
 @pytest.fixture
-def work_fixture(author_fixture: repository_api.Author) -> repository_api.Work:
-    return repository_api.create_work(
+def title_fixture(author_fixture: repository_api.Author) -> repository_api.Title:
+    return repository_api.create_title(
         title="The Cellar",
         subtitle=None,
         year="1980",
         kind="Novel",
-        included_work_slugs=[],
-        work_authors=NonEmptyList(
-            repository_api.WorkAuthor(
+        included_title_ids=[],
+        title_authors=NonEmptyList(
+            repository_api.TitleAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
@@ -49,17 +49,17 @@ def test_create_author(tmp_path: Path, snapshot_json: SnapshotAssertion) -> None
     assert file_content == snapshot_json
 
 
-def test_create_create_work(
+def test_create_title(
     author_fixture: repository_api.Author,
     tmp_path: Path,
     snapshot_json: SnapshotAssertion,
 ) -> None:
-    repository_api.create_work(
+    repository_api.create_title(
         title="The Cellar",
         subtitle=None,
         year="1980",
-        work_authors=NonEmptyList(
-            repository_api.WorkAuthor(
+        title_authors=NonEmptyList(
+            repository_api.TitleAuthor(
                 author_slug=author_fixture.slug,
                 notes=None,
             )
@@ -68,7 +68,7 @@ def test_create_create_work(
     )
 
     with Path.open(
-        Path(tmp_path) / "works" / "the-cellar-by-richard-laymon.json",
+        Path(tmp_path) / "titles" / "the-cellar-by-richard-laymon.json",
         "r",
     ) as output_file:
         file_content = json.load(output_file)
@@ -77,10 +77,10 @@ def test_create_create_work(
 
 
 def test_can_create_reading(
-    tmp_path: Path, work_fixture: repository_api.Work, snapshot_json: SnapshotAssertion
+    tmp_path: Path, title_fixture: repository_api.Title, snapshot_json: SnapshotAssertion
 ) -> None:
     repository_api.create_reading(
-        work=work_fixture,
+        title=title_fixture,
         edition="Kindle",
         timeline=[
             repository_api.TimelineEntry(date=datetime.date(2016, 3, 10), progress="15%"),
@@ -99,10 +99,10 @@ def test_can_create_reading(
 
 
 def test_can_create_new_review(
-    tmp_path: Path, work_fixture: repository_api.Work, snapshot: SnapshotAssertion
+    tmp_path: Path, title_fixture: repository_api.Title, snapshot: SnapshotAssertion
 ) -> None:
     repository_api.create_or_update_review(
-        work=work_fixture,
+        title=title_fixture,
         grade="A+",
         date=datetime.date(2016, 3, 10),
     )
@@ -116,7 +116,7 @@ def test_can_create_new_review(
 
 
 def test_can_update_existing_review(
-    tmp_path: Path, work_fixture: repository_api.Work, snapshot: SnapshotAssertion
+    tmp_path: Path, title_fixture: repository_api.Title, snapshot: SnapshotAssertion
 ) -> None:
     existing_review = "---\nslug: the-cellar-by-richard-laymon\ngrade: A+\ndate: 2016-03-10\n---\n\nSome review content we want to preserve between updates."  # noqa: E501
 
@@ -127,7 +127,7 @@ def test_can_update_existing_review(
         first_output_file.write(existing_review)
 
     repository_api.create_or_update_review(
-        work=work_fixture,
+        title=title_fixture,
         grade="C+",
         date=datetime.date(2017, 3, 12),
     )
@@ -140,34 +140,34 @@ def test_can_update_existing_review(
     assert file_content == snapshot
 
 
-def test_work_author_with_invalid_slug_raises_error() -> None:
-    """Test that WorkAuthor.author() raises ValueError for invalid slug."""
-    work_author = repository_api.WorkAuthor(author_slug="non-existent-author", notes=None)
+def test_title_author_with_invalid_slug_raises_error() -> None:
+    """Test that TitleAuthor.author() raises ValueError for invalid slug."""
+    title_author = repository_api.TitleAuthor(author_slug="non-existent-author", notes=None)
 
     with pytest.raises(ValueError, match="Author with slug 'non-existent-author' not found"):
-        work_author.author()
+        title_author.author()
 
 
-def test_reading_with_invalid_work_slug_raises_error() -> None:
-    """Test that Reading.work() raises ValueError for invalid slug."""
+def test_reading_with_invalid_title_id_raises_error() -> None:
+    """Test that Reading.title() raises ValueError for invalid titleId."""
     reading = repository_api.Reading(
         sequence=1,
         edition="Kindle",
         timeline=[],
-        slug="2024-01-01-01-non-existent-work",
-        workSlug="non-existent-work",
+        slug="2024-01-01-01-non-existent-title",
+        titleId="non-existent-title",
         date=datetime.date(2024, 1, 1),
     )
 
-    with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):
-        reading.work()
+    with pytest.raises(ValueError, match="Title with slug 'non-existent-title' not found"):
+        reading.title()
 
 
-def test_review_with_invalid_work_slug_raises_error() -> None:
-    """Test that Review.work() raises ValueError for invalid slug."""
+def test_review_with_invalid_title_slug_raises_error() -> None:
+    """Test that Review.title() raises ValueError for invalid slug."""
     review = repository_api.Review(
-        slug="non-existent-work", date=datetime.date(2024, 1, 1), grade="A+"
+        slug="non-existent-title", date=datetime.date(2024, 1, 1), grade="A+"
     )
 
-    with pytest.raises(ValueError, match="Work with slug 'non-existent-work' not found"):
-        review.work()
+    with pytest.raises(ValueError, match="Title with slug 'non-existent-title' not found"):
+        review.title()

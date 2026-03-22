@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2012-05-13-01-rage-by-stephen-king
-workSlug: rage-by-stephen-king
+titleId: rage-by-stephen-king
 date: 2012-05-13
 edition: Paperback
 editionNotes:

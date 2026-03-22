@@ -4,7 +4,7 @@ grade: A-
 date: 2022-06-14
 ---
 
-After finishing <span data-work-slug="the-rise-of-theodore-roosevelt-by-edmund-morris">_The Rise of Theodore Roosevelt_</span>, and with a trip to London looming, I gave this well-reviewed biography of Winston Churchill a listen. It did not disappoint.
+After finishing <span data-title-id="the-rise-of-theodore-roosevelt-by-edmund-morris">_The Rise of Theodore Roosevelt_</span>, and with a trip to London looming, I gave this well-reviewed biography of Winston Churchill a listen. It did not disappoint.
 
 <!-- end -->
 

@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2022-10-29-01-the-skeptics-guide-to-the-universe-by-steven-novella
-workSlug: the-skeptics-guide-to-the-universe-by-steven-novella
+titleId: the-skeptics-guide-to-the-universe-by-steven-novella
 date: 2022-10-29
 edition: Audiobook
 editionNotes: Read by Steven Novella

@@ -1,7 +1,7 @@
 ---
 sequence: 3
 slug: 2014-06-09-03-allhallows-eve-by-richard-laymon
-workSlug: allhallows-eve-by-richard-laymon
+titleId: allhallows-eve-by-richard-laymon
 date: 2014-06-09
 edition: Paperback
 editionNotes:

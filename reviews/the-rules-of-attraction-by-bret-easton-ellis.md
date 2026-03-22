@@ -8,7 +8,7 @@ In 1984, at Camden, a small liberal-arts college in rural New Hampshire, existen
 
 <!-- end -->
 
-Brett Easton Ellis's follow-up to <span data-work-slug="less-than-zero-by-bret-easton-ellis">_Less Than Zero_</span> shares its first-person narration and detached tone, but lacks its resonant sense of existential dread. Instead, it proffers a biting sense of black comedy. Consider Paul's ask when driving their overdosing friend to the emergency room.
+Brett Easton Ellis's follow-up to <span data-title-id="less-than-zero-by-bret-easton-ellis">_Less Than Zero_</span> shares its first-person narration and detached tone, but lacks its resonant sense of existential dread. Instead, it proffers a biting sense of black comedy. Consider Paul's ask when driving their overdosing friend to the emergency room.
 
 > We were almost there, a smallish brick structure that sat next to a vast, empty parking lot, near the end of town. Beyond that, the woods, a forest that stretched for miles. No one was saying anything. We passed a liquor store.
 >
@@ -62,13 +62,13 @@ Indeed, Sean proves the most reliable—but on a sliding scale. Ellis embraces t
 
 Music for the Handicapped. It's never mentioned before or after, just tossed out in passing. I love it.
 
-And I appreciated Ellis's nod to Donna Tartt's <span data-work-slug="the-secret-history-by-donna-tartt">_The Secret History_</span>.
+And I appreciated Ellis's nod to Donna Tartt's <span data-title-id="the-secret-history-by-donna-tartt">_The Secret History_</span>.
 
 > But who doesn’t go to The Dressed To Get Screwed party, besides that weird Classics group (and they’re probably roaming the countryside sacrificing farmers and performing pagan rituals)?
 
 Ellis and Tartt both attended Bennington College, which served as the basis for both Camden and _The Secret History_'s Hampden.
 
-The novel also features two notable guest appearances. _Less Than Zero_'s protagonist Clay narrates a chapter, providing a sad coda that sees him longing to return to Los Angeles. Sean's brother Patrick also narrates a chapter. He's not as fleshed out as he would be in <span data-work-slug="american-psycho-by-bret-easton-ellis">_American Psycho_</span>, but he's close, exhibiting his trademark mix of aggression and paranoia.
+The novel also features two notable guest appearances. _Less Than Zero_'s protagonist Clay narrates a chapter, providing a sad coda that sees him longing to return to Los Angeles. Sean's brother Patrick also narrates a chapter. He's not as fleshed out as he would be in <span data-title-id="american-psycho-by-bret-easton-ellis">_American Psycho_</span>, but he's close, exhibiting his trademark mix of aggression and paranoia.
 
 Full disclosure: I'd seen—and loved—the _Rules of Attraction_ movie before reading the book. So in my mind's eye, James Van Der Beek is Sean, Ian Somerhalder is Paul, and Shannyn Sossamon is Lauren. This worked fine (aside from Paul and Lauren's blonde hair in the book), but I found it hard to envision Van Der Beek wearing this outfit:
 

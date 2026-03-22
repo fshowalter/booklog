@@ -1,7 +1,7 @@
 ---
 sequence: 1
 slug: 2018-01-17-01-the-pack-by-jason-starr
-workSlug: the-pack-by-jason-starr
+titleId: the-pack-by-jason-starr
 date: 2018-01-17
 edition: Hardcover
 editionNotes: Ace Hardcover, 2011

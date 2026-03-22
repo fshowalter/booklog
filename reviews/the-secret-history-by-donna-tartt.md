@@ -14,7 +14,7 @@ This extends to the characters. The core group of college kids often act as midd
 
 And then there’s the sole “grown up,” professor cum father figure, Julian, who proves aloof yet magnetic. As though through his study of the classics, he’s attained a rarefied level of sophistication and insight. Tartt threads the needle between caricature and character, messiah and fraud. I ended the book with a sense of Julian’s true nature, yet still felt drawn to him.
 
-The closest I can remember to such an experience—and this proves a poor analogy—is reading Anne Rice’s <span data-work-slug="the-vampire-lestat-by-anne-rice">_The Vampire Lestat_</span> as a teenager. Another aesthetic world full of erudite personalities with an undercurrent of primal violence. My teenage self loved it. So it brings terrific joy to discover another such experience at middle age.
+The closest I can remember to such an experience—and this proves a poor analogy—is reading Anne Rice’s <span data-title-id="the-vampire-lestat-by-anne-rice">_The Vampire Lestat_</span> as a teenager. Another aesthetic world full of erudite personalities with an undercurrent of primal violence. My teenage self loved it. So it brings terrific joy to discover another such experience at middle age.
 
 Tartt’s narration at first proved challenging. Richard is a boy from California and thus wouldn’t have Tartt’s voice or Mississippi drawl. But I powered through and enjoyed Tartt’s intonation of distinct voices that wouldn’t have come through on the printed page, like Bunny’s (“W. C. Fields with a bad case of Long Island lockjaw”) and Julian’s (a whispered high rising terminal, as though every word were a revelation).
 
