@@ -4,9 +4,10 @@ from collections.abc import Callable, Iterable
 from datetime import date
 from typing import TypedDict
 
-from booklog.exports import exporter, list_tools
+from booklog.exports import exporter
 from booklog.exports.repository_data import RepositoryData
 from booklog.repository import api as repository_api
+from booklog.utils import list_tools
 from booklog.utils.logging import logger
 
 
