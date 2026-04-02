@@ -20,7 +20,7 @@ booklog = "booklog.cli.main:prompt"
 
 [dependency-groups]
 dev = [
-  "ruff==0.15.8",
+  "ruff==0.15.9",
   "mypy==1.20.0",
   "pytest==9.0.2",
   "types-python-slugify==8.0.2.20240310",
