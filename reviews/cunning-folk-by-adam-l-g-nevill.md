@@ -2,6 +2,7 @@
 slug: cunning-folk-by-adam-l-g-nevill
 grade: D
 date: 2026-03-26
+synopsis: A young working-class couple mortgaged to their ears on a rural semi-detached house discover their old, hostile neighbors wield otherworldly powers.
 ---
 
 Tom and Fiona are a young working-class couple who've scraped together enough to buy a semi-detached house in rural south England. The previous owner hanged himself leaving the property in disrepair. The roof, plumbing, floors, walls, _everything_ needs work.  Even so, the mortgage is killing them. 
