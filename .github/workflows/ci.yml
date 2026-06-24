@@ -23,7 +23,7 @@ jobs:
           enable-cache: true
 
       - name: "Set up Python"
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v6.3.0
 
       - name: uv run ruff format
         run: uv run ruff format
@@ -44,7 +44,7 @@ jobs:
           enable-cache: true
 
       - name: "Set up Python"
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v6.3.0
 
       - name: uv run mypy booklog tests
         run: uv run mypy booklog tests
@@ -62,7 +62,7 @@ jobs:
           enable-cache: true
 
       - name: "Set up Python"
-        uses: actions/setup-python@v6.2.0
+        uses: actions/setup-python@v6.3.0
 
       - name: uv run pytest
         run: |
