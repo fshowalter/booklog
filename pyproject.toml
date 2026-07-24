@@ -24,7 +24,7 @@ dev = [
   "mypy==2.3.0",
   "pytest==9.1.1",
   "types-python-slugify==8.0.2.20240310",
-  "types-pyyaml==6.0.12.20260518",
+  "types-pyyaml==6.0.12.20260724",
 ]
 
 [tool.ruff]
