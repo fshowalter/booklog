@@ -14,7 +14,7 @@ from prompt_toolkit.validation import Validator
 from booklog.cli import ask, radio_list, select_title
 from booklog.repository import api as repository_api
 
-Option = tuple[None | str, AnyFormattedText]
+Option = tuple[str | None, AnyFormattedText]
 
 Stages = Literal[
     "ask_for_title",

@@ -76,18 +76,16 @@ def test_creates_title(
     author_fixture: repository_api.Author,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_author(author_fixture.name[:6]),
-            *select_author_search_result(),
-            *enter_notes(),
-            "n",
-            *select_kind_novel(),
-            *enter_title("The Cellar", confirm="y"),
-            *enter_year_published("1980"),
-            "n",
-        ]
-    )
+    mock_input([
+        *enter_author(author_fixture.name[:6]),
+        *select_author_search_result(),
+        *enter_notes(),
+        "n",
+        *select_kind_novel(),
+        *enter_title("The Cellar", confirm="y"),
+        *enter_year_published("1980"),
+        "n",
+    ])
 
     add_title.prompt()
 
@@ -102,21 +100,19 @@ def test_creates_title_for_collection(
     title_fixture: repository_api.Title,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_author(author_fixture.name[:6]),
-            *select_author_search_result(),
-            *enter_notes(),
-            "n",
-            *select_kind_collection(),
-            *enter_title("The Richard Laymon Collection Volume 1", confirm="y"),
-            *enter_year_published("2006"),
-            *enter_included_title_text(title_fixture.title),
-            *select_title_search_result("y"),
-            "n",
-            "n",
-        ]
-    )
+    mock_input([
+        *enter_author(author_fixture.name[:6]),
+        *select_author_search_result(),
+        *enter_notes(),
+        "n",
+        *select_kind_collection(),
+        *enter_title("The Richard Laymon Collection Volume 1", confirm="y"),
+        *enter_year_published("2006"),
+        *enter_included_title_text(title_fixture.title),
+        *select_title_search_result("y"),
+        "n",
+        "n",
+    ])
 
     add_title.prompt()
 
@@ -139,16 +135,14 @@ def test_can_cancel_out_of_kind(
     author_fixture: repository_api.Author,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_author(author_fixture.name[:6]),
-            *select_author_search_result(),
-            *enter_notes(),
-            "n",
-            Escape,         # cancel at kind → loops back to ask_for_authors
-            *enter_notes(), # empty author name → exits select_author.prompt()
-        ]
-    )
+    mock_input([
+        *enter_author(author_fixture.name[:6]),
+        *select_author_search_result(),
+        *enter_notes(),
+        "n",
+        Escape,  # cancel at kind → loops back to ask_for_authors
+        *enter_notes(),  # empty author name → exits select_author.prompt()
+    ])
 
     add_title.prompt()
 

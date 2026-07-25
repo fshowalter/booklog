@@ -35,12 +35,10 @@ def test_does_not_add_blank_author(mock_input: MockInput, tmp_path: Path) -> Non
 
 
 def test_can_correct_input(mock_input: MockInput, tmp_path: Path) -> None:
-    mock_input(
-        [
-            *enter_text("Steven Kang", confirm="n"),
-            *enter_text("Stephen King", confirm="y"),
-        ]
-    )
+    mock_input([
+        *enter_text("Steven Kang", confirm="n"),
+        *enter_text("Stephen King", confirm="y"),
+    ])
 
     add_author.prompt()
 

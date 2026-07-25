@@ -178,9 +178,7 @@ def _build_json_reviewed_title(
         repository_data=repository_data,
     )
 
-    most_recent_reading = sorted(
-        readings_for_title, key=lambda reading: reading.slug, reverse=True
-    )[0]
+    most_recent_reading = max(readings_for_title, key=lambda reading: reading.slug)
 
     return JsonReviewedTitle(
         id=title.slug,
