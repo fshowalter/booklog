@@ -17,7 +17,7 @@ But the persona worked. Taylor became Eldrich, rock god. The transformation requ
 
 Andrews interviewed Eldrich. Yet the man remains opaque. His motives, his thoughts--nothing breaks through. We get observations about him, never from him. Did the interview yield anything? You'd never know.
 
-Here's the bigger problem: this is only Act One. The book ends with the original lineup's dissolution in 1985. Everything after--the even more successful _Floodland_, the second breakup, the brilliant _Vision Thing_, Eldrich's decades-long refusal to release new music—gets relegated to an epilogue.
+Here's the bigger problem: this is only Act One. The book ends with the original lineup's dissolution in 1985. Everything after--the even more successful _Floodland_, the second breakup, the brilliant _Vision Thing_, Eldrich's decades-long refusal to release new music--gets relegated to an epilogue.
 
 Small-town band makes good, records major label album, falls apart? That's a familiar story. What's remarkable is what Andrews doesn't cover: Eldrich rebuilding twice more, each time more successful, like lightning striking three times. That's the real testament to his genius.
 

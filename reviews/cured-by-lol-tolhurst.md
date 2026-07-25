@@ -16,7 +16,7 @@ Along the way, we get some memorable anecdotes, like peeing on Billy Idol:
 
 Or conversing with Terri Hooley, only to realize the punk icon was asleep and his one open eye was glass:
 
-> At least he didn’t take it out and pop it in my beer, which I hear he liked to do sometimes. Terri Hooley, a lovely man and a true punk original.
+> At least he didn't take it out and pop it in my beer, which I hear he liked to do sometimes. Terri Hooley, a lovely man and a true punk original.
 
 Not all the stories are humorous. Lol's drinking grows problematic. At an after-hours club, he gets into a drunken fight, resulting in taking a pint glass to the face. After a trip to the ER and stitches, he returns to the club:
 
@@ -28,8 +28,8 @@ As the band's ascent continues, they embark on their first visit to America via 
 
 And as their international fame grows, so does their fan base:
 
-> Contrary to popular belief, we were not pale-faced Goths who sat in dark rooms with candles and cried all the time. Although we did have some fans like that—two very sweet Japanese girls used to just stand and cry in front of us whenever they managed to come into contact with us. We named them Doom and Gloom. In the nicest way, you understand.
+> Contrary to popular belief, we were not pale-faced Goths who sat in dark rooms with candles and cried all the time. Although we did have some fans like that--two very sweet Japanese girls used to just stand and cry in front of us whenever they managed to come into contact with us. We named them Doom and Gloom. In the nicest way, you understand.
 
-But Lol's drinking soon consumes him, culminating in his dismissal from the band post _Disintegration_. Estranged from the band--his surrogate family--he moves to Los Angeles, sobers up, and finds happiness in raising his son. This “post band” part of the story can drag or seem self-indulgent in memoirs, but Tolhurst keeps it short and grounded. The eventual reconciliation between him and Robert proves just as understated and even more poignant for it.
+But Lol's drinking soon consumes him, culminating in his dismissal from the band post _Disintegration_. Estranged from the band--his surrogate family--he moves to Los Angeles, sobers up, and finds happiness in raising his son. This "post band" part of the story can drag or seem self-indulgent in memoirs, but Tolhurst keeps it short and grounded. The eventual reconciliation between him and Robert proves just as understated and even more poignant for it.
 
 I'm glad I chose the audiobook. Lol proves a natural storyteller. His neutral tone lends a quiet authority, and hearing the ever-so-slight crack in his voice during the story's rougher moments conveys far more emphasis than the written page's overused exclamation points.

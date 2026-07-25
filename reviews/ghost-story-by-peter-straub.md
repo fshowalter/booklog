@@ -10,7 +10,7 @@ The plot concerns a group of prominent elderly men in a small upstate New York t
 
 The setup bears some similarity to Stephen King's <span data-title-id="salems-lot-by-stephen-king">_'Salem's Lot_</span>--a supernatural force descends on a small isolated northeastern town turning its residents into undead monsters--and it also features a young author as the central protagonist. Heck, _Ghost Story_ even opens with said author travelling south with a young child.
 
-Straub acknowledged the inspiration, saying, "I wanted to work on a large canvas. _’Salem’s Lot_ showed me how to do this without getting lost among a lot of minor characters."[^1] That said, the antagonists in _Ghost Story_ feel more akin to those found in what would be King's next novel, <span data-title-id="the-shining-by-stephen-king">_The Shining_</span>, so perhaps the inspiration went both ways.
+Straub acknowledged the inspiration, saying, "I wanted to work on a large canvas. _'Salem's Lot_ showed me how to do this without getting lost among a lot of minor characters."[^1] That said, the antagonists in _Ghost Story_ feel more akin to those found in what would be King's next novel, <span data-title-id="the-shining-by-stephen-king">_The Shining_</span>, so perhaps the inspiration went both ways.
 
 Like King, Straub's strength here lies in his characters. The best of which--lifelong friends and law-partners Ricky Hawthorne and Sears James--prove so charismatic they could carry a story devoid of plot. I especially loved James, a gruff bear of a man whose Orson Welles similarities surfaced even before Straub calls them out. In contrast, Ricky evokes a frailer image. I pictured an older, American Peter Cushing.[^2] Both endear themselves such that, as the action ramps up, you fear for their safety.
 
@@ -26,7 +26,7 @@ Straub's other struggle comes with his chief antagonist. While she's villainous 
 
 The result is a being of near omniscient power in some scenes, and surprisingly little in others. A shapeshifting being who predates humankind, regards humans as insignificant and inferior, and yet, when asked what she is, she responds with "I am you."
 
-In <span data-title-id="danse-macabre-by-stephen-king">_Danse Macabre_</span>, Stephen King opines, "It is usually easy to divide horror novels in another way—those that deal with “inside evil” (as in _Dr. Jekyll and Mr. Hyde_) and those that deal with “outside” or predestinate evil (as in <span data-title-id="dracula-by-bram-stoker">_Dracula_</span>). But occasionally a book comes along where it is impossible to discover exactly where that line is. _The Haunting of Hill House_ is such a book; _Ghost Story_ is another."[^4]
+In <span data-title-id="danse-macabre-by-stephen-king">_Danse Macabre_</span>, Stephen King opines, "It is usually easy to divide horror novels in another way--those that deal with "inside evil" (as in _Dr. Jekyll and Mr. Hyde_) and those that deal with "outside" or predestinate evil (as in <span data-title-id="dracula-by-bram-stoker">_Dracula_</span>). But occasionally a book comes along where it is impossible to discover exactly where that line is. _The Haunting of Hill House_ is such a book; _Ghost Story_ is another."[^4]
 
 I can appreciate the ambiguity King admires, but would argue that Straub fumbles the execution. King himself proved far more successful in _The Shining_, exploring the inner evil of an alcoholic father and the external evil of the malevolent hotel.
 

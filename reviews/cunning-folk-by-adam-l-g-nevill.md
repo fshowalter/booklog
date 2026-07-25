@@ -7,7 +7,7 @@ synopsis: A young working-class couple mortgaged to their ears on a rural semi-d
 
 Tom and Fiona are a young working-class couple who've scraped together enough to buy a semi-detached house in rural south England. The previous owner hanged himself leaving the property in disrepair. The roof, plumbing, floors, walls, _everything_ needs work.  Even so, the mortgage is killing them. 
 
-Then they meet the neighbors, who are old, strange, and immediately hostile. Their side of the shared wall is immaculate—lush garden, fresh paint, ruler-straight roof tiles. Tom's side looks like the Somme. Strangers begin arriving at odd hours to pay the old pair what can only be called tribute. When terrible things start happening to his four-year-old daughter, Tom realizes he is up against more than cranky old coots.
+Then they meet the neighbors, who are old, strange, and immediately hostile. Their side of the shared wall is immaculate--lush garden, fresh paint, ruler-straight roof tiles. Tom's side looks like the Somme. Strangers begin arriving at odd hours to pay the old pair what can only be called tribute. When terrible things start happening to his four-year-old daughter, Tom realizes he is up against more than cranky old coots.
 
 This is the premise of Adam Nevill's _Cunning Folk_, and it's a good one. It is not, unfortunately, a good novel.
 
@@ -19,7 +19,7 @@ The horror movie comparison is inescapable. Not the good kind of horror movie. T
 
 The prose stumbles, too. Nevill leans on repetition--"blurred," "dizzy"--trying to force moods.
 
-Then there's the tone. In a memorable sequence, Tom stumbles upon a severed head. About to be sick, he runs to the bathroom only to find more body parts in every fixture — sink, bathtub, toilet — while desperately trying to hold back the bile. It's a great bit--_Shaun of the Dead_ energy--but it sits uneasily beside the novel's darker, more earnest passages. 
+Then there's the tone. In a memorable sequence, Tom stumbles upon a severed head. About to be sick, he runs to the bathroom only to find more body parts in every fixture -- sink, bathtub, toilet -- while desperately trying to hold back the bile. It's a great bit--_Shaun of the Dead_ energy--but it sits uneasily beside the novel's darker, more earnest passages. 
 
 The author's notes at the end are illuminating. _Cunning Folk_ began as a screenplay--Nevill's second--before three years in development hell pushed him toward the novel. He spent six weeks on the script and fourteen months on the book. Those ratios explain much. The screenplay's bones are still visible beneath the novel's skin: rigid structure, a protagonist whose inner life was meant to be supplied by an actor, setpieces the author couldn't bring himself to cut. An actor manufactures charisma. A reader follows thoughts. Tom's thoughts are not worth following. 
 

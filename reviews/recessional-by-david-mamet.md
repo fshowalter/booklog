@@ -32,7 +32,7 @@ Or how he rails against cancel culture and social justice, but when he raises th
 
 A shame, because he backs into a sound argument that today's climate forces one to either publicly agree with certain ideologies or face retaliation, akin to either "naming names" and saving their livelihood or remaining silent and facing blacklisting. Not too far a step from the Salem Witch Trials (another conservative movement). The sides may have changed, but the behavior remains the same.
 
-Political leanings aside, his acerbic observations on Hollywood shine. On the subject of TV, he writes, "The content of television shows is essentially undifferentiated. Not only are all the cop shows interchangeable; they are interchangeable with the medical shows. (Swap out the shoot-outs and the ER scenes—the action sequences—and they are all just bad narration about offscreen characters.)"
+Political leanings aside, his acerbic observations on Hollywood shine. On the subject of TV, he writes, "The content of television shows is essentially undifferentiated. Not only are all the cop shows interchangeable; they are interchangeable with the medical shows. (Swap out the shoot-outs and the ER scenes--the action sequences--and they are all just bad narration about offscreen characters.)"
 
 I'm going to peruse Mamet's bibliography to see if he has an all-Hollywood book, as I suspect that would prove enjoyable. But I cannot recommend _Recessional_. Those who enjoy it are likely just as angry as Mamet, and--I suspect--will remain so, no matter the country's politics.
 

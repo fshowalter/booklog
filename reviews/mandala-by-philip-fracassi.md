@@ -18,7 +18,7 @@ The boys play near a small cove that fills and empties with water according to t
 
 They decide to play cops and robbers. They'll take turns, with Joe being the cop first. Mike hides in the nearby trees, but gets spooked by an unseen presence. Again, I love the details Fracassi drops to build atmosphere:
 
-> Mike rushed out from the line of firs and into the open ground between the cove and the ocean, the rifle left on the ground by the tree where he’d dropped it, forgotten; a spider crawled over its barrel, thinking it a potential home for her eggs.
+> Mike rushed out from the line of firs and into the open ground between the cove and the ocean, the rifle left on the ground by the tree where he'd dropped it, forgotten; a spider crawled over its barrel, thinking it a potential home for her eggs.
 
 After catching Mike, Joe, whose father is an actual police officer, uses a pair of real handcuffs to chain Mike to a post at the bottom of the cove. Joe promises to return in five minutes, but does not. Time passes and in comes the tide.
 

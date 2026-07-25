@@ -8,7 +8,7 @@ James Bond investigates a popular self-made millionaire with surgically enhanced
 
 <!-- end -->
 
-No, not Elon Musk, but the parallels intrigue. This mogul is Hugo Drax, a man of mysterious origin who gifts Britain with the “Moonraker”, the country's first nuclear missile program.
+No, not Elon Musk, but the parallels intrigue. This mogul is Hugo Drax, a man of mysterious origin who gifts Britain with the "Moonraker", the country's first nuclear missile program.
 
 With the government's blessing, Drax begins construction in an isolated compound near Dover. All goes well until the security chief dies under curious circumstances. With the maiden test launch on the horizon, sabotage fears abound. This triggers an unusual arrangement where Bond steps in as the new security head.
 
@@ -20,7 +20,7 @@ A Bond-ism on shaving:
 
 Another on sprinkling pepper atop vodka:
 
-> ‘There’s often quite a lot of fusel oil on the surface of this stuff – at least there used to be when it was badly distilled. Poisonous. In Russia, where you get a lot of bathtub liquor, it’s an understood thing to sprinkle a little pepper in your glass. It takes the fusel oil to the bottom. I got to like the taste and now it’s a habit.'
+> 'There's often quite a lot of fusel oil on the surface of this stuff -- at least there used to be when it was badly distilled. Poisonous. In Russia, where you get a lot of bathtub liquor, it's an understood thing to sprinkle a little pepper in your glass. It takes the fusel oil to the bottom. I got to like the taste and now it's a habit.'
 
 And in describing M's private club, Fleming drops choice details:
 

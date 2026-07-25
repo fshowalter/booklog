@@ -4,7 +4,7 @@ grade: A-
 date: 2022-05-07
 ---
 
-An immersive epic that celebrates—but never sugar-coats—its subject.
+An immersive epic that celebrates--but never sugar-coats--its subject.
 
 <!-- end -->
 
