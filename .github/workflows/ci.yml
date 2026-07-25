@@ -25,8 +25,8 @@ jobs:
       - name: "Set up Python"
         uses: actions/setup-python@v7.0.0
 
-      - name: uv run ruff format
-        run: uv run ruff format
+      - name: uv run ruff format --exit-non-zero-on-format
+        run: uv run ruff format --exit-non-zero-on-format
 
       - name: uv run ruff check
         run: uv run ruff check
