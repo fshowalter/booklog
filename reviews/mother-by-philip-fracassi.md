@@ -12,7 +12,7 @@ Though told from the man's perspective, Fracassi paints both characters as capab
 
 I enjoyed it, despite this wince-inducing early line:
 
-> Julie’s parents were tragically killed when she was a baby.
+> Julie's parents were tragically killed when she was a baby.
 
 Once he gets going, however, Fracassi delivers the goods in a nightmarish woodland sequence that leaves us as unsettled as the narrator. The story stumbles after, unsure how to link this sequence to the set-piece finale. Fracassi doesn't quite stick the landing, but the whole entertains.
 

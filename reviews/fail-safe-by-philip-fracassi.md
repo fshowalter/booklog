@@ -4,15 +4,15 @@ grade: C
 date: 2022-04-30
 ---
 
-A twelve-year-old boy's father and other family “friends” have built a chamber in the family basement to contain his mother when she “turns”. One night, things go wrong.
+A twelve-year-old boy's father and other family "friends" have built a chamber in the family basement to contain his mother when she "turns". One night, things go wrong.
 
 <!-- end -->
 
-A coming of age story involving a nightmarish family secret. Themes of “men” and “becoming a man” loom large. Good effort, mixed results.
+A coming of age story involving a nightmarish family secret. Themes of "men" and "becoming a man" loom large. Good effort, mixed results.
 
 Fracassi hooked me early:
 
-> I never heard Mother screaming in the night. I knew she was, it was obvious. I’d seen her with the cameras. Father had made me watch when I was young.
+> I never heard Mother screaming in the night. I knew she was, it was obvious. I'd seen her with the cameras. Father had made me watch when I was young.
 
 But his later reliance on convenient plotting disappointed:
 

@@ -4,7 +4,7 @@ grade: A-
 date: 2022-04-18
 ---
 
-I struggle to remember the last time a story evoked such a visceral sense of dread. Both <span data-title-id="guts-by-chuck-palahniuk">Chuck Palahniuk's “Guts”</span> and <span data-title-id="american-psycho-by-bret-easton-ellis">Bret Easton Ellis's _American Psycho_</span> had scenes that forced me to stop reading, but "Altar" is different.
+I struggle to remember the last time a story evoked such a visceral sense of dread. Both <span data-title-id="guts-by-chuck-palahniuk">Chuck Palahniuk's "Guts"</span> and <span data-title-id="american-psycho-by-bret-easton-ellis">Bret Easton Ellis's _American Psycho_</span> had scenes that forced me to stop reading, but "Altar" is different.
 
 <!-- end -->
 
@@ -16,8 +16,8 @@ My lone nit lies here, as it wasn't until they arrived at the pool that Fracassi
 
 Back to the story. Once we arrive at the pool, it introduces another point of view, young Tyler, who's almost old enough to graduate from his floaties. Fracassi imbues both Tyler and Gary's perspectives with the anxieties, frustrations, and simple joys of childhood. They never feel cloying or contrived.
 
-> Kids splashed mercilessly around him but he didn’t mind, part of him actually grateful now for the wings that kept him easily aloft, although he’d never admit it to his mother.
+> Kids splashed mercilessly around him but he didn't mind, part of him actually grateful now for the wings that kept him easily aloft, although he'd never admit it to his mother.
 
 As Tyler floated out into the pool's deeper waters, I noticed a slight weight on my chest, as though I were laying down and resting a cold can of soda on my sternum. As Gary noticed Abby arguing with two older boys, the can of soda became a six-pack. As Gary sees his sister dragged away, the six-pack became a case. Part of me wanted to stop reading. A larger part thrilled at the reaction.
 
-I won’t spoil the end, as I need not write about it to remember. Suffice to say Fracassi delivers a Lovecraftian commentary on lost innocence that smothered me like a wave of nihilistic horror. This story, I won’t forget.
+I won't spoil the end, as I need not write about it to remember. Suffice to say Fracassi delivers a Lovecraftian commentary on lost innocence that smothered me like a wave of nihilistic horror. This story, I won't forget.

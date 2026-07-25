@@ -10,10 +10,10 @@ date: 2022-04-17
 
 It opens at a Navy recruiting office. The exposition-heavy dialogue disappoints:
 
-> “Well, here we go,” he said. “Wish me luck.”<br /><br />
-> “Like hell I will. You know what I think of your going in the Navy. Anyway, I’m the one that needs the luck.”<br /><br />
-> “You don’t have to worry, they’ll take you.”<br /><br />
-> “Maybe,” I said. “The Army turned me down last year.” “That was last year. They’ve given up using Superman as a standard.”
+> "Well, here we go," he said. "Wish me luck."<br /><br />
+> "Like hell I will. You know what I think of your going in the Navy. Anyway, I'm the one that needs the luck."<br /><br />
+> "You don't have to worry, they'll take you."<br /><br />
+> "Maybe," I said. "The Army turned me down last year." "That was last year. They've given up using Superman as a standard."
 
 But things pick up as MacDonald sets up a mystery around a Nazi mole within the campus War Board. The plot then piles on a locked-room murder mystery. MacDonald goes through great pains to describe the Rube-Goldberg style setup, but this just leads to confusion:
 
@@ -25,7 +25,7 @@ Here MacDonald proves vulnerable to fits of lazy writing:
 
 > The two huge steampipes, green-painted, hung before me like twin segments of impossible serpents glowing with impossible energy.
 
-Despite such lapses, this proves the book's most entertaining section. MacDonald does a great job conveying Branch's desperation, and the story rumbles along at a frantic pace. Good thing too—lest the reader question the college professor's
+Despite such lapses, this proves the book's most entertaining section. MacDonald does a great job conveying Branch's desperation, and the story rumbles along at a frantic pace. Good thing too--lest the reader question the college professor's
 Olympic-level physical conditioning. Or how many folks are awake past two a.m.. Or how Branch could forget his gun:
 
 > Suddenly, I noticed that I had no gun. I must have left it in the reptile-pit.

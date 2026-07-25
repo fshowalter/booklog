@@ -13,7 +13,7 @@ The vine gets mentioned 34 times in this 1980 short story. Fourteen times before
 
 The story itself? Solid enough. College student Mercer ventures down Grand Avenue--a name turned ironic by urban decay--to visit Gradie, an antiques dealer who's discovered something terrible beneath those suffocating vines. Wagner understands atmosphere. He knows how to make abandonment feel ominous, how to transform botanical overgrowth into something sinister.
 
-And when he's not repeating "kudzu" like a nervous tic, he can write. Look at Gradie's introduction: the dealer emerges from his shop like "a greying groundhog, or a narrow-eyed pack rat, crawling out of its burrow—an image tinted grey and green through the shimmering curvatures of the bottles, iridescently filmed with a patina of age and cinder." That's not just description. That's prophecy. The man has already been consumed by his environment, transformed into something that belongs to the ruins.
+And when he's not repeating "kudzu" like a nervous tic, he can write. Look at Gradie's introduction: the dealer emerges from his shop like "a greying groundhog, or a narrow-eyed pack rat, crawling out of its burrow--an image tinted grey and green through the shimmering curvatures of the bottles, iridescently filmed with a patina of age and cinder." That's not just description. That's prophecy. The man has already been consumed by his environment, transformed into something that belongs to the ruins.
 
 The horror, when it arrives, works precisely because Wagner has spent so much time making us feel the weight of that kudzu, the way it smothers everything beneath it. What thrives in that darkness feels inevitable.
 

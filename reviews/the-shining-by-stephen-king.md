@@ -22,16 +22,16 @@ This listen also revealed other connections to King's personal life. Like when W
 
 Now consider this remembrance from King in _On Writing_, about how he met his wife, Tabitha, at a college poetry workshop[^1]:
 
-> Tabby was in one of Jim Bishop’s rocking chairs that night. I was sitting on the floor beside her. I put my hand on her calf as she spoke, cupping the curve of warm flesh through her stocking. She smiled at me. I smiled back.
+> Tabby was in one of Jim Bishop's rocking chairs that night. I was sitting on the floor beside her. I put my hand on her calf as she spoke, cupping the curve of warm flesh through her stocking. She smiled at me. I smiled back.
 
 Again, hard not to read this as King's most personal work to date.
 
 ---
 
-After this listen, I tracked down a copy of the excised prologue, _Before the Play_, online. Much of it proffers the Overlook’s origin story—an interesting read, but one better shrouded in mystery and doled out via the scrapbook Jack encounters in the published novel. Including it in the prologue positions the novel as the Overlook’s story, but it‘s not.
+After this listen, I tracked down a copy of the excised prologue, _Before the Play_, online. Much of it proffers the Overlook's origin story--an interesting read, but one better shrouded in mystery and doled out via the scrapbook Jack encounters in the published novel. Including it in the prologue positions the novel as the Overlook's story, but it's not.
 
-It‘s Jack‘s story, and the prologue’s last segment plays out through young Jack‘s eyes. He‘s about the same age as Danny in the book and the segment opens with him sitting outside, waiting for his daddy to come home. But when Jack‘s father arrives, Jack realizes he‘s drunk. Drunk means dangerous. Jack retreats, but it‘s too late. His father perceives a slight and lashes out. Jack flees to his treehouse. Jack‘s father pursues with near murderous intent, roaring that little Jack, “Come back here and take your medicine! Take it like a man!”
+It's Jack's story, and the prologue's last segment plays out through young Jack's eyes. He's about the same age as Danny in the book and the segment opens with him sitting outside, waiting for his daddy to come home. But when Jack's father arrives, Jack realizes he's drunk. Drunk means dangerous. Jack retreats, but it's too late. His father perceives a slight and lashes out. Jack flees to his treehouse. Jack's father pursues with near murderous intent, roaring that little Jack, "Come back here and take your medicine! Take it like a man!"
 
-Cutting this scene was a mistake. It reframes the entire story as a cyclical trap Jack had little hope of escaping. This lends his character a tragic bent, and heightens his climactic redemption, when—for a moment—he breaks the cycle.
+Cutting this scene was a mistake. It reframes the entire story as a cyclical trap Jack had little hope of escaping. This lends his character a tragic bent, and heightens his climactic redemption, when--for a moment--he breaks the cycle.
 
 [^1]: King, _On Writing_, 65.

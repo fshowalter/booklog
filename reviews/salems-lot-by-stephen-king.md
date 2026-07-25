@@ -16,7 +16,7 @@ Of course, Barlow isn't in New York. He's in a coffin inside the Marsten House. 
 
 This marked my third time through _`Salem's Lot_ and it improves with each visit. After crafting such a memorable small-town setting in <span data-title-id="carrie-by-stephen-king">_Carrie_</span>, King plays to his strengths and makes a small town the focus of this follow-up novel. As Matt says:
 
-> "There’s little good in sedentary small towns. Mostly indifference spiced with an occasional vapid evil—or worse, a conscious one."
+> "There's little good in sedentary small towns. Mostly indifference spiced with an occasional vapid evil--or worse, a conscious one."
 
 The Lot proves more isolated than _Carrie_'s Chamberlain, though the fixtures feel familiar. A small-town constable, a roadhouse bar, a gossip network. But King adds more to the Lot, including a boarding house, the town dump, and the wild Marshes area. Indeed, on this visit, the Lot reminded of another King town, Derry.
 
@@ -30,7 +30,7 @@ And once again, I groaned at Susan's reasoning that everyone else is crazy and t
 
 I understand King needing to move the plot forward, but this inanity demeans Susan's character, reducing her to another stupid horror victim running up the stairs instead of out the door.
 
-On the bright side, my biggest gripe—the finale's “blue flame of power"—didn't feel as cheap this time around. I still find it unnecessary, but I can better appreciate how King was trying to showcase a force to counter the one fueling Barlow. The “hand of God” metaphor is one King would struggle with again.
+On the bright side, my biggest gripe--the finale's "blue flame of power"--didn't feel as cheap this time around. I still find it unnecessary, but I can better appreciate how King was trying to showcase a force to counter the one fueling Barlow. The "hand of God" metaphor is one King would struggle with again.
 
 Ron McLarty's narration proved a mixed bag. He's perfect for Ben and I loved the New England drawl he brought to constable Parkins Gillespie, but pitching up his voice for Susan and Mark grated. And his performance of Barlow aims for Lugosi but lands closer to the Count from Sesame Street.
 
@@ -38,13 +38,13 @@ Ron McLarty's narration proved a mixed bag. He's perfect for Ben and I loved the
 
 After this listen, I found a copy of the _Illustrated Edition_, which appends a "Deleted Scenes" section, showcasing bits excised from the final manuscript. This proved illuminating, as some of these excised scenes would have addressed my gripes.
 
-It’s all about the rats. They play a bigger part in the original manuscript. When Susan and Mark break into the Marsten House, they descend into the cellar where they find thousands of the vermin serving as Barlow’s Praetorian Guard. They swarm over the floor and walls. Susan raises the small cross around her neck and we get an early reference to the "blue flame of power" as it glows and the rats shrink back from the light, allowing her to part them like Moses.
+It's all about the rats. They play a bigger part in the original manuscript. When Susan and Mark break into the Marsten House, they descend into the cellar where they find thousands of the vermin serving as Barlow's Praetorian Guard. They swarm over the floor and walls. Susan raises the small cross around her neck and we get an early reference to the "blue flame of power" as it glows and the rats shrink back from the light, allowing her to part them like Moses.
 
 Another deleted scene introduces both James Cody and the _Dracula_ novel. Cody feels less extraneous in this original draft, thanks to his horrific demise. Rather than succumbing to a booby-trapped staircase, he makes it downstairs and discovers the rats. They swarm over him, tearing at his clothes, skin, and eyes. One crawls into his mouth. He tries to retreat upstairs but, blinded, slips on the steps and breaks his ankle. The rats eat him alive. A memorable scene that raises the finale's narrative and emotional stakes, and gives the Cody character a firmer place in the story.
 
 Father Callahan also meets a darker but more memorable end in this draft.
 
-> He withdrew the blade, and plunged it in again, with all that remained of his flagging strength. As thought began to ebb, he realized that his faith—some of it—had come back and he might have cheated himself of victory in his final, instinctive effort to save his soul from the hell of the Undead; and that was the most serious denial of faith of all.
+> He withdrew the blade, and plunged it in again, with all that remained of his flagging strength. As thought began to ebb, he realized that his faith--some of it--had come back and he might have cheated himself of victory in his final, instinctive effort to save his soul from the hell of the Undead; and that was the most serious denial of faith of all.
 >
 > Then thought was gone and he fell forward on the haft of the knife and he closed his eyes and let himself go off to see what gods there were.
 

@@ -22,21 +22,21 @@ Habib proves a talented writer, tossing off resonant insights about both adolesc
 
 > The comic books are cosmic; they could be about saving the entire universe. They feel expansive, as his world contracts.
 
-Habib also packs a terrific sense of black humor. Consider the scene where Todd's withdrawal at school causes the guidance counselor to send home a note warning his mother of drug abuse and encouraging she have “the talk” with him. Todd walks in to find her searching his room.
+Habib also packs a terrific sense of black humor. Consider the scene where Todd's withdrawal at school causes the guidance counselor to send home a note warning his mother of drug abuse and encouraging she have "the talk" with him. Todd walks in to find her searching his room.
 
-> She must have known he’d walk in on her in that moment, wanted to be caught so they could have “the talk.” Why had the guidance counselor put quotes around that? Shouldn’t standards for good punctuation be as high for staff as for the students?
+> She must have known he'd walk in on her in that moment, wanted to be caught so they could have "the talk." Why had the guidance counselor put quotes around that? Shouldn't standards for good punctuation be as high for staff as for the students?
 
 Or later, when Todd prepares to graduate high school:
 
-> Behind them are bleachers filled with parents and other family members here to celebrate their own emancipation, the moment they’ll be free of their children.
+> Behind them are bleachers filled with parents and other family members here to celebrate their own emancipation, the moment they'll be free of their children.
 
 Habib also proves adept at going for the emotional jugular when necessary, such as this scene between Todd and his former girlfriend, Hannah:
 
-> “You’re . . .” She considers her words quickly. “You’re, like, a problem now. I don’t want to get barked at in the halls or . . . I don’t want to have to carry whatever it is you’re going through. I’ve got enough to deal with.”
+> "You're..." She considers her words quickly. "You're, like, a problem now. I don't want to get barked at in the halls or... I don't want to have to carry whatever it is you're going through. I've got enough to deal with."
 >
-> “But school is almost over,” Todd says. This feels as bad as the note from the guidance counselor.
+> "But school is almost over," Todd says. This feels as bad as the note from the guidance counselor.
 >
-> “It’s not over yet, though,” Hannah says quickly.
+> "It's not over yet, though," Hannah says quickly.
 >
 > A problem, friendless, lonely. It feels like everyone is saying out loud what he thinks about himself now, which is, everyone knows, the worst thing anyone can do to another person.
 

@@ -22,11 +22,11 @@ Not that it matters. The film lifts its best lines straight from the book. Chand
 
 > An old man dozed in the elevator, on a ramshackle stool, with a burst-out cushion under him. His mouth was open, his veined temples glistened in the weak light. He wore a blue uniform coat that fitted him the way a stall fits a horse.
 
-Damn, that’s good.
+Damn, that's good.
 
 But, revisiting the book, I struggled with Marlowe's overt homophobia. For example:
 
-> “Don’t kid me, son. The fag gave you one. You’ve got a nice clean manly little room in there. He shooed you out and locked it up when he had lady visitors. He was like Caesar, a husband to women and a wife to men. Think I can’t figure people like him and you out?”
+> "Don't kid me, son. The fag gave you one. You've got a nice clean manly little room in there. He shooed you out and locked it up when he had lady visitors. He was like Caesar, a husband to women and a wife to men. Think I can't figure people like him and you out?"
 
 Were it just the dialog, I could dismiss it as Marlowe baiting the kid. But it extends to Marlowe's inner monologue.
 
@@ -40,11 +40,11 @@ But I wouldn't bet on it. More likely, Chandler used them as a shortcut to paint
 
 Chandler could do better. Consider this exchange when a would-be tough guy calls on Marlowe with information to sell:
 
-> His eyes bulged and his lower lip almost fell in his lap. “Christ, how’d you know that?” he said.
+> His eyes bulged and his lower lip almost fell in his lap. "Christ, how'd you know that?" he said.
 >
-> “I’m psychic. Shake your business up and pour it. I haven’t got all day.”
+> "I'm psychic. Shake your business up and pour it. I haven't got all day."
 
-Shake your business up and pour it. _That’s_ how you write a tough guy.
+Shake your business up and pour it. _That's_ how you write a tough guy.
 
 So what to make of the book? I'd long considered it one of the best I'd ever read, but this latest read made me reconsider.
 

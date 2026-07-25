@@ -12,7 +12,7 @@ Rubin offers insight gained through his years helping creatives realize their vi
 
 > A point of view is different from having a point.
 >
-> A point is an idea intentionally expressed. A point of view is the perspective—conscious and unconscious—through which the work emerges.
+> A point is an idea intentionally expressed. A point of view is the perspective--conscious and unconscious--through which the work emerges.
 
 Insightful, but it would have resonated stronger backed by a real-world example. While I respect his decision to eschew the tell-all autobiography, limiting himself to the abstract diminishes his impact.
 
@@ -38,6 +38,6 @@ As someone who struggles to publish these reviews, this resonated.
 
 All told, it's a short and pleasing listen thanks to Rubin's almost Bob Ross-like baritone, Though Rubin falls short of the profound he avoids pretension. Well, almost, as he does include this anecdote:
 
-> When my appendix burst, the doctor who diagnosed it insisted that I go to the hospital immediately to have it removed. I was told there were no other options. I found myself in a nearby bookstore. Standing out on a table in the front was a new book by Dr. Andrew Weil. I picked it up and let it fall open. The first passage my eyes went to said: if a doctor wants to remove a part of your body, and they tell you it has no function, don’t believe this. The information I needed was made available to me in that moment. And I still have my appendix.
+> When my appendix burst, the doctor who diagnosed it insisted that I go to the hospital immediately to have it removed. I was told there were no other options. I found myself in a nearby bookstore. Standing out on a table in the front was a new book by Dr. Andrew Weil. I picked it up and let it fall open. The first passage my eyes went to said: if a doctor wants to remove a part of your body, and they tell you it has no function, don't believe this. The information I needed was made available to me in that moment. And I still have my appendix.
 
 That digression aside, it proves a worthy listen for folks interested in the creative process. I might have found more enjoyment in a rollicking memoir, or even a technical deep-dive into the assorted production techniques he's employed, with these creative digressions sprinkled throughout, but given the book's short length, I don't regret the investment.
