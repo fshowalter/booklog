@@ -261,12 +261,10 @@ def _hydrate_json_title(json_title: json_titles.JsonTitle) -> Title:
         year=json_title["year"],
         kind=json_title["kind"],
         included_title_ids=json_title["includedTitles"],
-        title_authors=NonEmptyList.from_sequence(
-            [
-                TitleAuthor(author_slug=title_author["slug"], notes=title_author["notes"])
-                for title_author in json_title["authors"]
-            ]
-        ),
+        title_authors=NonEmptyList.from_sequence([
+            TitleAuthor(author_slug=title_author["slug"], notes=title_author["notes"])
+            for title_author in json_title["authors"]
+        ]),
     )
 
 

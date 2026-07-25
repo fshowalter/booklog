@@ -55,12 +55,9 @@ def build_title_options(
             title,
             "<cyan>{}</cyan> by {}".format(
                 html.escape(title.title),
-                array_to_sentence(
-                    [
-                        html.escape(title_author.author().name)
-                        for title_author in title.title_authors
-                    ]
-                ),
+                array_to_sentence([
+                    html.escape(title_author.author().name) for title_author in title.title_authors
+                ]),
             ),
         )
         for title in titles

@@ -103,21 +103,19 @@ def test_creates_reading_and_review(
     mock_input: MockInput,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_title("The Cellar"),
-            *select_title_search_result(confirm="y"),
-            *enter_date("2016-03-10"),
-            *enter_progress("15"),
-            *enter_date("2016-03-11"),
-            *enter_progress("50"),
-            *enter_date("2016-03-12"),
-            *enter_progress("F"),
-            *select_edition_kindle(),
-            *enter_grade("A+"),
-            "n",
-        ]
-    )
+    mock_input([
+        *enter_title("The Cellar"),
+        *select_title_search_result(confirm="y"),
+        *enter_date("2016-03-10"),
+        *enter_progress("15"),
+        *enter_date("2016-03-11"),
+        *enter_progress("50"),
+        *enter_date("2016-03-12"),
+        *enter_progress("F"),
+        *select_edition_kindle(),
+        *enter_grade("A+"),
+        "n",
+    ])
 
     add_reading.prompt()
 
@@ -129,23 +127,21 @@ def test_can_search_again(
     mock_input: MockInput,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_title("The Typo"),
-            *select_search_again(),
-            *enter_title("The Cellar"),
-            *select_title_search_result(confirm="y"),
-            *enter_date("2016-03-10"),
-            *enter_progress("15"),
-            *enter_date("2016-03-11"),
-            *enter_progress("50"),
-            *enter_date("2016-03-12"),
-            *enter_progress("F"),
-            *select_edition_kindle(),
-            *enter_grade("A+"),
-            "n",
-        ]
-    )
+    mock_input([
+        *enter_title("The Typo"),
+        *select_search_again(),
+        *enter_title("The Cellar"),
+        *select_title_search_result(confirm="y"),
+        *enter_date("2016-03-10"),
+        *enter_progress("15"),
+        *enter_date("2016-03-11"),
+        *enter_progress("50"),
+        *enter_date("2016-03-12"),
+        *enter_progress("F"),
+        *select_edition_kindle(),
+        *enter_grade("A+"),
+        "n",
+    ])
 
     add_reading.prompt()
 
@@ -157,24 +153,22 @@ def test_can_escape_from_first_date(
     mock_input: MockInput,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_title("The Cellar"),
-            *select_title_search_result(confirm="y"),
-            Escape,
-            *enter_title("The Cellar"),
-            *select_title_search_result(confirm="y"),
-            *enter_date("2016-03-10"),
-            *enter_progress("15"),
-            *enter_date("2016-03-11"),
-            *enter_progress("50"),
-            *enter_date("2016-03-12"),
-            *enter_progress("F"),
-            *select_edition_kindle(),
-            *enter_grade("A+"),
-            "n",
-        ]
-    )
+    mock_input([
+        *enter_title("The Cellar"),
+        *select_title_search_result(confirm="y"),
+        Escape,
+        *enter_title("The Cellar"),
+        *select_title_search_result(confirm="y"),
+        *enter_date("2016-03-10"),
+        *enter_progress("15"),
+        *enter_date("2016-03-11"),
+        *enter_progress("50"),
+        *enter_date("2016-03-12"),
+        *enter_progress("F"),
+        *select_edition_kindle(),
+        *enter_grade("A+"),
+        "n",
+    ])
 
     add_reading.prompt()
 
@@ -186,27 +180,25 @@ def test_can_escape_from_second_progress_and_date(
     mock_input: MockInput,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_title("The Cellar"),
-            *select_title_search_result(confirm="y"),
-            Escape,
-            *enter_title("The Cellar"),
-            *select_title_search_result(confirm="y"),
-            *enter_date("2016-03-10"),
-            *enter_progress("15"),
-            *enter_date("2017-03-11"),
-            Escape,
-            Escape,
-            *enter_date("2016-03-11"),
-            *enter_progress("50"),
-            *enter_date("2016-03-12"),
-            *enter_progress("F"),
-            *select_edition_kindle(),
-            *enter_grade("A+"),
-            "n",
-        ]
-    )
+    mock_input([
+        *enter_title("The Cellar"),
+        *select_title_search_result(confirm="y"),
+        Escape,
+        *enter_title("The Cellar"),
+        *select_title_search_result(confirm="y"),
+        *enter_date("2016-03-10"),
+        *enter_progress("15"),
+        *enter_date("2017-03-11"),
+        Escape,
+        Escape,
+        *enter_date("2016-03-11"),
+        *enter_progress("50"),
+        *enter_date("2016-03-12"),
+        *enter_progress("F"),
+        *select_edition_kindle(),
+        *enter_grade("A+"),
+        "n",
+    ])
 
     add_reading.prompt()
 
@@ -218,23 +210,21 @@ def test_can_escape_from_progress(
     mock_input: MockInput,
     tmp_path: Path,
 ) -> None:
-    mock_input(
-        [
-            *enter_title("The Cellar"),
-            *select_title_search_result(confirm="y"),
-            *enter_date("2016-03-10"),
-            *enter_progress("15"),
-            *enter_date("2015-03-11"),
-            Escape,
-            *enter_date("2016-03-11"),
-            *enter_progress("50"),
-            *enter_date("2016-03-12"),
-            *enter_progress("F"),
-            *select_edition_kindle(),
-            *enter_grade("A+"),
-            "n",
-        ]
-    )
+    mock_input([
+        *enter_title("The Cellar"),
+        *select_title_search_result(confirm="y"),
+        *enter_date("2016-03-10"),
+        *enter_progress("15"),
+        *enter_date("2015-03-11"),
+        Escape,
+        *enter_date("2016-03-11"),
+        *enter_progress("50"),
+        *enter_date("2016-03-12"),
+        *enter_progress("F"),
+        *select_edition_kindle(),
+        *enter_grade("A+"),
+        "n",
+    ])
 
     add_reading.prompt()
 
