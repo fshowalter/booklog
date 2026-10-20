@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import datetime
+import datetime as dt
 import json
 from pathlib import Path
 
@@ -103,9 +103,9 @@ def test_can_create_reading(
         title=title_fixture,
         edition="Kindle",
         timeline=[
-            repository_api.TimelineEntry(date=datetime.date(2016, 3, 10), progress="15%"),
-            repository_api.TimelineEntry(date=datetime.date(2016, 3, 11), progress="50%"),
-            repository_api.TimelineEntry(date=datetime.date(2016, 3, 12), progress="Finished"),
+            repository_api.TimelineEntry(date=dt.date(2016, 3, 10), progress="15%"),
+            repository_api.TimelineEntry(date=dt.date(2016, 3, 11), progress="50%"),
+            repository_api.TimelineEntry(date=dt.date(2016, 3, 12), progress="Finished"),
         ],
     )
 
@@ -115,7 +115,7 @@ def test_can_create_reading(
 
     assert fm["titleId"] == "the-cellar-by-richard-laymon"
     assert fm["edition"] == "Kindle"
-    assert fm["date"] == datetime.date(2016, 3, 12)
+    assert fm["date"] == dt.date(2016, 3, 12)
     assert fm["timeline"][0]["progress"] == "15%"
     assert fm["timeline"][1]["progress"] == "50%"
     assert fm["timeline"][2]["progress"] == "Finished"
@@ -128,14 +128,14 @@ def test_can_create_new_review(
     repository_api.create_or_update_review(
         title=title_fixture,
         grade="A+",
-        date=datetime.date(2016, 3, 10),
+        date=dt.date(2016, 3, 10),
     )
 
     fm = read_yaml_frontmatter(tmp_path / "reviews" / "the-cellar-by-richard-laymon.md")
 
     assert fm["slug"] == "the-cellar-by-richard-laymon"
     assert fm["grade"] == "A+"
-    assert fm["date"] == datetime.date(2016, 3, 10)
+    assert fm["date"] == dt.date(2016, 3, 10)
 
 
 def test_can_update_existing_review(
@@ -148,14 +148,14 @@ def test_can_update_existing_review(
     repository_api.create_or_update_review(
         title=title_fixture,
         grade="C+",
-        date=datetime.date(2017, 3, 12),
+        date=dt.date(2017, 3, 12),
     )
 
     review_path = tmp_path / "reviews" / "the-cellar-by-richard-laymon.md"
     fm = read_yaml_frontmatter(review_path)
 
     assert fm["grade"] == "C+"
-    assert fm["date"] == datetime.date(2017, 3, 12)
+    assert fm["date"] == dt.date(2017, 3, 12)
     assert "Some review content we want to preserve between updates." in review_path.read_text()
 
 
@@ -175,7 +175,7 @@ def test_reading_with_invalid_title_id_raises_error() -> None:
         timeline=[],
         slug="2024-01-01-01-non-existent-title",
         titleId="non-existent-title",
-        date=datetime.date(2024, 1, 1),
+        date=dt.date(2024, 1, 1),
     )
 
     with pytest.raises(ValueError, match="Title with slug 'non-existent-title' not found"):
@@ -184,9 +184,7 @@ def test_reading_with_invalid_title_id_raises_error() -> None:
 
 def test_review_with_invalid_title_slug_raises_error() -> None:
     """Test that Review.title() raises ValueError for invalid slug."""
-    review = repository_api.Review(
-        slug="non-existent-title", date=datetime.date(2024, 1, 1), grade="A+"
-    )
+    review = repository_api.Review(slug="non-existent-title", date=dt.date(2024, 1, 1), grade="A+")
 
     with pytest.raises(ValueError, match="Title with slug 'non-existent-title' not found"):
         review.title()

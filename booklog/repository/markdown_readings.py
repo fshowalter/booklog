@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import datetime
+import datetime as dt
 import re
 from collections.abc import Iterable
 from pathlib import Path
@@ -25,7 +25,7 @@ class BlockCollectionIndentDumper(yaml.Dumper):
 
 
 class TimelineEntry(TypedDict):
-    date: datetime.date
+    date: dt.date
     progress: str
 
 
@@ -33,7 +33,7 @@ class MarkdownReading(TypedDict):
     sequence: int
     slug: str
     titleId: str
-    date: datetime.date
+    date: dt.date
     edition: str
     editionNotes: str | None
     timeline: list[TimelineEntry]
@@ -68,7 +68,7 @@ class SequenceError(Exception):
         self.message = message
 
 
-def _next_sequence_for_date(date: datetime.date) -> int:
+def _next_sequence_for_date(date: dt.date) -> int:
     existing_instances = sorted(
         read_all(),
         key=lambda reading: "{}-{}".format(reading["timeline"][-1]["date"], reading["sequence"]),

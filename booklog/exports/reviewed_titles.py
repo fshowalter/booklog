@@ -1,4 +1,4 @@
-import datetime
+import datetime as dt
 from collections.abc import Callable, Iterable
 from itertools import count
 from typing import TypedDict
@@ -25,7 +25,7 @@ class JsonReviewedTitle(TypedDict):
     id: str
     reviewSequence: str
     grade: str
-    reviewDate: datetime.date
+    reviewDate: dt.date
     title: str
     sortTitle: str
     subtitle: str | None
