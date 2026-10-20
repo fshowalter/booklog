@@ -1,4 +1,3 @@
-import datetime
 from collections import defaultdict
 from collections.abc import Callable, Iterable
 from datetime import date
@@ -13,7 +12,7 @@ from booklog.utils.logging import logger
 
 class JsonMostReadAuthorWork(TypedDict):
     title: str
-    readingDate: datetime.date
+    readingDate: date
     edition: str
     reviewSlug: str | None
 

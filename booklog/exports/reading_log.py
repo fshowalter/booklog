@@ -1,4 +1,4 @@
-import datetime
+import datetime as dt
 from typing import TypedDict
 
 from booklog.exports import exporter
@@ -18,7 +18,7 @@ class JsonReadingLogEntry(TypedDict):
     reviewSlug: str | None
     id: str
     edition: str
-    date: datetime.date
+    date: dt.date
     progress: str
     titleYear: str
     title: str

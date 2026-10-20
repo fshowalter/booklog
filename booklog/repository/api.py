@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import datetime
+import datetime as dt
 from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import Literal, cast
@@ -93,7 +93,7 @@ class Title:
 
 @dataclass
 class TimelineEntry:
-    date: datetime.date
+    date: dt.date
     progress: str
 
 
@@ -105,7 +105,7 @@ class Reading:
     editionNotes: str | None = None  # noqa: N815
     slug: str
     titleId: str  # noqa: N815
-    date: datetime.date
+    date: dt.date
 
     def title(self, cache: list[Title] | None = None) -> Title:
         titles_iterable = cache or titles()
@@ -118,7 +118,7 @@ class Reading:
 @dataclass
 class Review:
     slug: str
-    date: datetime.date
+    date: dt.date
     grade: Grade
     review_content: str | None = None
 
@@ -232,7 +232,7 @@ def create_reading(
 
 def create_or_update_review(
     title: Title,
-    date: datetime.date,
+    date: dt.date,
     grade: Grade = "Abandoned",
 ) -> Review:
     return _hydrate_markdown_review(
