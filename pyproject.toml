@@ -22,7 +22,7 @@ booklog = "booklog.cli.main:prompt"
 dev = [
   "ruff==0.17.3",
   "mypy==2.4.0",
-  "pytest==9.1.1",
+  "pytest==9.2.0",
   "types-python-slugify==8.0.2.20240310",
   "types-pyyaml==6.0.12.20260906",
 ]
